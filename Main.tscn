@@ -1,8 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Main.cs" type="Script" id=1]
 [ext_resource path="res://WallBlock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/impl/Player/Player.cs" type="Script" id=4]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
 WallBlock = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -43.7062, 68.3564 )
+script = ExtResource( 4 )

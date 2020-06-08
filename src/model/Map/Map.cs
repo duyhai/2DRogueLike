@@ -56,7 +56,7 @@ public class Map
     }
 
     private void createBlock(float x, float y, int blockSize){
-		var blockInstance = (Area2D)this.tileScene.Instance();
+		var blockInstance = (StaticBody2D)this.tileScene.Instance();
 		this.parentNode.AddChild(blockInstance);
 
 		// Set the mob's position to a random location.
