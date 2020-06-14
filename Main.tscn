@@ -3,12 +3,26 @@
 [ext_resource path="res://src/Main.cs" type="Script" id=1]
 [ext_resource path="res://WallBlock.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/impl/Player/Player.cs" type="Script" id=4]
+[ext_resource path="res://BreakableWall.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
 WallBlock = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -43.7062, 68.3564 )
-script = ExtResource( 4 )
+position = Vector2( 640, 248 )
+
+[node name="BreakableWall" parent="." instance=ExtResource( 4 )]
+position = Vector2( 712, 312 )
+
+[node name="BreakableWall2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 712, 328 )
+
+[node name="BreakableWall3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 712, 344 )
+
+[node name="BreakableWall4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 712, 360 )
+
+[node name="BreakableWall5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 712, 376 )

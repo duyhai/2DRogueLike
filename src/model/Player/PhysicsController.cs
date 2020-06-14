@@ -1,4 +1,6 @@
-abstract public class PhysicsController 
+using Godot;
+
+public abstract class PhysicsController 
 {
-    abstract public void Update(Player player, float delta);
+    public abstract void Update(KinematicBody2D node, float delta);
 }

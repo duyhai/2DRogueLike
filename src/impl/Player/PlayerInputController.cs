@@ -7,15 +7,32 @@ public class PlayerInputController : InputController
         player.velocity = new Vector2();
 
         if (Input.IsActionPressed("ui_right"))
-            player.velocity.x += player.speed;
+        {
+            player.velocity.x += 1;
+            player.lastOrientation = player.velocity;
+        }
 
         if (Input.IsActionPressed("ui_left"))
-            player.velocity.x -= player.speed;
+        {
+            player.velocity.x -= 1;
+            player.lastOrientation = player.velocity;
+        }
 
         if (Input.IsActionPressed("ui_down"))
-            player.velocity.y += player.speed;
+        {
+            player.velocity.y += 1;
+            player.lastOrientation = player.velocity;
+        }
 
         if (Input.IsActionPressed("ui_up"))
-            player.velocity.y -= player.speed;
+        {
+            player.velocity.y -= 1;
+            player.lastOrientation = player.velocity;
+        }
+
+        player.velocity = player.velocity.Normalized() * player.speed;
+
+        if (Input.IsActionPressed("shoot"))
+            player.Shoot(player.lastOrientation);
     }
 }
