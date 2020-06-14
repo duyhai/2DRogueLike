@@ -4,11 +4,21 @@ using System.Collections.Generic;
 public enum MapTile
 {
     EMPTY,
-    WALL
+    WALL,
+    BREAKABLE_WALL
 }
 
 public class Map
-{       
+{
+    static PackedScene wallBlockScene = (PackedScene)GD.Load("res://WallBlock.tscn");
+    static PackedScene breakableWallScene = (PackedScene)GD.Load("res://BreakableWall.tscn");
+    Dictionary<MapTile, PackedScene> sceneMapping = new Dictionary<MapTile, PackedScene> {
+        { MapTile.EMPTY, null },
+        { MapTile.WALL, wallBlockScene },
+        { MapTile.BREAKABLE_WALL, breakableWallScene }
+    };
+
+
     public int Width {
         get {
             return this.Blocks[0].Count;
@@ -23,13 +33,11 @@ public class Map
 
 	public int Unit;
 	public List<List<MapTile>> Blocks;
-    private PackedScene tileScene;
     private Node parentNode;
 
-	public Map(int width, int height, int unit, Node parentNode, PackedScene tileScene)
+	public Map(int width, int height, int unit, Node parentNode)
 	{
 		this.Unit = unit;
-        this.tileScene = tileScene;
         this.parentNode = parentNode;
         this.Blocks = new List<List<MapTile>>();
         for (int i = 0; i < height; ++i)
@@ -47,16 +55,16 @@ public class Map
         {
             for (int j = 0; j < Width; ++j)
             {
-                if (Blocks[i][j] == MapTile.WALL)
-                {
-                    createBlock(i, j, Unit);    
-                }
+                createBlock(i, j, Unit, Blocks[i][j]);  
             }
         }
     }
 
-    private void createBlock(float x, float y, int blockSize){
-		var blockInstance = (StaticBody2D)this.tileScene.Instance();
+    private void createBlock(float x, float y, int blockSize, MapTile mapTile){
+        var tileScene = sceneMapping[mapTile];
+        if (tileScene == null) return;
+
+		var blockInstance = (StaticBody2D)tileScene.Instance();
 		this.parentNode.AddChild(blockInstance);
 
 		// Set the mob's position to a random location.

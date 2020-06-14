@@ -92,7 +92,14 @@ class GeneratorV1: Generator
 		{
 			for (int j = 0; j < map.Width; j++)
 			{
-				map.Blocks[i][j] = MapTile.WALL;
+				if (rnd.Next(0,100) < 50)
+				{
+					map.Blocks[i][j] = MapTile.BREAKABLE_WALL;
+				}
+				else
+				{
+					map.Blocks[i][j] = MapTile.WALL;
+				}
 			}
 		}
 
