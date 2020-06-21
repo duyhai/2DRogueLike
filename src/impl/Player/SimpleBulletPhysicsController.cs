@@ -1,7 +1,7 @@
 using Godot;
 using System.Diagnostics;
 
-public class BulletPhysicsController : PhysicsController
+public class SimpleBulletPhysicsController : PhysicsController
 {
     public override void Update(KinematicBody2D node, float delta)
     {

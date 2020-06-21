@@ -10,6 +10,7 @@ public class PlayerPhysicsController : PhysicsController
         if (collision != null)
         {
             player.velocity = player.velocity.Slide(collision.Normal);
+            collision = player.MoveAndCollide(player.velocity * delta);
         }
     }
 }
