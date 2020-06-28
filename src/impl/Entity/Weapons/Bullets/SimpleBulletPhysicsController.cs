@@ -1,11 +1,9 @@
-using Godot;
-using System.Diagnostics;
 
 public class SimpleBulletPhysicsController : PhysicsController
 {
-    public override void Update(KinematicBody2D node, float delta)
+    public override void Update(GameObject gameObject, float delta)
     {
-        Bullet bullet = (Bullet)node;
+        Bullet bullet = (Bullet)gameObject;
         var collision = bullet.MoveAndCollide(bullet.velocity * delta);
         if (collision != null)
         {

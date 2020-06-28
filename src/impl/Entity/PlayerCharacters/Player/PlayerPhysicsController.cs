@@ -2,9 +2,9 @@ using Godot;
 
 public class PlayerPhysicsController : PhysicsController 
 {
-    public override void Update(KinematicBody2D node, float delta)
+    public override void Update(GameObject gameObject, float delta)
     {
-        Player player = (Player)node; 
+        Player player = (Player)gameObject; 
         var collision = player.MoveAndCollide(player.velocity * delta);
         
         if (collision != null)

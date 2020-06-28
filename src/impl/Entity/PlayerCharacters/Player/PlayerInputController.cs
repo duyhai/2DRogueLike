@@ -2,8 +2,9 @@ using Godot;
 
 public class PlayerInputController : InputController 
 {
-    public override void Update(Player player)
+    public override void Update(GameObject gameObject)
     {
+        Player player = (Player)gameObject;
         if (Input.IsActionPressed("shoot"))
         {
             var bulletDirection = player.GetGlobalMousePosition() - player.Position; 
