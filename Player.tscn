@@ -24,6 +24,7 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
+scale = Vector2( 0.95, 0.95 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 5 )
@@ -44,4 +45,4 @@ animation = "walk"
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 8, 8 )
 current = true
-zoom = Vector2( 0.75, 0.75 )
+zoom = Vector2( 0.5, 0.5 )
