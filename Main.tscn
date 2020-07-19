@@ -11,7 +11,6 @@ WallBlock = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 640, 248 )
-scale = Vector2( 0.95, 0.95 )
 
 [node name="BreakableWall" parent="." instance=ExtResource( 4 )]
 position = Vector2( 712, 312 )
