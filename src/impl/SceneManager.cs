@@ -5,9 +5,11 @@ public class SceneManager : Godot.Node
 {
     public Node CurrentScene { get; set; }
     public Node PreviousScene { get; set; }
+    public static SceneManager Instance { get; set; }
 
     public override void _Ready()
     {
+        Instance = this;
         Viewport root = GetTree().Root;
         CurrentScene = root.GetChild(root.GetChildCount() - 1);
     }

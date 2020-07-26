@@ -13,7 +13,6 @@ public class MenuButton : Button
 
     public void OnButtonPressed(string sceneToLoad)
     {
-        var sceneManager = (SceneManager)GetNode("/root/SceneManager");
-        sceneManager.GotoScene(sceneToLoad);
+        SceneManager.Instance.GotoScene(sceneToLoad);
     } 
 }

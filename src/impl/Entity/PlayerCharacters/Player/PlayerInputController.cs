@@ -4,10 +4,9 @@ public class PlayerInputController : InputController
 {
     public override void Update(GameObject gameObject)
     {
-        var sceneManager = (SceneManager)gameObject.GetNode("/root/SceneManager");
         if (Input.IsActionPressed("menu"))
         {
-            sceneManager.GotoScene("res://MenuScenes/MainMenu.tscn");
+            SceneManager.Instance.GotoScene("res://MenuScenes/MainMenu.tscn");
         }
 
         Player player = (Player)gameObject;
