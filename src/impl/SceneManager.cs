@@ -4,7 +4,7 @@ using System;
 public class SceneManager : Godot.Node
 {
     public Node CurrentScene { get; set; }
-    public Node PreviousScene { get; set; }
+    public Node PausedScene { get; set; }
     public static SceneManager Instance { get; set; }
 
     public override void _Ready()
@@ -13,7 +13,7 @@ public class SceneManager : Godot.Node
         Viewport root = GetTree().Root;
         CurrentScene = root.GetChild(root.GetChildCount() - 1);
     }
-    public void GotoScene(string path)
+    public void GotoScene(string path, bool paused = false)
     {
         // This function will usually be called from a signal callback,
         // or some other function from the current scene.
@@ -24,13 +24,27 @@ public class SceneManager : Godot.Node
         // The solution is to defer the load to a later time, when
         // we can be sure that no code from the current scene is running:
 
-        CallDeferred(nameof(DeferredGotoScene), path);
+        CallDeferred(nameof(DeferredGotoScene), path, paused);
+    }
+    
+    public void GotoPausedScene()
+    {
+        CallDeferred(nameof(DeferredGotoPausedScene));
     }
 
-    public void DeferredGotoScene(string path)
+    public void DeferredGotoScene(string path, bool paused)
     {
-        // It is now safe to remove the current scene
-        CurrentScene.Free();
+        if (paused)
+        {
+            PausedScene = CurrentScene;
+            //PausedScene.GetTree().Paused = true;
+            GetTree().Root.RemoveChild(PausedScene);
+        }
+        else
+        {
+            // It is now safe to remove the current scene
+            CurrentScene.Free();
+        }
 
         // Load a new scene.
         var nextScene = (PackedScene)GD.Load(path);
@@ -42,6 +56,17 @@ public class SceneManager : Godot.Node
         GetTree().Root.AddChild(CurrentScene);
 
         // Optionally, to make it compatible with the SceneTree.change_scene() API.
+        GetTree().CurrentScene = CurrentScene;
+    }
+
+    public void DeferredGotoPausedScene()
+    {
+        if (PausedScene == null) return;
+
+        // PausedScene.GetTree().Paused = false;
+        CurrentScene.Free();
+        CurrentScene = PausedScene;
+        GetTree().Root.AddChild(CurrentScene);
         GetTree().CurrentScene = CurrentScene;
     }
 }
