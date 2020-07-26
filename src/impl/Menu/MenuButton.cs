@@ -8,12 +8,11 @@ public class MenuButton : Button
 
     public override void _Ready()
     {
-        
+        Connect("pressed", this, nameof(OnButtonPressed), new Godot.Collections.Array() { sceneToLoad });
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    public void OnButtonPressed(string sceneToLoad)
+    {
+        GetTree().ChangeScene(sceneToLoad);
+    } 
 }

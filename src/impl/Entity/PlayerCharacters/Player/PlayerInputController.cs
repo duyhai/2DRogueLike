@@ -4,6 +4,11 @@ public class PlayerInputController : InputController
 {
     public override void Update(GameObject gameObject)
     {
+        if (Input.IsActionPressed("menu"))
+        {
+            gameObject.GetTree().ChangeScene("res://MainMenu.tscn");
+        }
+
         Player player = (Player)gameObject;
         if (Input.IsActionPressed("shoot"))
         {
