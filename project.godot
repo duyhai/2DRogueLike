@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="2DRogueLike"
 run/main_scene="res://MenuScenes/MainMenu.tscn"
 
+[autoload]
+
+SceneManager="*res://src/impl/SceneManager.cs"
+
 [input]
 
 ui_left={

@@ -13,6 +13,7 @@ public class MenuButton : Button
 
     public void OnButtonPressed(string sceneToLoad)
     {
-        GetTree().ChangeScene(sceneToLoad);
+        var sceneManager = (SceneManager)GetNode("/root/SceneManager");
+        sceneManager.GotoScene(sceneToLoad);
     } 
 }
