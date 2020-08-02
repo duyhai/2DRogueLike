@@ -2,7 +2,7 @@ using Godot;
 
 public class Floater : GameObject
 {
-	Weapon weapon;
+	
 
 	public Floater():
 		base(new FloaterInputController(), new FloaterPhysicsController(), new FloaterGraphicsController())
