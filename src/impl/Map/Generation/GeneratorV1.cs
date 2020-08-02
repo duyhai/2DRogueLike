@@ -114,6 +114,12 @@ class GeneratorV1: Generator
 				for (int j = y; j < y + h; j++)
 				{
 					map.Blocks[i][j] = MapTile.EMPTY;
+					// TODO: Create a better spawn system. Separate enemy generator class? Should be able to limit enemies per room and per map. Set difficulty limit, etc.
+					var spawnChance = 3;
+					var shouldSpawn = rnd.Next(0, 100) < spawnChance;
+					if (shouldSpawn) {
+						map.Enemies[i][j] = Map.EnemyScenes[rnd.Next(0, Map.EnemyScenes.Count)];
+					}
 				}
 			}
 		}
