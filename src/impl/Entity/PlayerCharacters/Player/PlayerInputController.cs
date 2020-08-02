@@ -6,7 +6,7 @@ public class PlayerInputController : InputController
     {
         if (Input.IsActionPressed("menu"))
         {
-            gameObject.GetTree().ChangeScene("res://MainMenu.tscn");
+            SceneManager.Instance.GotoScene("res://MenuScenes/MainMenu.tscn", true);
         }
 
         Player player = (Player)gameObject;

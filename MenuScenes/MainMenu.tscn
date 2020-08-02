@@ -46,6 +46,7 @@ alignment = 1
 margin_top = 10.0
 margin_right = 537.0
 margin_bottom = 70.0
+sceneToLoad = ""
 
 [node name="NewGameButton" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 2 )]
 margin_top = 90.0
