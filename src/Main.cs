@@ -7,6 +7,7 @@ public class Main : Node2D
 	Map map;
 	int MAP_SIZE = 30;
 	int BLOCK_SIZE = 16;
+	public static string SCENE_PATH = "res://Main.tscn";
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

@@ -6,6 +6,7 @@
 [ext_resource path="res://BreakableWall.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node2D"]
+pause_mode = 1
 script = ExtResource( 1 )
 WallBlock = ExtResource( 2 )
 

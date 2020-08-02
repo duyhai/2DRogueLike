@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/main_menu/version.png" type="Texture" id=6]
 
 [node name="MainMenu" type="MarginContainer"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 120
@@ -46,7 +47,6 @@ alignment = 1
 margin_top = 10.0
 margin_right = 537.0
 margin_bottom = 70.0
-sceneToLoad = ""
 
 [node name="NewGameButton" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource( 2 )]
 margin_top = 90.0

@@ -13,13 +13,18 @@ public class MenuButton : Button
 
     public void OnButtonPressed(string sceneToLoad)
     {
-        if (sceneToLoad != "")
+        if (sceneToLoad == Main.SCENE_PATH)
         {
-            SceneManager.Instance.GotoScene(sceneToLoad);
+            SceneManager.Instance.ClearPausedScene();
+        }
+
+        if (sceneToLoad == "Continue")
+        {
+            SceneManager.Instance.GotoPausedScene();
         }
         else
         {
-            SceneManager.Instance.GotoPausedScene();
+            SceneManager.Instance.GotoScene(sceneToLoad);
         }
     } 
 }

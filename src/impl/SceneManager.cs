@@ -32,12 +32,13 @@ public class SceneManager : Godot.Node
         CallDeferred(nameof(DeferredGotoPausedScene));
     }
 
-    public void DeferredGotoScene(string path, bool paused)
+    public void DeferredGotoScene(string path, bool doPause)
     {
-        if (paused)
+        if (doPause)
         {
+            ClearPausedScene();
             PausedScene = CurrentScene;
-            //PausedScene.GetTree().Paused = true;
+            GetTree().Paused = true;
             GetTree().Root.RemoveChild(PausedScene);
         }
         else
@@ -63,10 +64,20 @@ public class SceneManager : Godot.Node
     {
         if (PausedScene == null) return;
 
-        // PausedScene.GetTree().Paused = false;
+        GetTree().Root.AddChild(PausedScene);
+        GetTree().Paused = false;
         CurrentScene.Free();
         CurrentScene = PausedScene;
-        GetTree().Root.AddChild(CurrentScene);
+        PausedScene = null;
         GetTree().CurrentScene = CurrentScene;
+    }
+
+    public void ClearPausedScene()
+    {
+        if (PausedScene == null) return;
+
+        PausedScene.Free();
+        PausedScene = null;
+        GetTree().Paused = false;
     }
 }
