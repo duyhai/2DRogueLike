@@ -2,6 +2,7 @@ using Godot;
 
 public class Floater : GameObject
 {
+	public static PackedScene SceneObject = (PackedScene)GD.Load("res://Floater.tscn");
 	Weapon weapon;
 
 	public Floater():
