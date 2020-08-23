@@ -4,10 +4,11 @@ public class Player : GameObject
 {
 	Weapon weapon;
 
-	public Player():
+	public Player() :
 		base(new PlayerInputController(), new PlayerPhysicsController(), new PlayerGraphicsController())
 	{
 		this.speed = 200;
+		this.health = 100;
 	}
 
 	public override void _Ready()
