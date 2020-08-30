@@ -15,6 +15,7 @@ WallBlock = ExtResource( 2 )
 position = Vector2( 677, 265 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
+pause_mode = 1
 position = Vector2( 640, 248 )
 
 [node name="BreakableWall" parent="." instance=ExtResource( 4 )]
