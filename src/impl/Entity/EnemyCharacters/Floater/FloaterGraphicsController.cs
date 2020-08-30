@@ -19,5 +19,10 @@ public class FloaterGraphicsController : GraphicsController
 
         bool moving = floater.velocity.Length() > 0.0001;
         animSprite.Playing = moving;
+
+        if (floater.health <= 0)
+        {
+            floater.QueueFree();
+        }
     }
 }

@@ -8,6 +8,7 @@ public class Floater : GameObject
 		base(new FloaterInputController(), new FloaterPhysicsController(), new FloaterGraphicsController())
 	{
 		this.speed = 200;
+		this.health = 30;
 	}
 
 	public override void _Ready()
