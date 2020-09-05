@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class MenuButton : Button
 {
@@ -8,7 +7,7 @@ public class MenuButton : Button
 
 	public override void _Ready()
 	{
-		Connect("pressed", this, nameof(OnButtonPressed), new Godot.Collections.Array() { sceneToLoad });
+        Connect("pressed", this, nameof(OnButtonPressed), new Godot.Collections.Array() { sceneToLoad });
 	}
 
 	public void OnButtonPressed(string sceneToLoad)
