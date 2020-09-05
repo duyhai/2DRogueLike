@@ -13,8 +13,8 @@ public abstract class Weapon : Node2D
         {
             bulletTimer.Start();
             var bullet = (Bullet)bulletScene.Instance();
-            bullet.Initiate(vector.Angle(), Position);
-            GetParent().AddChild(bullet);
+            bullet.Initiate(vector.Angle(), ((Node2D)GetParent()).GlobalPosition);
+            GetParent().GetParent().AddChild(bullet);
         }
     }
 }

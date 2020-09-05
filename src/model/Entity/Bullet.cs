@@ -12,7 +12,9 @@ public abstract class Bullet : GameObject
 
     public void OnVisibilityNotifier2DScreenExited()
     {
-        QueueFree();
+        if (!GetTree().Paused) {
+            QueueFree();
+        }
     }
 
     public void Initiate(float rotation, Vector2 position)
