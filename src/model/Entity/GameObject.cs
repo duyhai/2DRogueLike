@@ -1,9 +1,11 @@
 using Godot;
+using System;
 
 public abstract class GameObject : KinematicBody2D
 {
 	public Vector2 velocity;
 	public int speed;
+	public int health;
 	protected InputController inputController;
 	protected PhysicsController physicsController;
 	protected GraphicsController graphicsController;
@@ -23,5 +25,14 @@ public abstract class GameObject : KinematicBody2D
 	public override void _PhysicsProcess(float delta)
 	{
 		physicsController.Update(this, delta);
+	}
+
+	public void Hit(int damage)
+	{
+		health -= damage;
+		if (health <= 0)
+		{
+			QueueFree();
+		}
 	}
 }

@@ -8,14 +8,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "walkUp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "walk",
 "speed": 5.0
 } ]
 
@@ -25,8 +25,8 @@ height = 3.36825
 
 [node name="Floater" type="KinematicBody2D"]
 scale = Vector2( 0.95, 0.95 )
-collision_layer = 2
-collision_mask = 2
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
