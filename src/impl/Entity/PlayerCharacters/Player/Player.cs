@@ -2,22 +2,25 @@ using Godot;
 
 public class Player : GameObject
 {
-	Weapon weapon;
+	public Weapon weapon;
 
 	public Player() :
-		base(new PlayerInputController(), new PlayerPhysicsController(), new PlayerGraphicsController())
+		base(new PlayerInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
 	{
 		this.speed = 200;
 		this.health = 100;
+		CollisionLayer = CollisionLayers.Player;
+		CollisionMask = CollisionLayers.Enemy | CollisionLayers.MapObject;
 	}
 
 	public override void _Ready()
 	{
-		weapon = GetNode<Weapon>("Weapon");
+		weapon = GetNode<SimpleWeapon>("SimpleWeapon");
+		weapon.SetWeaponCooldown(0.25f);
 	}
 
-	public void Shoot(Vector2 vector)
+	public void Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
 	{
-		weapon.Shoot(vector);
+		weapon.Shoot(vector, collisionLayer, collisionMask);
 	}
 }
