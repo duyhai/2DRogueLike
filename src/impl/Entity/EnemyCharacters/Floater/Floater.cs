@@ -5,7 +5,7 @@ public class Floater : GameObject
 	public static PackedScene SceneObject = (PackedScene)GD.Load("res://Floater.tscn");
 
 	public Floater():
-		base(new FloaterInputController(), new SmoothCollidePhysicsController(), new FloaterGraphicsController())
+		base(new FloaterInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
 	{
 		this.speed = 200;
 		this.health = 30;
