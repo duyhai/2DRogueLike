@@ -22,6 +22,10 @@ run/main_scene="res://MenuScenes/MainMenu.tscn"
 
 SceneManager="*res://src/impl/SceneManager.cs"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "MonoDebuggerQM" )
+
 [input]
 
 ui_left={

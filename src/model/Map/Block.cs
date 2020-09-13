@@ -2,7 +2,9 @@ using Godot;
 
 public abstract class Block : StaticBody2D
 {
-    public virtual void Hit()
+    public override void _Ready()
     {
+		  CollisionLayer = CollisionLayers.MapObject;
     }
+    public virtual void Hit() {}
 }

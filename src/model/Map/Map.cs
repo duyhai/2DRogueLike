@@ -19,7 +19,8 @@ public class Map
     };
 
     public static List<PackedScene> EnemyScenes = new List<PackedScene> {
-        Floater.SceneObject
+        Floater.SceneObject,
+        Shooter.SceneObject
     };
 
     public int Width {

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemyWalk2.png-96313e90d6d0a334ef602904fbbfa2e6.stex"
+path="res://.import/shooterWalkUp2.png-3e53bc5962b502becaebdaa17339340c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemyWalk2.png"
-dest_files=[ "res://.import/enemyWalk2.png-96313e90d6d0a334ef602904fbbfa2e6.stex" ]
+source_file="res://assets/shooterWalkUp2.png"
+dest_files=[ "res://.import/shooterWalkUp2.png-3e53bc5962b502becaebdaa17339340c.stex" ]
 
 [params]
 
