@@ -81,9 +81,8 @@ class GeneratorV1: Generator
 			while (RoomOverlapping(tempRoom))
             {
                 tempRoom = GenerateRoom();
+                RoomList.Add(tempRoom);
             }
-
-            RoomList.Add(tempRoom);
 		}
 
 		for (int i = 0; i < MaxRooms - 1; i++)
@@ -137,4 +136,3 @@ class GeneratorV1: Generator
 		}
 	}
 }
-
