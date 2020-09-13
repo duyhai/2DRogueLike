@@ -1,6 +1,3 @@
-using Godot;
-using System;
-
 public class BreakableWall : Block
 {
 	// Declare member variables here. Examples:
