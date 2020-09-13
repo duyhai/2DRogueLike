@@ -71,7 +71,10 @@ public class Map
 
     private void createBlock(float x, float y, int blockSize, MapTile mapTile){
         var tileScene = sceneMapping[mapTile];
-        if (tileScene == null) return;
+        if (tileScene == null)
+        {
+            return;
+        }
 
 		var blockInstance = (Block)tileScene.Instance();
 		this.parentNode.AddChild(blockInstance);
@@ -82,7 +85,10 @@ public class Map
     }
 
     private void createEnemy(float x, float y, int blockSize, PackedScene enemyScene){
-        if (enemyScene == null) return;
+        if (enemyScene == null)
+        {
+            return;
+        }
 
 		var enemyInstance = (Enemy)enemyScene.Instance();
 		this.parentNode.AddChild(enemyInstance);

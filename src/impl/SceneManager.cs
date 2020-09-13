@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class SceneManager : Godot.Node
 {
@@ -62,7 +61,10 @@ public class SceneManager : Godot.Node
 
     public void DeferredGotoPausedScene()
     {
-        if (PausedScene == null) return;
+        if (PausedScene == null)
+        {
+            return;
+        }
 
         GetTree().Root.AddChild(PausedScene);
         GetTree().Paused = false;
@@ -74,7 +76,10 @@ public class SceneManager : Godot.Node
 
     public void ClearPausedScene()
     {
-        if (PausedScene == null) return;
+        if (PausedScene == null)
+        {
+            return;
+        }
 
         PausedScene.Free();
         PausedScene = null;

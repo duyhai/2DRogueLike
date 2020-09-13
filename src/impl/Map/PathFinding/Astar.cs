@@ -90,11 +90,16 @@ class Astar : IRouteFinder
 	public void Neighbour(int x, int y, float alt, (int, int) root)
 	{
 		if ((x < 0 || x > mapSize - 1 || y < 0 || y > mapSize - 1))
-			return;
-		if (blocks.Contains((x, y)))
-			return;
+        {
+            return;
+        }
 
-		float tentative_gScore = gScore[root.Item1, root.Item2] + alt;
+        if (blocks.Contains((x, y)))
+        {
+            return;
+        }
+
+        float tentative_gScore = gScore[root.Item1, root.Item2] + alt;
 		if (tentative_gScore < gScore[x, y])
 		{
 			cameFrom[x, y] = root;

@@ -79,8 +79,10 @@ class GeneratorV1: Generator
 		{
 			Room tempRoom = GenerateRoom();
 			while (RoomOverlapping(tempRoom))
-				tempRoom = GenerateRoom();
-			RoomList.Add(tempRoom);
+            {
+                tempRoom = GenerateRoom();
+                RoomList.Add(tempRoom);
+            }
 		}
 
 		for (int i = 0; i < MaxRooms - 1; i++)
@@ -92,15 +94,8 @@ class GeneratorV1: Generator
 		{
 			for (int j = 0; j < map.Width; j++)
 			{
-				if (rnd.Next(0,100) < 50)
-				{
-					map.Blocks[i][j] = MapTile.BREAKABLE_WALL;
-				}
-				else
-				{
-					map.Blocks[i][j] = MapTile.WALL;
-				}
-			}
+				map.Blocks[i][j] = rnd.Next(0,100) < 50 ? MapTile.BREAKABLE_WALL : MapTile.WALL;
+            }
 		}
 
 		foreach (var room in RoomList)
@@ -141,4 +136,3 @@ class GeneratorV1: Generator
 		}
 	}
 }
-
