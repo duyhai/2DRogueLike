@@ -1,16 +1,16 @@
 using Godot;
 using System;
 
-public class BreakableWall : Block
+public class UnbreakableWall : Block
 {
-	public BreakableWall() :
+	public UnbreakableWall() :
         base(new NullInputController(), new NullPhysicsController(), new NullGraphicsController()) 
     {
         
     }
 
-	public override void Hit(int damage)
-	{
-		QueueFree();
-	}
+    public override void Hit(int damage)
+    {
+
+    }
 }

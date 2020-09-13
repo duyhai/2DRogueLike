@@ -1,6 +1,6 @@
 using Godot;
 
-public class Floater : GameObject
+public class Floater : Enemy
 {
 	public static PackedScene SceneObject = (PackedScene)GD.Load("res://Floater.tscn");
 
@@ -9,6 +9,7 @@ public class Floater : GameObject
 	{
 		this.speed = 200;
 		this.health = 30;
+		this.health = maxHealth;
 		CollisionLayer = CollisionLayers.Enemy;
 		CollisionMask = CollisionLayers.Player | CollisionLayers.MapObject;
 	}

@@ -26,17 +26,23 @@ public abstract class Bullet : GameObject
     public void HitTarget(KinematicCollision2D collision)
     {
         var collider = collision.Collider;
+        var method = collider.GetType().GetMethod("Hit");
+        if (method != null)
+        {
+            method.Invoke(collider, new object[]{ damage });
+        }
+        // if (collider.GetType().ToString() == "BreakableWall")
+        // {
+        //     var breakableWall = (BreakableWall)collider;
+        //     breakableWall.Hit();
+        // }
+        // else if (collider.GetType().BaseType.BaseType.ToString() == "GameObject")
+        // {
             
-        if (collider.GetType().ToString() == "BreakableWall")
-        {
-            var breakableWall = (BreakableWall)collider;
-            breakableWall.Hit();
-        }
-        else if (collider.GetType().BaseType.ToString() == "GameObject")
-        {
-            var gameObject = (GameObject)collider;
-            gameObject.Hit(damage);
-        }
+        //     if ()
+        //     var gameObject = (GameObject)collider;
+        //     gameObject.Hit(damage);
+        // }
         QueueFree();
     }
 }

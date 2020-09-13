@@ -1,6 +1,6 @@
 using Godot;
 
-public class Shooter : GameObject
+public class Shooter : Enemy
 {
 	public static PackedScene SceneObject = (PackedScene)GD.Load("res://Shooter.tscn");
 	public Weapon weapon;
@@ -10,6 +10,7 @@ public class Shooter : GameObject
 	{
 		this.speed = 200;
 		this.health = 50;
+		this.health = maxHealth;
 		CollisionLayer = CollisionLayers.Enemy;
 		CollisionMask = CollisionLayers.Player | CollisionLayers.MapObject;
 	}
