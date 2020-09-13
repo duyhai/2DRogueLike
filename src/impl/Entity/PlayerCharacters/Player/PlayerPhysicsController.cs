@@ -1,5 +1,3 @@
-using Godot;
-
 public class PlayerPhysicsController : PhysicsController 
 {
     public override void Update(GameObject gameObject, float delta)
@@ -10,7 +8,7 @@ public class PlayerPhysicsController : PhysicsController
         if (collision != null)
         {
             player.velocity = player.velocity.Slide(collision.Normal);
-            collision = player.MoveAndCollide(player.velocity * delta);
+            player.MoveAndCollide(player.velocity * delta);
         }
     }
 }

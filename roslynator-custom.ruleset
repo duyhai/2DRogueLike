@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="roslynator-custom.ruleset" ToolsVersion="16.0">
+  <Rules AnalyzerId="Roslynator.CSharp.Analyzers" RuleNamespace="Roslynator.CSharp.Analyzers">
+    <!-- Specify default action that should be applied to a specified analyzer. -->
+    <!-- <Rule Id="RCS...." Action="None,Hidden,Info,Warning,Error" /> -->
+    <!-- https://github.com/JosefPihrt/Roslynator/blob/master/src/Analyzers/README.md -->
+    <Rule Id="RCS1002" Action="None" /> <!-- [Style] Remove braces -->
+    <Rule Id="RCS1003" Action="None" /> <!-- [Style] Add braces to if-else (when expression spans over multiple lines) -->
+    <Rule Id="RCS1004" Action="None" /> <!-- [Style] Remove braces from if-else -->
+    <Rule Id="RCS1005" Action="None" /> <!-- [Simplification] Simplify nested using statement -->
+    <Rule Id="RCS1006" Action="None" /> <!-- [Simplification] Merge 'else' with nested 'if' -->
+    <Rule Id="RCS1007" Action="Error" /> <!-- [Style] Add braces -->
+    <Rule Id="RCS1008" Action="None" /> <!-- [Readability] Use explicit type instead of 'var' (when the type is not obvious) -->
+    <Rule Id="RCS1009" Action="None" /> <!-- [Readability] Use explicit type instead of 'var' (foreach variable) -->
+    <Rule Id="RCS1010" Action="None" /> <!-- [Simplification] Use 'var' instead of explicit type (when the type is obvious) -->
+    <Rule Id="RCS1012" Action="None" /> <!-- [Readability] Use explicit type instead of 'var' (when the type is obvious) -->
+    <Rule Id="RCS1013" Action="None" /> <!-- [Usage] Use predefined type -->
+    <Rule Id="RCS1014" Action="None" /> <!-- [Readability] Avoid implicitly-typed array -->
+    <Rule Id="RCS1015" Action="None" /> <!-- [Maintainability] Use nameof operator -->
+    <Rule Id="RCS1016" Action="None" /> <!-- [Usage] Use expression-bodied member -->
+    <Rule Id="RCS1017" Action="None" /> <!-- [Style] Avoid multiline expression body -->
+    <Rule Id="RCS1018" Action="None" /> <!-- [Readability] Add accessibility modifiers -->
+    <Rule Id="RCS1019" Action="None" /> <!-- [Readability] Order modifiers -->
+    <Rule Id="RCS1020" Action="None" /> <!-- [Simplification] Simplify Nullable\<T> to T? -->
+    <Rule Id="RCS1021" Action="None" /> <!-- [Simplification] Simplify lambda expression -->
+    <Rule Id="RCS1031" Action="None" /> <!-- [Redundancy] Remove unnecessary braces -->
+    <Rule Id="RCS1032" Action="None" /> <!-- [Redundancy] Remove redundant parentheses -->
+    <Rule Id="RCS1033" Action="None" /> <!-- [Redundancy] Remove redundant boolean literal -->
+    <Rule Id="RCS1034" Action="None" /> <!-- [Redundancy] Remove redundant 'sealed' modifier -->
+    <Rule Id="RCS1035" Action="None" /> <!-- [Redundancy] Remove redundant comma in initializer -->
+    <Rule Id="RCS1036" Action="None" /> <!-- [Redundancy] Remove redundant empty line -->
+    <Rule Id="RCS1037" Action="None" /> <!-- [Redundancy] Remove trailing white-space -->
+    <Rule Id="RCS1038" Action="None" /> <!-- [Redundancy] Remove empty statement -->
+    <Rule Id="RCS1039" Action="None" /> <!-- [Redundancy] Remove argument list from attribute -->
+    <Rule Id="RCS1040" Action="None" /> <!-- [Redundancy] Remove empty 'else' clause -->
+    <Rule Id="RCS1041" Action="None" /> <!-- [Redundancy] Remove empty initializer -->
+    <Rule Id="RCS1042" Action="None" /> <!-- [Redundancy] Remove enum default underlying type -->
+    <Rule Id="RCS1043" Action="None" /> <!-- [Redundancy] Remove 'partial' modifier from type with a single part -->
+    <Rule Id="RCS1044" Action="None" /> <!-- [Maintainability] Remove original exception from throw statement -->
+    <Rule Id="RCS1045" Action="None" /> <!-- [Naming] Rename private field to camel case with underscore -->
+    <Rule Id="RCS1046" Action="None" /> <!-- [Naming] Asynchronous method name should end with 'Async' -->
+    <Rule Id="RCS1047" Action="None" /> <!-- [Naming] Non-asynchronous method name should not end with 'Async' -->
+    <Rule Id="RCS1048" Action="None" /> <!-- [Usage] Use lambda expression instead of anonymous method -->
+    <Rule Id="RCS1049" Action="None" /> <!-- [Simplification] Simplify boolean comparison -->
+    <Rule Id="RCS1050" Action="None" /> <!-- [Style] Add argument list to object creation expression (or vice versa) -->
+    <Rule Id="RCS1051" Action="None" /> <!-- [Style] Parenthesize condition of conditional expression -->
+    <Rule Id="RCS1052" Action="None" /> <!-- [Readability] Declare each attribute separately -->
+    <Rule Id="RCS1055" Action="None" /> <!-- [Redundancy] Avoid semicolon at the end of declaration -->
+    <Rule Id="RCS1056" Action="None" /> <!-- [Readability] Avoid usage of using alias directive -->
+    <Rule Id="RCS1058" Action="None" /> <!-- [Simplification] Use compound assignment -->
+    <Rule Id="RCS1059" Action="None" /> <!-- [Design] Avoid locking on publicly accessible instance -->
+    <Rule Id="RCS1060" Action="None" /> <!-- [Maintainability] Declare each type in separate file -->
+    <Rule Id="RCS1061" Action="None" /> <!-- [Simplification] Merge 'if' with nested 'if' -->
+    <Rule Id="RCS1063" Action="None" /> <!-- [Style] Avoid usage of do statement to create an infinite loop -->
+    <Rule Id="RCS1064" Action="None" /> <!-- [Style] Avoid usage of for statement to create an infinite loop -->
+    <Rule Id="RCS1065" Action="None" /> <!-- [Style] Avoid usage of while statement to create an inifinite loop -->
+    <Rule Id="RCS1066" Action="None" /> <!-- [Redundancy] Remove empty 'finally' clause -->
+    <Rule Id="RCS1068" Action="None" /> <!-- [Simplification] Simplify logical negation -->
+    <Rule Id="RCS1069" Action="None" /> <!-- [Redundancy] Remove unnecessary case label -->
+    <Rule Id="RCS1070" Action="None" /> <!-- [Redundancy] Remove redundant default switch section -->
+    <Rule Id="RCS1071" Action="None" /> <!-- [Redundancy] Remove redundant base constructor call -->
+    <Rule Id="RCS1072" Action="None" /> <!-- [Redundancy] Remove empty namespace declaration -->
+    <Rule Id="RCS1073" Action="None" /> <!-- [Simplification] Convert 'if' to 'return' statement -->
+    <Rule Id="RCS1074" Action="None" /> <!-- [Redundancy] Remove redundant constructor -->
+    <Rule Id="RCS1075" Action="None" /> <!-- [Design] Avoid empty catch clause that catches System.Exception -->
+    <Rule Id="RCS1077" Action="None" /> <!-- [Performance] Optimize LINQ method call -->
+    <Rule Id="RCS1078" Action="None" /> <!-- [General] Use "" instead of string.Empty -->
+    <Rule Id="RCS1079" Action="None" /> <!-- [General] Throwing of new NotImplementedException -->
+    <Rule Id="RCS1080" Action="None" /> <!-- [Performance] Use 'Count/Length' property instead of 'Any' method -->
+    <Rule Id="RCS1081" Action="None" /> <!-- [Readability] Split variable declaration -->
+    <Rule Id="RCS1084" Action="None" /> <!-- [Simplification] Use coalesce expression instead of conditional expression -->
+    <Rule Id="RCS1085" Action="None" /> <!-- [Simplification] Use auto-implemented property -->
+    <Rule Id="RCS1089" Action="None" /> <!-- [Simplification] Use minus/plus operator instead of assignment -->
+    <Rule Id="RCS1090" Action="None" /> <!-- [Design] Call 'ConfigureAwait(false)' -->
+    <Rule Id="RCS1091" Action="None" /> <!-- [Redundancy] Remove empty region -->
+    <Rule Id="RCS1093" Action="None" /> <!-- [Redundancy] Remove file with no code -->
+    <Rule Id="RCS1094" Action="None" /> <!-- [Readability] Declare using directive on top level -->
+    <Rule Id="RCS1096" Action="None" /> <!-- [Performance] Convert 'HasFlag' call to bitwise operation (or vice versa) -->
+    <Rule Id="RCS1097" Action="None" /> <!-- [Redundancy] Remove redundant 'ToString' call -->
+    <Rule Id="RCS1098" Action="None" /> <!-- [Readability] Avoid 'null' on the left side of a binary expression -->
+    <Rule Id="RCS1099" Action="None" /> <!-- [Readability] Default label should be the last label in a switch section -->
+    <Rule Id="RCS1100" Action="None" /> <!-- [Formatting] Format documentation summary on a single line -->
+    <Rule Id="RCS1101" Action="None" /> <!-- [Formatting] Format documentation summary on multiple lines -->
+    <Rule Id="RCS1102" Action="None" /> <!-- [Design] Make class static -->
+    <Rule Id="RCS1103" Action="None" /> <!-- [Simplification] Convert 'if' to assignment -->
+    <Rule Id="RCS1104" Action="None" /> <!-- [Simplification] Simplify conditional expression -->
+    <Rule Id="RCS1105" Action="None" /> <!-- [Simplification] Unncessary interpolation -->
+    <Rule Id="RCS1106" Action="None" /> <!-- [Redundancy] Remove empty destructor -->
+    <Rule Id="RCS1107" Action="None" /> <!-- [Redundancy] Remove redundant 'ToCharArray' call -->
+    <Rule Id="RCS1108" Action="None" /> <!-- [Readability] Add 'static' modifier to all partial class declarations -->
+    <Rule Id="RCS1110" Action="None" /> <!-- [Design] Declare type inside namespace -->
+    <Rule Id="RCS1111" Action="None" /> <!-- [Style] Add braces to switch section with multiple statements -->
+    <Rule Id="RCS1112" Action="None" /> <!-- [Simplification] Combine 'Enumerable.Where' method chain -->
+    <Rule Id="RCS1113" Action="None" /> <!-- [Usage] Use 'string.IsNullOrEmpty' method -->
+    <Rule Id="RCS1114" Action="None" /> <!-- [Redundancy] Remove redundant delegate creation -->
+    <Rule Id="RCS1118" Action="None" /> <!-- [General] Mark local variable as const -->
+    <Rule Id="RCS1123" Action="None" /> <!-- [Readability] Add parentheses when necessary -->
+    <Rule Id="RCS1124" Action="None" /> <!-- [Simplification] Inline local variable -->
+    <Rule Id="RCS1126" Action="None" /> <!-- [Style] Add braces to if-else -->
+    <Rule Id="RCS1128" Action="None" /> <!-- [Simplification] Use coalesce expression -->
+    <Rule Id="RCS1129" Action="None" /> <!-- [Redundancy] Remove redundant field initalization -->
+    <Rule Id="RCS1130" Action="None" /> <!-- [General] Bitwise operation on enum without Flags attribute -->
+    <Rule Id="RCS1132" Action="None" /> <!-- [Redundancy] Remove redundant overriding member -->
+    <Rule Id="RCS1133" Action="None" /> <!-- [Redundancy] Remove redundant Dispose/Close call -->
+    <Rule Id="RCS1134" Action="None" /> <!-- [Redundancy] Remove redundant statement -->
+    <Rule Id="RCS1135" Action="None" /> <!-- [Design] Declare enum member with zero value (when enum has FlagsAttribute) -->
+    <Rule Id="RCS1136" Action="None" /> <!-- [Simplification] Merge switch sections with equivalent content -->
+    <Rule Id="RCS1138" Action="None" /> <!-- [Maintainability] Add summary to documentation comment -->
+    <Rule Id="RCS1139" Action="None" /> <!-- [Maintainability] Add summary element to documentation comment -->
+    <Rule Id="RCS1140" Action="None" /> <!-- [Maintainability] Add exception to documentation comment -->
+    <Rule Id="RCS1141" Action="None" /> <!-- [Maintainability] Add 'param' element to documentation comment -->
+    <Rule Id="RCS1142" Action="None" /> <!-- [Maintainability] Add 'typeparam' element to documentation comment -->
+    <Rule Id="RCS1143" Action="None" /> <!-- [Simplification] Simplify coalesce expression -->
+    <Rule Id="RCS1145" Action="None" /> <!-- [Redundancy] Remove redundant 'as' operator -->
+    <Rule Id="RCS1146" Action="None" /> <!-- [Usage] Use conditional access -->
+    <Rule Id="RCS1151" Action="None" /> <!-- [Redundancy] Remove redundant cast -->
+    <Rule Id="RCS1154" Action="None" /> <!-- [Readability] Sort enum members -->
+    <Rule Id="RCS1155" Action="None" /> <!-- [Usage] Use StringComparison when comparing strings -->
+    <Rule Id="RCS1156" Action="None" /> <!-- [Usage] Use string.Length instead of comparison with empty string -->
+    <Rule Id="RCS1157" Action="None" /> <!-- [Design] Composite enum value contains undefined flag -->
+    <Rule Id="RCS1158" Action="None" /> <!-- [Design] Static member in generic type should use a type parameter -->
+    <Rule Id="RCS1159" Action="None" /> <!-- [Usage] Use EventHandler\<T> -->
+    <Rule Id="RCS1160" Action="None" /> <!-- [Design] Abstract type should not have public constructors -->
+    <Rule Id="RCS1161" Action="None" /> <!-- [Readability] Enum should declare explicit values -->
+    <Rule Id="RCS1162" Action="None" /> <!-- [Readability] Avoid chain of assignments -->
+    <Rule Id="RCS1163" Action="None" /> <!-- [Redundancy] Unused parameter -->
+    <Rule Id="RCS1164" Action="None" /> <!-- [Redundancy] Unused type parameter -->
+    <Rule Id="RCS1165" Action="None" /> <!-- [Usage] Unconstrained type parameter checked for null -->
+    <Rule Id="RCS1166" Action="None" /> <!-- [Usage] Value type object is never equal to null -->
+    <Rule Id="RCS1168" Action="None" /> <!-- [Maintainability] Parameter name differs from base name -->
+    <Rule Id="RCS1169" Action="None" /> <!-- [Design] Make field read-only -->
+    <Rule Id="RCS1170" Action="None" /> <!-- [Design] Use read-only auto-implemented property -->
+    <Rule Id="RCS1171" Action="None" /> <!-- [Simplification] Simplify lazy initialization -->
+    <Rule Id="RCS1172" Action="None" /> <!-- [Simplification] Use 'is' operator instead of 'as' operator -->
+    <Rule Id="RCS1173" Action="None" /> <!-- [Simplification] Use coalesce expression instead of 'if' -->
+    <Rule Id="RCS1174" Action="None" /> <!-- [Redundancy] Remove redundant async/await -->
+    <Rule Id="RCS1175" Action="None" /> <!-- [Redundancy] Unused this parameter -->
+    <Rule Id="RCS1176" Action="None" /> <!-- [Simplification] Use 'var' instead of explicit type (when the type is not obvious) -->
+    <Rule Id="RCS1177" Action="None" /> <!-- [Simplification] Use 'var' instead of explicit type (in foreach) -->
+    <Rule Id="RCS1179" Action="None" /> <!-- [Simplification] Use 'return' instead of assignment -->
+    <Rule Id="RCS1180" Action="None" /> <!-- [Simplification] Inline lazy initialization -->
+    <Rule Id="RCS1181" Action="None" /> <!-- [General] Convert comment to documentation comment -->
+    <Rule Id="RCS1182" Action="None" /> <!-- [Redundancy] Remove redundant base interface -->
+    <Rule Id="RCS1186" Action="None" /> <!-- [Usage] Use Regex instance instead of static method -->
+    <Rule Id="RCS1187" Action="None" /> <!-- [Design] Use constant instead of field -->
+    <Rule Id="RCS1188" Action="None" /> <!-- [Redundancy] Remove redundant auto-property initialization -->
+    <Rule Id="RCS1189" Action="None" /> <!-- [Readability] Add or remove region name -->
+    <Rule Id="RCS1190" Action="None" /> <!-- [Simplification] Join string expressions -->
+    <Rule Id="RCS1191" Action="None" /> <!-- [Readability] Declare enum value as combination of names -->
+    <Rule Id="RCS1192" Action="None" /> <!-- [Readability] Unnecessary usage of verbatim string literal -->
+    <Rule Id="RCS1193" Action="None" /> <!-- [Design] Overriding member should not change 'params' modifier -->
+    <Rule Id="RCS1194" Action="None" /> <!-- [Design] Implement exception constructors -->
+    <Rule Id="RCS1195" Action="None" /> <!-- [Simplification] Use ^ operator -->
+    <Rule Id="RCS1196" Action="None" /> <!-- [Style] Call extension method as instance method -->
+    <Rule Id="RCS1197" Action="None" /> <!-- [Performance] Optimize StringBuilder.Append/AppendLine call -->
+    <Rule Id="RCS1198" Action="None" /> <!-- [Performance] Avoid unnecessary boxing of value type -->
+    <Rule Id="RCS1199" Action="None" /> <!-- [Simplification] Simplify boolean expression -->
+    <Rule Id="RCS1200" Action="None" /> <!-- [Usage] Call 'Enumerable.ThenBy' instead of 'Enumerable.OrderBy' -->
+    <Rule Id="RCS1201" Action="None" /> <!-- [Simplification] Use method chaining -->
+    <Rule Id="RCS1202" Action="None" /> <!-- [Usage] Avoid NullReferenceException -->
+    <Rule Id="RCS1203" Action="None" /> <!-- [Design] Use AttributeUsageAttribute -->
+    <Rule Id="RCS1204" Action="None" /> <!-- [Usage] Use EventArgs.Empty -->
+    <Rule Id="RCS1205" Action="None" /> <!-- [Readability] Order named arguments according to the order of parameters -->
+    <Rule Id="RCS1206" Action="None" /> <!-- [Usage] Use conditional access instead of conditional expression -->
+    <Rule Id="RCS1207" Action="None" /> <!-- [Simplification] Convert anonymous function to method group -->
+    <Rule Id="RCS1208" Action="None" /> <!-- [Style] Reduce 'if' nesting -->
+    <Rule Id="RCS1209" Action="None" /> <!-- [Readability] Order type parameter constraints -->
+    <Rule Id="RCS1210" Action="None" /> <!-- [Usage] Return Task.FromResult instead of returning null -->
+    <Rule Id="RCS1211" Action="None" /> <!-- [Redundancy] Remove unnecessary 'else' -->
+    <Rule Id="RCS1212" Action="None" /> <!-- [Redundancy] Remove redundant assignment -->
+    <Rule Id="RCS1213" Action="None" /> <!-- [Redundancy] Remove unused member declaration -->
+    <Rule Id="RCS1214" Action="None" /> <!-- [Simplification] Unnecessary interpolated string -->
+    <Rule Id="RCS1215" Action="None" /> <!-- [Redundancy] Expression is always equal to true/false -->
+    <Rule Id="RCS1216" Action="None" /> <!-- [Redundancy] Unnecessary unsafe context -->
+    <Rule Id="RCS1217" Action="None" /> <!-- [Readability] Convert interpolated string to concatenation -->
+    <Rule Id="RCS1218" Action="None" /> <!-- [Readability] Simplify code branching -->
+    <Rule Id="RCS1219" Action="None" /> <!-- [Performance] Call 'Enumerable.Skip' and 'Enumerable.Any' instead of 'Enumerable.Count' -->
+    <Rule Id="RCS1220" Action="None" /> <!-- [Usage] Use pattern matching instead of combination of 'is' operator and cast operator -->
+    <Rule Id="RCS1221" Action="None" /> <!-- [Usage] Use pattern matching instead of combination of 'as' operator and null check -->
+    <Rule Id="RCS1222" Action="None" /> <!-- [Readability] Merge preprocessor directives -->
+    <Rule Id="RCS1223" Action="None" /> <!-- [Usage] Mark publicly visible type with DebuggerDisplay attribute -->
+    <Rule Id="RCS1224" Action="None" /> <!-- [Design] Make method an extension method -->
+    <Rule Id="RCS1225" Action="None" /> <!-- [Design] Make class sealed -->
+    <Rule Id="RCS1226" Action="None" /> <!-- [Usage] Add paragraph to documentation comment -->
+    <Rule Id="RCS1227" Action="None" /> <!-- [Design] Validate arguments correctly -->
+    <Rule Id="RCS1228" Action="None" /> <!-- [Readability] Unused element in documentation comment -->
+    <Rule Id="RCS1229" Action="None" /> <!-- [Usage] Use async/await when necessary -->
+    <Rule Id="RCS1230" Action="None" /> <!-- [Readability] Unnecessary explicit use of enumerator -->
+    <Rule Id="RCS1231" Action="None" /> <!-- [Performance] Make parameter ref read-only -->
+    <Rule Id="RCS1232" Action="None" /> <!-- [Readability] Order elements in documentation comment -->
+    <Rule Id="RCS1233" Action="None" /> <!-- [Usage] Use short-circuiting operator -->
+    <Rule Id="RCS1234" Action="None" /> <!-- [Readability] Duplicate enum value -->
+    <Rule Id="RCS1235" Action="None" /> <!-- [Performance] Optimize method call -->
+    <Rule Id="RCS1236" Action="None" /> <!-- [Usage] Use exception filter -->
+    <Rule Id="RCS1237" Action="None" /> <!-- [Usage] Use bit shift operator -->
+    <Rule Id="RCS1238" Action="None" /> <!-- [Readability] Avoid nested ?: operators -->
+    <Rule Id="RCS1239" Action="None" /> <!-- [Readability] Use 'for' statement instead of 'while' statement -->
+    <Rule Id="RCS1240" Action="None" /> <!-- [Redundancy] Operator is unnecessary -->
+    <Rule Id="RCS1241" Action="None" /> <!-- [Design] Implement non-generic counterpart -->
+    <Rule Id="RCS1242" Action="None" /> <!-- [Performance] Do not pass non-read-only struct by read-only reference -->
+    <Rule Id="RCS1243" Action="None" /> <!-- [General] Duplicate word in a comment -->
+    <Rule Id="RCS1244" Action="None" /> <!-- [Simplification] Simplify 'default' expression -->
+    <Rule Id="RCS1246" Action="None" /> <!-- [Usage] Use element access -->
+
+    <!-- Suppressed default rules -->
+    <!-- <Rule Id="IDE0044" Action="None" /> -->
+    <!-- Naming rule violation: These words must begin with upper case characters -->
+    <Rule Id="IDE1006" Action="None" />
+  </Rules>
+</RuleSet>
