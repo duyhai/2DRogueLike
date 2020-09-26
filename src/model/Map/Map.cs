@@ -98,8 +98,7 @@ public class Map
         }
 
         var enemyInstance = (Enemy)enemyScene.Instance();
-        Main mainNode = (Main)this.parentNode;
-        mainNode.World.AddChild(enemyInstance);
+        parentNode.AddChild(enemyInstance);
 
         // Set the mob's position to a random location.
         enemyInstance.Position = new Vector2(x * blockSize, y * blockSize);
