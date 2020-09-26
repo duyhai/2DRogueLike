@@ -77,7 +77,8 @@ public class Map
         }
 
 		var blockInstance = (Block)tileScene.Instance();
-		this.parentNode.AddChild(blockInstance);
+		Main mainNode = (Main)this.parentNode;
+        mainNode.World.AddChild(blockInstance);
 
 		// Set the mob's position to a random location.
 		blockInstance.Position = new Vector2(x * blockSize, y * blockSize);
@@ -91,7 +92,8 @@ public class Map
         }
 
 		var enemyInstance = (Enemy)enemyScene.Instance();
-		this.parentNode.AddChild(enemyInstance);
+		Main mainNode = (Main)this.parentNode;
+        mainNode.World.AddChild(enemyInstance);
 
 		// Set the mob's position to a random location.
 		enemyInstance.Position = new Vector2(x * blockSize, y * blockSize);
