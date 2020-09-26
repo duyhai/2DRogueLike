@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shooterWalk1.png-f2a96ffe89e1dbb2a7c0d3c1f4b49a62.stex"
+path="res://.import/lifebar_bg.png-29be932ec414d67a023b6a1d4e35b0fb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shooterWalk1.png"
-dest_files=[ "res://.import/shooterWalk1.png-f2a96ffe89e1dbb2a7c0d3c1f4b49a62.stex" ]
+source_file="res://assets/gui/lifebar_bg.png"
+dest_files=[ "res://.import/lifebar_bg.png-29be932ec414d67a023b6a1d4e35b0fb.stex" ]
 
 [params]
 

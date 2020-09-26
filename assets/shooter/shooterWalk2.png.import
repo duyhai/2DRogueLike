@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shooterWalk2.png-a8ced7c960b6f6fd36cedaacae80b6c6.stex"
+path="res://.import/shooterWalk2.png-91e756d197477720832475997a0b461e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shooterWalk2.png"
-dest_files=[ "res://.import/shooterWalk2.png-a8ced7c960b6f6fd36cedaacae80b6c6.stex" ]
+source_file="res://assets/shooter/shooterWalk2.png"
+dest_files=[ "res://.import/shooterWalk2.png-91e756d197477720832475997a0b461e.stex" ]
 
 [params]
 

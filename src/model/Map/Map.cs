@@ -76,7 +76,7 @@ public class Map
             return;
         }
 
-        var blockInstance = (StaticBody2D)tileScene.Instance();
+		var blockInstance = (Block)tileScene.Instance();
 		this.parentNode.AddChild(blockInstance);
 
 		// Set the mob's position to a random location.
@@ -90,7 +90,7 @@ public class Map
             return;
         }
 
-        var enemyInstance = (KinematicBody2D)enemyScene.Instance();
+		var enemyInstance = (Enemy)enemyScene.Instance();
 		this.parentNode.AddChild(enemyInstance);
 
 		// Set the mob's position to a random location.

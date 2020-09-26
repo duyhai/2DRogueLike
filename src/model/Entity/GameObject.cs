@@ -6,6 +6,7 @@ public abstract class GameObject : KinematicBody2D
 	public Vector2 velocity;
 	public int speed;
 	public int health;
+	public int maxHealth;
 	protected InputController inputController;
 	protected PhysicsController physicsController;
 	protected GraphicsController graphicsController;
@@ -27,7 +28,7 @@ public abstract class GameObject : KinematicBody2D
 		physicsController.Update(this, delta);
 	}
 
-	public void Hit(int damage)
+	public virtual void Hit(int damage)
 	{
 		health -= damage;
 		if (health <= 0)

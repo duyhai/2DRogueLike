@@ -9,7 +9,7 @@ public class ShooterInputController : InputController
         var player = (Player)Shooter.GetNodeOrNull("../Player");
         if (player != null)
         {
-            var bulletDirection = player.weapon.GlobalPosition - Shooter.weapon.GlobalPosition;
+            var bulletDirection = player.GlobalPosition - Shooter.weapon.GlobalPosition;
             Shooter.Shoot(bulletDirection, Shooter.CollisionLayer, Shooter.CollisionMask);
         }
     }

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/floaterWalkUp2.png-42a5529af517510e2dbfe83053174866.stex"
+path="res://.import/shooterWalk1.png-3d2ae49b8ce4d2321239c861143a282a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/floaterWalkUp2.png"
-dest_files=[ "res://.import/floaterWalkUp2.png-42a5529af517510e2dbfe83053174866.stex" ]
+source_file="res://assets/shooter/shooterWalk1.png"
+dest_files=[ "res://.import/shooterWalk1.png-3d2ae49b8ce4d2321239c861143a282a.stex" ]
 
 [params]
 

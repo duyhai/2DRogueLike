@@ -1,10 +1,12 @@
 public class BreakableWall : Block
 {
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
+	public BreakableWall() :
+        base(new NullInputController(), new NullPhysicsController(), new NullGraphicsController()) 
+    {
+        
+    }
 
-	public override void Hit()
+	public override void Hit(int damage)
 	{
 		QueueFree();
 	}

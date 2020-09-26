@@ -8,7 +8,8 @@ public class Player : GameObject
 		base(new PlayerInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
 	{
 		this.speed = 200;
-		this.health = 100;
+		this.maxHealth = 100;
+		this.health = maxHealth;
 		CollisionLayer = CollisionLayers.Player;
 		CollisionMask = CollisionLayers.Enemy | CollisionLayers.MapObject;
 	}

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/shooterWalkUp2.png" type="Texture" id=1]
-[ext_resource path="res://assets/shooterWalk2.png" type="Texture" id=2]
-[ext_resource path="res://assets/shooterWalk1.png" type="Texture" id=3]
-[ext_resource path="res://assets/shooterWalkUp1.png" type="Texture" id=4]
+[ext_resource path="res://assets/shooter/shooterWalkUp2.png" type="Texture" id=1]
+[ext_resource path="res://assets/shooter/shooterWalk2.png" type="Texture" id=2]
+[ext_resource path="res://assets/shooter/shooterWalk1.png" type="Texture" id=3]
+[ext_resource path="res://assets/shooter/shooterWalkUp1.png" type="Texture" id=4]
 [ext_resource path="res://src/impl/Entity/EnemyCharacters/Shooter/Shooter.cs" type="Script" id=5]
 [ext_resource path="res://SimpleWeapon.tscn" type="PackedScene" id=6]
 
@@ -25,7 +25,6 @@ radius = 6.016
 height = 4.8501
 
 [node name="Shooter" type="KinematicBody2D"]
-position = Vector2( 0, 15 )
 rotation = -1.5708
 scale = Vector2( 0.95, 0.95 )
 collision_layer = 0

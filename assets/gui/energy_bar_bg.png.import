@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/playerWalk2.png-8f5d1e84f0a749c77d8194f72634dd5b.stex"
+path="res://.import/energy_bar_bg.png-0357d0c3f28f758e66ef86858dc8885f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/playerWalk2.png"
-dest_files=[ "res://.import/playerWalk2.png-8f5d1e84f0a749c77d8194f72634dd5b.stex" ]
+source_file="res://assets/gui/energy_bar_bg.png"
+dest_files=[ "res://.import/energy_bar_bg.png-0357d0c3f28f758e66ef86858dc8885f.stex" ]
 
 [params]
 

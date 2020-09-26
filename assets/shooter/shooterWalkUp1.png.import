@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/playerWalkUp.png-cb796dc6f902ff573f54ab010cbbf70f.stex"
+path="res://.import/shooterWalkUp1.png-092c095cc700fd8c936046e2137bdcda.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/playerWalkUp.png"
-dest_files=[ "res://.import/playerWalkUp.png-cb796dc6f902ff573f54ab010cbbf70f.stex" ]
+source_file="res://assets/shooter/shooterWalkUp1.png"
+dest_files=[ "res://.import/shooterWalkUp1.png-092c095cc700fd8c936046e2137bdcda.stex" ]
 
 [params]
 

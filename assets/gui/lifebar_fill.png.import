@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cobblestone.png-85d9074ac932cba5ffb2b8b6064e024c.stex"
+path="res://.import/lifebar_fill.png-c7d990b09af633af42505c210180323d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cobblestone.png"
-dest_files=[ "res://.import/cobblestone.png-85d9074ac932cba5ffb2b8b6064e024c.stex" ]
+source_file="res://assets/gui/lifebar_fill.png"
+dest_files=[ "res://.import/lifebar_fill.png-c7d990b09af633af42505c210180323d.stex" ]
 
 [params]
 
