@@ -108,7 +108,6 @@ public class Map
 
         // Set the mob's position to a random location.
         enemyInstance.Position = new Vector2(x * blockSize, y * blockSize);
-        enemyInstance.Scale = new Vector2(1, 1);
     }
 
     private void createPlayer(float x, float y, int blockSize)
@@ -122,6 +121,5 @@ public class Map
             playerInstance.Connect("DeathSignal", parentNode.GetParent(), "OnPlayerDeathSignal");
         }
         playerInstance.Position = new Vector2(x * blockSize, y * blockSize);
-        playerInstance.Scale = new Vector2(1, 1);
     }
 }

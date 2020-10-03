@@ -37,9 +37,9 @@ public class Player : GameObject
         }
     }
 
-    public void Respawn(int x, int y, int blockSize)
+    public void Respawn(float x, float y)
     {
         ResetHealth();
-        Position = new Vector2(x * blockSize, y * blockSize);
+        Position = new Vector2(x, y);
     }
 }
