@@ -35,11 +35,6 @@ public class Main : Node
         {
             resultScreen.Visible = true;
         }
-
-        if (player.isDead)
-        {
-            deathScreen.Visible = true;
-        }
     }
 
     int CountEnemies()
@@ -86,5 +81,10 @@ public class Main : Node
     {
         player.Respawn(map.PlayerSpawn.x, map.PlayerSpawn.y, map.Unit);
         deathScreen.Visible = false;
+    }
+
+    public void OnPlayerDeathSignal()
+    {
+        deathScreen.Visible = true;
     }
 }

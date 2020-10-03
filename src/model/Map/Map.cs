@@ -1,11 +1,6 @@
 using Godot;
 using System.Collections.Generic;
 
-public struct Point 
-{
-    public int x, y;
-}
-
 public enum MapTile
 {
     EMPTY,
@@ -49,8 +44,8 @@ public class Map
     public int Unit;
     public List<List<MapTile>> Blocks;
     public List<List<PackedScene>> Enemies;
-    public Point PlayerSpawn;
-    
+    public Vector2 PlayerSpawn;
+
     private Node parentNode;
 
     public Map(int width, int height, int unit, Node parentNode)
@@ -124,6 +119,7 @@ public class Map
             playerInstance = (Player)playerScene.Instance();
             playerInstance.Name = "Player";
             parentNode.AddChild(playerInstance);
+            playerInstance.Connect("DeathSignal", parentNode.GetParent(), "OnPlayerDeathSignal");
         }
         playerInstance.Position = new Vector2(x * blockSize, y * blockSize);
         playerInstance.Scale = new Vector2(1, 1);
