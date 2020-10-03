@@ -98,22 +98,44 @@ class GeneratorV1: Generator
             }
 		}
 
-		foreach (var room in RoomList)
+		int playerSpawningRoom = rnd.Next(0, RoomList.Count); //Room index where player will spawn
+		for (int i = 0; i < RoomList.Count; i++)
 		{
+			Room room = RoomList[i];
 			int x = room.x;
 			int y = room.y;
 			int w = room.w;
 			int h = room.h;
-			for (int i = x; i < x + w; i++)
+
+			for (int j = x; j < x + w; j++)
 			{
-				for (int j = y; j < y + h; j++)
+				for (int k = y; k < y + h; k++)
 				{
-					map.Blocks[i][j] = MapTile.EMPTY;
-					// TODO: Create a better spawn system. Separate enemy generator class? Should be able to limit enemies per room and per map. Set difficulty limit, etc.
-					var spawnChance = 3;
-					var shouldSpawn = rnd.Next(0, 100) < spawnChance;
-					if (shouldSpawn) {
-						map.Enemies[i][j] = Map.EnemyScenes[rnd.Next(0, Map.EnemyScenes.Count)];
+					map.Blocks[j][k] = MapTile.EMPTY;
+				}
+			}
+
+			if (i == playerSpawningRoom)
+			{
+				int a, b;
+				a = rnd.Next(x, x + w);
+				b = rnd.Next(y, y + h);
+
+				map.PlayerSpawn.x = a;
+				map.PlayerSpawn.y = b;
+			}
+			else
+			{
+				for (int j = x; j < x + w; j++)
+				{
+					for (int k = y; k < y + h; k++)
+					{
+						// TODO: Create a better spawn system. Separate enemy generator class? Should be able to limit enemies per room and per map. Set difficulty limit, etc.
+						var spawnChance = 3;
+						var shouldSpawn = rnd.Next(0, 100) < spawnChance;
+						if (shouldSpawn) {
+							map.Enemies[j][k] = Map.EnemyScenes[rnd.Next(0, Map.EnemyScenes.Count)];
+						}
 					}
 				}
 			}

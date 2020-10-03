@@ -38,7 +38,7 @@ public abstract class Bullet : GameObject
         // }
         // else if (collider.GetType().BaseType.BaseType.ToString() == "GameObject")
         // {
-            
+        // 
         //     if ()
         //     var gameObject = (GameObject)collider;
         //     gameObject.Hit(damage);

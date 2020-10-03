@@ -24,4 +24,18 @@ public class Player : GameObject
 	{
 		weapon.Shoot(vector, collisionLayer, collisionMask);
 	}
+
+    public override void Hit(int damage)
+    {
+        health -= damage;
+		if (isDead)
+			health = 0;
+		isDead = health <= 0;
+    }
+
+	public void Respawn(int x, int y, int blockSize)
+	{
+		ResetHealth();
+		Position = new Vector2(x * blockSize, y * blockSize);
+	}
 }
