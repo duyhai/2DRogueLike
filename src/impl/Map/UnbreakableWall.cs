@@ -3,14 +3,14 @@ using System;
 
 public class UnbreakableWall : Block
 {
-    public UnbreakableWall() :
-        base(new NullInputController(), new NullPhysicsController(), new NullGraphicsController()) 
-    {
-        
-    }
+	public UnbreakableWall() :
+		base(new NullInputController(), new NullPhysicsController(), new NullGraphicsController()) 
+	{
+		
+	}
 
-    public override void Hit(int damage)
-    {
+	public override void Hit(int damage)
+	{
 
-    }
+	}
 }
