@@ -12,6 +12,8 @@ public class Map
 {
     static PackedScene wallBlockScene = (PackedScene)GD.Load("res://WallBlock.tscn");
     static PackedScene breakableWallScene = (PackedScene)GD.Load("res://BreakableWall.tscn");
+    static PackedScene playerScene = (PackedScene)GD.Load("res://Player.tscn");
+
     Dictionary<MapTile, PackedScene> sceneMapping = new Dictionary<MapTile, PackedScene> {
         { MapTile.EMPTY, null },
         { MapTile.WALL, wallBlockScene },
@@ -42,6 +44,8 @@ public class Map
     public int Unit;
     public List<List<MapTile>> Blocks;
     public List<List<PackedScene>> Enemies;
+    public Vector2 PlayerSpawn;
+
     private Node parentNode;
 
     public Map(int width, int height, int unit, Node parentNode)
@@ -72,6 +76,8 @@ public class Map
                 createEnemy(i, j, Unit, Enemies[i][j]);
             }
         }
+
+        createPlayer(PlayerSpawn.x, PlayerSpawn.y, Unit);
     }
 
     private void createBlock(float x, float y, int blockSize, MapTile mapTile)
@@ -102,6 +108,18 @@ public class Map
 
         // Set the mob's position to a random location.
         enemyInstance.Position = new Vector2(x * blockSize, y * blockSize);
-        enemyInstance.Scale = new Vector2(1, 1);
+    }
+
+    private void createPlayer(float x, float y, int blockSize)
+    {
+        var playerInstance = (Player)parentNode.GetNodeOrNull("Player");
+        if (playerInstance == null)
+        {
+            playerInstance = (Player)playerScene.Instance();
+            playerInstance.Name = "Player";
+            parentNode.AddChild(playerInstance);
+            playerInstance.Connect("DeathSignal", parentNode.GetParent(), "OnPlayerDeathSignal");
+        }
+        playerInstance.Position = new Vector2(x * blockSize, y * blockSize);
     }
 }
