@@ -2,8 +2,6 @@ using Godot;
 
 public class Player : GameObject
 {
-    [Signal]
-    public delegate void DeathSignal();
     public Weapon weapon;
 
     public Player() :
@@ -30,9 +28,10 @@ public class Player : GameObject
     public override void Hit(int damage)
     {
         health -= damage;
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
             health = 0;
+            isDead = true;
             EmitSignal(nameof(DeathSignal));
         }
     }
@@ -41,5 +40,8 @@ public class Player : GameObject
     {
         ResetHealth();
         Position = new Vector2(x, y);
+        ((BasicGraphicsController)graphicsController).ResetSprite(this);
     }
+
+    public override void OnAnimationFinished(string animationName) { }
 }

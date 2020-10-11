@@ -6,6 +6,13 @@ public class FloaterInputController : InputController
     public override void Update(GameObject gameObject)
     {
         Floater floater = (Floater)gameObject;
+
+        if (floater.isDead)
+        {
+            floater.velocity = Vector2.Zero;
+            return;
+        }
+
         Random rnd = new Random();
         floater.velocity = new Vector2(rnd.Next(-floater.speed, floater.speed), rnd.Next(-floater.speed, floater.speed));
 

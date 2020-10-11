@@ -10,7 +10,7 @@ public class Shooter : Enemy
     {
         this.speed = 200;
         this.health = 50;
-        this.health = maxHealth;
+        this.maxHealth = health;
         CollisionLayer = CollisionLayers.Enemy;
         CollisionMask = CollisionLayers.Player | CollisionLayers.MapObject;
     }
