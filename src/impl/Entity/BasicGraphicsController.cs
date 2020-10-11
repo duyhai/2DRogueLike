@@ -1,11 +1,11 @@
 using Godot;
 
-public class BasicGraphicsController : GraphicsController 
+public class BasicGraphicsController : GraphicsController
 {
     public override void Update(GameObject gameObject)
     {
         AnimatedSprite animSprite = gameObject.GetNode<AnimatedSprite>("AnimatedSprite");
-        
+
         bool goingLeft = gameObject.velocity.x < 0;
         animSprite.FlipH = goingLeft;
 
@@ -14,5 +14,17 @@ public class BasicGraphicsController : GraphicsController
 
         bool moving = gameObject.velocity.Length() > 0.0001;
         animSprite.Playing = moving;
+    }
+
+    public void ResetSprite(GameObject gameObject)
+    {
+        AnimatedSprite animSprite = gameObject.GetNode<AnimatedSprite>("AnimatedSprite");
+        animSprite.Modulate = new Color(1, 1, 1, 1);
+    }
+
+    public void PlayDeathAnimation(GameObject gameObject)
+    {
+        AnimationPlayer animPlayer = gameObject.GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
+        animPlayer?.Play("death");
     }
 }

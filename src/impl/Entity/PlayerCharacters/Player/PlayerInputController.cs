@@ -1,22 +1,24 @@
 using Godot;
 
-public class PlayerInputController : InputController 
+public class PlayerInputController : InputController
 {
     public override void Update(GameObject gameObject)
     {
+        Player player = (Player)gameObject;
+        player.velocity = new Vector2();
+
+        if (gameObject.isDead) return;
+
         if (Input.IsActionPressed("menu"))
         {
             SceneManager.Instance.GotoScene("res://MenuScenes/MainMenu.tscn", true);
         }
 
-        Player player = (Player)gameObject;
         if (Input.IsActionPressed("shoot"))
         {
-            var bulletDirection = player.GetGlobalMousePosition() - player.weapon.GlobalPosition; 
+            var bulletDirection = player.GetGlobalMousePosition() - player.weapon.GlobalPosition;
             player.Shoot(bulletDirection, player.CollisionLayer, player.CollisionMask);
         }
-
-        player.velocity = new Vector2();
 
         if (Input.IsActionPressed("ui_right"))
         {
