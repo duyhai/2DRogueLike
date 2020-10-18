@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Main.cs" type="Script" id=1]
 [ext_resource path="res://src/impl/GUI.cs" type="Script" id=2]
+[ext_resource path="res://assets/Floor.png" type="Texture" id=4]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFontData" id=1]
@@ -22,6 +23,12 @@ script = ExtResource( 1 )
 
 [node name="World" type="Node" parent="."]
 
+[node name="Background" type="Sprite" parent="World"]
+position = Vector2( 460.595, 219.161 )
+z_index = -100
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( -2000, -2000, 4000, 4000 )
 [node name="FloatingTexts" type="Node" parent="."]
 
 [node name="GUI" parent="." instance=ExtResource( 6 )]

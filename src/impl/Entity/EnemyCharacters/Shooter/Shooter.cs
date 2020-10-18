@@ -5,7 +5,7 @@ public class Shooter : Enemy
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://Shooter.tscn");
     public Weapon weapon;
 
-    public Shooter() :
+    public Shooter():
         base(new ShooterInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
     {
         this.speed = 200;
