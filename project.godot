@@ -21,6 +21,7 @@ run/main_scene="res://MenuScenes/MainMenu.tscn"
 [autoload]
 
 SceneManager="*res://src/impl/SceneManager.cs"
+FctManager="*res://FCTManager.tscn"
 
 [editor_plugins]
 
