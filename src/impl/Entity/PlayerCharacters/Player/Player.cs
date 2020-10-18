@@ -25,17 +25,6 @@ public class Player : GameObject
         weapon.Shoot(vector, collisionLayer, collisionMask);
     }
 
-    public override void Hit(int damage)
-    {
-        health -= damage;
-        if (health <= 0 && !isDead)
-        {
-            health = 0;
-            isDead = true;
-            EmitSignal(nameof(DeathSignal));
-        }
-    }
-
     public void Respawn(float x, float y)
     {
         ResetHealth();

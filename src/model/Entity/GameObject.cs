@@ -37,8 +37,16 @@ public abstract class GameObject : KinematicBody2D
     public virtual void Hit(int damage)
     {
         health -= damage;
-        if (health <= 0)
+
+        if (health > 0)
         {
+            ((BasicGraphicsController)graphicsController).PlayHitAnimation(this);
+            FCTManager.Instance.ShowValue(damage.ToString(), GlobalPosition);
+        }
+
+        if (health <= 0 && !isDead)
+        {
+            health = 0;
             isDead = true;
             EmitSignal(nameof(DeathSignal));
         }
