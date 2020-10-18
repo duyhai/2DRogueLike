@@ -24,33 +24,33 @@ public class Main : Node
         deathScreen = GetNode<Control>("DeathScreen/DeathScreenNode");
     }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(float delta)
-	{
-		gui.SetHealthCounter(player.health);
-		gui.SetEnemyCounter(CountEnemies());
-		gui.SetMaxHealthCounter(player.maxHealth);
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(float delta)
+    {
+        gui.SetHealthCounter(player.health);
+        gui.SetEnemyCounter(CountEnemies());
+        gui.SetMaxHealthCounter(player.maxHealth);
 
-		if (CountEnemies() <= 0)
-		{
-			resultScreen.Visible = true;
-		}
-	}
+        if (CountEnemies() <= 0)
+        {
+            resultScreen.Visible = true;
+        }
+    }
 
-	int CountEnemies()
-	{
-		int count = 0;
-		foreach (var i in World.GetChildren())
-		{
-			Node node = (Node)i;
-			var nodeClass = node.GetType().BaseType;
-			if (nodeClass == typeof(Enemy))
-			{
-				count++;
-			}
-		}
-		return count;
-	}
+    int CountEnemies()
+    {
+        int count = 0;
+        foreach (var i in World.GetChildren())
+        {
+            Node node = (Node)i;
+            var nodeClass = node.GetType().BaseType;
+            if (nodeClass == typeof(Enemy))
+            {
+                count++;
+            }
+        }
+        return count;
+    }
 
     private void ResetWorld()
     {

@@ -9,8 +9,8 @@ public class UnbreakableWall : Block
 
     }
 
-	public override void Hit(int damage)
-	{
+    public override void Hit(int damage)
+    {
 
-	}
+    }
 }

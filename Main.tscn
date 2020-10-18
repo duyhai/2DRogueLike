@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Main.cs" type="Script" id=1]
 [ext_resource path="res://src/impl/GUI.cs" type="Script" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/Floor.png" type="Texture" id=4]
-=======
-[gd_scene load_steps=7 format=2]
-
-[ext_resource path="res://src/Main.cs" type="Script" id=1]
-[ext_resource path="res://src/impl/GUI.cs" type="Script" id=2]
->>>>>>> master
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFontData" id=1]
