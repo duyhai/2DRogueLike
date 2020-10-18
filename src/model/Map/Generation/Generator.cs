@@ -1,10 +1,6 @@
 abstract public class Generator
 {
-<<<<<<< HEAD
-    protected int MaxRooms;    
-=======
     protected int MaxRooms;
->>>>>>> master
     protected int MinRoomXY;
     protected int MaxRoomXY;
     protected Map map;

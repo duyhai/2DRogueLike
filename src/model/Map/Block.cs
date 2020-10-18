@@ -10,10 +10,6 @@ public abstract class Block : GameObject
 
     public override void _Ready()
     {
-<<<<<<< HEAD
-          CollisionLayer = CollisionLayers.MapObject;
-=======
         CollisionLayer = CollisionLayers.MapObject;
->>>>>>> master
     }
 }

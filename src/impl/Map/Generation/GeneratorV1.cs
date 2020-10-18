@@ -3,14 +3,6 @@ using System.Collections.Generic;
 using Godot;
 
 
-<<<<<<< HEAD
-class GeneratorV1: Generator
-{    List<Room> RoomList = new List<Room>();
-    List<Corridor> CorridorList = new List<Corridor>();
-    Random rnd = new Random();
-
-    public GeneratorV1(Map map, int MaxRooms, int MinRoomXY, int MaxRoomXY): base(map, MaxRooms, MinRoomXY, MaxRoomXY)
-=======
 class GeneratorV1 : Generator
 {
     List<Room> RoomList = new List<Room>();
@@ -18,7 +10,6 @@ class GeneratorV1 : Generator
     Random rnd = new Random();
 
     public GeneratorV1(Map map, int MaxRooms, int MinRoomXY, int MaxRoomXY) : base(map, MaxRooms, MinRoomXY, MaxRoomXY)
->>>>>>> master
     {
     }
 
@@ -104,14 +95,6 @@ class GeneratorV1 : Generator
         {
             for (int j = 0; j < map.Width; j++)
             {
-<<<<<<< HEAD
-                map.Blocks[i][j] = rnd.Next(0,100) < 50 ? MapTile.BREAKABLE_WALL : MapTile.WALL;
-            }
-        }
-
-        foreach (var room in RoomList)
-        {
-=======
                 map.Blocks[i][j] = rnd.Next(0, 100) < 50 ? MapTile.BREAKABLE_WALL : MapTile.WALL;
             }
         }
@@ -120,23 +103,10 @@ class GeneratorV1 : Generator
         for (int i = 0; i < RoomList.Count; i++)
         {
             Room room = RoomList[i];
->>>>>>> master
             int x = room.x;
             int y = room.y;
             int w = room.w;
             int h = room.h;
-<<<<<<< HEAD
-            for (int i = x; i < x + w; i++)
-            {
-                for (int j = y; j < y + h; j++)
-                {
-                    map.Blocks[i][j] = MapTile.EMPTY;
-                    // TODO: Create a better spawn system. Separate enemy generator class? Should be able to limit enemies per room and per map. Set difficulty limit, etc.
-                    var spawnChance = 3;
-                    var shouldSpawn = rnd.Next(0, 100) < spawnChance;
-                    if (shouldSpawn) {
-                        map.Enemies[i][j] = Map.EnemyScenes[rnd.Next(0, Map.EnemyScenes.Count)];
-=======
 
             if (i == playerSpawningRoom)
             {
@@ -158,7 +128,6 @@ class GeneratorV1 : Generator
                     if (shouldSpawn)
                     {
                         map.Enemies[j][k] = Map.EnemyScenes[rnd.Next(0, Map.EnemyScenes.Count)];
->>>>>>> master
                     }
                 }
             }
