@@ -1,11 +1,21 @@
 using Godot;
 using System;
 
-public class FloaterInputController : InputController 
+public class FloaterInputController : InputController
 {
     public override void Update(GameObject gameObject)
-    {        
+    {
         Floater floater = (Floater)gameObject;
+<<<<<<< HEAD
+=======
+
+        if (floater.isDead)
+        {
+            floater.velocity = Vector2.Zero;
+            return;
+        }
+
+>>>>>>> master
         Random rnd = new Random();
         floater.velocity = new Vector2(rnd.Next(-floater.speed, floater.speed), rnd.Next(-floater.speed, floater.speed));
 

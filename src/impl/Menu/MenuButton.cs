@@ -2,28 +2,35 @@ using Godot;
 
 public class MenuButton : Button
 {
-	[Export]
-	public string sceneToLoad;
+    [Export]
+    public string sceneToLoad;
 
+<<<<<<< HEAD
 	public override void _Ready()
 	{
 		Connect("pressed", this, nameof(OnButtonPressed), new Godot.Collections.Array() { sceneToLoad });
 	}
+=======
+    public override void _Ready()
+    {
+        Connect("pressed", this, nameof(OnButtonPressed), new Godot.Collections.Array() { sceneToLoad });
+    }
+>>>>>>> master
 
-	public void OnButtonPressed(string sceneToLoad)
-	{
-		if (sceneToLoad == Main.SCENE_PATH)
-		{
-			SceneManager.Instance.ClearPausedScene();
-		}
+    public void OnButtonPressed(string sceneToLoad)
+    {
+        if (sceneToLoad == Main.SCENE_PATH)
+        {
+            SceneManager.Instance.ClearPausedScene();
+        }
 
-		if (sceneToLoad == "Continue")
-		{
-			SceneManager.Instance.GotoPausedScene();
-		}
-		else
-		{
-			SceneManager.Instance.GotoScene(sceneToLoad);
-		}
-	} 
+        if (sceneToLoad == "Continue")
+        {
+            SceneManager.Instance.GotoPausedScene();
+        }
+        else
+        {
+            SceneManager.Instance.GotoScene(sceneToLoad);
+        }
+    }
 }

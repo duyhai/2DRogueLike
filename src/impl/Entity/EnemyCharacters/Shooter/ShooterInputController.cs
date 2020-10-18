@@ -1,10 +1,12 @@
 using Godot;
 using System;
 
-public class ShooterInputController : InputController 
+public class ShooterInputController : InputController
 {
     public override void Update(GameObject gameObject)
     {
+        if (gameObject.isDead) return;
+
         Shooter Shooter = (Shooter)gameObject;
         var player = (Player)Shooter.GetNodeOrNull("../Player");
         if (player != null)

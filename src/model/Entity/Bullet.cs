@@ -4,7 +4,7 @@ public abstract class Bullet : GameObject
 {
     public int damage;
 
-    public Bullet(InputController inputController, PhysicsController physicsController, GraphicsController graphicsController, int damage):
+    public Bullet(InputController inputController, PhysicsController physicsController, GraphicsController graphicsController, int damage) :
         base(inputController, physicsController, graphicsController)
     {
         this.damage = damage;
@@ -12,7 +12,8 @@ public abstract class Bullet : GameObject
 
     public void OnVisibilityNotifier2DScreenExited()
     {
-        if (!GetTree().Paused) {
+        if (!GetTree().Paused)
+        {
             QueueFree();
         }
     }
@@ -27,22 +28,9 @@ public abstract class Bullet : GameObject
     {
         var collider = collision.Collider;
         var method = collider.GetType().GetMethod("Hit");
-        if (method != null)
-        {
-            method.Invoke(collider, new object[]{ damage });
-        }
-        // if (collider.GetType().ToString() == "BreakableWall")
-        // {
-        //     var breakableWall = (BreakableWall)collider;
-        //     breakableWall.Hit();
-        // }
-        // else if (collider.GetType().BaseType.BaseType.ToString() == "GameObject")
-        // {
-            
-        //     if ()
-        //     var gameObject = (GameObject)collider;
-        //     gameObject.Hit(damage);
-        // }
+        method?.Invoke(collider, new object[] { damage });
         QueueFree();
     }
+
+    public override void Hit(int damage) { }
 }
