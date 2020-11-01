@@ -24,12 +24,12 @@ public abstract class Bullet : GameObject
         velocity = new Vector2(speed, 0).Rotated(rotation);
     }
 
-    public void HitTarget(KinematicCollision2D collision)
+    public virtual void HitTarget(KinematicCollision2D collision)
     {
         var collider = collision.Collider;
         var method = collider.GetType().GetMethod("Hit");
         method?.Invoke(collider, new object[] { damage });
-        QueueFree();
+        //QueueFree();
     }
 
     public override void Hit(int damage) { }
