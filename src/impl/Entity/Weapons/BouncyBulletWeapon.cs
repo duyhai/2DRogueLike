@@ -6,7 +6,7 @@ public class BouncyBulletWeapon : Weapon
     public override void _Ready()
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
-        bulletScene = (PackedScene)GD.Load("res://BouncyBullet.tscn");
+        bulletScene = BouncyBullet.SceneObject;
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.

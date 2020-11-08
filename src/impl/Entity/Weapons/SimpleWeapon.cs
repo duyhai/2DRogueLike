@@ -6,7 +6,7 @@ public class SimpleWeapon : Weapon
     public override void _Ready()
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
-        bulletScene = (PackedScene)GD.Load("res://Bullet.tscn");
+        bulletScene = SimpleBullet.SceneObject;
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.

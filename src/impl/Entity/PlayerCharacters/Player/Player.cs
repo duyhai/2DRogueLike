@@ -3,6 +3,7 @@ using Godot;
 public class Player : GameObject
 {
     public Weapon weapon;
+    public static PackedScene SceneObject = (PackedScene)GD.Load("res://Player.tscn");
 
     public Player() :
         base(new PlayerInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
