@@ -29,6 +29,7 @@ z_index = -100
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( -2000, -2000, 4000, 4000 )
+
 [node name="FloatingTexts" type="Node" parent="."]
 
 [node name="GUI" parent="." instance=ExtResource( 6 )]

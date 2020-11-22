@@ -29,7 +29,6 @@ public abstract class Bullet : GameObject
         var collider = collision.Collider;
         var method = collider.GetType().GetMethod("Hit");
         method?.Invoke(collider, new object[] { damage });
-        //QueueFree();
     }
 
     public override void Hit(int damage) { }
