@@ -23,7 +23,8 @@ public class Map
     public static List<PackedScene> EnemyScenes = new List<PackedScene> {
         Floater.SceneObject,
         Shooter.SceneObject,
-        Splitter.SceneObject
+        Splitter.SceneObject,
+        Tank.SceneObject
     };
 
     public int Width
