@@ -3,6 +3,7 @@ using Godot;
 public class SimpleBullet : Bullet
 {
     static int DAMAGE = 20;
+    public static PackedScene SceneObject = (PackedScene)GD.Load("res://Bullet.tscn");
 
     public SimpleBullet() :
         base(new NullInputController(), new SimpleBulletPhysicsController(), new NullGraphicsController(), DAMAGE)

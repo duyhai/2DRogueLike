@@ -62,12 +62,17 @@ public abstract class GameObject : KinematicBody2D
     {
         if (animationName == "death")
         {
-            QueueFree();
+            Death();
         }
     }
 
-    public void PlayDeathAnimation()
+    public virtual void PlayDeathAnimation()
     {
         ((BasicGraphicsController)graphicsController).PlayDeathAnimation(this);
+    }
+
+    public virtual void Death()
+    {
+        QueueFree();
     }
 }

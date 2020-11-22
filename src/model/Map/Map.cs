@@ -10,9 +10,9 @@ public enum MapTile
 
 public class Map
 {
-    static PackedScene wallBlockScene = (PackedScene)GD.Load("res://WallBlock.tscn");
-    static PackedScene breakableWallScene = (PackedScene)GD.Load("res://BreakableWall.tscn");
-    static PackedScene playerScene = (PackedScene)GD.Load("res://Player.tscn");
+    static PackedScene wallBlockScene = UnbreakableWall.SceneObject;
+    static PackedScene breakableWallScene = BreakableWall.SceneObject;
+    static PackedScene playerScene = Player.SceneObject;
 
     Dictionary<MapTile, PackedScene> sceneMapping = new Dictionary<MapTile, PackedScene> {
         { MapTile.EMPTY, null },
@@ -22,7 +22,8 @@ public class Map
 
     public static List<PackedScene> EnemyScenes = new List<PackedScene> {
         Floater.SceneObject,
-        Shooter.SceneObject
+        Shooter.SceneObject,
+        Splitter.SceneObject
     };
 
     public int Width
