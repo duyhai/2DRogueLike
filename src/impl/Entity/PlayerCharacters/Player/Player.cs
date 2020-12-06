@@ -18,8 +18,7 @@ public class Player : GameObject
     public override void _Ready()
     {
         //weapon = GetNode<SimpleWeapon>("SimpleWeapon");
-        weapon = GetNode<BouncyBulletWeapon>("BouncyBulletWeapon");
-        weapon.SetWeaponCooldown(0.25f);
+        weapon = GetNode<Flamethrower>("Flamethrower");
     }
 
     public void Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
