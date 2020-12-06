@@ -13,7 +13,7 @@ public abstract class Weapon : Node2D
         {
             bulletTimer.Start();
             var bullet = (Bullet)bulletScene.Instance();
-            
+
             bullet.Initiate(vector.Angle(), ((Node2D)GetParent()).GlobalPosition);
             bullet.CollisionLayer = collisionLayer;
             bullet.CollisionMask = collisionMask;
