@@ -11,14 +11,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "walkUp",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walkUp",
 "speed": 5.0
 } ]
 
@@ -26,7 +26,9 @@ animations = [ {
 radius = 8.71642
 height = 6.87053
 
-[node name="Splitter" type="KinematicBody2D"]
+[node name="Splitter" type="KinematicBody2D" groups=[
+"enemy",
+]]
 scale = Vector2( 0.95, 0.95 )
 collision_layer = 0
 collision_mask = 0

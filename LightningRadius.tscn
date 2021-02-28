@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CSharpScript" id=2]
+script/source = "using Godot;
+
+public class LightningRadius : Area2D
+{
+    CollisionShape2D collisionShape2D;
+
+    public override void _Ready()
+    {
+        collisionShape2D = GetNode<CollisionShape2D>(\"CollisionShape2D\");
+    }
+}"
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 100.0
+
+[node name="LightningRadius" type="Area2D"]
+script = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
