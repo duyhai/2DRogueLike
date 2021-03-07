@@ -9,3 +9,5 @@ data_*/
 .vs/
 
 *.old
+
+./vscode/*.log

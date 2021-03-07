@@ -26,7 +26,9 @@ animations = [ {
 radius = 6.016
 height = 4.8501
 
-[node name="Shooter" type="KinematicBody2D"]
+[node name="Shooter" type="KinematicBody2D" groups=[
+"enemy",
+]]
 rotation = -1.5708
 scale = Vector2( 0.95, 0.95 )
 collision_layer = 0

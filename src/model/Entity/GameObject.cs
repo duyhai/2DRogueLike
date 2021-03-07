@@ -10,6 +10,7 @@ public abstract class GameObject : KinematicBody2D
     public int health;
     public int maxHealth;
     public bool isDead = false;
+    public bool disableInput = false;
     protected InputController inputController;
     protected PhysicsController physicsController;
     protected GraphicsController graphicsController;
@@ -48,6 +49,7 @@ public abstract class GameObject : KinematicBody2D
         {
             health = 0;
             isDead = true;
+            disableInput = true;
             EmitSignal(nameof(DeathSignal));
         }
     }

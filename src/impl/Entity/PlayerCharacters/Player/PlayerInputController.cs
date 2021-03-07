@@ -7,7 +7,7 @@ public class PlayerInputController : InputController
         Player player = (Player)gameObject;
         player.velocity = new Vector2();
 
-        if (gameObject.isDead) return;
+        if (gameObject.disableInput) return;
 
         if (Input.IsActionPressed("menu"))
         {
