@@ -2,7 +2,9 @@ using Godot;
 
 public class SimpleWeapon : Weapon
 {
-    // Called when the node enters the scene tree for the first time.
+
+    public SimpleWeapon() : base(new WeaponGraphicsController()) { }
+
     public override void _Ready()
     {
         bulletTimer = GetNode<Timer>("BulletTimer");

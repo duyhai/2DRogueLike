@@ -3,7 +3,8 @@ using System;
 
 public class Flamethrower : Weapon
 {
-    // Called when the node enters the scene tree for the first time.
+    public Flamethrower() : base(new WeaponGraphicsController()) { }
+
     public override void _Ready()
     {
         bulletTimer = GetNode<Timer>("BulletTimer");

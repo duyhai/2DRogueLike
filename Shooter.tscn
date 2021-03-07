@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/shooter/shooterWalk1.png" type="Texture" id=3]
 [ext_resource path="res://assets/shooter/shooterWalkUp1.png" type="Texture" id=4]
 [ext_resource path="res://src/impl/Entity/EnemyCharacters/Shooter/Shooter.cs" type="Script" id=5]
-[ext_resource path="res://SimpleWeapon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ShooterWeapon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://death.tres" type="Animation" id=7]
 [ext_resource path="res://hitAnimation.tres" type="Animation" id=8]
 
@@ -44,9 +44,9 @@ animation = "walk"
 rotation = 1.5708
 shape = SubResource( 2 )
 
-[node name="SimpleWeapon" parent="." instance=ExtResource( 6 )]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/death = ExtResource( 7 )
 anims/hit = ExtResource( 8 )
+
+[node name="ShooterWeapon" parent="." instance=ExtResource( 6 )]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]

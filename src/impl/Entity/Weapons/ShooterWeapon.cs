@@ -1,13 +1,14 @@
 using Godot;
 
-public class RocketLauncher : Weapon
+public class ShooterWeapon : Weapon
 {
-    public RocketLauncher() : base(new WeaponGraphicsController()) { }
+
+    public ShooterWeapon() : base(null) { }
 
     public override void _Ready()
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
-        bulletScene = RocketProjectile.SceneObject;
+        bulletScene = SimpleBullet.SceneObject;
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.

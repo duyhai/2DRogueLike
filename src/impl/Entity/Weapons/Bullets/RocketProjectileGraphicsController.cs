@@ -2,14 +2,15 @@ using Godot;
 
 public class RocketProjectileGraphicsController : GraphicsController
 {
-    public override void Update(GameObject gameObject)
+    public override void Update(Node2D node)
     {
-        gameObject.Rotation = (Mathf.Pi / 2) + gameObject.velocity.Angle();
+        var rocket = (RocketProjectile)node;
+        rocket.Rotation = (Mathf.Pi / 2) + rocket.velocity.Angle();
     }
 
-    public void PlayExplosionAnimation(GameObject gameObject)
+    public void PlayExplosionAnimation(Node2D node)
     {
-        var rocket = (RocketProjectile)gameObject;
+        var rocket = (RocketProjectile)node;
         var sprite = rocket.GetNode<Sprite>("Sprite");
         sprite.Visible = false;
         AnimatedSprite animatedSprite = rocket.GetNode<AnimatedSprite>("AnimatedSprite");
