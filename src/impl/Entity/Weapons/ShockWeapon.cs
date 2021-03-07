@@ -19,55 +19,67 @@ public class ShockWeapon : Weapon
 
     public override void Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
     {
-        if (bulletTimer.IsStopped())
+        if (!bulletTimer.IsStopped())
         {
-            Array bodiesHit = new Array();
-            Chaining((GameObject)GetParent(), bodiesHit);
-            if (bodiesHit.Count != 0)
-            {
-                bulletTimer.Start();
-            }
-            else
-            {
-                return;
-            }
+            return;
+        }
+        Array bodiesHit = new Array();
+        Chaining((GameObject)GetParent(), bodiesHit);
+        if (bodiesHit.Count != 0)
+        {
+            bulletTimer.Start();
+        }
+        else
+        {
+            return;
+        }
 
-            graphicsController.ChainingBodiesAnimation((GameObject)GetParent(), bodiesHit);
+        graphicsController.ChainingBodiesAnimation((GameObject)GetParent(), bodiesHit);
 
-            foreach (var body in bodiesHit)
-            {
-                var method = body.GetType().GetMethod("Hit");
-                method?.Invoke(body, new object[] { damage });
-            }
+        foreach (var body in bodiesHit)
+        {
+            var method = body.GetType().GetMethod("Hit");
+            method?.Invoke(body, new object[] { damage });
         }
     }
 
     private void Chaining(GameObject entity, Array bodiesHit, int maxBodies = 3)
     {
-        if (maxBodies == 0) return;
+        if (maxBodies == 0)
+        {
+            return;
+        }
 
         var bodies = GetTree().GetNodesInGroup("enemy");
         Vector2 lastBodyGlobalPosition;
         if (bodiesHit.Count == 0)
+        {
             lastBodyGlobalPosition = entity.GlobalPosition;
+        }
         else
+        {
             lastBodyGlobalPosition = ((GameObject)bodiesHit[bodiesHit.Count - 1]).GlobalPosition;
+        }
 
         GameObject nearestBody = (GameObject)ArrayUtil.Min(ref bodies, (object x, object y) =>
         {
             if (bodiesHit.Contains((GameObject)y))
+            {
                 return x;
-
+            }
             if (bodiesHit.Count == 0 && !inFieldOfView(entity, (GameObject)y))
+            {
                 return x;
-
+            }
             float dy = ((GameObject)y).GlobalPosition.DistanceTo(lastBodyGlobalPosition);
             if (dy > radius)
+            {
                 return x;
-
+            }
             if (x == null)
+            {
                 return y;
-
+            }
             float dx = ((GameObject)x).GlobalPosition.DistanceTo(lastBodyGlobalPosition);
 
             return dx < dy ? x : y;
