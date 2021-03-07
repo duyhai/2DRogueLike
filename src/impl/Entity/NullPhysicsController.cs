@@ -1,4 +1,4 @@
-public class NullPhysicsController : PhysicsController 
+public class NullPhysicsController : PhysicsController
 {
-    public override void Update(GameObject gameObject, float delta){}
+    public override void Update(GameObject gameObject, float delta) { }
 }

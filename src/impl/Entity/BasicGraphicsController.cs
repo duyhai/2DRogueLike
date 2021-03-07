@@ -2,9 +2,11 @@ using Godot;
 
 public class BasicGraphicsController : GraphicsController
 {
-    public override void Update(GameObject gameObject)
+    public override void Update(Node2D node)
     {
-        AnimatedSprite animSprite = gameObject.GetNode<AnimatedSprite>("AnimatedSprite");
+        AnimatedSprite animSprite = node.GetNode<AnimatedSprite>("AnimatedSprite");
+
+        GameObject gameObject = (GameObject)node;
 
         bool goingLeft = gameObject.velocity.x < 0;
         animSprite.FlipH = goingLeft;
@@ -16,21 +18,21 @@ public class BasicGraphicsController : GraphicsController
         animSprite.Playing = moving;
     }
 
-    public void ResetSprite(GameObject gameObject)
+    public void ResetSprite(GameObject node)
     {
-        AnimatedSprite animSprite = gameObject.GetNode<AnimatedSprite>("AnimatedSprite");
+        AnimatedSprite animSprite = node.GetNode<AnimatedSprite>("AnimatedSprite");
         animSprite.Modulate = new Color(1, 1, 1, 1);
     }
 
-    public void PlayDeathAnimation(GameObject gameObject)
+    public void PlayDeathAnimation(GameObject node)
     {
-        AnimationPlayer animPlayer = gameObject.GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
+        AnimationPlayer animPlayer = node.GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
         animPlayer?.Play("death");
     }
 
-    public void PlayHitAnimation(GameObject gameObject)
+    public void PlayHitAnimation(GameObject node)
     {
-        AnimationPlayer animPlayer = gameObject.GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
+        AnimationPlayer animPlayer = node.GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
         animPlayer?.Play("hit");
     }
 }

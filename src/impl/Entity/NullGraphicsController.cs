@@ -1,4 +1,6 @@
-public class NullGraphicsController:GraphicsController 
+using Godot;
+
+public class NullGraphicsController : GraphicsController
 {
-    public override void Update(GameObject gameObject){}
+    public override void Update(Node2D node) { }
 }

@@ -1,4 +1,6 @@
-abstract public class GraphicsController 
+using Godot;
+
+abstract public class GraphicsController
 {
-    abstract public void Update(GameObject gameObject);
+    abstract public void Update(Node2D node);
 }

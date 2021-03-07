@@ -10,7 +10,8 @@ public class ShockWeapon : Weapon
     float radius = 75;
     float fov = Mathf.Cos(Mathf.Pi / 4);
 
-    // Called when the node enters the scene tree for the first time.
+    public ShockWeapon() : base(new WeaponGraphicsController()) { }
+
     public override void _Ready()
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
@@ -44,16 +45,19 @@ public class ShockWeapon : Weapon
 
     private void Chaining(GameObject entity, Array bodiesHit, int maxBodies = 3)
     {
-        if (maxBodies == 0) {
+        if (maxBodies == 0)
+        {
             return;
         }
 
         var bodies = GetTree().GetNodesInGroup("enemy");
         Vector2 lastBodyGlobalPosition;
-        if (bodiesHit.Count == 0) {
+        if (bodiesHit.Count == 0)
+        {
             lastBodyGlobalPosition = entity.GlobalPosition;
         }
-        else {
+        else
+        {
             lastBodyGlobalPosition = ((GameObject)bodiesHit[bodiesHit.Count - 1]).GlobalPosition;
         }
 

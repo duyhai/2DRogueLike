@@ -1,4 +1,4 @@
-public class NullInputController : InputController 
+public class NullInputController : InputController
 {
-    public override void Update(GameObject gameObject){}
+    public override void Update(GameObject gameObject) { }
 }

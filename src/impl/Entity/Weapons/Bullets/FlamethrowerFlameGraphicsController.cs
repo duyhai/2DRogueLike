@@ -2,14 +2,14 @@ using Godot;
 
 public class FlamethrowerFlameGraphicsController : GraphicsController
 {
-    public override void Update(GameObject gameObject)
+    public override void Update(Node2D node)
     {
 
     }
 
-    public void PlayFadeAnimation(GameObject gameObject)
+    public void PlayFadeAnimation(Node2D node)
     {
-        AnimationPlayer animPlayer = gameObject.GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
+        AnimationPlayer animPlayer = node.GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
         animPlayer?.Play("Flame");
     }
 }
