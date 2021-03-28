@@ -16,7 +16,7 @@ public class PlayerInputController : InputController
 
         if (Input.IsActionPressed("shoot"))
         {
-            var bulletDirection = player.GetGlobalMousePosition() - player.weapon.GlobalPosition;
+            var bulletDirection = player.GetGlobalMousePosition() - player.weapons[player.equippedWeaponIndex].GlobalPosition;
             player.Shoot(bulletDirection, player.CollisionLayer, player.CollisionMask);
         }
 
@@ -38,6 +38,20 @@ public class PlayerInputController : InputController
         if (Input.IsActionPressed("ui_up"))
         {
             player.velocity.y -= 1;
+        }
+
+        if (Input.IsActionJustPressed("previous_weapon"))
+        {
+            player.weapons[player.equippedWeaponIndex--].Visible = false;
+            player.equippedWeaponIndex = (player.equippedWeaponIndex + player.weapons.Count) % player.weapons.Count;
+            player.weapons[player.equippedWeaponIndex].Visible = true;
+        }
+
+        if (Input.IsActionJustPressed("next_weapon"))
+        {
+            player.weapons[player.equippedWeaponIndex++].Visible = false;
+            player.equippedWeaponIndex %= player.weapons.Count;
+            player.weapons[player.equippedWeaponIndex].Visible = true;
         }
 
         player.velocity = player.velocity.Normalized() * player.speed;

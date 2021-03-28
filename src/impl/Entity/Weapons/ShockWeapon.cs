@@ -5,23 +5,22 @@ using Utility;
 
 public class ShockWeapon : Weapon
 {
-    LightningProjectileGraphicsController graphicsController = new LightningProjectileGraphicsController();
     int damage = 1000;
     float radius = 75;
     float fov = Mathf.Cos(Mathf.Pi / 4);
 
-    public ShockWeapon() : base(new WeaponGraphicsController()) { }
+    public ShockWeapon() : base(new ShockWeaponGraphicsController()) { }
 
     public override void _Ready()
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
     }
 
-    public override void Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
+    public override bool Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
     {
         if (!bulletTimer.IsStopped())
         {
-            return;
+            return false;
         }
         Array bodiesHit = new Array();
         Chaining((GameObject)GetParent(), bodiesHit);
@@ -31,16 +30,18 @@ public class ShockWeapon : Weapon
         }
         else
         {
-            return;
+            return false;
         }
 
-        graphicsController.ChainingBodiesAnimation((GameObject)GetParent(), bodiesHit);
+        ((ShockWeaponGraphicsController)graphicsController).ChainingBodiesAnimation(this, bodiesHit);
 
         foreach (var body in bodiesHit)
         {
             var method = body.GetType().GetMethod("Hit");
             method?.Invoke(body, new object[] { damage });
         }
+        
+        return true;
     }
 
     private void Chaining(GameObject entity, Array bodiesHit, int maxBodies = 3)

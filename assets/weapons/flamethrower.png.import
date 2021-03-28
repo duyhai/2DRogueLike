@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/simpleweapon.png-63cfd7de3d1c9828677d4172d1fd8fd5.stex"
+path="res://.import/flamethrower.png-49b3cf60b07d3472ddd48df80f050b34.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/simpleweapon.png"
-dest_files=[ "res://.import/simpleweapon.png-63cfd7de3d1c9828677d4172d1fd8fd5.stex" ]
+source_file="res://assets/weapons/flamethrower.png"
+dest_files=[ "res://.import/flamethrower.png-49b3cf60b07d3472ddd48df80f050b34.stex" ]
 
 [params]
 

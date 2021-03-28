@@ -7,7 +7,7 @@
     "settings": {
         "editor.detectIndentation": false,
         "editor.formatOnSave": true,
-        "godot_tools.editor_path": "${env:PATH}\\Godot_v3.2.3-stable_mono_win64.exe",
+        "godot_tools.editor_path": "c:\\Users\\buikr\\Desktop\\Godot_v3.2.3-stable_mono_win64\\Godot_v3.2.3-stable_mono_win64.exe",
     },
     "extensions": {
         "recommendations": [
