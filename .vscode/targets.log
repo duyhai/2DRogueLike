@@ -7,10 +7,12 @@ mingw32-make.exe all --print-data-base --no-builtin-variables --no-builtin-rules
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Thu Mar 11 20:03:14 2021
+# Make data base, printed on Sat May 01 13:18:43 2021
 
 # Variables
 
+# environment
+VSCODE_GIT_ASKPASS_MAIN = c:\Users\buikr\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\git\dist\askpass-main.js
 # automatic
 <D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
 # automatic
@@ -48,7 +50,7 @@ MAKEFILE_LIST :=
 # environment
 SystemRoot = C:\Windows
 # environment
-VSCODE_NODE_CACHED_DATA_DIR = C:\Users\buikr\AppData\Roaming\Code\CachedData\f30a9b73e8ffc278e71575118b6bf568f04587c8
+VSCODE_NODE_CACHED_DATA_DIR = C:\Users\buikr\AppData\Roaming\Code\CachedData\3c4e3df9e89829dce27b7b5c24508306b151f30d
 # environment
 TMP = C:\Users\buikr\AppData\Local\Temp
 # environment
@@ -58,11 +60,11 @@ SystemDrive = C:
 # environment
 CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-f554a5d1-bb1a-44ac-a202-645fe0a9ae00-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-aebb6090-cfe0-47d3-9aab-cb14c5412434-sock
 # environment
-VSCODE_CWD = C:\Users\buikr\AppData\Local\Programs\Microsoft VS Code
+VSCODE_CWD = C:\Users\buikr\Desktop\2DRogueLike
 # environment
-PATH = C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\TDM-GCC-64\bin;C:\Users\buikr\AppData\Local\Microsoft\WindowsApps;C:\Users\buikr\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\buikr\.dotnet\tools;C:\Python27;C:\Python27\Scripts;C:\Users\buikr\AppData\Local\CIRCLE;C:\Users\buikr\AppData\Local\Microsoft\WindowsApps;C:\Users\buikr\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\buikr\.dotnet\tools;C:\TDM-GCC-64\bin;C:\Users\buikr\Desktop\Godot_v3.2.3-stable_mono_win64\;
+PATH = C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\TDM-GCC-64\bin;C:\Users\buikr\AppData\Local\Microsoft\WindowsApps;C:\Users\buikr\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\buikr\.dotnet\tools;C:\Python27;C:\Python27\Scripts;C:\Users\buikr\AppData\Local\CIRCLE;C:\Users\buikr\AppData\Local\Microsoft\WindowsApps;C:\Users\buikr\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\buikr\.dotnet\tools;C:\TDM-GCC-64\bin;C:\Users\buikr\Desktop\Godot_v3.2.3-stable_mono_win64\;;c:\Users\buikr\Desktop\Godot_v3.2.3-stable_mono_win64/GodotSharp/Mono/bin
 # environment
 PROCESSOR_ARCHITECTURE = x86
 # environment
@@ -84,7 +86,7 @@ ProgramW6432 = C:\Program Files
 # automatic
 %F = $(notdir $%)
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_9376_CLQPVODTZFAVBLFG
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_5748_CJMUXMXNXCTZAWXI
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
@@ -102,6 +104,8 @@ CommonProgramW6432 = C:\Program Files\Common Files
 # environment
 ProgramData = C:\ProgramData
 # environment
+VSCODE_CLI = 1
+# environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 LOGONSERVER = \\DESKTOP-N1H7NKS
@@ -111,6 +115,10 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 USERDOMAIN = DESKTOP-N1H7NKS
 # environment
 MAKELEVEL := 0
+# environment
+VSCODE_GIT_IPC_HANDLE = \\.\pipe\vscode-git-3385754ea0-sock
+# environment
+COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -133,6 +141,8 @@ MAKE_COMMAND := mingw32-make.exe
 PROCESSOR_ARCHITEW6432 = AMD64
 # environment
 OneDriveConsumer = C:\Users\buikr\OneDrive
+# environment
+TERM_PROGRAM = vscode
 # default
 .VARIABLES := 
 # automatic
@@ -142,7 +152,10 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
 # environment
 OS = Windows_NT
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\1b97e555f4649667be5cc3b542d724cf-1.54.1-main-sock
+VSCODE_IPC_HOOK = \\.\pipe\1b97e555f4649667be5cc3b542d724cf-1.55.2-main-sock
+# environment
+VSCODE_GIT_ASKPASS_NODE = C:\Users\buikr\App 
+Data\Local\Programs\Microsoft VS Code\Code.exe
 # environment
 HOMEPATH = \Users\buikr
 # environment
@@ -151,6 +164,8 @@ PROMPT = $P$G
 MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
+# environment
+TERM_PROGRAM_VERSION = 1.55.2
 # environment
 PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
 # automatic
@@ -165,10 +180,16 @@ SUFFIXES :=
 APPDATA = C:\Users\buikr\AppData\Roaming
 # environment
 TEMP = C:\Users\buikr\AppData\Local\Temp
+# environment
+GIT_ASKPASS = c:\Users\buikr\AppData\Local\Programs\Microsoft VS Code\resources\app\extensions\git\dist\askpass.sh
 # default
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+MONO_THREADS_SUSPEND = preemptive
 # automatic
 ^F = $(notdir $^)
 # environment
@@ -180,13 +201,15 @@ PROCESSOR_REVISION = 9e0a
 # default
 .RECIPEPREFIX := 
 # environment
+LANG = en_US.UTF-8
+# environment
 PROCESSOR_LEVEL = 6
 # environment
-VSCODE_PID = 9376
+VSCODE_PID = 5748
 # environment
 USERDOMAIN_ROAMINGPROFILE = DESKTOP-N1H7NKS
 # variable set hash-table stats:
-# Load=87/1024=8%, Rehash=0, Collisions=12/102=12%
+# Load=98/1024=10%, Rehash=0, Collisions=14/113=12%
 
 # Pattern-specific Variable Values
 
@@ -194,26 +217,28 @@ USERDOMAIN_ROAMINGPROFILE = DESKTOP-N1H7NKS
 
 # Directories
 
-# C:\Python27\Scripts (key C:/Python27/Scripts, mtime 1614527219): 12 files, no impossibilities.
-# C:\Windows\System32\WindowsPowerShell\v1.0\ (key C:/Windows/System32/WindowsPowerShell/v1.0/, mtime 1605754429): 30 files, no impossibilities.
-# . (key c:/Users/buikr/Desktop/2DRogueLike, mtime 1615489282): 55 files, no impossibilities.
-# C:\Users\buikr\AppData\Local\Microsoft\WindowsApps (key C:/Users/buikr/AppData/Local/Microsoft/WindowsApps, mtime 1615054455): 14 files, no impossibilities.
-# C:\Users\buikr\Desktop\Godot_v3.2.3-stable_mono_win64\ (key C:/Users/buikr/Desktop/Godot_v3.2.3-stable_mono_win64/, mtime 1600322145): 4 files, no impossibilities.
-# C:\TDM-GCC-64\bin (key C:/TDM-GCC-64/bin, mtime 1613652379): 60 files, no impossibilities.
-# C:\Program Files\Git\cmd (key C:/Program Files/Git/cmd, mtime 1612861598): 8 files, no impossibilities.
+# : could not be stat'd.
+# c:\Users\buikr\Desktop\Godot_v3.2.3-stable_mono_win64/GodotSharp/Mono/bin (key c:/Users/buikr/Desktop/Godot_v3.2.3-stable_mono_win64/GodotSharp/Mono/bin, mtime 1600270424): 3 files, no impossibilities.
+# C:\Python27\Scripts (key C:/Python27/Scripts, mtime 1614530819): 12 files, no impossibilities.
+# C:\Windows\System32\WindowsPowerShell\v1.0\ (key C:/Windows/System32/WindowsPowerShell/v1.0/, mtime 1605758029): 30 files, no impossibilities.
+# . (key c:/Users/buikr/Desktop/2DRogueLike, mtime 1619867919): 58 files, no impossibilities.
+# C:\Users\buikr\AppData\Local\Microsoft\WindowsApps (key C 
+:/Users/buikr/AppData/Local/Microsoft/WindowsApps, mtime 1619291602): 25 files, no impossibilities.
+# C:\Users\buikr\Desktop\Godot_v3.2.3-stable_mono_win64\ (key C:/Users/buikr/Desktop/Godot_v3.2.3-stable_mono_win64/, mtime 1600325745): 4 files, no impossibilities.
+# C:\TDM-GCC-64\bin (key C:/TDM-GCC-64/bin, mtime 1613655979): 60 files, no impossibilities.
+# C:\Program Files\Git\cmd (key C:/Program Files/Git/cmd, mtime 1612865198): 8 files, no impossibilities.
 # C:\Windows\System32\OpenSSH\: could not be stat'd.
-# C:\Users\buikr\AppData\Local\Programs\Microsoft VS Code\bin (key C:/Users/buikr/AppData/Local/Programs/Microsoft VS Code/bin, mtime 1614937793): 4 files, no impossibilities.
-# C:\Program Files (x86)\VMware\VMware Player\bin\ (key C:/Program Files (x86)/VMware/VMware Player/bin/, mtime 1614945804): 4 files, no impossibilities.
+# C:\Users\buikr\AppData\Local\Programs\Microsoft VS Code\bin (key C:/Users/buikr/AppData/Local/Programs/Microsoft VS Code/bin, mtime 1618397808): 4 files, no impossibilities.
+# C:\Program Files (x86)\VMware\VMware Player\bin\ (key C:/Program Files (x86)/VMware/VMware Player/bin/, mtime 1617645030): 4 files, no impossibilities.
 # C:\Users\buikr\.dotnet\tools: could not be stat'd.
-# C:\Users\buikr\AppData\Local\CIRCLE (key C:/Users/buikr/AppData/Local/CIRCLE, mtime 1614527220): 14 files 
-, no impossibilities.
-# C:\Windows (key C:/Windows, mtime 1613307600): 109 files, no impossibilities.
-# C:\Windows\System32\Wbem (key C:/Windows/System32/Wbem, mtime 1611362761): 170 files, no impossibilities.
-# C:\Program Files\dotnet\ (key C:/Program Files/dotnet/, mtime 1612825841): 10 files, no impossibilities.
-# C:\Windows\system32 (key C:/Windows/system32, mtime 1615453854): 3064 files, no impossibilities.
-# C:\Python27 (key C:/Python27, mtime 1614527152): 15 files, no impossibilities.
+# C:\Users\buikr\AppData\Local\CIRCLE (key C:/Users/buikr/AppData/Local/CIRCLE, mtime 1614530820): 14 files, no impossibilities.
+# C:\Windows (key C:/Windows, mtime 1618525888): 109 files, no impossibilities.
+# C:\Windows\System32\Wbem (key C:/Windows/System32/Wbem, mtime 1615509194): 170 files, no impossibilities.
+# C:\Program Files\dotnet\ (key C:/Program Files/dotnet/, mtime 1612829441): 10 files, no impossibilities.
+# C:\Windows\system32 (key C:/Windows/system32, mtime 1619853540): 3065 files, no impossibilities.
+# C:\Python27 (key C:/Python27, mtime 1614530752): 15 files, no impossibilities.
 
-# 3573 files, no impossibilities in 17 directories.
+# 3591 files, no impossibilities in 19 directories.
 
 # Implicit Rules
 
@@ -265,21 +290,21 @@ GNUmakefile:
 # Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
 # VPATH Search Paths
 
-# No 'vpath' search paths.
+# No 'vpath' search 
+mingw32-make.exe: *** No rule to make target 'all'.  Stop.
+ 
+ paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 7 (6) / strings = 3549 / storage = 53435 B / avg = 15 B
-# current buf: size = 8174 B / used = 4443 B / count = 275 / avg = 16 B
-# other used: total = 45261 B / count = 3274 / avg = 13 B
-# other free: total = 52 B / max = 14 B / min = 1 B / avg = 8 B
+# strcache buffers: 7 (5) / strings = 3564 / storage = 53820 B / avg = 15 B
+# current buf: size = 8174 B / used = 4842 B / count = 297 / avg = 16 B
+# other used: total = 45646 B / count = 3267 / avg = 13 B
+# other free: total = 66 B / max = 20 B / min = 3 B / avg = 11 B
 
-# strcache performance: lookups = 3597 / hit rate = 1%
+# strcache performance: lookups = 3617 / hit rate = 1%
 # hash-table stats:
-# Load=3549/8192=43%, Rehash=0, Collisions=1222/3597=34%
-# Finished Make data base on Thu Mar 1 
-mingw32-make.exe: *** No rule to make target 'all'.  Stop.
- 
-1 20:03:14 2021
+# Load=3564/8192=44%, Rehash=0, Collisions=1248/3617=35%
+# Finished Make data base on Sat May 01 13:18:43 2021
 
  
