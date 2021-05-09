@@ -17,7 +17,7 @@ public class FlamethrowerFlame : Bullet
         animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
         var controller = (FlamethrowerFlameGraphicsController)graphicsController;
         controller.PlayFadeAnimation(this);
-
+        ((FlamethrowerFlameGraphicsController)graphicsController).RandomTexture(this);
     }
 
     public override void HitTarget(KinematicCollision2D collision)

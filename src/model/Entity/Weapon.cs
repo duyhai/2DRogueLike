@@ -6,7 +6,7 @@ public abstract class Weapon : Node2D
     public float weaponCooldown;
     protected Timer bulletTimer;
     protected PackedScene bulletScene;
-    WeaponGraphicsController graphicsController;
+    protected WeaponGraphicsController graphicsController;
 
     public Weapon(WeaponGraphicsController graphicsController)
     {
@@ -18,20 +18,24 @@ public abstract class Weapon : Node2D
         graphicsController?.Update(this);
     }
 
-    public virtual void Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
+    public virtual bool Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
     {
-        if (bulletTimer.IsStopped())
+        if (!bulletTimer.IsStopped())
         {
-            bulletTimer.Start();
-            var bullet = (Bullet)bulletScene.Instance();
-
-            var tip = GetNodeOrNull<Node2D>("Tip");
-
-            bullet.Initiate(vector.Angle(), tip != null ? tip.GlobalPosition : ((Node2D)GetParent()).GlobalPosition);
-            bullet.CollisionLayer = collisionLayer;
-            bullet.CollisionMask = collisionMask;
-            GetParent().GetParent().AddChild(bullet);
+            return false;
         }
+
+        bulletTimer.Start();
+        var bullet = (Bullet)bulletScene.Instance();
+
+        var tip = GetNodeOrNull<Node2D>("Sprite/Tip");
+
+        bullet.Initiate(vector.Angle(), tip != null ? tip.GlobalPosition : ((Node2D)GetParent()).GlobalPosition);
+        bullet.CollisionLayer = collisionLayer;
+        bullet.CollisionMask = collisionMask;
+        GetParent().GetParent().AddChild(bullet);
+
+        return true;
     }
 
     public void SetWeaponCooldown(float weaponCooldown)

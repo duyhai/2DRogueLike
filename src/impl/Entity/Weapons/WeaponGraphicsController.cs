@@ -8,6 +8,9 @@ public class WeaponGraphicsController : GraphicsController
         node.Rotation = vector.Angle();
 
         Sprite sprite = node.GetNode<Sprite>("Sprite");
-        sprite.FlipV = vector.Dot(Vector2.Right) < 0;
+        if (sprite.Scale.y > 0 ^ vector.Dot(Vector2.Right) > 0)
+        {
+            sprite.Scale = new Vector2(sprite.Scale.x, -sprite.Scale.y);
+        }
     }
 }

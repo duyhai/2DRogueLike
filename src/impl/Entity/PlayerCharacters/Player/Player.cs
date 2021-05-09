@@ -1,8 +1,10 @@
 using Godot;
+using System.Collections.Generic;
 
 public class Player : GameObject
 {
-    public Weapon weapon;
+    public List<Weapon> weapons = new List<Weapon>();
+    public int equippedWeaponIndex = 0;
 
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://Player.tscn");
 
@@ -18,12 +20,17 @@ public class Player : GameObject
 
     public override void _Ready()
     {
-        weapon = GetNode<SimpleWeapon>("SimpleWeapon");
+        weapons.Add((Weapon)GetNode("SimpleWeapon"));
+        weapons.Add((Weapon)GetNode("BouncyBulletWeapon"));
+        weapons.Add((Weapon)GetNode("Flamethrower"));
+        weapons.Add((Weapon)GetNode("RocketLauncher"));
+        weapons.Add((Weapon)GetNode("ShockWeapon"));
+        weapons[equippedWeaponIndex].Visible = true;
     }
 
     public void Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
     {
-        weapon.Shoot(vector, collisionLayer, collisionMask);
+        weapons[equippedWeaponIndex].Shoot(vector, collisionLayer, collisionMask);
     }
 
     public void Respawn(float x, float y)
