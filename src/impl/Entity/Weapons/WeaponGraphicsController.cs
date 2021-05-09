@@ -7,10 +7,9 @@ public class WeaponGraphicsController : GraphicsController
         Vector2 vector = node.GetGlobalMousePosition() - node.GlobalPosition;
         node.Rotation = vector.Angle();
 
-        Sprite sprite = node.GetNode<Sprite>("Sprite");
-        if (sprite.Scale.y > 0 ^ vector.Dot(Vector2.Right) > 0)
+        if (node.Scale.y > 0 ^ vector.Dot(Vector2.Right) > 0)
         {
-            sprite.Scale = new Vector2(sprite.Scale.x, -sprite.Scale.y);
+            node.Scale = new Vector2(node.Scale.x, -node.Scale.y);
         }
     }
 }
