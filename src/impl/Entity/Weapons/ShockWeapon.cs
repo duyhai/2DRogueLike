@@ -40,7 +40,7 @@ public class ShockWeapon : Weapon
             var method = body.GetType().GetMethod("Hit");
             method?.Invoke(body, new object[] { damage });
         }
-        
+        SoundManager.Instance.PlaySound(SoundPaths.Lightning);
         return true;
     }
 

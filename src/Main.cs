@@ -23,6 +23,7 @@ public class Main : Node
         resultScreen = GetNode<Control>("ResultScreen/ResultScreenNode");
         deathScreen = GetNode<Control>("DeathScreen/DeathScreenNode");
         FCTManager.Instance.TextContainer = GetNode<Node>("FloatingTexts");
+        SoundManager.Instance.SoundContainer = GetNode<Node>("Sounds");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

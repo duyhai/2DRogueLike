@@ -32,6 +32,8 @@ region_rect = Rect2( -2000, -2000, 4000, 4000 )
 
 [node name="FloatingTexts" type="Node" parent="."]
 
+[node name="Sounds" type="Node" parent="."]
+
 [node name="GUI" parent="." instance=ExtResource( 6 )]
 script = ExtResource( 2 )
 

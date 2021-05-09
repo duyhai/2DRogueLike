@@ -31,9 +31,4 @@ public class Melee : Weapon
 
         return true;
     }
-
-    public void OnAnimationPlayerAnimationFinished(string animationName)
-    {
-        ((MeleeGraphicsController)graphicsController).ResetAnimation(this);
-    }
 }

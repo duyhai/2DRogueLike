@@ -16,6 +16,7 @@ public class SimpleWeapon : Weapon
         if (base.Shoot(vector, collisionLayer, collisionMask))
         {
             ((SimpleWeaponGraphicsController)graphicsController).MuzzleFlash(this);
+            SoundManager.Instance.PlaySound(SoundPaths.Gunshot);
             return true;
         }
         return false;

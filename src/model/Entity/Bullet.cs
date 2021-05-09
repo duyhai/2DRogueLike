@@ -22,6 +22,7 @@ public abstract class Bullet : GameObject
     {
         Position = position;
         velocity = new Vector2(speed, 0).Rotated(rotation);
+        Rotation = (Mathf.Pi / 2) + velocity.Angle();
     }
 
     public virtual void HitTarget(KinematicCollision2D collision)
