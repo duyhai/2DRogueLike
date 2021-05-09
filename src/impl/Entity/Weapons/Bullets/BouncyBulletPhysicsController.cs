@@ -7,6 +7,7 @@ public class BouncyBulletPhysicsController : PhysicsController
         if (collision != null)
         {
             bullet.velocity = bullet.velocity.Bounce(collision.Normal);
+            SoundManager.Instance.PlaySound(SoundPaths.Bounce);
             bullet.HitTarget(collision);
         }
     }

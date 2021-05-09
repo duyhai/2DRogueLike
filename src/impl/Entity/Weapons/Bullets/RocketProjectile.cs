@@ -6,6 +6,7 @@ public class RocketProjectile : Bullet
     static int DAMAGE = 15;
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://RocketProjectile.tscn");
     Area2D explosionArea;
+    bool exploded = false;
 
     public RocketProjectile() :
         base(new NullInputController(), new SimpleBulletPhysicsController(), new RocketProjectileGraphicsController(), DAMAGE)
@@ -22,7 +23,11 @@ public class RocketProjectile : Bullet
 
     public override void HitTarget(KinematicCollision2D collision)
     {
-        Explosion();
+        if (!exploded)
+        {
+            Explosion();
+            GetNode<Timer>("ExplosionTimer").Stop();
+        }
     }
 
     public void OnExplosionTimerTimeout()
@@ -37,6 +42,8 @@ public class RocketProjectile : Bullet
 
     private void Explosion()
     {
+        exploded = true;
+        SoundManager.Instance.PlaySound(SoundPaths.Explosion, Position);
         velocity = Vector2.Zero;
         var bodies = explosionArea.GetOverlappingBodies();
         foreach (var body in bodies)

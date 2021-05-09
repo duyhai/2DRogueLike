@@ -10,9 +10,13 @@ public class RocketLauncher : Weapon
         bulletScene = RocketProjectile.SceneObject;
     }
 
-    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //      
-    //  }
+    public override bool Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
+    {
+        if (base.Shoot(vector, collisionLayer, collisionMask))
+        {
+            SoundManager.Instance.PlaySound(SoundPaths.RocketLaunching);
+            return true;
+        }
+        return false;
+    }
 }

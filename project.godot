@@ -22,6 +22,7 @@ run/main_scene="res://MenuScenes/MainMenu.tscn"
 
 SceneManager="*res://src/impl/SceneManager.cs"
 FctManager="*res://FCTManager.tscn"
+SoundManager="*res://SoundManager.tscn"
 
 [editor_plugins]
 

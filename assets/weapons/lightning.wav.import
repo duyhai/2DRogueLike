@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lightning.wav-afd2483ee3b9d3f3b3ad202f536b89bd.sample"
+
+[deps]
+
+source_file="res://assets/weapons/lightning.wav"
+dest_files=[ "res://.import/lightning.wav-afd2483ee3b9d3f3b3ad202f536b89bd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0
