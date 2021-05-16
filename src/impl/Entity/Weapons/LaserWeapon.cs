@@ -19,6 +19,9 @@ public class LaserWeapon : Weapon
 
     public override void _Ready()
     {
+        // This BulletTimer is repurposed to help with 
+        // disabling the laser when the attack button is released.
+        // We can to this, because the laser doesn't have a cooldown.
         bulletTimer = GetNode<Timer>("BulletTimer");
         SetPhysicsProcess(false);
         GetNode<Line2D>("Tip/RayCast2D/Line2D").Points[1] = Vector2.Zero;
