@@ -6,6 +6,7 @@ public class LaserWeapon : Weapon
     bool isCasting = false;
     int damage = 3;
     RayCast2D rayCast2D;
+    SoundPlayer soundPlayer;
 
     public LaserWeapon() : base(new LaserWeaponGraphicsController()) { }
 
@@ -32,6 +33,8 @@ public class LaserWeapon : Weapon
     {
         Vector2 castPoint = rayCast2D.CastTo;
         rayCast2D.ForceRaycastUpdate();
+        var collisionParticles2D = GetNode<Particles2D>("Tip/RayCast2D/CollisionParticles2D");
+        collisionParticles2D.Emitting = rayCast2D.IsColliding();
 
         if (rayCast2D.IsColliding())
         {
@@ -39,6 +42,8 @@ public class LaserWeapon : Weapon
             var body = rayCast2D.GetCollider();
             var method = body.GetType().GetMethod("Hit");
             method?.Invoke(body, new object[] { damage });
+            collisionParticles2D.GlobalRotation = rayCast2D.GetCollisionNormal().Angle();
+            collisionParticles2D.Position = castPoint;
         }
         GetNode<Line2D>("Tip/RayCast2D/Line2D").SetPointPosition(1, castPoint);
     }
@@ -48,14 +53,18 @@ public class LaserWeapon : Weapon
         if (cast && !isCasting)
         {
             ((LaserWeaponGraphicsController)graphicsController).appear(this);
+            soundPlayer = SoundManager.Instance.PlaySound(SoundPaths.LaserBeam, true);
         }
         else if (!cast && isCasting)
         {
+            GetNode<Particles2D>("Tip/RayCast2D/CollisionParticles2D").Emitting = false;
             ((LaserWeaponGraphicsController)graphicsController).disappear(this);
+            soundPlayer.QueueFree();
         }
 
         isCasting = cast;
         SetPhysicsProcess(isCasting);
+        GetNode<Particles2D>("Tip/RayCast2D/CastingParticles2D").Emitting = cast;
     }
 
     public void OnBulletTimerTimeout()
