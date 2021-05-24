@@ -26,6 +26,7 @@ public class Player : GameObject
         weapons.Add((Weapon)GetNode("RocketLauncher"));
         weapons.Add((Weapon)GetNode("ShockWeapon"));
         weapons.Add((Weapon)GetNode("Melee"));
+        weapons.Add((Weapon)GetNode("LaserWeapon"));
         weapons[equippedWeaponIndex].Visible = true;
     }
 
