@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/small-muzzle-flash-png-transparent-gun-flash-png-400_400.png-f215bf0f298101c50cedbe9bf028516e.stex"
+path="res://.import/laserbeam.png-6c97ad58c0bd323b7de443331b6e18f5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://small-muzzle-flash-png-transparent-gun-flash-png-400_400.png"
-dest_files=[ "res://.import/small-muzzle-flash-png-transparent-gun-flash-png-400_400.png-f215bf0f298101c50cedbe9bf028516e.stex" ]
+source_file="res://assets/weapons/laserbeam.png"
+dest_files=[ "res://.import/laserbeam.png-6c97ad58c0bd323b7de443331b6e18f5.stex" ]
 
 [params]
 

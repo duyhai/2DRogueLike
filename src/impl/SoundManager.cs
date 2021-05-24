@@ -13,23 +13,35 @@ public class SoundManager : Node2D
         Instance = this;
     }
 
-    public void PlaySound(string soundPath, Vector2? position = null)
+    public void StopAllSound()
     {
-        AudioStream audioStream = (AudioStreamSample)GD.Load(soundPath);
-        if (position != null)
+        Node soundsNode = GetNode<Node2D>("Main/Sounds");
+        foreach (Node i in soundsNode.GetChildren())
         {
-            SoundPlayer2D soundPlayer2D = (SoundPlayer2D)soundPlayer2DScene.Instance();
-            soundPlayer2D.Position = (Vector2)position;
-            soundPlayer2D.Stream = audioStream;
-            SoundContainer.AddChild(soundPlayer2D);
-            soundPlayer2D.Play();
+            i.QueueFree();
         }
-        else
-        {
-            SoundPlayer soundPlayer = (SoundPlayer)soundPlayerScene.Instance();
-            soundPlayer.Stream = audioStream;
-            SoundContainer.AddChild(soundPlayer);
-            soundPlayer.Play();
-        }
+    }
+
+    public SoundPlayer PlaySound(string soundPath, bool loop = false)
+    {
+        AudioStreamSample audioStream = GD.Load<AudioStreamSample>(soundPath);
+        SoundPlayer soundPlayer = (SoundPlayer)soundPlayerScene.Instance();
+        soundPlayer.Stream = audioStream;
+        soundPlayer.Loop = loop;
+        SoundContainer.AddChild(soundPlayer);
+        soundPlayer.Play();
+        return soundPlayer;
+    }
+
+    public SoundPlayer2D PlaySound(string soundPath, Vector2 position, bool loop = false)
+    {
+        AudioStreamSample audioStream = GD.Load<AudioStreamSample>(soundPath);
+        SoundPlayer2D soundPlayer2D = (SoundPlayer2D)soundPlayer2DScene.Instance();
+        soundPlayer2D.Position = position;
+        soundPlayer2D.Stream = audioStream;
+        soundPlayer2D.Loop = loop;
+        SoundContainer.AddChild(soundPlayer2D);
+        soundPlayer2D.Play();
+        return soundPlayer2D;
     }
 }
