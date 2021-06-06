@@ -4,12 +4,13 @@ public class SmoothCollidePhysicsController : PhysicsController
 {
     public override void Update(GameObject gameObject, float delta)
     {
-        var collision = gameObject.MoveAndCollide(gameObject.velocity * delta);
+        var modifiedVelocity = gameObject.velocity * gameObject.speedModifier;
+        var collision = gameObject.MoveAndCollide(modifiedVelocity * delta);
 
         if (collision != null)
         {
-            gameObject.velocity = gameObject.velocity.Slide(collision.Normal);
-            collision = gameObject.MoveAndCollide(gameObject.velocity * delta);
+            modifiedVelocity = modifiedVelocity.Slide(collision.Normal);
+            collision = gameObject.MoveAndCollide(modifiedVelocity * delta);
         }
     }
 }

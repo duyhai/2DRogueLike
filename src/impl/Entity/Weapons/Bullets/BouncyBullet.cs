@@ -2,11 +2,10 @@ using Godot;
 
 public class BouncyBullet : Bullet
 {
-    static int DAMAGE = 20;
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://BouncyBullet.tscn");
 
     public BouncyBullet() :
-        base(new NullInputController(), new BouncyBulletPhysicsController(), new NullGraphicsController(), DAMAGE)
+        base(new NullInputController(), new BouncyBulletPhysicsController(), new NullGraphicsController())
     {
         speed = 750;
     }

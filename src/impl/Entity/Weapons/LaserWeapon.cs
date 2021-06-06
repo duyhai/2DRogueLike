@@ -4,11 +4,10 @@ using System;
 public class LaserWeapon : Weapon
 {
     bool isCasting = false;
-    int damage = 3;
     RayCast2D rayCast2D;
     SoundPlayer soundPlayer;
 
-    public LaserWeapon() : base(new LaserWeaponGraphicsController()) { }
+    public LaserWeapon() : base(new LaserWeaponGraphicsController(), 3) { }
 
     public override bool Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
     {
@@ -38,10 +37,11 @@ public class LaserWeapon : Weapon
 
         if (rayCast2D.IsColliding())
         {
+            int modifiedDamage = (int)(GetParent<GameObject>().damageModifier * damage);
             castPoint = rayCast2D.ToLocal(rayCast2D.GetCollisionPoint());
             var body = rayCast2D.GetCollider();
             var method = body.GetType().GetMethod("Hit");
-            method?.Invoke(body, new object[] { damage });
+            method?.Invoke(body, new object[] { modifiedDamage });
             collisionParticles2D.GlobalRotation = rayCast2D.GetCollisionNormal().Angle();
             collisionParticles2D.Position = castPoint;
         }

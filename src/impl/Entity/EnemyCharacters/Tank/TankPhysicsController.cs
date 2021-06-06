@@ -1,15 +1,17 @@
 using Godot;
 using System;
 
-public class TankPhysicsController : PhysicsController {
+public class TankPhysicsController : PhysicsController
+{
     public override void Update(GameObject gameObject, float delta)
     {
         Tank tank = (Tank)gameObject;
-        var collision = gameObject.MoveAndCollide(tank.velocity * delta);
-        
+        var modifiedVelocity = tank.velocity * tank.speedModifier;
+        var collision = tank.MoveAndCollide(modifiedVelocity * delta);
+
         if (collision != null)
         {
-            gameObject.velocity = gameObject.velocity.Slide(collision.Normal);
+            modifiedVelocity = modifiedVelocity.Slide(collision.Normal);
             tank.HitTarget(collision);
         }
     }
