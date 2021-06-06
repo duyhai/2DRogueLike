@@ -7,4 +7,6 @@ public class SoundPaths
     public static string Lightning = "res://assets/weapons/lightning.wav";
     public static string Bounce = "res://assets/weapons/bounce.wav";
     public static string BouncyWeapon = "res://assets/weapons/bouncyweapon.wav";
+    public static string LaserBeam = "res://assets/weapons/laserbeam.wav";
+    public static string LaserBeamOGG = "res://assets/weapons/laserbeam.ogg";
 }
