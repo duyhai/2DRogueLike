@@ -2,12 +2,11 @@ using Godot;
 
 public class FlamethrowerFlame : Bullet
 {
-    static int DAMAGE = 3;
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://FlamethrowerFlame.tscn");
     AnimationPlayer animationPlayer;
 
     public FlamethrowerFlame() :
-        base(new NullInputController(), new SimpleBulletPhysicsController(), new FlamethrowerFlameGraphicsController(), DAMAGE)
+        base(new NullInputController(), new SimpleBulletPhysicsController(), new FlamethrowerFlameGraphicsController())
     {
         speed = 75;
     }
@@ -23,6 +22,11 @@ public class FlamethrowerFlame : Bullet
     public override void HitTarget(KinematicCollision2D collision)
     {
         base.HitTarget(collision);
+        Node collider = (Node)collision.Collider;
+
+        BurningPowerUp burningPowerUp = (BurningPowerUp)GD.Load<PackedScene>("res://BurningPowerUp.tscn").Instance();
+        var method = collider.GetType().GetMethod("AddPowerUp");
+        method?.Invoke(collider, new object[] { burningPowerUp });
         QueueFree();
     }
 

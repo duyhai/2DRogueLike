@@ -3,7 +3,7 @@ using System;
 
 public class Flamethrower : Weapon
 {
-    public Flamethrower() : base(new WeaponGraphicsController()) { }
+    public Flamethrower() : base(new WeaponGraphicsController(), 3) { }
 
     public override void _Ready()
     {

@@ -3,13 +3,12 @@ using System.Diagnostics;
 
 public class RocketProjectile : Bullet
 {
-    static int DAMAGE = 15;
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://RocketProjectile.tscn");
     Area2D explosionArea;
     bool exploded = false;
 
     public RocketProjectile() :
-        base(new NullInputController(), new SimpleBulletPhysicsController(), new RocketProjectileGraphicsController(), DAMAGE)
+        base(new NullInputController(), new SimpleBulletPhysicsController(), new RocketProjectileGraphicsController())
     {
         speed = 350;
     }

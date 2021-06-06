@@ -3,7 +3,7 @@ using Godot;
 public class SimpleWeapon : Weapon
 {
 
-    public SimpleWeapon() : base(new SimpleWeaponGraphicsController()) { }
+    public SimpleWeapon() : base(new SimpleWeaponGraphicsController(), 20) { }
 
     public override void _Ready()
     {

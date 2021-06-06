@@ -2,7 +2,7 @@ using Godot;
 
 public class BouncyBulletWeapon : Weapon
 {
-    public BouncyBulletWeapon() : base(new WeaponGraphicsController()) { }
+    public BouncyBulletWeapon() : base(new WeaponGraphicsController(), 20) { }
 
     public override void _Ready()
     {

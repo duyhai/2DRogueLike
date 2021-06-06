@@ -2,13 +2,11 @@ using Godot;
 
 public abstract class Bullet : GameObject
 {
-    public int damage;
+    protected int damage;
 
-    public Bullet(InputController inputController, PhysicsController physicsController, GraphicsController graphicsController, int damage) :
+    public Bullet(InputController inputController, PhysicsController physicsController, GraphicsController graphicsController) :
         base(inputController, physicsController, graphicsController)
-    {
-        this.damage = damage;
-    }
+    { }
 
     public void OnVisibilityNotifier2DScreenExited()
     {
@@ -18,11 +16,12 @@ public abstract class Bullet : GameObject
         }
     }
 
-    public void Initiate(float rotation, Vector2 position)
+    public void Initiate(float rotation, Vector2 position, int damage)
     {
         Position = position;
         velocity = new Vector2(speed, 0).Rotated(rotation);
         Rotation = (Mathf.Pi / 2) + velocity.Angle();
+        this.damage = damage;
     }
 
     public virtual void HitTarget(KinematicCollision2D collision)
