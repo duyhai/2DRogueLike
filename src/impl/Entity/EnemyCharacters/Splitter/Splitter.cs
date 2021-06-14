@@ -7,7 +7,7 @@ public class Splitter : Enemy
     public Splitter() :
         base(new NullInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
     {
-        this.speed = 200;
+        this.baseSpeed = 200;
         this.maxHealth = 40;
         this.health = maxHealth;
         CollisionLayer = CollisionLayers.Enemy;

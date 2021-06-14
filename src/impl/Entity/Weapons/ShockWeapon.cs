@@ -34,11 +34,10 @@ public class ShockWeapon : Weapon
 
         ((ShockWeaponGraphicsController)graphicsController).ChainingBodiesAnimation(this, bodiesHit);
 
-        int modifiedDamage = (int)(GetParent<GameObject>().damageModifier * damage);
         foreach (var body in bodiesHit)
         {
             var method = body.GetType().GetMethod("Hit");
-            method?.Invoke(body, new object[] { modifiedDamage });
+            method?.Invoke(body, new object[] { damage });
         }
         SoundManager.Instance.PlaySound(SoundPaths.Lightning);
         return true;

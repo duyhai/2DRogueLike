@@ -7,7 +7,7 @@ public class BouncyBullet : Bullet
     public BouncyBullet() :
         base(new NullInputController(), new BouncyBulletPhysicsController(), new NullGraphicsController())
     {
-        speed = 750;
+        baseSpeed = 750;
     }
 
     public override void HitTarget(KinematicCollision2D collision)
