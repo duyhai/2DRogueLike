@@ -2,9 +2,8 @@ using Godot;
 
 public class Melee : Weapon
 {
-    public Melee() : base(new MeleeGraphicsController()) { }
+    public Melee() : base(new MeleeGraphicsController(), 25) { }
     Area2D swingingArea;
-    int damage = 25;
 
     public override void _Ready()
     {
@@ -22,10 +21,11 @@ public class Melee : Weapon
         }
         bulletTimer.Start();
         var bodies = swingingArea.GetOverlappingBodies();
+        int modifiedDamage = (int)(GetParent<GameObject>().damageModifier * damage);
         foreach (var body in bodies)
         {
             var method = body.GetType().GetMethod("Hit");
-            method?.Invoke(body, new object[] { damage });
+            method?.Invoke(body, new object[] { modifiedDamage });
         }
         ((MeleeGraphicsController)graphicsController).Swing(this);
 

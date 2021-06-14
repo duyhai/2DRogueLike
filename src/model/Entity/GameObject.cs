@@ -7,6 +7,8 @@ public abstract class GameObject : KinematicBody2D
     public delegate void DeathSignal();
     public Vector2 velocity;
     public int speed;
+    public float speedModifier = 1;
+    public float damageModifier = 1;
     public int health;
     public int maxHealth;
     public bool isDead = false;
@@ -76,5 +78,18 @@ public abstract class GameObject : KinematicBody2D
     public virtual void Death()
     {
         QueueFree();
+    }
+
+    public void AddPowerUp(PowerUp powerUp)
+    {
+        var powerUps = GetTree().GetNodesInGroup("PowerUp");
+        for (int i = 0; i < powerUps.Count; i++)
+        {
+            if (powerUps[i].GetType() == powerUp.GetType())
+            {
+                ((PowerUp)powerUps[i]).UndoEffect();
+            }
+        }
+        AddChild(powerUp);
     }
 }

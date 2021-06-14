@@ -5,11 +5,10 @@ using Utility;
 
 public class ShockWeapon : Weapon
 {
-    int damage = 1000;
     float radius = 75;
     float fov = Mathf.Cos(Mathf.Pi / 4);
 
-    public ShockWeapon() : base(new ShockWeaponGraphicsController()) { }
+    public ShockWeapon() : base(new ShockWeaponGraphicsController(), 1000) { }
 
     public override void _Ready()
     {
@@ -35,10 +34,11 @@ public class ShockWeapon : Weapon
 
         ((ShockWeaponGraphicsController)graphicsController).ChainingBodiesAnimation(this, bodiesHit);
 
+        int modifiedDamage = (int)(GetParent<GameObject>().damageModifier * damage);
         foreach (var body in bodiesHit)
         {
             var method = body.GetType().GetMethod("Hit");
-            method?.Invoke(body, new object[] { damage });
+            method?.Invoke(body, new object[] { modifiedDamage });
         }
         SoundManager.Instance.PlaySound(SoundPaths.Lightning);
         return true;
