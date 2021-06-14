@@ -21,11 +21,10 @@ public class Melee : Weapon
         }
         bulletTimer.Start();
         var bodies = swingingArea.GetOverlappingBodies();
-        int modifiedDamage = (int)(GetParent<GameObject>().damageModifier * damage);
         foreach (var body in bodies)
         {
             var method = body.GetType().GetMethod("Hit");
-            method?.Invoke(body, new object[] { modifiedDamage });
+            method?.Invoke(body, new object[] { damage });
         }
         ((MeleeGraphicsController)graphicsController).Swing(this);
 

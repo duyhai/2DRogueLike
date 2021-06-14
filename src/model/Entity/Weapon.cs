@@ -1,10 +1,28 @@
+using System;
 using Godot;
 
 public abstract class Weapon : Node2D
 {
     protected int bulletSpeed;
     public float weaponCooldown;
-    protected int damage;
+    protected int baseDamage;
+    public int damage
+    {
+        get
+        {
+            float modifier = 1f;
+            if (IsInsideTree())
+            {
+                var powerUps = GetParent().GetTree().GetNodesInGroup("DamageModPowerUp");
+                for (int i = 0; i < powerUps.Count; i++)
+                {
+                    DamageModPowerUp damageModPowerUp = (DamageModPowerUp)powerUps[i];
+                    modifier += damageModPowerUp.Modifier;
+                }
+            }
+            return (int)(baseDamage * modifier);
+        }
+    }
     protected Timer bulletTimer;
     protected PackedScene bulletScene;
     protected WeaponGraphicsController graphicsController;
@@ -12,7 +30,7 @@ public abstract class Weapon : Node2D
     public Weapon(WeaponGraphicsController graphicsController, int damage)
     {
         this.graphicsController = graphicsController;
-        this.damage = damage;
+        baseDamage = damage;
     }
 
     public override void _Process(float delta)
@@ -32,8 +50,7 @@ public abstract class Weapon : Node2D
 
         var tip = GetNodeOrNull<Node2D>("Sprite/Tip");
 
-        int modifiedDamage = (int)(GetParent<GameObject>().damageModifier * damage);
-        bullet.Initiate(vector.Angle(), tip != null ? tip.GlobalPosition : ((Node2D)GetParent()).GlobalPosition, modifiedDamage);
+        bullet.Initiate(vector.Angle(), tip != null ? tip.GlobalPosition : ((Node2D)GetParent()).GlobalPosition, damage);
         bullet.CollisionLayer = collisionLayer;
         bullet.CollisionMask = collisionMask;
         GetParent().GetParent().AddChild(bullet);

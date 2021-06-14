@@ -6,9 +6,25 @@ public abstract class GameObject : KinematicBody2D
     [Signal]
     public delegate void DeathSignal();
     public Vector2 velocity;
-    public int speed;
-    public float speedModifier = 1;
-    public float damageModifier = 1;
+    protected int baseSpeed;
+    public int speed
+    {
+        get
+        {
+            float modifier = 1f;
+            if (IsInsideTree())
+            {
+                var powerUps = GetTree().GetNodesInGroup("MovSpeedModPowerUp");
+                for (int i = 0; i < powerUps.Count; i++)
+                {
+                    MovSpeedModPowerUp movSpeedModPowerUp = (MovSpeedModPowerUp)powerUps[i];
+                    modifier += movSpeedModPowerUp.Modifier;
+                }
+            }
+            return (int)(baseSpeed * modifier);
+        }
+        set => baseSpeed = value;
+    }
     public int health;
     public int maxHealth;
     public bool isDead = false;

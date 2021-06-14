@@ -6,12 +6,11 @@ public class TankPhysicsController : PhysicsController
     public override void Update(GameObject gameObject, float delta)
     {
         Tank tank = (Tank)gameObject;
-        var modifiedVelocity = tank.velocity * tank.speedModifier;
-        var collision = tank.MoveAndCollide(modifiedVelocity * delta);
+        var collision = tank.MoveAndCollide(tank.velocity * delta);
 
         if (collision != null)
         {
-            modifiedVelocity = modifiedVelocity.Slide(collision.Normal);
+            tank.velocity = tank.velocity.Slide(collision.Normal);
             tank.HitTarget(collision);
         }
     }

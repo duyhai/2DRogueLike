@@ -8,7 +8,7 @@ public class Shooter : Enemy
     public Shooter() :
         base(new ShooterInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
     {
-        this.speed = 200;
+        this.baseSpeed = 200;
         this.health = 50;
         this.maxHealth = health;
         CollisionLayer = CollisionLayers.Enemy;

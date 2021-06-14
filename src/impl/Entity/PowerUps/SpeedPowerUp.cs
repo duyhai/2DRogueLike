@@ -1,24 +1,10 @@
 using Godot;
 using System;
 
-public class SpeedPowerUp : PowerUp
+public class SpeedPowerUp : MovSpeedModPowerUp
 {
-    float modifier = 6f;
-
-    public override void _Ready()
+    public SpeedPowerUp()
     {
-        Effect();
-        base._Ready();
-    }
-
-    public override void Effect()
-    {
-        GetParent<GameObject>().speedModifier += modifier;
-    }
-
-    public override void UndoEffect()
-    {
-        GetParent<GameObject>().speedModifier -= modifier;
-        base.UndoEffect();
+        modifier = 6f;
     }
 }

@@ -8,7 +8,7 @@ public class FlamethrowerFlame : Bullet
     public FlamethrowerFlame() :
         base(new NullInputController(), new SimpleBulletPhysicsController(), new FlamethrowerFlameGraphicsController())
     {
-        speed = 75;
+        baseSpeed = 75;
     }
 
     public override void _Ready()

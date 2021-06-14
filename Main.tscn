@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Main.cs" type="Script" id=1]
 [ext_resource path="res://src/impl/GUI.cs" type="Script" id=2]
 [ext_resource path="res://SpeedBoost.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/Floor.png" type="Texture" id=4]
+[ext_resource path="res://DamageBoost.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFontData" id=1]
@@ -32,7 +33,11 @@ region_rect = Rect2( -2000, -2000, 4000, 4000 )
 [node name="World" type="Node" parent="."]
 
 [node name="SpeedBoost" parent="World" instance=ExtResource( 3 )]
-position = Vector2( -318.779, 195.308 )
+position = Vector2( -165.966, 184.011 )
+
+[node name="DamageBoost" parent="World" instance=ExtResource( 5 )]
+position = Vector2( -161.9, 376.716 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="FloatingTexts" type="Node" parent="."]
 

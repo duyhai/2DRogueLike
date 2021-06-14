@@ -9,14 +9,14 @@ public class Tank : Enemy
     public Tank() :
         base(new TankInputController(), new TankPhysicsController(), new BasicGraphicsController())
     {
-        this.speed = 50;
+        this.baseSpeed = 50;
         this.maxHealth = 200;
         this.health = maxHealth;
         this.damage = 20;
         CollisionLayer = CollisionLayers.Enemy;
         CollisionMask = CollisionLayers.Player | CollisionLayers.MapObject;
     }
- 
+
     public override void _Ready()
     {
         attackTimer = GetNode<Timer>("Timer");
