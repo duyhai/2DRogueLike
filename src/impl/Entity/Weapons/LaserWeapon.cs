@@ -37,11 +37,10 @@ public class LaserWeapon : Weapon
 
         if (rayCast2D.IsColliding())
         {
-            int modifiedDamage = (int)(GetParent<GameObject>().damageModifier * damage);
             castPoint = rayCast2D.ToLocal(rayCast2D.GetCollisionPoint());
             var body = rayCast2D.GetCollider();
             var method = body.GetType().GetMethod("Hit");
-            method?.Invoke(body, new object[] { modifiedDamage });
+            method?.Invoke(body, new object[] { damage });
             collisionParticles2D.GlobalRotation = rayCast2D.GetCollisionNormal().Angle();
             collisionParticles2D.Position = castPoint;
         }

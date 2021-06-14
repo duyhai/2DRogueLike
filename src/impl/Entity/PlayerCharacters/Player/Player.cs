@@ -11,7 +11,7 @@ public class Player : GameObject
     public Player() :
         base(new PlayerInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
     {
-        this.speed = 200;
+        this.baseSpeed = 200;
         this.maxHealth = 100;
         this.health = maxHealth;
         CollisionLayer = CollisionLayers.Player;

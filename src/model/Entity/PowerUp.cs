@@ -1,6 +1,6 @@
 using Godot;
 
-public abstract class PowerUp : Node
+public abstract class PowerUp : Node2D
 {
     public abstract void Effect();
 
