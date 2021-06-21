@@ -10,13 +10,14 @@ public class BouncyBullet : Bullet
         baseSpeed = 750;
     }
 
-    public override void HitTarget(KinematicCollision2D collision)
+    public override int HitTarget(KinematicCollision2D collision)
     {
-        base.HitTarget(collision);
+        int inflictedDamage = base.HitTarget(collision);
         var collider = (GameObject)collision.Collider;
         if (collider.GetType().BaseType.ToString() != nameof(Block))
         {
             QueueFree();
         }
+        return inflictedDamage;
     }
 }

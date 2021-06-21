@@ -20,13 +20,15 @@ public class RocketProjectile : Bullet
         explosionArea.CollisionMask = CollisionMask;
     }
 
-    public override void HitTarget(KinematicCollision2D collision)
+    public override int HitTarget(KinematicCollision2D collision)
     {
+        int inflictedDamage = 0;
         if (!exploded)
         {
-            Explosion();
+            inflictedDamage = Explosion();
             GetNode<Timer>("ExplosionTimer").Stop();
         }
+        return inflictedDamage;
     }
 
     public void OnExplosionTimerTimeout()
@@ -39,17 +41,33 @@ public class RocketProjectile : Bullet
         QueueFree();
     }
 
-    private void Explosion()
+    private int Explosion()
     {
         exploded = true;
         SoundManager.Instance.PlaySound(SoundPaths.Explosion, Position);
+
+        int inflictedDamage = 0;
+        float lifestealPercentage = 0f;
+        if (initiator.IsInsideTree())
+        {
+            var powerUps = GroupUtils.FindNodeDescendantsInGroup(initiator, "LifestealPowerUp");
+            for (int i = 0; i < powerUps.Count; i++)
+            {
+                LifestealPowerUp lifestealPowerUp = (LifestealPowerUp)powerUps[i];
+                lifestealPercentage += lifestealPowerUp.Percentage;
+            }
+        }
+
         velocity = Vector2.Zero;
         var bodies = explosionArea.GetOverlappingBodies();
         foreach (var body in bodies)
         {
             var method = body.GetType().GetMethod("Hit");
-            method?.Invoke(body, new object[] { damage });
+            inflictedDamage += (int)method?.Invoke(body, new object[] { damage });
         }
+        initiator.Hit((int)(-inflictedDamage * lifestealPercentage));
+
         ((RocketProjectileGraphicsController)graphicsController).PlayExplosionAnimation(this);
+        return inflictedDamage;
     }
 }

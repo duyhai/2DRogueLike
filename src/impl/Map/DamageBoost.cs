@@ -1,11 +1,10 @@
 using Godot;
 
-public class DamageBoost : Node2D
+public class DamageBoost : Booster
 {
-    public void OnArea2DBodyEntered(Node body)
+    public static PackedScene SceneObject = GD.Load<PackedScene>("res://DamageBoost.tscn");
+    public DamageBoost()
     {
-        DamageBoostPowerUp damageBoostPowerUp = (DamageBoostPowerUp)GD.Load<PackedScene>("res://DamageBoostPowerUp.tscn").Instance();
-        var method = body.GetType().GetMethod("AddPowerUp");
-        method?.Invoke(body, new object[] { damageBoostPowerUp });
+        powerUpScene = GD.Load<PackedScene>("res://DamageBoostPowerUp.tscn");
     }
 }

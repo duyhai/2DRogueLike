@@ -19,15 +19,19 @@ public class FlamethrowerFlame : Bullet
         ((FlamethrowerFlameGraphicsController)graphicsController).RandomTexture(this);
     }
 
-    public override void HitTarget(KinematicCollision2D collision)
+    public override int HitTarget(KinematicCollision2D collision)
     {
-        base.HitTarget(collision);
+        int inflictedDamage = base.HitTarget(collision);
         Node collider = (Node)collision.Collider;
 
-        BurningPowerUp burningPowerUp = (BurningPowerUp)GD.Load<PackedScene>("res://BurningPowerUp.tscn").Instance();
-        var method = collider.GetType().GetMethod("AddPowerUp");
-        method?.Invoke(collider, new object[] { burningPowerUp });
+        if (inflictedDamage > 0)
+        {
+            BurningPowerUp burningPowerUp = (BurningPowerUp)GD.Load<PackedScene>("res://BurningPowerUp.tscn").Instance();
+            var method = collider.GetType().GetMethod("AddPowerUp");
+            method?.Invoke(collider, new object[] { burningPowerUp });
+        }
         QueueFree();
+        return inflictedDamage;
     }
 
     public void OnAnimationPlayerAnimationFinished(string animationName)

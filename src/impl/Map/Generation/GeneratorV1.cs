@@ -131,6 +131,13 @@ class GeneratorV1 : Generator
                     }
                 }
             }
+
+            // Booster spawning
+            int rndX, rndY;
+            rndX = rnd.Next(x, x + w);
+            rndY = rnd.Next(y, y + h);
+            int rndBooster = rnd.Next(0, Map.Boosters.Length);
+            map.Blocks[rndX][rndY] = Map.Boosters[rndBooster];
         }
         foreach (var corridor in CorridorList)
         {

@@ -5,6 +5,6 @@ public class SpeedPowerUp : MovSpeedModPowerUp
 {
     public SpeedPowerUp()
     {
-        modifier = 6f;
+        modifier = 1f;
     }
 }
