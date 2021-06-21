@@ -25,6 +25,7 @@ script = ExtResource( 1 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 460.595, 219.161 )
+scale = Vector2( 1.00362, 1.0047 )
 z_index = -100
 texture = ExtResource( 4 )
 region_enabled = true
@@ -33,11 +34,10 @@ region_rect = Rect2( -2000, -2000, 4000, 4000 )
 [node name="World" type="Node" parent="."]
 
 [node name="SpeedBoost" parent="World" instance=ExtResource( 3 )]
-position = Vector2( -165.966, 184.011 )
+position = Vector2( -161.918, 348.886 )
 
 [node name="DamageBoost" parent="World" instance=ExtResource( 5 )]
 position = Vector2( -161.9, 376.716 )
-scale = Vector2( 0.5, 0.5 )
 
 [node name="FloatingTexts" type="Node" parent="."]
 

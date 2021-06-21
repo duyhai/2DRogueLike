@@ -9,8 +9,9 @@ public class BreakableWall : Block
 
     }
 
-    public override void Hit(int damage)
+    public override int Hit(int damage)
     {
         QueueFree();
+        return 0;
     }
 }

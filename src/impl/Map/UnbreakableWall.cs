@@ -10,8 +10,8 @@ public class UnbreakableWall : Block
 
     }
 
-    public override void Hit(int damage)
+    public override int Hit(int damage)
     {
-
+        return 0;
     }
 }

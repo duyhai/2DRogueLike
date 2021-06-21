@@ -4,17 +4,18 @@
 [ext_resource path="res://src/impl/Map/SpeedBoost.cs" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 67.2813, 61.5 )
+extents = Vector2( 67.281, 67.281 )
 
-[node name="SpeedBoost" type="Node2D"]
+[node name="SpeedBoost" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.05, 0.05 )
+scale = Vector2( 0.00591381, 0.00591381 )
 texture = ExtResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2( 0.118277, 0.118277 )
 shape = SubResource( 1 )
 [connection signal="body_entered" from="Area2D" to="." method="OnArea2DBodyEntered"]

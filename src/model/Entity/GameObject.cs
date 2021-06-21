@@ -14,7 +14,7 @@ public abstract class GameObject : KinematicBody2D
             float modifier = 1f;
             if (IsInsideTree())
             {
-                var powerUps = GetTree().GetNodesInGroup("MovSpeedModPowerUp");
+                var powerUps = GroupUtils.FindNodeDescendantsInGroup(this, "MovSpeedModPowerUp");
                 for (int i = 0; i < powerUps.Count; i++)
                 {
                     MovSpeedModPowerUp movSpeedModPowerUp = (MovSpeedModPowerUp)powerUps[i];
@@ -53,14 +53,16 @@ public abstract class GameObject : KinematicBody2D
         physicsController.Update(this, delta);
     }
 
-    public virtual void Hit(int damage)
+    public virtual int Hit(int damage)
     {
-        health -= damage;
+        int newHealth = Math.Min(Math.Max(health - damage, 0), maxHealth);
+        int inflictedDamage = health - newHealth;
+        health = newHealth;
 
-        if (health > 0)
+        if (health > 0 && inflictedDamage != 0)
         {
             ((BasicGraphicsController)graphicsController).PlayHitAnimation(this);
-            FCTManager.Instance.ShowValue(damage.ToString(), GlobalPosition);
+            FCTManager.Instance.ShowValue((-inflictedDamage).ToString(), GlobalPosition);
         }
 
         if (health <= 0 && !isDead)
@@ -69,7 +71,9 @@ public abstract class GameObject : KinematicBody2D
             isDead = true;
             disableInput = true;
             EmitSignal(nameof(DeathSignal));
+            FCTManager.Instance.ShowValue((-inflictedDamage).ToString(), GlobalPosition);
         }
+        return inflictedDamage;
     }
 
     public void ResetHealth()
@@ -98,7 +102,7 @@ public abstract class GameObject : KinematicBody2D
 
     public void AddPowerUp(PowerUp powerUp)
     {
-        var powerUps = GetTree().GetNodesInGroup("PowerUp");
+        var powerUps = GroupUtils.FindNodeDescendantsInGroup(this, "PowerUp");
         for (int i = 0; i < powerUps.Count; i++)
         {
             if (powerUps[i].GetType() == powerUp.GetType())
