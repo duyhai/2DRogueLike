@@ -40,7 +40,22 @@ public class LaserWeapon : Weapon
             castPoint = rayCast2D.ToLocal(rayCast2D.GetCollisionPoint());
             var body = rayCast2D.GetCollider();
             var method = body.GetType().GetMethod("Hit");
-            method?.Invoke(body, new object[] { damage });
+            int inflictedDamage = (int)method?.Invoke(body, new object[] { damage });
+            if (inflictedDamage > 0)
+            {
+                GameObject initiator = GetParent<GameObject>();
+                float lifestealPercentage = 0f;
+                if (initiator.IsInsideTree())
+                {
+                    var powerUps = GroupUtils.FindNodeDescendantsInGroup(initiator, "LifestealPowerUp");
+                    for (int i = 0; i < powerUps.Count; i++)
+                    {
+                        LifestealPowerUp lifestealPowerUp = (LifestealPowerUp)powerUps[i];
+                        lifestealPercentage += lifestealPowerUp.Percentage;
+                    }
+                }
+                initiator.Hit((int)(-inflictedDamage * lifestealPercentage));
+            }
             collisionParticles2D.GlobalRotation = rayCast2D.GetCollisionNormal().Angle();
             collisionParticles2D.Position = castPoint;
         }

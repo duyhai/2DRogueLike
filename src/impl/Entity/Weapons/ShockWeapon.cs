@@ -34,11 +34,26 @@ public class ShockWeapon : Weapon
 
         ((ShockWeaponGraphicsController)graphicsController).ChainingBodiesAnimation(this, bodiesHit);
 
+        int inflictedDamage = 0;
+        float lifestealPercentage = 0f;
+        GameObject initiator = GetParent<GameObject>();
+        if (initiator.IsInsideTree())
+        {
+            var powerUps = GroupUtils.FindNodeDescendantsInGroup(initiator, "LifestealPowerUp");
+            for (int i = 0; i < powerUps.Count; i++)
+            {
+                LifestealPowerUp lifestealPowerUp = (LifestealPowerUp)powerUps[i];
+                lifestealPercentage += lifestealPowerUp.Percentage;
+            }
+        }
+
         foreach (var body in bodiesHit)
         {
             var method = body.GetType().GetMethod("Hit");
-            method?.Invoke(body, new object[] { damage });
+            inflictedDamage += (int)method?.Invoke(body, new object[] { damage });
         }
+        initiator.Hit((int)(-inflictedDamage * lifestealPercentage));
+
         SoundManager.Instance.PlaySound(SoundPaths.Lightning);
         return true;
     }

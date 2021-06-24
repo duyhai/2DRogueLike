@@ -1,11 +1,10 @@
 using Godot;
 
-public class SpeedBoost : Node2D
+public class SpeedBoost : Booster
 {
-    public void OnArea2DBodyEntered(Node body)
+    public static PackedScene SceneObject = GD.Load<PackedScene>("res://SpeedBoost.tscn");
+    public SpeedBoost()
     {
-        SpeedPowerUp speedPowerUp = (SpeedPowerUp)GD.Load<PackedScene>("res://SpeedPowerUp.tscn").Instance();
-        var method = body.GetType().GetMethod("AddPowerUp");
-        method?.Invoke(body, new object[] { speedPowerUp });
+        powerUpScene = GD.Load<PackedScene>("res://SpeedPowerUp.tscn");
     }
 }

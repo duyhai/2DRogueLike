@@ -13,7 +13,7 @@ public abstract class Weapon : Node2D
             float modifier = 1f;
             if (IsInsideTree())
             {
-                var powerUps = GetParent().GetTree().GetNodesInGroup("DamageModPowerUp");
+                var powerUps = GroupUtils.FindNodeDescendantsInGroup(GetParent<GameObject>(), "DamageModPowerUp");
                 for (int i = 0; i < powerUps.Count; i++)
                 {
                     DamageModPowerUp damageModPowerUp = (DamageModPowerUp)powerUps[i];
@@ -50,7 +50,7 @@ public abstract class Weapon : Node2D
 
         var tip = GetNodeOrNull<Node2D>("Sprite/Tip");
 
-        bullet.Initiate(vector.Angle(), tip != null ? tip.GlobalPosition : ((Node2D)GetParent()).GlobalPosition, damage);
+        bullet.Initiate(GetParent<GameObject>(), vector.Angle(), tip != null ? tip.GlobalPosition : ((Node2D)GetParent()).GlobalPosition, damage);
         bullet.CollisionLayer = collisionLayer;
         bullet.CollisionMask = collisionMask;
         GetParent().GetParent().AddChild(bullet);
