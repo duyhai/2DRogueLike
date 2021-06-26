@@ -2,7 +2,7 @@ using Godot;
 
 public class BreakableWall : Block
 {
-    public static PackedScene SceneObject = (PackedScene)GD.Load("res://BreakableWall.tscn");
+    public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Map/Blocks/BreakableWall.tscn");
     public BreakableWall() :
         base(new NullInputController(), new NullPhysicsController(), new NullGraphicsController())
     {

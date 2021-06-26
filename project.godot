@@ -16,13 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="2DRogueLike"
-run/main_scene="res://MenuScenes/MainMenu.tscn"
+run/main_scene="res://scenes/MenuScenes/MainMenu.tscn"
 
 [autoload]
 
 SceneManager="*res://src/impl/SceneManager.cs"
-FctManager="*res://FCTManager.tscn"
-SoundManager="*res://SoundManager.tscn"
+FctManager="*res://scenes/FCTManager.tscn"
+SoundManager="*res://scenes/Sound/SoundManager.tscn"
 
 [editor_plugins]
 

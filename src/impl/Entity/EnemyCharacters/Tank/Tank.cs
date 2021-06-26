@@ -3,7 +3,7 @@ using Godot;
 public class Tank : Enemy
 {
     public int damage;
-    public static PackedScene SceneObject = (PackedScene)GD.Load("res://Tank.tscn");
+    public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Entity/Enemies/Tank.tscn");
     Timer attackTimer;
 
     public Tank() :

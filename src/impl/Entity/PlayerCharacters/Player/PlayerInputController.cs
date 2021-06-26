@@ -11,7 +11,7 @@ public class PlayerInputController : InputController
 
         if (Input.IsActionPressed("menu"))
         {
-            SceneManager.Instance.GotoScene("res://MenuScenes/MainMenu.tscn", true);
+            SceneManager.Instance.GotoScene("res://scenes/MenuScenes/MainMenu.tscn", true);
         }
 
         if (Input.IsActionPressed("shoot"))

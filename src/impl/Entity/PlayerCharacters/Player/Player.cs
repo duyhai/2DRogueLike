@@ -6,7 +6,7 @@ public class Player : GameObject
     public List<Weapon> weapons = new List<Weapon>();
     public int equippedWeaponIndex = 0;
 
-    public static PackedScene SceneObject = (PackedScene)GD.Load("res://Player.tscn");
+    public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Entity/Player.tscn");
 
     public Player() :
         base(new PlayerInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())

@@ -2,7 +2,7 @@ using Godot;
 
 public class Floater : Enemy
 {
-    public static PackedScene SceneObject = (PackedScene)GD.Load("res://Floater.tscn");
+    public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Entity/Enemies/Floater.tscn");
 
     public Floater() :
         base(new FloaterInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
