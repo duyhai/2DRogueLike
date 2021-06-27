@@ -55,14 +55,15 @@ public abstract class GameObject : KinematicBody2D
 
     public virtual int Hit(int damage)
     {
+        if (isDead) { return 0; }
+
         int newHealth = Math.Min(Math.Max(health - damage, 0), maxHealth);
         int inflictedDamage = health - newHealth;
         health = newHealth;
 
-        if (health > 0 && inflictedDamage != 0)
+        if (inflictedDamage != 0)
         {
             ((BasicGraphicsController)graphicsController).PlayHitAnimation(this);
-            FCTManager.Instance.ShowValue((-inflictedDamage).ToString(), GlobalPosition, inflictedDamage >= 0 ? Colors.Red : Colors.Green);
         }
 
         if (health <= 0 && !isDead)
@@ -71,8 +72,9 @@ public abstract class GameObject : KinematicBody2D
             isDead = true;
             disableInput = true;
             EmitSignal(nameof(DeathSignal));
-            FCTManager.Instance.ShowValue((-inflictedDamage).ToString(), GlobalPosition, inflictedDamage >= 0 ? Colors.Red : Colors.Green);
         }
+
+        FCTManager.Instance.ShowValue(Math.Abs(inflictedDamage).ToString(), GlobalPosition, inflictedDamage >= 0 ? Colors.Red : Colors.Green);
         return inflictedDamage;
     }
 
