@@ -2,7 +2,7 @@ using Godot;
 
 public class Splitter : Enemy
 {
-    public static PackedScene SceneObject = (PackedScene)GD.Load("res://Splitter.tscn");
+    public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Entity/Enemies/Splitter.tscn");
 
     public Splitter() :
         base(new NullInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())

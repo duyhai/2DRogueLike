@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/OptionsScene/BindOption.tscn" type="PackedScene" id=1]
+
+
+[node name="BindFire" instance=ExtResource( 1 )]
+action = "shoot"
+
+[node name="Label" parent="." index="0"]
+margin_right = 24.0
+text = "Fire"
+
+[node name="Button" parent="." index="1"]
+margin_left = 28.0
+margin_right = 40.0
