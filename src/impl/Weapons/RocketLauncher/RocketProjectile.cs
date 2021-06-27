@@ -20,7 +20,7 @@ public class RocketProjectile : Bullet
         explosionArea.CollisionMask = CollisionMask;
     }
 
-    public override int HitTarget(KinematicCollision2D collision)
+    public override int HitTarget(Node collider)
     {
         int inflictedDamage = 0;
         if (!exploded)

@@ -10,9 +10,9 @@ public class SimpleBullet : Bullet
         baseSpeed = 750;
     }
 
-    public override int HitTarget(KinematicCollision2D collision)
+    public override int HitTarget(Node collider)
     {
-        int inflictedDamage = base.HitTarget(collision);
+        int inflictedDamage = base.HitTarget(collider);
         QueueFree();
         return inflictedDamage;
     }
