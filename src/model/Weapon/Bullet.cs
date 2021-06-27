@@ -21,14 +21,13 @@ public abstract class Bullet : GameObject
     {
         Position = position;
         velocity = new Vector2(speed, 0).Rotated(rotation);
-        Rotation = (Mathf.Pi / 2) + velocity.Angle();
+        Rotation = (Mathf.Pi / 2) + rotation;
         this.damage = damage;
         this.initiator = initiator;
     }
 
-    public virtual int HitTarget(KinematicCollision2D collision)
+    public virtual int HitTarget(Node collider)
     {
-        var collider = collision.Collider;
         var method = collider.GetType().GetMethod("Hit");
         int inflictedDamage = (int)method?.Invoke(collider, new object[] { damage });
 

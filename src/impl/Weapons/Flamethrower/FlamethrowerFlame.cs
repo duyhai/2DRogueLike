@@ -19,10 +19,9 @@ public class FlamethrowerFlame : Bullet
         ((FlamethrowerFlameGraphicsController)graphicsController).RandomTexture(this);
     }
 
-    public override int HitTarget(KinematicCollision2D collision)
+    public override int HitTarget(Node collider)
     {
-        int inflictedDamage = base.HitTarget(collision);
-        Node collider = (Node)collision.Collider;
+        int inflictedDamage = base.HitTarget(collider);
 
         if (inflictedDamage > 0)
         {

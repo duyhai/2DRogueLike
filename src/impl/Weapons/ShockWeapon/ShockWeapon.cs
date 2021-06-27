@@ -13,6 +13,7 @@ public class ShockWeapon : Weapon
     public override void _Ready()
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
+        bulletScene = LightningBullet.SceneObject;
     }
 
     public override bool Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
@@ -34,25 +35,15 @@ public class ShockWeapon : Weapon
 
         ((ShockWeaponGraphicsController)graphicsController).ChainingBodiesAnimation(this, bodiesHit);
 
-        int inflictedDamage = 0;
-        float lifestealPercentage = 0f;
-        GameObject initiator = GetParent<GameObject>();
-        if (initiator.IsInsideTree())
+        foreach (Node2D body in bodiesHit)
         {
-            var powerUps = GroupUtils.FindNodeDescendantsInGroup(initiator, "LifestealPowerUp");
-            for (int i = 0; i < powerUps.Count; i++)
-            {
-                LifestealPowerUp lifestealPowerUp = (LifestealPowerUp)powerUps[i];
-                lifestealPercentage += lifestealPowerUp.Percentage;
-            }
-        }
+            var bullet = (Bullet)bulletScene.Instance();
 
-        foreach (var body in bodiesHit)
-        {
-            var method = body.GetType().GetMethod("Hit");
-            inflictedDamage += (int)method?.Invoke(body, new object[] { damage });
+            bullet.Initiate(GetParent<GameObject>(), vector.Angle(), body.GlobalPosition, damage);
+            bullet.CollisionLayer = collisionLayer;
+            bullet.CollisionMask = collisionMask;
+            GetParent().GetParent().AddChild(bullet);
         }
-        initiator.Hit((int)(-inflictedDamage * lifestealPercentage));
 
         SoundManager.Instance.PlaySound(SoundPaths.Lightning);
         return true;

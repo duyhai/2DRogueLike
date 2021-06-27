@@ -50,7 +50,7 @@ public abstract class Weapon : Node2D
 
         var tip = GetNodeOrNull<Node2D>("Sprite/Tip");
 
-        bullet.Initiate(GetParent<GameObject>(), vector.Angle(), tip != null ? tip.GlobalPosition : ((Node2D)GetParent()).GlobalPosition, damage);
+        bullet.Initiate(GetParent<GameObject>(), vector.Angle(), tip != null ? tip.GlobalPosition : GlobalPosition, damage);
         bullet.CollisionLayer = collisionLayer;
         bullet.CollisionMask = collisionMask;
         GetParent().GetParent().AddChild(bullet);

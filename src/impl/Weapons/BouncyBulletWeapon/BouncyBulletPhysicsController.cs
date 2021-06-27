@@ -1,3 +1,5 @@
+using Godot;
+
 public class BouncyBulletPhysicsController : PhysicsController
 {
     public override void Update(GameObject gameObject, float delta)
@@ -8,7 +10,7 @@ public class BouncyBulletPhysicsController : PhysicsController
         {
             bullet.velocity = bullet.velocity.Bounce(collision.Normal);
             SoundManager.Instance.PlaySound(SoundPaths.Bounce);
-            bullet.HitTarget(collision);
+            bullet.HitTarget((Node)collision.Collider);
         }
     }
 }

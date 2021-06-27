@@ -9,7 +9,7 @@ public class SimpleBulletPhysicsController : PhysicsController
         if (collision != null)
         {
             bullet.velocity = Vector2.Zero;
-            bullet.HitTarget(collision);
+            bullet.HitTarget((Node)collision.Collider);
         }
     }
 }
