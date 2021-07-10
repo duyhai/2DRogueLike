@@ -45,29 +45,19 @@ public class RocketProjectile : Bullet
     {
         exploded = true;
         SoundManager.Instance.PlaySound(SoundPaths.Explosion, Position);
-
-        int inflictedDamage = 0;
-        float lifestealPercentage = 0f;
-        if (initiator.IsInsideTree())
-        {
-            var powerUps = GroupUtils.FindNodeDescendantsInGroup(initiator, "LifestealPowerUp");
-            for (int i = 0; i < powerUps.Count; i++)
-            {
-                LifestealPowerUp lifestealPowerUp = (LifestealPowerUp)powerUps[i];
-                lifestealPercentage += lifestealPowerUp.Percentage;
-            }
-        }
-
         velocity = Vector2.Zero;
+
         var bodies = explosionArea.GetOverlappingBodies();
-        foreach (var body in bodies)
+        foreach (Node2D body in bodies)
         {
-            var method = body.GetType().GetMethod("Hit");
-            inflictedDamage += (int)method?.Invoke(body, new object[] { damage });
+            var bullet = (Bullet)PhantomBullet.SceneObject.Instance();
+            bullet.Initiate(initiator, 0, body.GlobalPosition, damage);
+            bullet.CollisionLayer = CollisionLayer;
+            bullet.CollisionMask = CollisionMask;
+            GetParent().AddChild(bullet);
         }
-        initiator.Hit((int)(-inflictedDamage * lifestealPercentage));
 
         ((RocketProjectileGraphicsController)graphicsController).PlayExplosionAnimation(this);
-        return inflictedDamage;
+        return 0; // Nem tudom mit csináljak ezzel
     }
 }
