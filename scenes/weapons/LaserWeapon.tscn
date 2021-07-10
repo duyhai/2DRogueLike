@@ -85,4 +85,8 @@ texture = ExtResource( 2 )
 [node name="BulletTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
-[connection signal="timeout" from="BulletTimer" to="." method="OnBulletTimerTimeout"]
+
+[node name="TriggerTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+[connection signal="timeout" from="TriggerTimer" to="." method="OnTriggerTimerTimeout"]

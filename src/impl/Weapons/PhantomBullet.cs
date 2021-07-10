@@ -1,9 +1,9 @@
 using Godot;
 using System;
 
-public class LightningBullet : Bullet
+public class PhantomBullet : Bullet
 {
-    public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/LIghtningBullet.tscn");
+    public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/PhantomBullet.tscn");
 
     public override void _Ready()
     {
@@ -13,8 +13,8 @@ public class LightningBullet : Bullet
         GetNode<Timer>("Timer").Start();
     }
 
-    public LightningBullet() :
-        base(new NullInputController(), new LightningBulletPhysicsController(), new NullGraphicsController())
+    public PhantomBullet() :
+        base(new NullInputController(), new PhantomBulletPhysicsController(), new NullGraphicsController())
     {
         baseSpeed = 0;
     }

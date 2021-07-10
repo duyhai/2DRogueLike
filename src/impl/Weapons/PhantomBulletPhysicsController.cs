@@ -1,7 +1,7 @@
 using Godot;
 using Godot.Collections;
 
-public class LightningBulletPhysicsController : PhysicsController
+public class PhantomBulletPhysicsController : PhysicsController
 {
     public override void Update(GameObject gameObject, float delta)
     {

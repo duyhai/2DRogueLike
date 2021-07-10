@@ -13,7 +13,7 @@ public class ShockWeapon : Weapon
     public override void _Ready()
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
-        bulletScene = LightningBullet.SceneObject;
+        bulletScene = PhantomBullet.SceneObject;
     }
 
     public override bool Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)

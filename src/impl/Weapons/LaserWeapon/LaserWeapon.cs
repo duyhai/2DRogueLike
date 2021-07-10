@@ -6,23 +6,23 @@ public class LaserWeapon : Weapon
     bool isCasting = false;
     RayCast2D rayCast2D;
     SoundPlayer soundPlayer;
+    Timer triggerTimer;
 
     public LaserWeapon() : base(new LaserWeaponGraphicsController(), 3) { }
 
     public override bool Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
     {
+        bulletScene = PhantomBullet.SceneObject;
         GetNode<RayCast2D>("Tip/RayCast2D").CollisionMask = collisionMask;
         setIsCasting(true);
-        bulletTimer.Start();
+        triggerTimer.Start();
         return true;
     }
 
     public override void _Ready()
     {
-        // This BulletTimer is repurposed to help with 
-        // disabling the laser when the attack button is released.
-        // We can to this, because the laser doesn't have a cooldown.
         bulletTimer = GetNode<Timer>("BulletTimer");
+        triggerTimer = GetNode<Timer>("TriggerTimer");
         SetPhysicsProcess(false);
         GetNode<Line2D>("Tip/RayCast2D/Line2D").Points[1] = Vector2.Zero;
         rayCast2D = GetNode<RayCast2D>("Tip/RayCast2D");
@@ -38,24 +38,19 @@ public class LaserWeapon : Weapon
         if (rayCast2D.IsColliding())
         {
             castPoint = rayCast2D.ToLocal(rayCast2D.GetCollisionPoint());
-            var body = rayCast2D.GetCollider();
-            var method = body.GetType().GetMethod("Hit");
-            int inflictedDamage = (int)method?.Invoke(body, new object[] { damage });
-            if (inflictedDamage > 0)
+
+            if (bulletTimer.IsStopped())
             {
-                GameObject initiator = GetParent<GameObject>();
-                float lifestealPercentage = 0f;
-                if (initiator.IsInsideTree())
-                {
-                    var powerUps = GroupUtils.FindNodeDescendantsInGroup(initiator, "LifestealPowerUp");
-                    for (int i = 0; i < powerUps.Count; i++)
-                    {
-                        LifestealPowerUp lifestealPowerUp = (LifestealPowerUp)powerUps[i];
-                        lifestealPercentage += lifestealPowerUp.Percentage;
-                    }
-                }
-                initiator.Hit((int)(-inflictedDamage * lifestealPercentage));
+                var body = (Node2D)rayCast2D.GetCollider();
+                var bullet = (Bullet)bulletScene.Instance();
+                var initiator = GetParent<GameObject>();
+                bullet.Initiate(initiator, 0, body.GlobalPosition, damage);
+                bullet.CollisionLayer = initiator.CollisionLayer;
+                bullet.CollisionMask = initiator.CollisionMask;
+                GetParent().GetParent().AddChild(bullet);
+                bulletTimer.Start();
             }
+
             collisionParticles2D.GlobalRotation = rayCast2D.GetCollisionNormal().Angle();
             collisionParticles2D.Position = castPoint;
         }
@@ -81,7 +76,7 @@ public class LaserWeapon : Weapon
         GetNode<Particles2D>("Tip/RayCast2D/CastingParticles2D").Emitting = cast;
     }
 
-    public void OnBulletTimerTimeout()
+    public void OnTriggerTimerTimeout()
     {
         setIsCasting(false);
     }
