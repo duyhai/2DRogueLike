@@ -9,10 +9,11 @@ public class FCTManager : Node2D
     private readonly int spread = 60;
     public Node TextContainer { get; set; }
 
-    public void ShowValue(string value, Vector2 position)
+    public void ShowValue(string value, Vector2 position, Color color)
     {
         var floatingTextInstance = (FloatingText)floatingTextScene.Instance();
         floatingTextInstance.Position = position;
+        floatingTextInstance.Modulate = color;
         TextContainer.AddChild(floatingTextInstance);
         floatingTextInstance.ShowValue(value, travel, duration, spread);
     }

@@ -43,7 +43,11 @@ public abstract class Bullet : GameObject
                     lifestealPercentage += lifestealPowerUp.Percentage;
                 }
             }
-            initiator.Hit((int)(-inflictedDamage * lifestealPercentage));
+            int lifesteal = (int)(-inflictedDamage * lifestealPercentage);
+            if (lifesteal != 0)
+            {
+                initiator.Hit(lifesteal);
+            }
         }
         return inflictedDamage;
     }
