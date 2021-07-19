@@ -1,31 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/impl/Weapons/RocketLauncher/RocketProjectile.cs" type="Script" id=1]
-[ext_resource path="res://assets/explosion_animation/explosion7.png" type="Texture" id=2]
-[ext_resource path="res://assets/explosion_animation/explosion9.png" type="Texture" id=3]
-[ext_resource path="res://assets/explosion_animation/explosion2.png" type="Texture" id=4]
-[ext_resource path="res://assets/explosion_animation/explosion5.png" type="Texture" id=5]
-[ext_resource path="res://assets/explosion_animation/explosion4.png" type="Texture" id=6]
-[ext_resource path="res://assets/explosion_animation/explosion8.png" type="Texture" id=7]
-[ext_resource path="res://assets/explosion_animation/explosion3.png" type="Texture" id=8]
-[ext_resource path="res://assets/explosion_animation/explosion1.png" type="Texture" id=9]
-[ext_resource path="res://assets/explosion_animation/explosion6.png" type="Texture" id=10]
 [ext_resource path="res://assets/RocketProjectile.png" type="Texture" id=11]
 [ext_resource path="res://Fire.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.32401, 7.51976 )
-
-[sub_resource type="CircleShape2D" id=2]
-radius = 30.0
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "default",
-"speed": 30.0
-} ]
 
 [node name="RocketProjectile" type="KinematicBody2D"]
 collision_layer = 0
@@ -46,18 +26,8 @@ shape = SubResource( 1 )
 position = Vector2( -4, -4 )
 rect = Rect2( 0, 0, 8, 8 )
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 2 )
-
 [node name="ExplosionTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 3 )
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="OnVisibilityNotifier2DScreenExited"]
 [connection signal="timeout" from="ExplosionTimer" to="." method="OnExplosionTimerTimeout"]
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="OnAnimationSpriteExplosionFinished"]
