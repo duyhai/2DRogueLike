@@ -8,9 +8,14 @@ public class RocketProjectile : Bullet
     bool exploded = false;
 
     public RocketProjectile() :
-        base(new NullInputController(), new SimpleBulletPhysicsController(), new RocketProjectileGraphicsController())
+        base(new NullInputController(), new SimpleBulletPhysicsController(), new NullGraphicsController())
     {
         baseSpeed = 350;
+    }
+
+    public override void _Ready()
+    {
+        Rotation = (Mathf.Pi / 2) + velocity.Angle();
     }
 
     public override int HitTarget(Node collider)
