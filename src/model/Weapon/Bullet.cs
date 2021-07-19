@@ -28,28 +28,7 @@ public abstract class Bullet : GameObject
 
     public virtual int HitTarget(Node collider)
     {
-        var method = collider.GetType().GetMethod("Hit");
-        int inflictedDamage = (int)method?.Invoke(collider, new object[] { damage });
-
-        if (inflictedDamage > 0)
-        {
-            float lifestealPercentage = 0f;
-            if (initiator.IsInsideTree())
-            {
-                var powerUps = GroupUtils.FindNodeDescendantsInGroup(initiator, "LifestealPowerUp");
-                for (int i = 0; i < powerUps.Count; i++)
-                {
-                    LifestealPowerUp lifestealPowerUp = (LifestealPowerUp)powerUps[i];
-                    lifestealPercentage += lifestealPowerUp.Percentage;
-                }
-            }
-            int lifesteal = (int)(-inflictedDamage * lifestealPercentage);
-            if (lifesteal != 0)
-            {
-                initiator.Hit(lifesteal);
-            }
-        }
-        return inflictedDamage;
+        return DamageUtil.HandleDamage(initiator, collider, damage);
     }
 
     public override int Hit(int damage) { return 0; }

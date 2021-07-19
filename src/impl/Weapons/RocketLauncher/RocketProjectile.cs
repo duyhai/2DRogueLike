@@ -39,8 +39,8 @@ public class RocketProjectile : Bullet
         exploded = true;
         SoundManager.Instance.PlaySound(SoundPaths.Explosion, Position);
 
-        RocketHitBullet rocketHitBullet = (RocketHitBullet)RocketHitBullet.SceneObject.Instance();
-        rocketHitBullet.Initiate(initiator, 0, Position, damage);
+        RocketExplosion rocketHitBullet = (RocketExplosion)RocketExplosion.SceneObject.Instance();
+        rocketHitBullet.Initiate(initiator, Position, damage);
         rocketHitBullet.CollisionLayer = CollisionLayer;
         rocketHitBullet.CollisionMask = CollisionMask;
         GetParent().AddChild(rocketHitBullet);
