@@ -13,7 +13,6 @@ public class ShockWeapon : Weapon
     public override void _Ready()
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
-        bulletScene = LightningBullet.SceneObject;
     }
 
     public override bool Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
@@ -37,9 +36,9 @@ public class ShockWeapon : Weapon
 
         foreach (Node2D body in bodiesHit)
         {
-            var bullet = (Bullet)bulletScene.Instance();
+            var bullet = (LightningBullet)LightningBullet.SceneObject.Instance();
 
-            bullet.Initiate(GetParent<GameObject>(), vector.Angle(), body.GlobalPosition, damage);
+            bullet.Initiate(GetParent<GameObject>(), body.GlobalPosition, damage);
             bullet.CollisionLayer = collisionLayer;
             bullet.CollisionMask = collisionMask;
             GetParent().GetParent().AddChild(bullet);

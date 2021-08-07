@@ -1,17 +1,12 @@
 using Godot;
 using System;
 
-public class LightningBullet : Bullet
+public class LightningBullet : GameObject
 {
-    public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/LIghtningBullet.tscn");
+    public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/LightningBullet.tscn");
+    public int damage;
+    public GameObject initiator;
 
-    public override void _Ready()
-    {
-        Area2D hitbox = GetNode<Area2D>("Area2D");
-        hitbox.CollisionLayer = CollisionLayer;
-        hitbox.CollisionMask = CollisionMask;
-        GetNode<Timer>("Timer").Start();
-    }
 
     public LightningBullet() :
         base(new NullInputController(), new LightningBulletPhysicsController(), new NullGraphicsController())
@@ -19,8 +14,22 @@ public class LightningBullet : Bullet
         baseSpeed = 0;
     }
 
+    public override void _Ready()
+    {
+        Area2D hitbox = GetNode<Area2D>("Area2D");
+        hitbox.CollisionLayer = CollisionLayer;
+        hitbox.CollisionMask = CollisionMask;
+    }
+
     public void OnTimerTimeout()
     {
         QueueFree();
+    }
+
+    public void Initiate(GameObject initiator, Vector2 position, int damage)
+    {
+        Position = position;
+        this.damage = damage;
+        this.initiator = initiator;
     }
 }
