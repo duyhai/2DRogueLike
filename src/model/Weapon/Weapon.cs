@@ -10,17 +10,17 @@ public abstract class Weapon : Node2D
     {
         get
         {
-            float modifier = 1f;
+            GameObject parent = GetParent<GameObject>();
+            StatsInfo stats = new StatsInfo(parent.health, baseDamage, parent.speed, 0);
             if (IsInsideTree())
             {
-                var powerUps = GroupUtils.FindNodeDescendantsInGroup(GetParent<GameObject>(), "DamageModPowerUp");
+                var powerUps = GroupUtils.FindNodeDescendantsInGroup(GetParent<GameObject>(), "PowerUp");
                 for (int i = 0; i < powerUps.Count; i++)
                 {
-                    DamageModPowerUp damageModPowerUp = (DamageModPowerUp)powerUps[i];
-                    modifier += damageModPowerUp.Modifier;
+                    stats = ((PowerUp)powerUps[i]).UpdateStats(stats);
                 }
             }
-            return (int)(baseDamage * modifier);
+            return stats.Damage;
         }
     }
     protected Timer bulletTimer;

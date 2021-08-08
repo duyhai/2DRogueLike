@@ -11,17 +11,17 @@ public abstract class GameObject : KinematicBody2D
     {
         get
         {
-            float modifier = 1f;
+            StatsInfo stats = new StatsInfo(health, 0, baseSpeed, 0);
             if (IsInsideTree())
             {
                 var powerUps = GroupUtils.FindNodeDescendantsInGroup(this, "MovSpeedModPowerUp");
                 for (int i = 0; i < powerUps.Count; i++)
                 {
                     MovSpeedModPowerUp movSpeedModPowerUp = (MovSpeedModPowerUp)powerUps[i];
-                    modifier += movSpeedModPowerUp.Modifier;
+                    stats = movSpeedModPowerUp.UpdateStats(stats);
                 }
             }
-            return (int)(baseSpeed * modifier);
+            return stats.Speed;
         }
         set => baseSpeed = value;
     }

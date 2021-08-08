@@ -9,17 +9,17 @@ public static class DamageUtil
 
         if (inflictedDamage > 0)
         {
-            float lifestealPercentage = 0f;
+            StatsInfo stats = new StatsInfo(0, 0, 0, 0);
             if (initiator.IsInsideTree())
             {
                 var powerUps = GroupUtils.FindNodeDescendantsInGroup(initiator, "LifestealPowerUp");
                 for (int i = 0; i < powerUps.Count; i++)
                 {
                     LifestealPowerUp lifestealPowerUp = (LifestealPowerUp)powerUps[i];
-                    lifestealPercentage += lifestealPowerUp.Percentage;
+                    stats = lifestealPowerUp.UpdateStats(stats);
                 }
             }
-            int lifesteal = (int)(-inflictedDamage * lifestealPercentage);
+            int lifesteal = (int)(-inflictedDamage * stats.LifeSteal);
             if (lifesteal != 0)
             {
                 initiator.Hit(lifesteal);
