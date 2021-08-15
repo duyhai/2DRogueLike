@@ -11,9 +11,8 @@ public class Player : GameObject
     public Player() :
         base(new PlayerInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
     {
-        this.baseSpeed = 200;
-        this.maxHealth = 100;
-        this.health = maxHealth;
+        baseStats = new StatsInfo(100, 10, 200);
+        health = Stats.MaxHealth;
         CollisionLayer = CollisionLayers.Player;
         CollisionMask = CollisionLayers.Enemy | CollisionLayers.MapObject;
     }

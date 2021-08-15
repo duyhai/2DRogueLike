@@ -6,27 +6,27 @@ public abstract class GameObject : KinematicBody2D
     [Signal]
     public delegate void DeathSignal();
     public Vector2 velocity;
-    protected int baseSpeed;
-    public int speed
+    protected StatsInfo baseStats;
+    public StatsInfo Stats
     {
         get
         {
-            StatsInfo stats = new StatsInfo(health, 0, baseSpeed, 0);
+            StatsInfo stats = baseStats;
             if (IsInsideTree())
             {
-                var powerUps = GroupUtils.FindNodeDescendantsInGroup(this, "MovSpeedModPowerUp");
+                var powerUps = GroupUtils.FindNodeDescendantsInGroup(this, "PowerUp");
                 for (int i = 0; i < powerUps.Count; i++)
                 {
-                    MovSpeedModPowerUp movSpeedModPowerUp = (MovSpeedModPowerUp)powerUps[i];
-                    stats = movSpeedModPowerUp.UpdateStats(stats);
+                    PowerUp powerUp = (PowerUp)powerUps[i];
+                    stats = powerUp.UpdateStats(stats);
                 }
             }
-            return stats.Speed;
+            return stats;
         }
-        set => baseSpeed = value;
+        set { baseStats = value; }
     }
+    protected int baseSpeed;
     public int health;
-    public int maxHealth;
     public bool isDead = false;
     public bool disableInput = false;
     protected InputController inputController;
@@ -57,7 +57,7 @@ public abstract class GameObject : KinematicBody2D
     {
         if (isDead) { return 0; }
 
-        int newHealth = Math.Min(Math.Max(health - damage, 0), maxHealth);
+        int newHealth = Math.Min(Math.Max(health - damage, 0), Stats.MaxHealth);
         int inflictedDamage = health - newHealth;
         health = newHealth;
 
@@ -80,7 +80,7 @@ public abstract class GameObject : KinematicBody2D
 
     public void ResetHealth()
     {
-        health = maxHealth;
+        health = Stats.MaxHealth;
         isDead = false;
     }
 

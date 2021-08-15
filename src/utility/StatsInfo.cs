@@ -1,16 +1,13 @@
 public class StatsInfo
 {
-    public int Health;
+    public int MaxHealth;
     public int Damage;
     public int Speed;
-    public float LifeSteal;
 
-
-    public StatsInfo(int health, int damage, int speed, float lifeSteal)
+    public StatsInfo(int maxHealth, int damage, int speed)
     {
-        Health = health;
+        MaxHealth = maxHealth;
         Damage = damage;
         Speed = speed;
-        LifeSteal = lifeSteal;
     }
 }

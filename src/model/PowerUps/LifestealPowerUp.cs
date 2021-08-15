@@ -5,9 +5,8 @@ public class LifestealPowerUp : PowerUp
 {
     protected float percentage = 0.5f;
     public float Percentage { get => percentage; }
-    public override void Effect() { }
-    public override StatsInfo UpdateStats(StatsInfo stats)
+    public override void DamageEffect(GameObject initiator, Node target, int damage)
     {
-        return new StatsInfo(stats.Health, stats.Speed, stats.Damage, (int)(stats.LifeSteal + percentage));
+        DamageUtil.HandleDamage(initiator, initiator, (int)(damage * -percentage));
     }
 }

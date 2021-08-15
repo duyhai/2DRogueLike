@@ -10,7 +10,7 @@ public class LaserBullet : Bullet
     public LaserBullet() :
         base(new NullInputController(), new LaserBulletPhysicsController(), new LaserBulletGraphicsController())
     {
-        baseSpeed = 0;
+        baseStats = new StatsInfo(0, 0, 0);
     }
 
     public override void _Ready()

@@ -8,7 +8,7 @@ public class ShockWeapon : Weapon
     float radius = 75;
     float fov = Mathf.Cos(Mathf.Pi / 4);
 
-    public ShockWeapon() : base(new ShockWeaponGraphicsController(), 1000) { }
+    public ShockWeapon() : base(new ShockWeaponGraphicsController(), 4f) { }
 
     public override void _Ready()
     {
@@ -34,11 +34,13 @@ public class ShockWeapon : Weapon
 
         ((ShockWeaponGraphicsController)graphicsController).ChainingBodiesAnimation(this, bodiesHit);
 
+        GameObject initiator = GetParent<GameObject>();
+
         foreach (Node2D body in bodiesHit)
         {
             var bullet = (LightningBullet)LightningBullet.SceneObject.Instance();
 
-            bullet.Initiate(GetParent<GameObject>(), body.GlobalPosition, damage);
+            bullet.Initiate(GetParent<GameObject>(), body.GlobalPosition, (int)(initiator.Stats.Damage * damageMultiplier));
             bullet.CollisionLayer = collisionLayer;
             bullet.CollisionMask = collisionMask;
             GetParent().GetParent().AddChild(bullet);

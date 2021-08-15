@@ -31,7 +31,7 @@ public class Main : Node
     {
         gui.SetHealthCounter(player.health);
         gui.SetEnemyCounter(CountEnemies());
-        gui.SetMaxHealthCounter(player.maxHealth);
+        gui.SetMaxHealthCounter(player.Stats.MaxHealth);
 
         if (CountEnemies() <= 0)
         {

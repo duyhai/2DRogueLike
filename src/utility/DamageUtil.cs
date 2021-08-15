@@ -9,20 +9,14 @@ public static class DamageUtil
 
         if (inflictedDamage > 0)
         {
-            StatsInfo stats = new StatsInfo(0, 0, 0, 0);
             if (initiator.IsInsideTree())
             {
-                var powerUps = GroupUtils.FindNodeDescendantsInGroup(initiator, "LifestealPowerUp");
+                var powerUps = GroupUtils.FindNodeDescendantsInGroup(initiator, "PowerUp");
                 for (int i = 0; i < powerUps.Count; i++)
                 {
-                    LifestealPowerUp lifestealPowerUp = (LifestealPowerUp)powerUps[i];
-                    stats = lifestealPowerUp.UpdateStats(stats);
+                    PowerUp powerUp = (PowerUp)powerUps[i];
+                    powerUp.DamageEffect(initiator, target, inflictedDamage);
                 }
-            }
-            int lifesteal = (int)(-inflictedDamage * stats.LifeSteal);
-            if (lifesteal != 0)
-            {
-                initiator.Hit(lifesteal);
             }
         }
 

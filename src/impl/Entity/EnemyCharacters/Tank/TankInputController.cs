@@ -9,6 +9,6 @@ public class TankInputController : InputController
 
         Tank Tank = (Tank)gameObject;
         Player player = (Player)Tank.GetNodeOrNull("../Player");
-        Tank.velocity = (player.Position - Tank.Position).Normalized() * Tank.speed;
+        Tank.velocity = (player.Position - Tank.Position).Normalized() * Tank.Stats.Speed;
     }
 }

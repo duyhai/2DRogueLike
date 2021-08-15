@@ -11,7 +11,7 @@ public class LightningBullet : GameObject
     public LightningBullet() :
         base(new NullInputController(), new LightningBulletPhysicsController(), new NullGraphicsController())
     {
-        baseSpeed = 0;
+        baseStats = new StatsInfo(0, 0, 0);
     }
 
     public override void _Ready()

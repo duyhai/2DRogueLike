@@ -2,8 +2,18 @@ using Godot;
 
 public abstract class PowerUp : Node2D
 {
-    public abstract void Effect();
-    public virtual StatsInfo UpdateStats(StatsInfo stats) { return null; }
+    protected GameObject initiator;
+
+    public void Initiate(GameObject initiator)
+    {
+        this.initiator = initiator;
+    }
+
+    public virtual void Effect() { }
+
+    public virtual void DamageEffect(GameObject initiator, Node target, int damage) { }
+
+    public virtual StatsInfo UpdateStats(StatsInfo stats) { return stats; }
 
     public override void _Ready()
     {

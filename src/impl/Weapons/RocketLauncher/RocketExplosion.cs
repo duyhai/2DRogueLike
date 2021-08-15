@@ -10,7 +10,7 @@ public class RocketExplosion : GameObject
     public RocketExplosion() :
         base(new NullInputController(), new RocketExplosionPhysicsController(), new RocketExplosionGraphicsController())
     {
-        baseSpeed = 0;
+        baseStats = new StatsInfo(0, 0, 0);
     }
 
     public override void _Ready()

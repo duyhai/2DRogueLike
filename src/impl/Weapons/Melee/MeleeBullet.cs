@@ -16,7 +16,7 @@ public class MeleeBullet : Bullet
     public MeleeBullet() :
         base(new NullInputController(), new MeleeBulletPhysicsController(), new NullGraphicsController())
     {
-        baseSpeed = 0;
+        baseStats = new StatsInfo(0, 0, 0);
     }
 
     public void OnTimerTimeout()

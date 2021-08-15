@@ -10,7 +10,7 @@ public class RocketProjectile : Bullet
     public RocketProjectile() :
         base(new NullInputController(), new SimpleBulletPhysicsController(), new NullGraphicsController())
     {
-        baseSpeed = 350;
+        baseStats = new StatsInfo(0, 0, 350);
     }
 
     public override void _Ready()

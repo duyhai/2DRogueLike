@@ -7,7 +7,7 @@ public class SimpleBullet : Bullet
     public SimpleBullet() :
         base(new NullInputController(), new SimpleBulletPhysicsController(), new NullGraphicsController())
     {
-        baseSpeed = 750;
+        baseStats = new StatsInfo(0, 0, 750);
     }
 
     public override int HitTarget(Node collider)

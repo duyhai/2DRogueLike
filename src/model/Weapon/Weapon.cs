@@ -6,12 +6,13 @@ public abstract class Weapon : Node2D
     protected int bulletSpeed;
     public float weaponCooldown;
     protected int baseDamage;
+    protected float damageMultiplier;
     public int damage
     {
         get
         {
             GameObject parent = GetParent<GameObject>();
-            StatsInfo stats = new StatsInfo(parent.health, baseDamage, parent.speed, 0);
+            StatsInfo stats = new StatsInfo(parent.health, baseDamage, parent.Stats.Speed);
             if (IsInsideTree())
             {
                 var powerUps = GroupUtils.FindNodeDescendantsInGroup(GetParent<GameObject>(), "PowerUp");
@@ -27,10 +28,10 @@ public abstract class Weapon : Node2D
     protected PackedScene bulletScene;
     protected WeaponGraphicsController graphicsController;
 
-    public Weapon(WeaponGraphicsController graphicsController, int damage)
+    public Weapon(WeaponGraphicsController graphicsController, float damageMultiplier)
     {
         this.graphicsController = graphicsController;
-        baseDamage = damage;
+        this.damageMultiplier = damageMultiplier;
     }
 
     public override void _Process(float delta)
@@ -50,7 +51,9 @@ public abstract class Weapon : Node2D
 
         var tip = GetNodeOrNull<Node2D>("Sprite/Tip");
 
-        bullet.Initiate(GetParent<GameObject>(), vector.Angle(), tip != null ? tip.GlobalPosition : GlobalPosition, damage);
+        GameObject initiator = GetParent<GameObject>();
+
+        bullet.Initiate(initiator, vector.Angle(), tip != null ? tip.GlobalPosition : GlobalPosition, (int)(initiator.Stats.Damage * damageMultiplier));
         bullet.CollisionLayer = collisionLayer;
         bullet.CollisionMask = collisionMask;
         GetParent().GetParent().AddChild(bullet);
