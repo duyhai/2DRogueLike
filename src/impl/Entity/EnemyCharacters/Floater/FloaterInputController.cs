@@ -14,8 +14,9 @@ public class FloaterInputController : InputController
         }
 
         Random rnd = new Random();
-        floater.velocity = new Vector2(rnd.Next(-floater.Stats.Speed, floater.Stats.Speed), rnd.Next(-floater.Stats.Speed, floater.Stats.Speed));
+        StatsInfo floaterStats = floater.Stats;
+        floater.velocity = new Vector2(rnd.Next(-floaterStats.Speed, floaterStats.Speed), rnd.Next(-floaterStats.Speed, floaterStats.Speed));
 
-        floater.velocity = floater.velocity.Normalized() * floater.Stats.Speed;
+        floater.velocity = floater.velocity.Normalized() * floaterStats.Speed;
     }
 }

@@ -4,6 +4,8 @@ public class StatsInfo
     public int Damage;
     public int Speed;
 
+    public StatsInfo() { }
+
     public StatsInfo(int maxHealth, int damage, int speed)
     {
         MaxHealth = maxHealth;

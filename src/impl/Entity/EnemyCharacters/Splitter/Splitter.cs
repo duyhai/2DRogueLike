@@ -7,7 +7,7 @@ public class Splitter : Enemy
     public Splitter() :
         base(new NullInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
     {
-        baseStats = new StatsInfo(40, 0, 200);
+        baseStats = new StatsInfo { MaxHealth = 40, Damage = 0, Speed = 200 };
         health = Stats.MaxHealth;
         CollisionLayer = CollisionLayers.Enemy;
         CollisionMask = CollisionLayers.Player | CollisionLayers.MapObject;

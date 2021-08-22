@@ -7,6 +7,6 @@ public class DamageModPowerUp : PowerUp
     public float Modifier { get => modifier; }
     public override StatsInfo UpdateStats(StatsInfo stats)
     {
-        return new StatsInfo(stats.MaxHealth, (int)(stats.Damage * modifier), stats.Speed);
+        return new StatsInfo { MaxHealth = stats.MaxHealth, Damage = (int)(stats.Damage * modifier), Speed = stats.Speed };
     }
 }

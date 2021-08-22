@@ -8,7 +8,7 @@ public class FlamethrowerFlame : Bullet
     public FlamethrowerFlame() :
         base(new NullInputController(), new SimpleBulletPhysicsController(), new FlamethrowerFlameGraphicsController())
     {
-        baseStats = new StatsInfo(0, 0, 75);
+        baseStats = new StatsInfo { MaxHealth = 0, Damage = 0, Speed = 75 };
     }
 
     public override void _Ready()

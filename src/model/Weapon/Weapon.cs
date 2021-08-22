@@ -3,27 +3,7 @@ using Godot;
 
 public abstract class Weapon : Node2D
 {
-    protected int bulletSpeed;
-    public float weaponCooldown;
-    protected int baseDamage;
     protected float damageMultiplier;
-    public int damage
-    {
-        get
-        {
-            GameObject parent = GetParent<GameObject>();
-            StatsInfo stats = new StatsInfo(parent.health, baseDamage, parent.Stats.Speed);
-            if (IsInsideTree())
-            {
-                var powerUps = GroupUtils.FindNodeDescendantsInGroup(GetParent<GameObject>(), "PowerUp");
-                for (int i = 0; i < powerUps.Count; i++)
-                {
-                    stats = ((PowerUp)powerUps[i]).UpdateStats(stats);
-                }
-            }
-            return stats.Damage;
-        }
-    }
     protected Timer bulletTimer;
     protected PackedScene bulletScene;
     protected WeaponGraphicsController graphicsController;
