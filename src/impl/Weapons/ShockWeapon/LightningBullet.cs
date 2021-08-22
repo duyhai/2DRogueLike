@@ -1,15 +1,24 @@
 using Godot;
-using System;
+using Godot.Collections;
+using Utility;
 
-public class LightningBullet : GameObject
+public class LightningBullet : Bullet
 {
-    public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/LightningBullet.tscn");
-    public int damage;
-    public GameObject initiator;
+    public enum Targeting
+    {
+        Initial,
+        Chaining,
+        Animation
+    }
 
+    public Targeting TargetingState = Targeting.Initial;
+
+    public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/LightningBullet.tscn");
+    public Array BodiesHit = new Array();
+    public bool ChainingFinished = false;
 
     public LightningBullet() :
-        base(new NullInputController(), new LightningBulletPhysicsController(), new NullGraphicsController())
+        base(new NullInputController(), new LightningBulletPhysicsController(), new LightningBulletGraphicsController())
     {
         baseSpeed = 0;
     }
@@ -24,12 +33,5 @@ public class LightningBullet : GameObject
     public void OnTimerTimeout()
     {
         QueueFree();
-    }
-
-    public void Initiate(GameObject initiator, Vector2 position, int damage)
-    {
-        Position = position;
-        this.damage = damage;
-        this.initiator = initiator;
     }
 }

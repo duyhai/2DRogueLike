@@ -30,9 +30,4 @@ public class Splitter : Enemy
 
         base.Death();
     }
-
-    public override void PlayDeathAnimation()
-    {
-        Death();
-    }
 }

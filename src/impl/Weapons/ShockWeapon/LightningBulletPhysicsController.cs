@@ -1,20 +1,85 @@
 using Godot;
 using Godot.Collections;
+using Utility;
 
 public class LightningBulletPhysicsController : PhysicsController
 {
+    float radius = 75;
+    float fov = Mathf.Pi / 4;
+
     public override void Update(GameObject gameObject, float delta)
     {
         LightningBullet lightningBullet = (LightningBullet)gameObject;
-        Area2D hitbox = gameObject.GetNode<Area2D>("Area2D");
-        Array bodies = hitbox.GetOverlappingBodies();
-        if (bodies.Count != 0)
+
+        Array bodiesHit = new Array();
+        lightningBullet.TargetingState = LightningBullet.Targeting.Chaining;
+        Chaining(lightningBullet, bodiesHit);
+
+        if (bodiesHit.Count != 0)
         {
-            foreach (var body in bodies)
+            foreach (Node body in bodiesHit)
             {
-                DamageUtil.HandleDamage(lightningBullet, (Node)body, lightningBullet.damage);
+                lightningBullet.HitTarget(body);
             }
-            lightningBullet.SetPhysicsProcess(false);
         }
+        gameObject.SetPhysicsProcess(false);
+        lightningBullet.BodiesHit = bodiesHit;
+        lightningBullet.TargetingState = LightningBullet.Targeting.Animation;
+    }
+
+    private void Chaining(GameObject entity, Array bodiesHit, int maxBodies = 3)
+    {
+        if (maxBodies == 0)
+        {
+            return;
+        }
+
+        var bodies = entity.GetTree().GetNodesInGroup("enemy");
+        Vector2 lastBodyGlobalPosition;
+        if (bodiesHit.Count == 0)
+        {
+            lastBodyGlobalPosition = entity.GlobalPosition;
+        }
+        else
+        {
+            lastBodyGlobalPosition = ((GameObject)bodiesHit[bodiesHit.Count - 1]).GlobalPosition;
+        }
+
+        GameObject nearestBody = (GameObject)ArrayUtil.Min(ref bodies, (object x, object y) =>
+        {
+            if (bodiesHit.Contains((GameObject)y))
+            {
+                return x;
+            }
+            if (bodiesHit.Count == 0 && !inFieldOfView(entity, (GameObject)y))
+            {
+                return x;
+            }
+            float dy = ((GameObject)y).GlobalPosition.DistanceTo(lastBodyGlobalPosition);
+            if (dy > radius)
+            {
+                return x;
+            }
+            if (x == null)
+            {
+                return y;
+            }
+            float dx = ((GameObject)x).GlobalPosition.DistanceTo(lastBodyGlobalPosition);
+
+            return dx < dy ? x : y;
+        });
+
+        if (nearestBody != null)
+        {
+            bodiesHit.Add(nearestBody);
+        }
+
+        Chaining(entity, bodiesHit, maxBodies - 1);
+    }
+    bool inFieldOfView(GameObject entity, GameObject body)
+    {
+        Vector2 relativeMouseLoc = (entity.GetGlobalMousePosition() - entity.GlobalPosition).Normalized();
+        Vector2 relativeNearestBodyLoc = (body.GlobalPosition - entity.GlobalPosition).Normalized();
+        return Mathf.Cos(fov) < relativeMouseLoc.Dot(relativeNearestBodyLoc);
     }
 }
