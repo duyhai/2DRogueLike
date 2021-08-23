@@ -2,7 +2,7 @@ using Godot;
 
 public class Melee : Weapon
 {
-    public Melee() : base(new MeleeGraphicsController(), 25) { }
+    public Melee() : base(new MeleeGraphicsController(), 2.5f) { }
 
     public override void _Ready()
     {

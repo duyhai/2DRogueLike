@@ -16,6 +16,6 @@ public class BallLightningBullet : Bullet
     public BallLightningBullet() :
         base(new NullInputController(), new BallLightningBulletPhysicsController(), new BallLightningBulletGraphicsController())
     {
-        baseSpeed = 70;
+        baseStats = new StatsInfo { MaxHealth = 0, Damage = 0, Speed = 75 };
     }
 }

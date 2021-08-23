@@ -8,9 +8,8 @@ public class Shooter : Enemy
     public Shooter() :
         base(new ShooterInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
     {
-        this.baseSpeed = 200;
-        this.health = 50;
-        this.maxHealth = health;
+        baseStats = new StatsInfo { MaxHealth = 50, Damage = 20, Speed = 200 };
+        health = Stats.MaxHealth;
         CollisionLayer = CollisionLayers.Enemy;
         CollisionMask = CollisionLayers.Player | CollisionLayers.MapObject;
     }

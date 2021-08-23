@@ -7,7 +7,7 @@ public class BouncyBullet : Bullet
     public BouncyBullet() :
         base(new NullInputController(), new BouncyBulletPhysicsController(), new NullGraphicsController())
     {
-        baseSpeed = 750;
+        baseStats = new StatsInfo { MaxHealth = 0, Damage = 0, Speed = 750 };
     }
 
     public override int HitTarget(Node collider)
