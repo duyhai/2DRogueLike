@@ -11,7 +11,13 @@ public class TankPhysicsController : PhysicsController
         if (collision != null)
         {
             tank.velocity = tank.velocity.Slide(collision.Normal);
-            tank.HitTarget(collision);
+
+            Timer attackTimer = gameObject.GetNode<Timer>("Timer");
+            if (attackTimer.IsStopped())
+            {
+                DamageUtil.HandleDamage(gameObject, (Node)collision.Collider, gameObject.Stats.Damage);
+                attackTimer.Start();
+            }
         }
     }
 }

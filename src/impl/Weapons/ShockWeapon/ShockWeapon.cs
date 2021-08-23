@@ -4,7 +4,7 @@ using System.Linq;
 
 public class ShockWeapon : Weapon
 {
-    public ShockWeapon() : base(new ShockWeaponGraphicsController(), 1000) { }
+    public ShockWeapon() : base(new ShockWeaponGraphicsController(), 4f) { }
 
     public override void _Ready()
     {

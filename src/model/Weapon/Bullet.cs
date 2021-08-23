@@ -20,7 +20,7 @@ public abstract class Bullet : GameObject
     public virtual void Initiate(GameObject initiator, float rotation, Vector2 position, int damage)
     {
         Position = position;
-        velocity = new Vector2(speed, 0).Rotated(rotation);
+        velocity = new Vector2(Stats.Speed, 0).Rotated(rotation);
         Rotation = (Mathf.Pi / 2) + rotation;
         this.damage = damage;
         this.initiator = initiator;

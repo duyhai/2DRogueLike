@@ -7,9 +7,8 @@ public class Floater : Enemy
     public Floater() :
         base(new FloaterInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
     {
-        this.baseSpeed = 200;
-        this.maxHealth = 30;
-        this.health = maxHealth;
+        baseStats = new StatsInfo { MaxHealth = 30, Damage = 0, Speed = 200 };
+        health = Stats.MaxHealth;
         CollisionLayer = CollisionLayers.Enemy;
         CollisionMask = CollisionLayers.Player | CollisionLayers.MapObject;
     }

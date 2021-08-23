@@ -2,7 +2,7 @@ using Godot;
 
 public class RocketLauncher : Weapon
 {
-    public RocketLauncher() : base(new WeaponGraphicsController(), 15) { }
+    public RocketLauncher() : base(new WeaponGraphicsController(), 1.5f) { }
 
     public override void _Ready()
     {

@@ -20,7 +20,14 @@ public class LightningBullet : Bullet
     public LightningBullet() :
         base(new NullInputController(), new LightningBulletPhysicsController(), new LightningBulletGraphicsController())
     {
-        baseSpeed = 0;
+        baseStats = new StatsInfo { MaxHealth = 0, Damage = 0, Speed = 0 };
+    }
+
+    public override void _Ready()
+    {
+        Area2D hitbox = GetNode<Area2D>("Area2D");
+        hitbox.CollisionLayer = CollisionLayer;
+        hitbox.CollisionMask = CollisionMask;
     }
 
     public override void _Ready()

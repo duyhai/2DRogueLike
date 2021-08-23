@@ -4,13 +4,12 @@ using System.Diagnostics;
 public class RocketProjectile : Bullet
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/RocketProjectile.tscn");
-    Area2D explosionArea;
     bool exploded = false;
 
     public RocketProjectile() :
         base(new NullInputController(), new SimpleBulletPhysicsController(), new NullGraphicsController())
     {
-        baseSpeed = 350;
+        baseStats = new StatsInfo { MaxHealth = 0, Damage = 0, Speed = 350 };
     }
 
     public override void _Ready()
