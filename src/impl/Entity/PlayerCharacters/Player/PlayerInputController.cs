@@ -54,6 +54,6 @@ public class PlayerInputController : InputController
             player.weapons[player.equippedWeaponIndex].Visible = true;
         }
 
-        player.velocity = player.velocity.Normalized() * player.speed;
+        player.velocity = player.velocity.Normalized() * player.Stats.Speed;
     }
 }

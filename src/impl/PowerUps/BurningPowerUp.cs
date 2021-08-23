@@ -2,13 +2,12 @@ using Godot;
 
 public class BurningPowerUp : PowerUp
 {
-    int damage = 1;
+    float damageMultiplier = 0.1f;
 
     public override void Effect()
     {
-        var parent = GetParent();
-        var method = parent.GetType().GetMethod("Hit");
-        method?.Invoke(parent, new object[] { damage });
+        var parent = GetParent<GameObject>();
+        DamageUtil.HandleDamage(initiator, parent, (int)(initiator.Stats.Damage * damageMultiplier));
     }
 
     public override void StartTimers()
