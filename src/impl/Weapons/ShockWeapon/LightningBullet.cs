@@ -30,6 +30,13 @@ public class LightningBullet : Bullet
         hitbox.CollisionMask = CollisionMask;
     }
 
+    public override void _Ready()
+    {
+        Area2D hitbox = GetNode<Area2D>("Area2D");
+        hitbox.CollisionLayer = CollisionLayer;
+        hitbox.CollisionMask = CollisionMask;
+    }
+
     public void OnTimerTimeout()
     {
         QueueFree();
