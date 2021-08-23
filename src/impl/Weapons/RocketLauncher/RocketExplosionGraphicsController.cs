@@ -1,6 +1,6 @@
 using Godot;
 
-public class RocketHitBulletGraphicsController : GraphicsController
+public class RocketExplosionGraphicsController : GraphicsController
 {
     public override void Update(Node2D node) { }
 
