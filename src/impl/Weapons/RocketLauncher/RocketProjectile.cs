@@ -4,7 +4,6 @@ using System.Diagnostics;
 public class RocketProjectile : Bullet
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/RocketProjectile.tscn");
-    Area2D explosionArea;
     bool exploded = false;
 
     public RocketProjectile() :
