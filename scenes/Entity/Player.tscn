@@ -76,10 +76,6 @@ visible = false
 [node name="LaserWeapon" parent="." instance=ExtResource( 14 )]
 visible = false
 
-<<<<<<< HEAD
 [node name="BallLightningWeaponV2" parent="." instance=ExtResource( 15 )]
-=======
-[node name="BallLightningWeapon" parent="." instance=ExtResource( 15 )]
->>>>>>> master
 visible = false
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]
