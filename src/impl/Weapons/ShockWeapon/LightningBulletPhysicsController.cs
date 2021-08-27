@@ -9,22 +9,33 @@ public class LightningBulletPhysicsController : PhysicsController
 
     public override void Update(GameObject gameObject, float delta)
     {
-        LightningBullet lightningBullet = (LightningBullet)gameObject;
-
-        Array bodiesHit = new Array();
-        lightningBullet.TargetingState = LightningBullet.Targeting.Chaining;
-        Chaining(lightningBullet, bodiesHit);
-
-        if (bodiesHit.Count != 0)
+        Timer bulletTimer = gameObject.GetNode<Timer>("BulletTimer");
+        if (bulletTimer.IsStopped())
         {
-            foreach (Node body in bodiesHit)
+            LightningBullet lightningBullet = (LightningBullet)gameObject;
+
+            Array bodiesHit = new Array();
+            lightningBullet.TargetingState = LightningBullet.Targeting.Chaining;
+            Chaining(lightningBullet, bodiesHit);
+
+            if (bodiesHit.Count != 0)
             {
-                lightningBullet.HitTarget(body);
+                foreach (Node body in bodiesHit)
+                {
+                    lightningBullet.HitTarget(body);
+                }
             }
+
+            lightningBullet.SetPhysicsProcess(lightningBullet.DamageMultipleTimes);
+
+            if (bodiesHit.Count != 0)
+            {
+                bulletTimer.Start();
+            }
+
+            lightningBullet.BodiesHit = bodiesHit;
+            lightningBullet.TargetingState = LightningBullet.Targeting.Animation;
         }
-        gameObject.SetPhysicsProcess(false);
-        lightningBullet.BodiesHit = bodiesHit;
-        lightningBullet.TargetingState = LightningBullet.Targeting.Animation;
     }
 
     private void Chaining(GameObject entity, Array bodiesHit, int maxBodies = 3)
@@ -51,7 +62,7 @@ public class LightningBulletPhysicsController : PhysicsController
             {
                 return x;
             }
-            if (bodiesHit.Count == 0 && !inFieldOfView(entity, (GameObject)y))
+            if (bodiesHit.Count == 0 && entity.velocity.Length() == 0f && !inFieldOfView(entity, (GameObject)y))
             {
                 return x;
             }

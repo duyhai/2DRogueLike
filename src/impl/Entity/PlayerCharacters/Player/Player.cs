@@ -26,7 +26,7 @@ public class Player : GameObject
         weapons.Add((Weapon)GetNode("ShockWeapon"));
         weapons.Add((Weapon)GetNode("Melee"));
         weapons.Add((Weapon)GetNode("LaserWeapon"));
-        weapons.Add((Weapon)GetNode("BallLightningWeapon"));
+        weapons.Add((Weapon)GetNode("BallLightningWeaponV2"));
         weapons[equippedWeaponIndex].Visible = true;
     }
 

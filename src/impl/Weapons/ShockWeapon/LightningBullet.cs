@@ -15,27 +15,19 @@ public class LightningBullet : Bullet
 
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/LightningBullet.tscn");
     public Array BodiesHit = new Array();
-    public bool ChainingFinished = false;
+    public bool DamageMultipleTimes = false;
 
     public LightningBullet() :
         base(new NullInputController(), new LightningBulletPhysicsController(), new LightningBulletGraphicsController())
     {
-        baseStats = new StatsInfo { MaxHealth = 0, Damage = 0, Speed = 0 };
-    }
-
-    public override void _Ready()
-    {
         Area2D hitbox = GetNode<Area2D>("Area2D");
         hitbox.CollisionLayer = CollisionLayer;
         hitbox.CollisionMask = CollisionMask;
     }
 
-    public override void _Ready()
-    {
-        Area2D hitbox = GetNode<Area2D>("Area2D");
-        hitbox.CollisionLayer = CollisionLayer;
-        hitbox.CollisionMask = CollisionMask;
-    }
+    public LightningBullet(InputController inputController, PhysicsController physicsController, GraphicsController graphicsController) :
+        base(inputController, physicsController, graphicsController)
+    { }
 
     public void OnTimerTimeout()
     {
