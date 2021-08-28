@@ -20,9 +20,7 @@ public class LightningBullet : Bullet
     public LightningBullet() :
         base(new NullInputController(), new LightningBulletPhysicsController(), new LightningBulletGraphicsController())
     {
-        Area2D hitbox = GetNode<Area2D>("Area2D");
-        hitbox.CollisionLayer = CollisionLayer;
-        hitbox.CollisionMask = CollisionMask;
+        baseStats = new StatsInfo { MaxHealth = 0, Damage = 0, Speed = 0 };
     }
 
     public LightningBullet(InputController inputController, PhysicsController physicsController, GraphicsController graphicsController) :
