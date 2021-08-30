@@ -11,7 +11,7 @@ public class Player : GameObject
     public Player() :
         base(new PlayerInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
     {
-        baseStats = new StatsInfo { MaxHealth = 100, Damage = 10, Speed = 200 };
+        baseStats = new StatsInfo { MaxHealth = 2000, Damage = 100, Speed = 200 };
         health = Stats.MaxHealth;
         CollisionLayer = CollisionLayers.Player;
         CollisionMask = CollisionLayers.Enemy | CollisionLayers.MapObject;
@@ -27,6 +27,7 @@ public class Player : GameObject
         weapons.Add((Weapon)GetNode("Melee"));
         weapons.Add((Weapon)GetNode("LaserWeapon"));
         weapons.Add((Weapon)GetNode("BallLightningWeaponV2"));
+        weapons.Add((Weapon)GetNode("FreezingWeapon"));
         weapons[equippedWeaponIndex].Visible = true;
     }
 
@@ -38,7 +39,7 @@ public class Player : GameObject
     public void Respawn(float x, float y)
     {
         ResetHealth();
-        disableInput = false;
+        DisableInput = false;
         Position = new Vector2(x, y);
         ((BasicGraphicsController)graphicsController).ResetSprite(this);
     }

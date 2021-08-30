@@ -3,8 +3,6 @@
 [ext_resource path="res://scenes/powerups/PowerUp.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/model/PowerUps/MovSpeedModPowerUp.cs" type="Script" id=2]
 
-
-
 [node name="MovSpeedModPowerUp" groups=[
 "MovSpeedModPowerUp",
 ] instance=ExtResource( 1 )]

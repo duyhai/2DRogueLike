@@ -22,6 +22,7 @@ public abstract class PowerUp : Node2D
 
     public virtual void UndoEffect()
     {
+        GetNode<Timer>("EffectTimer").Stop();
         QueueFree();
     }
 
@@ -33,5 +34,15 @@ public abstract class PowerUp : Node2D
     public virtual void OnDurationTimerTimeout()
     {
         UndoEffect();
+    }
+
+    public virtual void Reset()
+    {
+        StartTimers();
+    }
+
+    public virtual void OnEffectTimerTimeout()
+    {
+        Effect();
     }
 }

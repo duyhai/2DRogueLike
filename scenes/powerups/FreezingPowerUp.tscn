@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/powerups/MovSpeedModPowerUp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/impl/PowerUps/FreezingPowerUp.cs" type="Script" id=2]
+[ext_resource path="res://assets/weapons/snow3.png" type="Texture" id=3]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0.265823, 0.853409 ), 0.0, 0.0267406, 0, 0, Vector2( 1, 0 ), -0.0546438, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 6.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.03
+scale_curve = SubResource( 2 )
+
+[node name="FreezingPowerUp" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="DurationTimer" parent="." index="0"]
+wait_time = 4.0
+
+[node name="Particles2D" type="Particles2D" parent="." index="1"]
+amount = 7
+process_material = SubResource( 3 )
+texture = ExtResource( 3 )
+
+[node name="EffectTimer" parent="." index="2"]
+wait_time = 0.01

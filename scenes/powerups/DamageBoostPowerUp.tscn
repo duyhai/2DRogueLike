@@ -4,10 +4,6 @@
 [ext_resource path="res://src/impl/PowerUps/DamageBoostPowerUp.cs" type="Script" id=2]
 [ext_resource path="res://assets/damageboost.jpg" type="Texture" id=3]
 
-
-
-
-
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 1, 1, 1, 0.839216, 1, 1, 1, 0 )
 

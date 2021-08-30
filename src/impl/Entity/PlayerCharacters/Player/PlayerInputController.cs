@@ -7,8 +7,6 @@ public class PlayerInputController : InputController
         Player player = (Player)gameObject;
         player.velocity = new Vector2();
 
-        if (gameObject.disableInput) return;
-
         if (Input.IsActionPressed("menu"))
         {
             SceneManager.Instance.GotoScene("res://scenes/MenuScenes/MainMenu.tscn", true);

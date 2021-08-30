@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/player/playerWalkUp2.png" type="Texture" id=1]
 [ext_resource path="res://assets/player/playerWalk2.png" type="Texture" id=2]
@@ -15,17 +15,18 @@
 [ext_resource path="res://scenes/weapons/Melee.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/weapons/LaserWeapon.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/weapons/BallLightningWeaponV2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/weapons/FreezingWeapon.tscn" type="PackedScene" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "walkUp",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "walkUp",
 "speed": 5.0
 } ]
 
@@ -77,5 +78,8 @@ visible = false
 visible = false
 
 [node name="BallLightningWeaponV2" parent="." instance=ExtResource( 15 )]
+visible = false
+
+[node name="FreezingWeapon" parent="." instance=ExtResource( 16 )]
 visible = false
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]
