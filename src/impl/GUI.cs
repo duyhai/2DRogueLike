@@ -8,11 +8,12 @@ public class GUI : CanvasLayer
     TextureProgress HealthBar;
     Label ScoreCounter;
     Label EnemyCounter;
+    int maxHealth;
     public int score = 0;
 
     public override void _Ready()
     {
-        HealthCounter = GetNode<Label>("MarginContainer/HBoxContainer/Bars/LifeBar/Count/Background/Number");
+        HealthCounter = GetNode<Label>("MarginContainer/HBoxContainer/Bars/LifeBar/TextureProgress/Number");
         HealthBar = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Bars/LifeBar/TextureProgress");
         ScoreCounter = GetNode<Label>("MarginContainer/HBoxContainer/Counters/ScoreCounter/Background/Number");
         EnemyCounter = GetNode<Label>("MarginContainer/HBoxContainer/Counters/EnemyCounter/Background/Number");
@@ -22,11 +23,12 @@ public class GUI : CanvasLayer
     public void SetMaxHealthCounter(int maxHealth)
     {
         HealthBar.MaxValue = Convert.ToDouble(maxHealth);
+        this.maxHealth = maxHealth;
     }
 
     public void SetHealthCounter(int health)
     {
-        HealthCounter.Text = health.ToString();
+        HealthCounter.Text = health.ToString() + "/" + maxHealth;
         HealthBar.Value = Convert.ToDouble(health);
     }
 
