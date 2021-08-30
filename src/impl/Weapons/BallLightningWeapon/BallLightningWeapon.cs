@@ -4,7 +4,7 @@ using System.Linq;
 
 public class BallLightningWeapon : Weapon
 {
-    public BallLightningWeapon() : base(new WeaponGraphicsController(), 20) { }
+    public BallLightningWeapon() : base(new WeaponGraphicsController(), 0.5f) { }
 
     public override void _Ready()
     {

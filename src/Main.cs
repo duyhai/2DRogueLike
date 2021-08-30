@@ -36,7 +36,7 @@ public class Main : Node
         if (CountEnemies() <= 0)
         {
             resultScreen.Visible = true;
-            player.disableInput = true;
+            player.DisableInput = true;
         }
     }
 

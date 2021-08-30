@@ -1,15 +1,15 @@
 using Godot;
 using System;
 
-public class Flamethrower : Weapon
+public class FreezingWeapon : Weapon
 {
-    public Flamethrower() : base(new WeaponGraphicsController(), 0.33f) { }
-    const int SPREAD = 25;
+    public FreezingWeapon() : base(new WeaponGraphicsController(), 0.1f) { }
+    const int SPREAD = 2;
 
     public override void _Ready()
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
-        bulletScene = FlamethrowerFlame.SceneObject;
+        bulletScene = FreezingBullet.SceneObject;
     }
 
     public override bool Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)

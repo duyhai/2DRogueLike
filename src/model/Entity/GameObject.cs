@@ -28,7 +28,7 @@ public abstract class GameObject : KinematicBody2D
     protected int baseSpeed;
     public int health;
     public bool isDead = false;
-    public bool disableInput = false;
+    public bool DisableInput = false;
     protected InputController inputController;
     protected PhysicsController physicsController;
     protected GraphicsController graphicsController;
@@ -44,7 +44,10 @@ public abstract class GameObject : KinematicBody2D
 
     public override void _Process(float delta)
     {
-        inputController.Update(this);
+        if (!DisableInput)
+        {
+            inputController.Update(this);
+        }
         graphicsController.Update(this);
     }
 
@@ -70,7 +73,7 @@ public abstract class GameObject : KinematicBody2D
         {
             health = 0;
             isDead = true;
-            disableInput = true;
+            DisableInput = true;
             EmitSignal(nameof(DeathSignal));
         }
 
@@ -109,7 +112,9 @@ public abstract class GameObject : KinematicBody2D
         {
             if (powerUps[i].GetType() == powerUp.GetType())
             {
-                ((PowerUp)powerUps[i]).UndoEffect();
+                ((PowerUp)powerUps[i]).Reset();
+                powerUp.QueueFree();
+                return;
             }
         }
         AddChild(powerUp);

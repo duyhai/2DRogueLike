@@ -34,4 +34,9 @@ public abstract class PowerUp : Node2D
     {
         UndoEffect();
     }
+
+    public virtual void Reset()
+    {
+        StartTimers();
+    }
 }

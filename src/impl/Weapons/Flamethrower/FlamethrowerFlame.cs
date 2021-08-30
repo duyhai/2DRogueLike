@@ -23,13 +23,11 @@ public class FlamethrowerFlame : Bullet
     {
         int inflictedDamage = base.HitTarget(collider);
 
-        if (inflictedDamage > 0)
-        {
-            BurningPowerUp burningPowerUp = (BurningPowerUp)GD.Load<PackedScene>("res://scenes/powerups/BurningPowerUp.tscn").Instance();
-            burningPowerUp.Initiate(initiator);
-            var method = collider.GetType().GetMethod("AddPowerUp");
-            method?.Invoke(collider, new object[] { burningPowerUp });
-        }
+        BurningPowerUp burningPowerUp = (BurningPowerUp)GD.Load<PackedScene>("res://scenes/powerups/BurningPowerUp.tscn").Instance();
+        burningPowerUp.Initiate(initiator);
+        var method = collider.GetType().GetMethod("AddPowerUp");
+        method?.Invoke(collider, new object[] { burningPowerUp });
+
         QueueFree();
         return inflictedDamage;
     }
