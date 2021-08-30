@@ -25,12 +25,17 @@ public class FreezingPowerUp : MovSpeedModPowerUp
 
     public override void Effect()
     {
-        GetParent<GameObject>().DisableInput = true;
+        if (MAX_STACK_COUNT == StackCount)
+        {
+            GetParent<GameObject>().DisableInput = true;
+            modifier = 0;
+            GetNode<Particles2D>("Particles2D").Modulate = new Color("00dacf");
+        }
     }
 
     public override void UndoEffect()
     {
-        GetParent<GameObject>().DisableInput = false;
         base.UndoEffect();
+        GetParent<GameObject>().DisableInput = false;
     }
 }

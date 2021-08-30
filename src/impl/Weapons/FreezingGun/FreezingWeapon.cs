@@ -3,7 +3,7 @@ using System;
 
 public class FreezingWeapon : Weapon
 {
-    public FreezingWeapon() : base(new WeaponGraphicsController(), 0.1f) { }
+    public FreezingWeapon() : base(new WeaponGraphicsController(), 0f) { }
     const int SPREAD = 2;
 
     public override void _Ready()

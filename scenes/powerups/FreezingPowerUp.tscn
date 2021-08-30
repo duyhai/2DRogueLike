@@ -30,3 +30,6 @@ wait_time = 4.0
 amount = 7
 process_material = SubResource( 3 )
 texture = ExtResource( 3 )
+
+[node name="EffectTimer" parent="." index="2"]
+wait_time = 0.01

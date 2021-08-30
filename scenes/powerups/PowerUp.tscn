@@ -2,7 +2,6 @@
 
 [ext_resource path="res://src/model/PowerUps/PowerUp.cs" type="Script" id=1]
 
-
 [node name="PowerUp" type="Node2D" groups=[
 "PowerUp",
 ]]
@@ -11,4 +10,8 @@ script = ExtResource( 1 )
 [node name="DurationTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="EffectTimer" type="Timer" parent="."]
+autostart = true
 [connection signal="timeout" from="DurationTimer" to="." method="OnDurationTimerTimeout"]
+[connection signal="timeout" from="EffectTimer" to="." method="OnEffectTimerTimeout"]
