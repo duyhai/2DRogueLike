@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public abstract class GameObject : KinematicBody2D
@@ -60,8 +61,22 @@ public abstract class GameObject : KinematicBody2D
     {
         if (isDead) { return 0; }
 
-        int newHealth = Math.Min(Math.Max(health - damage, 0), Stats.MaxHealth);
-        int inflictedDamage = health - newHealth;
+        Godot.Collections.Array shieldPowerUps = GroupUtils.FindNodeDescendantsInGroup(this, "ShieldPowerUp");
+        int remainingDamage = damage;
+        foreach (ShieldPowerUp shieldPowerUp in shieldPowerUps)
+        {
+            if (remainingDamage > 0)
+            {
+                remainingDamage = shieldPowerUp.AbsorbDamage(remainingDamage);
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        int newHealth = Math.Min(Math.Max(health - remainingDamage, 0), Stats.MaxHealth);
+        int inflictedDamage = health - newHealth + damage - remainingDamage;
         health = newHealth;
 
         if (inflictedDamage != 0)

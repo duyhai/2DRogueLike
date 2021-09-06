@@ -8,7 +8,8 @@ public enum MapTile
     BREAKABLE_WALL,
     SPEEDBOOST,
     DAMAGEBOOST,
-    LIFESTEALBOOST
+    LIFESTEALBOOST,
+    SIMPLESHIELDBOOST
 }
 
 public class Map
@@ -18,6 +19,7 @@ public class Map
     static PackedScene speedBoostScene = SpeedBoost.SceneObject;
     static PackedScene damageBoostScene = DamageBoost.SceneObject;
     static PackedScene lifestealBoostScene = LifestealBoost.SceneObject;
+    static PackedScene simpleShieldBoostScene = SimpleShieldBoost.SceneObject;
     static PackedScene playerScene = Player.SceneObject;
 
     Dictionary<MapTile, PackedScene> sceneMapping = new Dictionary<MapTile, PackedScene> {
@@ -26,13 +28,15 @@ public class Map
         { MapTile.BREAKABLE_WALL, breakableWallScene },
         { MapTile.SPEEDBOOST, speedBoostScene },
         { MapTile.DAMAGEBOOST, damageBoostScene },
-        { MapTile.LIFESTEALBOOST, lifestealBoostScene }
+        { MapTile.LIFESTEALBOOST, lifestealBoostScene },
+        { MapTile.SIMPLESHIELDBOOST, simpleShieldBoostScene }
     };
 
     public static readonly MapTile[] Boosters = new MapTile[] {
         MapTile.SPEEDBOOST,
         MapTile.DAMAGEBOOST,
-        MapTile.LIFESTEALBOOST
+        MapTile.LIFESTEALBOOST,
+        MapTile.SIMPLESHIELDBOOST
     };
 
     public static List<PackedScene> EnemyScenes = new List<PackedScene> {
