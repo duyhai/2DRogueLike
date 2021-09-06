@@ -20,7 +20,7 @@ public class LightningBullet : Bullet
     public LightningBullet() :
         base(new NullInputController(), new LightningBulletPhysicsController(), new LightningBulletGraphicsController())
     {
-        baseStats = new StatsInfo { MaxHealth = 0, Damage = 0, Speed = 0 };
+        baseStats = new StatsInfo { MaxHealth = 0, MaxShield = 0, Damage = 0, Speed = 0 };
     }
 
     public LightningBullet(InputController inputController, PhysicsController physicsController, GraphicsController graphicsController) :

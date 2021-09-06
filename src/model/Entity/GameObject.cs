@@ -28,6 +28,7 @@ public abstract class GameObject : KinematicBody2D
     }
     protected int baseSpeed;
     public int health;
+    public int shield;
     public bool isDead = false;
     public bool DisableInput = false;
     protected InputController inputController;
@@ -61,22 +62,19 @@ public abstract class GameObject : KinematicBody2D
     {
         if (isDead) { return 0; }
 
-        Godot.Collections.Array shieldPowerUps = GroupUtils.FindNodeDescendantsInGroup(this, "ShieldPowerUp");
         int remainingDamage = damage;
-        foreach (ShieldPowerUp shieldPowerUp in shieldPowerUps)
+        int inflictedDamage = 0;
+
+        int newShield = Math.Min(Math.Max(shield - remainingDamage, 0), Stats.MaxShield);
+        if (newShield < shield) // We don't want to add shield during lifesteal
         {
-            if (remainingDamage > 0)
-            {
-                remainingDamage = shieldPowerUp.AbsorbDamage(remainingDamage);
-            }
-            else
-            {
-                break;
-            }
+            inflictedDamage += shield - newShield;
+            remainingDamage -= shield - newShield;
+            shield = newShield;
         }
 
         int newHealth = Math.Min(Math.Max(health - remainingDamage, 0), Stats.MaxHealth);
-        int inflictedDamage = health - newHealth + damage - remainingDamage;
+        inflictedDamage += health - newHealth;
         health = newHealth;
 
         if (inflictedDamage != 0)

@@ -8,7 +8,7 @@ public class FlamethrowerFlame : Bullet
     public FlamethrowerFlame() :
         base(new NullInputController(), new SimpleBulletPhysicsController(), new FlamethrowerFlameGraphicsController())
     {
-        baseStats = new StatsInfo { MaxHealth = 0, Damage = 0, Speed = 75 };
+        baseStats = new StatsInfo { MaxHealth = 0, MaxShield = 0, Damage = 0, Speed = 75 };
     }
 
     public override void _Ready()
@@ -24,7 +24,7 @@ public class FlamethrowerFlame : Bullet
         int inflictedDamage = base.HitTarget(collider);
 
         BurningPowerUp burningPowerUp = (BurningPowerUp)GD.Load<PackedScene>("res://scenes/powerups/BurningPowerUp.tscn").Instance();
-        burningPowerUp.Initiate(initiator);
+        burningPowerUp.Initiate((GameObject)collider, initiator);
         var method = collider.GetType().GetMethod("AddPowerUp");
         method?.Invoke(collider, new object[] { burningPowerUp });
 

@@ -13,7 +13,7 @@ public class Booster : Block
         if (body.GetType() == typeof(Player))
         {
             PowerUp powerUp = (PowerUp)powerUpScene.Instance();
-            powerUp.Initiate(this);
+            powerUp.Initiate((GameObject)body, this);
             var method = body.GetType().GetMethod("AddPowerUp");
             method?.Invoke(body, new object[] { powerUp });
             QueueFree();

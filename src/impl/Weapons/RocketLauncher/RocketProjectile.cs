@@ -9,7 +9,7 @@ public class RocketProjectile : Bullet
     public RocketProjectile() :
         base(new NullInputController(), new SimpleBulletPhysicsController(), new NullGraphicsController())
     {
-        baseStats = new StatsInfo { MaxHealth = 0, Damage = 0, Speed = 350 };
+        baseStats = new StatsInfo { MaxHealth = 0, MaxShield = 0, Damage = 0, Speed = 350 };
     }
 
     public override void _Ready()
