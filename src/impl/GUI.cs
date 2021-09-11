@@ -5,6 +5,7 @@ using System.Linq;
 public class GUI : CanvasLayer
 {
     Label HealthCounter;
+    Label ShieldCounter;
     TextureProgress HealthBar;
     Label ScoreCounter;
     Label EnemyCounter;
@@ -14,6 +15,7 @@ public class GUI : CanvasLayer
     public override void _Ready()
     {
         HealthCounter = GetNode<Label>("MarginContainer/HBoxContainer/Bars/LifeBar/TextureProgress/Number");
+        ShieldCounter = GetNode<Label>("MarginContainer/HBoxContainer/Bars/ShieldCounter/Counter");
         HealthBar = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Bars/LifeBar/TextureProgress");
         ScoreCounter = GetNode<Label>("MarginContainer/HBoxContainer/Counters/ScoreCounter/Background/Number");
         EnemyCounter = GetNode<Label>("MarginContainer/HBoxContainer/Counters/EnemyCounter/Background/Number");
@@ -30,6 +32,11 @@ public class GUI : CanvasLayer
     {
         HealthCounter.Text = health.ToString() + "/" + maxHealth;
         HealthBar.Value = Convert.ToDouble(health);
+    }
+
+    public void SetShieldCounter(int shield)
+    {
+        ShieldCounter.Text = shield.ToString();
     }
 
     //TODO: Score system

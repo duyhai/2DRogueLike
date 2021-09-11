@@ -14,18 +14,4 @@ public class ShieldPowerUp : PowerUp
     {
         return new StatsInfo { MaxHealth = stats.MaxHealth, MaxShield = stats.MaxShield + absorptionAmount, Damage = stats.Damage, Speed = stats.Speed };
     }
-
-    public int AbsorbDamage(int damage)
-    {
-        int remainingDamage = damage - absorptionAmount;
-        if (remainingDamage < 0)
-        {
-            absorptionAmount = -remainingDamage;
-        }
-        else
-        {
-            QueueFree();
-        }
-        return remainingDamage;
-    }
 }
