@@ -8,7 +8,7 @@ public class FreezingBullet : Bullet
     public FreezingBullet() :
         base(new NullInputController(), new SimpleBulletPhysicsController(), new FreezingBulletGraphicsController())
     {
-        baseStats = new StatsInfo { MaxHealth = 0, Damage = 0, Speed = 75 };
+        baseStats = new StatsInfo { MaxHealth = 0, MaxShield = 0, Damage = 0, Speed = 75 };
     }
 
     public override void _Ready()
@@ -20,7 +20,7 @@ public class FreezingBullet : Bullet
         int inflictedDamage = base.HitTarget(collider);
 
         FreezingPowerUp freezingPowerUp = (FreezingPowerUp)GD.Load<PackedScene>("res://scenes/powerups/FreezingPowerUp.tscn").Instance();
-        freezingPowerUp.Initiate(initiator);
+        freezingPowerUp.Initiate((GameObject)collider, initiator);
         var method = collider.GetType().GetMethod("AddPowerUp");
         method?.Invoke(collider, new object[] { freezingPowerUp });
 

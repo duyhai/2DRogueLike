@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bombs_icon.png-86cbc37bfba4eddf38c48ee3c0ce449f.stex"
+path="res://.import/bar_bg.png-a6d29f0f321aa380e6ba716ac1e12a71.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/bombs_icon.png"
-dest_files=[ "res://.import/bombs_icon.png-86cbc37bfba4eddf38c48ee3c0ce449f.stex" ]
+source_file="res://assets/gui/bar_bg.png"
+dest_files=[ "res://.import/bar_bg.png-a6d29f0f321aa380e6ba716ac1e12a71.stex" ]
 
 [params]
 

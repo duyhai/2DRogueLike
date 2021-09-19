@@ -4,7 +4,7 @@ public abstract class PowerUp : Node2D
 {
     protected GameObject initiator;
 
-    public void Initiate(GameObject initiator)
+    public virtual void Initiate(GameObject target, GameObject initiator)
     {
         this.initiator = initiator;
     }
