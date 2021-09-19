@@ -5,6 +5,6 @@ public class SimpleShieldPowerUp : ShieldPowerUp
 {
     public SimpleShieldPowerUp()
     {
-        absorptionAmount = 50000;
+        absorptionAmount = 1000;
     }
 }
