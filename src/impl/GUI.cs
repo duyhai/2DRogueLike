@@ -6,17 +6,20 @@ public class GUI : CanvasLayer
 {
     Label HealthCounter;
     Label ShieldCounter;
-    TextureProgress HealthBar;
+    Bar HealthBar;
+    Bar ShieldBar;
     Label ScoreCounter;
     Label EnemyCounter;
     int maxHealth;
+    int maxShield;
     public int score = 0;
 
     public override void _Ready()
     {
         HealthCounter = GetNode<Label>("MarginContainer/HBoxContainer/Bars/LifeBar/TextureProgress/Number");
-        ShieldCounter = GetNode<Label>("MarginContainer/HBoxContainer/Bars/ShieldCounter/Counter");
-        HealthBar = GetNode<TextureProgress>("MarginContainer/HBoxContainer/Bars/LifeBar/TextureProgress");
+        ShieldCounter = GetNode<Label>("MarginContainer/HBoxContainer/Bars/ShieldBar/TextureProgress/Number");
+        HealthBar = GetNode<Bar>("MarginContainer/HBoxContainer/Bars/LifeBar");
+        ShieldBar = GetNode<Bar>("MarginContainer/HBoxContainer/Bars/ShieldBar");
         ScoreCounter = GetNode<Label>("MarginContainer/HBoxContainer/Counters/ScoreCounter/Background/Number");
         EnemyCounter = GetNode<Label>("MarginContainer/HBoxContainer/Counters/EnemyCounter/Background/Number");
         SetMaxHealthCounter(100);
@@ -24,19 +27,26 @@ public class GUI : CanvasLayer
 
     public void SetMaxHealthCounter(int maxHealth)
     {
-        HealthBar.MaxValue = Convert.ToDouble(maxHealth);
+        HealthBar.SetMaxValue(maxHealth);
         this.maxHealth = maxHealth;
     }
 
     public void SetHealthCounter(int health)
     {
         HealthCounter.Text = health.ToString() + "/" + maxHealth;
-        HealthBar.Value = Convert.ToDouble(health);
+        HealthBar.SetValue(health);
+    }
+
+    public void SetMaxShieldCounter(int maxShield)
+    {
+        ShieldBar.SetMaxValue(maxShield);
+        this.maxShield = maxShield;
     }
 
     public void SetShieldCounter(int shield)
     {
-        ShieldCounter.Text = shield.ToString();
+        ShieldCounter.Text = shield.ToString() + "/" + maxShield;
+        ShieldBar.SetValue(shield);
     }
 
     //TODO: Score system

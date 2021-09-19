@@ -14,4 +14,18 @@ public class ShieldPowerUp : PowerUp
     {
         return new StatsInfo { MaxHealth = stats.MaxHealth, MaxShield = stats.MaxShield + absorptionAmount, Damage = stats.Damage, Speed = stats.Speed };
     }
+
+    public override void UndoEffect()
+    {
+        GameObject parent = GetParent<GameObject>();
+        parent.shield = Math.Min(parent.shield, parent.Stats.MaxShield - absorptionAmount);
+        base.UndoEffect();
+    }
+
+    public override void Reset()
+    {
+        GameObject parent = GetParent<GameObject>();
+        parent.shield = Math.Min(parent.shield, parent.Stats.MaxShield - absorptionAmount) + absorptionAmount;
+        base.Reset();
+    }
 }
