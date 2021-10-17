@@ -15,7 +15,7 @@ public class Bar : HBoxContainer
     public void SetMaxValue(int value)
     {
         // If MinValue == MaxValue (MinValue == 0), the editor gives runtime errors
-        GetNode<TextureProgress>("TextureProgress").MaxValue = value == 0 ? 1 : value;
+        GetNode<TextureProgress>("TextureProgress").MaxValue = Math.Max(1, value);
 
         HBoxContainer dividerContainer = GetNode<HBoxContainer>("TextureProgress/Dividers");
 

@@ -39,6 +39,11 @@ public class Map
         MapTile.SIMPLESHIELDBOOST
     };
 
+    public static readonly MapTile[] WallTypes = new MapTile[] {
+        MapTile.WALL,
+        MapTile.BREAKABLE_WALL
+    };
+
     public static List<PackedScene> EnemyScenes = new List<PackedScene> {
         Floater.SceneObject,
         Shooter.SceneObject,
@@ -142,5 +147,19 @@ public class Map
             playerInstance.Connect("DeathSignal", parentNode.GetParent(), "OnPlayerDeathSignal");
         }
         playerInstance.Position = new Vector2(x * blockSize, y * blockSize);
+    }
+
+    public string toString()
+    {
+        string value = "";
+        for (int i = 0; i < Height; i++)
+        {
+            for (int j = 0; j < Width; j++)
+            {
+                value += Blocks[i][j] == MapTile.WALL ? "#" : ".";
+            }
+            value += "\n";
+        }
+        return value;
     }
 }

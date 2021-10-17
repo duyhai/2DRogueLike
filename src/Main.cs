@@ -3,7 +3,7 @@ using Godot;
 public class Main : Node
 {
     Map map;
-    readonly int MAP_SIZE = 30;
+    readonly int MAP_SIZE = 50;
     readonly int BLOCK_SIZE = 16;
     public static string SCENE_PATH = "res://scenes/Main.tscn";
     public Node World;
