@@ -5,23 +5,10 @@ using Godot;
 
 class CaveGenerator : Generator
 {
-    List<Room> RoomList = new List<Room>();
-    List<Corridor> CorridorList = new List<Corridor>();
-    Random rnd = new Random();
+    const int WALLCH = 40;
+    const int CHANGEWALLCH = 80;
 
-    public CaveGenerator(Map map) : base(map, 0, 0, 0)
-    {
-    }
-
-    Room GenerateRoom()
-    {
-        int x, y, w, h;
-        w = rnd.Next(MinRoomXY, MaxRoomXY);
-        h = rnd.Next(MinRoomXY, MaxRoomXY);
-        x = rnd.Next(0, map.Width - w);
-        y = rnd.Next(0, map.Height - h);
-        return new Room(x, y, w, h);
-    }
+    public CaveGenerator(Map map) : base(map, 0, 0, 0) { }
 
     private int wallsNearby(Map map, int x, int y, int radius)
     {
@@ -42,14 +29,23 @@ class CaveGenerator : Generator
         return count;
     }
 
+    private IEnumerable<MapTile> mapBlocks(Map map, int beginX, int endX, int beginY, int endY)
+    {
+        for (int i = beginX; i <= endX; i++)
+        {
+            for (int j = beginY; j <= endY; j++)
+            {
+                if (!isOutOfBounds(map, i, j))
+                {
+                    yield return map.Blocks[i][j];
+                }
+            }
+        }
+    }
+
     private bool isWall(Map map, int x, int y)
     {
-        if (isOutOfBounds(map, x, y))
-        {
-            return true;
-        }
-
-        return map.Blocks[x][y] != MapTile.EMPTY;
+        return isOutOfBounds(map, x, y) || map.Blocks[x][y] != MapTile.EMPTY;
     }
 
     private bool isOutOfBounds(Map map, int x, int y)
@@ -68,17 +64,15 @@ class CaveGenerator : Generator
         int num = 0;
         float count = 0f;
 
-        for (int i = beginX; i <= endX; i++)
+        foreach (var block in mapBlocks(map, beginX, endX, beginY, endY))
         {
-            for (int j = beginY; j <= endY; j++)
+            if (block != MapTile.EMPTY)
             {
-                if (!isOutOfBounds(map, i, j) && map.Blocks[i][j] != MapTile.EMPTY)
-                {
-                    count += Array.FindIndex(Map.WallTypes, wall => wall == map.Blocks[i][j]);
-                    num++;
-                }
+                count += Array.FindIndex(Map.WallTypes, wall => wall == block);
+                num++;
             }
         }
+
 
         return (int)Math.Round(count / num);
     }
@@ -92,6 +86,7 @@ class CaveGenerator : Generator
         tempMaps[0] = new Map(width, height, map.Unit, null);
         tempMaps[1] = new Map(width, height, map.Unit, null);
 
+        // Walls on the edge of the map
         for (int i = 0; i < height; i++)
         {
             for (int j = 0; j < width; j++)
@@ -101,23 +96,21 @@ class CaveGenerator : Generator
                     tempMaps[0].Blocks[i][j] = MapTile.WALL;
                     tempMaps[1].Blocks[i][j] = MapTile.WALL;
                 }
-                else
-                {
-                    tempMaps[0].Blocks[i][j] = MapTile.EMPTY;
-                    tempMaps[1].Blocks[i][j] = MapTile.EMPTY;
-                }
             }
         }
 
+        // Placing random walls
         Random rnd = new Random();
         for (int i = 1; i < height - 1; i++)
         {
             for (int j = 1; j < width - 1; j++)
             {
-                tempMaps[0].Blocks[i][j] = rnd.Next(1, 101) < 40 ? MapTile.WALL : MapTile.EMPTY;
+                tempMaps[0].Blocks[i][j] = rnd.Next(1, 101) < WALLCH ? MapTile.WALL : MapTile.EMPTY;
             }
         }
 
+        // Using cellular automata to generate cave-like structures
+        // http://roguebasin.com/?title=Cellular_Automata_Method_for_Generating_Random_Cave-Like_Levels
         int phase = 0;
         for (int k = 0; k < 4; k++)
         {
@@ -171,8 +164,7 @@ class CaveGenerator : Generator
                     if (index != -1)
                     {
                         int val = index;
-                        int changewallch = 80;
-                        tempMaps[(phase + 1) % 2].Blocks[i][j] = rnd.Next(0, 101) < changewallch ?
+                        tempMaps[(phase + 1) % 2].Blocks[i][j] = rnd.Next(0, 101) < CHANGEWALLCH ?
                             Map.WallTypes[index] :
                             Map.WallTypes[averageWallsNearby(tempMaps[currphase], i, j, 3)];
                     }
@@ -181,6 +173,7 @@ class CaveGenerator : Generator
             phase++;
         }
 
+        // Copying the result into the map variable
         int currentphase = phase % 2;
         for (int i = 0; i < height; i++)
         {
@@ -218,7 +211,5 @@ class CaveGenerator : Generator
         }
         map.PlayerSpawn.x = a;
         map.PlayerSpawn.y = b;
-
-
     }
 }
