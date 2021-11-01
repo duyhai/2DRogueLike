@@ -8,6 +8,13 @@ class CaveGenerator : Generator
     const int WALLCH = 40;
     const int CHANGEWALLCH = 80;
 
+    private struct MapBlockInfo
+    {
+        public MapTile tile;
+        public int x;
+        public int y;
+    }
+
     public CaveGenerator(Map map) : base(map, 0, 0, 0) { }
 
     private int wallsNearby(Map map, int x, int y, int radius)
@@ -18,34 +25,33 @@ class CaveGenerator : Generator
         int endY = y + radius;
         int count = 0;
 
-        for (int i = beginX; i <= endX; i++)
+        foreach (MapBlockInfo block in mapBlocks(map, beginX, endX, beginY, endY))
         {
-            for (int j = beginY; j <= endY; j++)
-            {
-                count += isWall(map, i, j) ? 1 : 0;
-            }
+            count += isWall(block.tile) ? 1 : 0;
         }
 
         return count;
     }
 
-    private IEnumerable<MapTile> mapBlocks(Map map, int beginX, int endX, int beginY, int endY)
+    private IEnumerable<MapBlockInfo> mapBlocks(Map map, int beginX, int endX, int beginY, int endY)
     {
         for (int i = beginX; i <= endX; i++)
         {
             for (int j = beginY; j <= endY; j++)
             {
-                if (!isOutOfBounds(map, i, j))
+                yield return new MapBlockInfo
                 {
-                    yield return map.Blocks[i][j];
-                }
+                    tile = isOutOfBounds(map, i, j) ? MapTile.WALL : map.Blocks[i][j],
+                    x = i,
+                    y = j
+                };
             }
         }
     }
 
-    private bool isWall(Map map, int x, int y)
+    private bool isWall(MapTile tile)
     {
-        return isOutOfBounds(map, x, y) || map.Blocks[x][y] != MapTile.EMPTY;
+        return tile != MapTile.EMPTY;
     }
 
     private bool isOutOfBounds(Map map, int x, int y)
@@ -66,13 +72,12 @@ class CaveGenerator : Generator
 
         foreach (var block in mapBlocks(map, beginX, endX, beginY, endY))
         {
-            if (block != MapTile.EMPTY)
+            if (block.tile != MapTile.EMPTY)
             {
-                count += Array.FindIndex(Map.WallTypes, wall => wall == block);
+                count += Array.FindIndex(Map.WallTypes, wall => wall == block.tile);
                 num++;
             }
         }
-
 
         return (int)Math.Round(count / num);
     }
@@ -184,27 +189,25 @@ class CaveGenerator : Generator
         }
 
         // Enemies
-        for (int i = 0; i < height; i++)
+        foreach (var block in mapBlocks(map, 0, width, 0, height))
         {
-            for (int j = 0; j < width; j++)
+            if (!isWall(block.tile))
             {
-                if (!isWall(map, i, j))
+                // TODO: Create a better spawn system. Separate enemy generator class? Should be able to limit enemies per room and per map. Set difficulty limit, etc.
+                var spawnChance = 3;
+                var shouldSpawn = rnd.Next(0, 100) < spawnChance;
+                if (shouldSpawn)
                 {
-                    // TODO: Create a better spawn system. Separate enemy generator class? Should be able to limit enemies per room and per map. Set difficulty limit, etc.
-                    var spawnChance = 3;
-                    var shouldSpawn = rnd.Next(0, 100) < spawnChance;
-                    if (shouldSpawn)
-                    {
-                        map.Enemies[i][j] = Map.EnemyScenes[rnd.Next(0, Map.EnemyScenes.Count)];
-                    }
+                    map.Enemies[block.x][block.y] = Map.EnemyScenes[rnd.Next(0, Map.EnemyScenes.Count)];
                 }
             }
+
         }
 
         // Playerspawn
         int a = 0;
         int b = 0;
-        while (isWall(map, a, b))
+        while (isWall(map.Blocks[a][b]))
         {
             a = rnd.Next(0, width);
             b = rnd.Next(0, height);
