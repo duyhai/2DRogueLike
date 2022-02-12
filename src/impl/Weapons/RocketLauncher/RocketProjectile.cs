@@ -19,13 +19,12 @@ public class RocketProjectile : Bullet
 
     public override int HitTarget(Node collider)
     {
-        int inflictedDamage = 0;
         if (!exploded)
         {
-            inflictedDamage = Explosion();
+            Explosion();
             GetNode<Timer>("ExplosionTimer").Stop();
         }
-        return inflictedDamage;
+        return 0;
     }
 
     public void OnExplosionTimerTimeout()
@@ -33,7 +32,7 @@ public class RocketProjectile : Bullet
         Explosion();
     }
 
-    private int Explosion()
+    private void Explosion()
     {
         exploded = true;
         SoundManager.Instance.PlaySound(SoundPaths.Explosion, Position);
@@ -46,6 +45,5 @@ public class RocketProjectile : Bullet
 
         velocity = Vector2.Zero;
         QueueFree();
-        return 0;
     }
 }
