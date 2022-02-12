@@ -43,7 +43,8 @@ public class Map
         Floater.SceneObject,
         Shooter.SceneObject,
         Splitter.SceneObject,
-        Tank.SceneObject
+        Tank.SceneObject,
+        Boomer.SceneObject
     };
 
     public int Width
