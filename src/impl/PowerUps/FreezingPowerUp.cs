@@ -27,8 +27,9 @@ public class FreezingPowerUp : MovSpeedModPowerUp
     {
         if (MAX_STACK_COUNT == StackCount)
         {
-            GetParent<GameObject>().DisableInput = true;
             modifier = 0;
+            GetParent<GameObject>().velocity = Vector2.Zero;
+            GetParent<GameObject>().DisableInput = true;
             GetNode<Particles2D>("Particles2D").Modulate = new Color("00dacf");
         }
     }
