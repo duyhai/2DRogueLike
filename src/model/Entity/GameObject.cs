@@ -84,6 +84,7 @@ public abstract class GameObject : KinematicBody2D
 
         if (health <= 0 && !isDead)
         {
+            velocity = Vector2.Zero;
             health = 0;
             isDead = true;
             DisableInput = true;
