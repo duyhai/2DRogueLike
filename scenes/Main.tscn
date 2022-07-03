@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Main.cs" type="Script" id=1]
 [ext_resource path="res://src/impl/GUI.cs" type="Script" id=2]
-[ext_resource path="res://scenes/Map/Blocks/Boosters/SpeedBoost.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/backgroundcave.png" type="Texture" id=4]
-[ext_resource path="res://scenes/Map/Blocks/Boosters/DamageBoost.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/hud/GUI.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFontData" id=1]
@@ -29,15 +27,10 @@ script = ExtResource( 1 )
 motion_mirroring = Vector2( 1920, 1080 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, 0.374573 )
 texture = ExtResource( 4 )
 
 [node name="World" type="Node" parent="."]
-
-[node name="SpeedBoost" parent="World" instance=ExtResource( 3 )]
-position = Vector2( -161.918, 348.886 )
-
-[node name="DamageBoost" parent="World" instance=ExtResource( 5 )]
-position = Vector2( -161.9, 376.716 )
 
 [node name="FloatingTexts" type="Node" parent="."]
 
