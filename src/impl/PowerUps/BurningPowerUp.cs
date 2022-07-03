@@ -16,7 +16,7 @@ public class BurningPowerUp : PowerUp
         GetNode<Timer>("EffectTimer").Start();
     }
 
-    public void OnEffectTimerTimeout()
+    public override void OnEffectTimerTimeout()
     {
         Effect();
     }
