@@ -94,14 +94,13 @@ class CaveGenerator : Generator
         // Walls on the edge of the map
         for (int i = 0; i < height; i++)
         {
-            for (int j = 0; j < width; j++)
-            {
-                if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
-                {
-                    tempMaps[0].Blocks[i][j] = MapTile.WALL;
-                    tempMaps[1].Blocks[i][j] = MapTile.WALL;
-                }
-            }
+            tempMaps[0].Blocks[i][0] = MapTile.WALL;
+            tempMaps[1].Blocks[i][width - 1] = MapTile.WALL;
+        }
+        for (int j = 0; j < width; j++)
+        {
+            tempMaps[0].Blocks[0][j] = MapTile.WALL;
+            tempMaps[1].Blocks[height - 1][j] = MapTile.WALL;
         }
 
         // Placing random walls
