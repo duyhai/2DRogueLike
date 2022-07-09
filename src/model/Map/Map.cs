@@ -39,6 +39,11 @@ public class Map
         MapTile.SIMPLESHIELDBOOST
     };
 
+    public static readonly MapTile[] WallTypes = new MapTile[] {
+        MapTile.WALL,
+        MapTile.BREAKABLE_WALL
+    };
+
     public static List<PackedScene> EnemyScenes = new List<PackedScene> {
         Floater.SceneObject,
         Shooter.SceneObject,
@@ -68,7 +73,9 @@ public class Map
     public List<List<PackedScene>> Enemies;
     public Vector2 PlayerSpawn;
 
-    private Node parentNode;
+    protected Node parentNode;
+
+    protected Map() { }
 
     public Map(int width, int height, int unit, Node parentNode)
     {
