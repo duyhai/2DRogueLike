@@ -31,6 +31,7 @@ public abstract class GameObject : KinematicBody2D
     public int shield;
     public bool isDead = false;
     public bool DisableInput = false;
+    public bool Sliding = false;
     protected InputController inputController;
     protected PhysicsController physicsController;
     protected GraphicsController graphicsController;

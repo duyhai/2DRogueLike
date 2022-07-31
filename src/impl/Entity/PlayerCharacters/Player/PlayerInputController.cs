@@ -5,7 +5,6 @@ public class PlayerInputController : InputController
     public override void Update(GameObject gameObject)
     {
         Player player = (Player)gameObject;
-        player.velocity = new Vector2();
 
         if (Input.IsActionPressed("menu"))
         {
@@ -18,24 +17,30 @@ public class PlayerInputController : InputController
             player.Shoot(bulletDirection, player.CollisionLayer, player.CollisionMask);
         }
 
+        Vector2 newVelocity = new Vector2();
         if (Input.IsActionPressed("ui_right"))
         {
-            player.velocity.x += 1;
+            newVelocity.x += 1;
         }
 
         if (Input.IsActionPressed("ui_left"))
         {
-            player.velocity.x -= 1;
+            newVelocity.x -= 1;
         }
 
         if (Input.IsActionPressed("ui_down"))
         {
-            player.velocity.y += 1;
+            newVelocity.y += 1;
         }
 
         if (Input.IsActionPressed("ui_up"))
         {
-            player.velocity.y -= 1;
+            newVelocity.y -= 1;
+        }
+
+        if (!player.Sliding)
+        {
+            player.velocity = newVelocity.Normalized() * player.Stats.Speed;
         }
 
         if (Input.IsActionJustPressed("previous_weapon"))
@@ -51,7 +56,5 @@ public class PlayerInputController : InputController
             player.equippedWeaponIndex %= player.weapons.Count;
             player.weapons[player.equippedWeaponIndex].Visible = true;
         }
-
-        player.velocity = player.velocity.Normalized() * player.Stats.Speed;
     }
 }
