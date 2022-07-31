@@ -37,8 +37,12 @@ public class LightningBulletGraphicsController : GraphicsController
         // after LightningBulletPhysicsController.Update() is executed,
         // that GameObject becomes a null item in the lightningBullet.BodiesHit array
         // and it won't be able to get the global position of the GameObject
-        lightning.AddPoint(o1.GlobalPosition);
-        lightning.AddPoint(o2.GlobalPosition);
+        if (o1 != null) {
+            lightning.AddPoint(o1.GlobalPosition);
+        }
+        if (o2 != null) {
+            lightning.AddPoint(o2.GlobalPosition);
+        }
         node.GetParent().GetParent().AddChild(lightning);
         lightning.PlayAnimation();
     }
