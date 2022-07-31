@@ -29,19 +29,19 @@ public abstract class Weapon : Node2D
         bulletTimer.Start();
         var bullet = (Bullet)bulletScene.Instance();
 
-        var tip = GetNodeOrNull<Node2D>("Sprite/Tip");
+        var weaponTip = GetNodeOrNull<Node2D>("Sprite/Tip");
 
         GameObject initiator = GetParent<GameObject>();
 
-        bullet.Initiate(initiator, vector.Angle(), tip != null ? tip.GlobalPosition : GlobalPosition, (int)(initiator.Stats.Damage * damageMultiplier));
+        Vector2 weaponTipPosition = weaponTip != null ? weaponTip.GlobalPosition : GlobalPosition;
+        int damage = (int)(initiator.Stats.Damage * damageMultiplier);
+        bullet.Initiate(initiator, vector.Angle(), weaponTipPosition, damage);
         bullet.CollisionLayer = collisionLayer;
-        bullet.CollisionMask = collisionMask;
+        bullet.CollisionMask = collisionMask - CollisionLayers.Water;
 
         var world = GetParent().GetParent<Node>();
-        if (world != null)
-        {
-            world.AddChild(bullet);
-        }
+
+        world?.AddChild(bullet);
 
         return true;
     }

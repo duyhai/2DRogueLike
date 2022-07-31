@@ -21,7 +21,7 @@ public class LaserBullet : Bullet
     public override void Initiate(GameObject initiator, float rotation, Vector2 position, int damage)
     {
         CollisionLayer = initiator.CollisionLayer;
-        CollisionMask = initiator.CollisionMask;
+        CollisionMask = initiator.CollisionMask - CollisionLayers.Water;
         RayCast2D rayCast2D = GetNode<RayCast2D>("RayCast2D");
         rayCast2D.CollisionMask = CollisionMask;
         base.Initiate(initiator, rotation, position, damage);

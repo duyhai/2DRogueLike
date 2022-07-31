@@ -10,6 +10,6 @@ public abstract class Block : GameObject
 
     public override void _Ready()
     {
-        CollisionLayer = CollisionLayers.MapObject;
+        CollisionLayer = CollisionLayers.Wall;
     }
 }

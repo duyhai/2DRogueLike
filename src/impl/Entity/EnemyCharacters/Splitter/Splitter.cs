@@ -10,7 +10,7 @@ public class Splitter : Enemy
         baseStats = new StatsInfo { MaxHealth = 400, Damage = 0, Speed = 200 };
         health = Stats.MaxHealth;
         CollisionLayer = CollisionLayers.Enemy;
-        CollisionMask = CollisionLayers.Player | CollisionLayers.MapObject;
+        CollisionMask = CollisionLayers.Player | CollisionLayers.Wall | CollisionLayers.Water;
     }
 
     public override void _Ready()

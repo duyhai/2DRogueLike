@@ -10,6 +10,6 @@ public class Tank : Enemy
         baseStats = new StatsInfo { MaxHealth = 2000, MaxShield = 0, Damage = 200, Speed = 50 };
         health = Stats.MaxHealth;
         CollisionLayer = CollisionLayers.Enemy;
-        CollisionMask = CollisionLayers.Player | CollisionLayers.MapObject;
+        CollisionMask = CollisionLayers.Player | CollisionLayers.Wall | CollisionLayers.Water;
     }
 }

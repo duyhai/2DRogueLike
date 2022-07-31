@@ -11,7 +11,7 @@ public class Shooter : Enemy
         baseStats = new StatsInfo { MaxHealth = 500, MaxShield = 0, Damage = 200, Speed = 200 };
         health = Stats.MaxHealth;
         CollisionLayer = CollisionLayers.Enemy;
-        CollisionMask = CollisionLayers.Player | CollisionLayers.MapObject;
+        CollisionMask = CollisionLayers.Player | CollisionLayers.Wall | CollisionLayers.Water;
     }
 
     public override void _Ready()
