@@ -11,7 +11,7 @@ public class Boomer : Enemy
         baseStats = new StatsInfo { MaxHealth = 700, MaxShield = 0, Damage = 200, Speed = 50 };
         health = Stats.MaxHealth;
         CollisionLayer = CollisionLayers.Enemy;
-        CollisionMask = CollisionLayers.Player | CollisionLayers.MapObject;
+        CollisionMask = CollisionLayers.Player | CollisionLayers.Wall | CollisionLayers.Water;
 
         // Instead of playing the death animation,
         // the entity explodes immidiately on death
