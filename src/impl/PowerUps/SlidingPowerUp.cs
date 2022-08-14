@@ -9,12 +9,11 @@ public class SlidingPowerUp : PowerUp
     {
         base.Initiate(target, initiator);
         gameObjectVelocity = target.velocity;
-    }
-
-    public override void Effect()
-    {
-        GetParent<GameObject>().Sliding = true;
-        GetParent<GameObject>().velocity = gameObjectVelocity;
+        if (target.velocity.Length() > 0.01f)
+        {
+            target.Sliding = true;
+        }
+        target.velocity = gameObjectVelocity;
     }
 
     public override void UndoEffect()

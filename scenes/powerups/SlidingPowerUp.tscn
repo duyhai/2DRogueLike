@@ -35,10 +35,10 @@ color_ramp = SubResource( 2 )
 script = ExtResource( 3 )
 
 [node name="DurationTimer" parent="." index="0"]
-wait_time = 0.5
+wait_time = 0.01
 
 [node name="EffectTimer" parent="." index="1"]
-wait_time = 0.05
+wait_time = 0.001
 one_shot = true
 
 [node name="Particles2D" type="Particles2D" parent="." index="2"]
