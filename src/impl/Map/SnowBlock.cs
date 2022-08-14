@@ -19,22 +19,6 @@ public class SnowBlock : Block
         area.CollisionLayer = CollisionLayer;
     }
 
-    public void OnArea2DBodyEntered(Node body)
-    {
-        if (body is GameObject)
-        {
-            GameObject gameObject = (GameObject)body;
-        }
-    }
-
-    public void OnArea2DBodyExited(Node body)
-    {
-        if (body is GameObject)
-        {
-            GameObject gameObject = (GameObject)body;
-        }
-    }
-
     public override void _Process(float delta)
     {
         foreach (var body in area.GetOverlappingBodies())
