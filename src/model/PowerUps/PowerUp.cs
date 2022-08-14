@@ -29,6 +29,7 @@ public abstract class PowerUp : Node2D
     public virtual void StartTimers()
     {
         GetNode<Timer>("DurationTimer").Start();
+        GetNode<Timer>("EffectTimer").Start();
     }
 
     public virtual void OnDurationTimerTimeout()

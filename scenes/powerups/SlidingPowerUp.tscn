@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/lightning-png.png" type="Texture" id=1]
+[ext_resource path="res://scenes/powerups/MovSpeedModPowerUp.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/impl/PowerUps/SlidingPowerUp.cs" type="Script" id=3]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.992593 )
+colors = PoolColorArray( 1, 1, 1, 0.717647, 1, 1, 1, 0.129412 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.165909 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0602273 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 6.0
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.01
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[node name="SlidingPowerUp" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="DurationTimer" parent="." index="0"]
+wait_time = 0.01
+
+[node name="EffectTimer" parent="." index="1"]
+wait_time = 0.001
+one_shot = true
+
+[node name="Particles2D" type="Particles2D" parent="." index="2"]
+position = Vector2( 0, 1 )
+emitting = false
+amount = 5
+process_material = SubResource( 5 )
+texture = ExtResource( 1 )
