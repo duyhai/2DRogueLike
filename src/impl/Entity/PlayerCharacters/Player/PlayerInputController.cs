@@ -14,7 +14,7 @@ public class PlayerInputController : InputController
         if (Input.IsActionPressed("shoot"))
         {
             var bulletDirection = player.GetGlobalMousePosition() - player.weapons[player.equippedWeaponIndex].GlobalPosition;
-            player.Shoot(bulletDirection, player.CollisionLayer, player.CollisionMask);
+            player.Shoot(bulletDirection);
         }
 
         Vector2 newVelocity = new Vector2();

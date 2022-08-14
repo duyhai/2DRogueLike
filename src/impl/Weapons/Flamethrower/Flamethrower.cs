@@ -12,10 +12,10 @@ public class Flamethrower : Weapon
         bulletScene = FlamethrowerFlame.SceneObject;
     }
 
-    public override bool Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
+    public override bool Shoot(Vector2 vector)
     {
         Random rnd = new Random();
         Vector2 rotatedVector = vector.Rotated(rnd.Next(-SPREAD, SPREAD + 1) / (float)180 * (float)Math.PI);
-        return base.Shoot(rotatedVector, collisionLayer, collisionMask);
+        return base.Shoot(rotatedVector);
     }
 }

@@ -19,7 +19,7 @@ public abstract class Weapon : Node2D
         graphicsController?.Update(this);
     }
 
-    public virtual bool Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
+    public virtual bool Shoot(Vector2 vector)
     {
         if (!bulletTimer.IsStopped())
         {
@@ -36,8 +36,8 @@ public abstract class Weapon : Node2D
         Vector2 weaponTipPosition = weaponTip != null ? weaponTip.GlobalPosition : GlobalPosition;
         int damage = (int)(initiator.Stats.Damage * damageMultiplier);
         bullet.Initiate(initiator, vector.Angle(), weaponTipPosition, damage);
-        bullet.CollisionLayer = collisionLayer;
-        bullet.CollisionMask = collisionMask - CollisionLayers.Water;
+        bullet.CollisionLayer = initiator.CollisionLayer;
+        bullet.CollisionMask = initiator.CollisionMask - CollisionLayers.Water;
 
         var world = GetParent().GetParent<Node>();
 

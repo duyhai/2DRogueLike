@@ -7,12 +7,12 @@ public class ShooterInputController : InputController
     {
         if (gameObject.isDead) return;
 
-        Shooter Shooter = (Shooter)gameObject;
-        var player = (Player)Shooter.GetNodeOrNull("../Player");
+        Shooter shooter = (Shooter)gameObject;
+        var player = (Player)shooter.GetNodeOrNull("../Player");
         if (player != null)
         {
-            var bulletDirection = player.GlobalPosition - Shooter.weapon.GlobalPosition;
-            Shooter.Shoot(bulletDirection, Shooter.CollisionLayer, Shooter.CollisionMask);
+            var bulletDirection = player.GlobalPosition - shooter.weapon.GlobalPosition;
+            shooter.Shoot(bulletDirection);
         }
     }
 }

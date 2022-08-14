@@ -29,6 +29,8 @@ public class LaserBullet : Bullet
 
     public void SetIsCasting(bool cast)
     {
+        if (cast == isCasting) return;
+
         if (cast && !isCasting)
         {
             ((LaserBulletGraphicsController)graphicsController).Appear(this);
