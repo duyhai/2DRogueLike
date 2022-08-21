@@ -51,7 +51,7 @@ public abstract class GameObject : KinematicBody2D
         {
             inputController.Update(this);
         }
-        graphicsController.Update(this);
+    graphicsController.Update(this);
     }
 
     public override void _PhysicsProcess(float delta)
