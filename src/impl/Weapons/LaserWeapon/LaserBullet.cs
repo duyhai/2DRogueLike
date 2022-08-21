@@ -40,7 +40,6 @@ public class LaserBullet : Bullet
             ((LaserBulletGraphicsController)graphicsController).Disappear(this);
             soundPlayer.QueueFree();
         }
-
         isCasting = cast;
         SetPhysicsProcess(isCasting);
         GetNode<Particles2D>("RayCast2D/CastingParticles2D").Emitting = cast;
