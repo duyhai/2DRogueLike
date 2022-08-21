@@ -17,7 +17,7 @@ public class LaserWeapon : Weapon
         bulletScene = LaserBullet.SceneObject;
     }
 
-    public override bool Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
+    public override bool Shoot(Vector2 vector)
     {
         laserBullet.SetIsCasting(true);
         triggerTimer.Start();

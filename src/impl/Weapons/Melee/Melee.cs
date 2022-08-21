@@ -10,9 +10,9 @@ public class Melee : Weapon
         bulletScene = MeleeBullet.SceneObject;
     }
 
-    public override bool Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
+    public override bool Shoot(Vector2 vector)
     {
-        if (base.Shoot(vector, collisionLayer, collisionMask))
+        if (base.Shoot(vector))
         {
             ((MeleeGraphicsController)graphicsController).Swing(this);
             return true;

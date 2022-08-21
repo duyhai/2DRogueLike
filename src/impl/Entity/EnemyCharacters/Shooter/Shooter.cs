@@ -20,8 +20,8 @@ public class Shooter : Enemy
         weapon.SetWeaponCooldown(1f);
     }
 
-    public void Shoot(Vector2 vector, uint CollisionLayer, uint CollisionMask)
+    public void Shoot(Vector2 vector)
     {
-        weapon.Shoot(vector, CollisionLayer, CollisionMask);
+        weapon.Shoot(vector);
     }
 }

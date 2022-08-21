@@ -11,9 +11,9 @@ public class SimpleWeapon : Weapon
         bulletScene = SimpleBullet.SceneObject;
     }
 
-    public override bool Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
+    public override bool Shoot(Vector2 vector)
     {
-        if (base.Shoot(vector, collisionLayer, collisionMask))
+        if (base.Shoot(vector))
         {
             ((SimpleWeaponGraphicsController)graphicsController).MuzzleFlash(this);
             SoundManager.Instance.PlaySound(SoundPaths.Gunshot);

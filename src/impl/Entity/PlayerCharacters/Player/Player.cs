@@ -31,9 +31,9 @@ public class Player : GameObject
         weapons[equippedWeaponIndex].Visible = true;
     }
 
-    public void Shoot(Vector2 vector, uint collisionLayer, uint collisionMask)
+    public void Shoot(Vector2 vector)
     {
-        weapons[equippedWeaponIndex].Shoot(vector, collisionLayer, collisionMask);
+        weapons[equippedWeaponIndex].Shoot(vector);
     }
 
     public void Respawn(float x, float y)
