@@ -15,12 +15,10 @@ public class WeaponBar : HBoxContainer
 
         foreach (var weapon in weapons)
         {
-            Sprite weaponSprite = weapon.GetNodeOrNull<Sprite>("Sprite");
-
-            if (weaponSprite == null) continue;
-
+            // Sprite weaponSprite = weapon.GetNodeOrNull<Sprite>("Sprite");
             Panel panel = new Panel();
-            TextureRect rect = new TextureRect();
+            TextureRect rect = weapon.GetWeaponIcon();
+            if (rect == null) continue;
 
             var style = new StyleBoxFlat();
             if (weapon == activeWeapon)
@@ -33,17 +31,17 @@ public class WeaponBar : HBoxContainer
             }
             panel.AddStyleboxOverride("panel", style);
 
-            rect.Texture = weaponSprite.Texture;
-            rect.RectScale = weaponSprite.Scale;
-            panel.RectMinSize = weaponSprite.Scale * rect.Texture.GetSize();
+            // rect.Texture = weaponIcon;
+            // rect.RectScale = weaponSprite.Scale;
+            // panel.RectMinSize = weaponSprite.Scale * rect.Texture.GetSize();
+            panel.RectMinSize = new Vector2(54, 54);
             panel.AddChild(rect);
             AddChild(panel);
 
             sizeX += (int)panel.RectMinSize.x;
         }
 
-        System.Console.WriteLine(sizeX);
-        RectPosition = new Vector2(512 - (3 * sizeX / 2), 545);
+        RectPosition = new Vector2(512 - (sizeX / 2), 545);
     }
 
     public void SetWeapons(List<Weapon> weapons)

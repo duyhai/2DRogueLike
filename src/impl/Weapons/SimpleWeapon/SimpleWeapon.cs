@@ -9,6 +9,7 @@ public class SimpleWeapon : Weapon
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
         bulletScene = SimpleBullet.SceneObject;
+        weaponIconScene = GD.Load<PackedScene>("res://scenes/weapons/SimpleWeaponIcon.tscn");
     }
 
     public override bool Shoot(Vector2 vector)

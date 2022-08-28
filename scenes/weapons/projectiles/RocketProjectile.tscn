@@ -29,5 +29,6 @@ rect = Rect2( 0, 0, 8, 8 )
 [node name="ExplosionTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="OnVisibilityNotifier2DScreenExited"]
 [connection signal="timeout" from="ExplosionTimer" to="." method="OnExplosionTimerTimeout"]

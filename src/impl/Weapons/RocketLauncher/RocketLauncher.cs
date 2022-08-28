@@ -8,6 +8,7 @@ public class RocketLauncher : Weapon
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
         bulletScene = RocketProjectile.SceneObject;
+        weaponIconScene = GD.Load<PackedScene>("res://scenes/weapons/RocketProjectileIcon.tscn");
     }
 
     public override bool Shoot(Vector2 vector)
