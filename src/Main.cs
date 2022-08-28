@@ -36,6 +36,9 @@ public class Main : Node
         deathScreen = GetNode<Control>("DeathScreen/DeathScreenNode");
         FCTManager.Instance.TextContainer = GetNode<Node>("FloatingTexts");
         SoundManager.Instance.SoundContainer = GetNode<Node>("Sounds");
+
+        player.WeaponChanged += gui.GetNode<WeaponBar>("WeaponBar").WeaponChanged;
+        gui.GetNode<WeaponBar>("WeaponBar").WeaponChanged(player.weapons, player.weapons[player.equippedWeaponIndex]);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

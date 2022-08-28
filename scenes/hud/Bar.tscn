@@ -17,9 +17,6 @@ font_data = ExtResource( 2 )
 margin_right = 500.0
 margin_bottom = 53.0
 script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Count" type="MarginContainer" parent="."]
 margin_right = 50.0
@@ -39,9 +36,6 @@ custom_fonts/font = SubResource( 1 )
 text = "HP"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
 margin_left = 54.0
@@ -72,9 +66,6 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
 custom_constants/separation = 10
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextureRect" parent="TextureProgress/Dividers" instance=ExtResource( 6 )]
 
