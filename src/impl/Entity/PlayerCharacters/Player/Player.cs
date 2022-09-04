@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class Player : GameObject
 {
-    public event Action<List<Weapon>, Weapon> WeaponChanged;
+    public event Action<Weapon> WeaponChanged;
+    public event Action<List<Weapon>> WeaponListChanged;
     public List<Weapon> weapons = new List<Weapon>();
     public int equippedWeaponIndex = 0;
 
@@ -53,7 +54,7 @@ public class Player : GameObject
         weapons[equippedWeaponIndex--].Visible = false;
         equippedWeaponIndex = (equippedWeaponIndex + weapons.Count) % weapons.Count;
         weapons[equippedWeaponIndex].Visible = true;
-        WeaponChanged?.Invoke(weapons, weapons[equippedWeaponIndex]);
+        WeaponChanged?.Invoke(weapons[equippedWeaponIndex]);
     }
 
     public void NextWeapon()
@@ -61,6 +62,6 @@ public class Player : GameObject
         weapons[equippedWeaponIndex++].Visible = false;
         equippedWeaponIndex = (equippedWeaponIndex + weapons.Count) % weapons.Count;
         weapons[equippedWeaponIndex].Visible = true;
-        WeaponChanged?.Invoke(weapons, weapons[equippedWeaponIndex]);
+        WeaponChanged?.Invoke(weapons[equippedWeaponIndex]);
     }
 }

@@ -4,48 +4,67 @@ using System.Collections.Generic;
 
 public class WeaponBar : HBoxContainer
 {
-    public void WeaponChanged(List<Weapon> weapons, Weapon activeWeapon)
+    Dictionary<Weapon, Panel> weaponPanels = new Dictionary<Weapon, Panel>();
+    Weapon activeWeapon;
+
+    public void WeaponChanged(Weapon newActiveWeapon)
     {
-        foreach (Node node in GetChildren())
+        if (activeWeapon == newActiveWeapon)
         {
-            node.QueueFree();
+            return;
         }
 
-        int sizeX = 0;
-
-        foreach (var weapon in weapons)
+        if (activeWeapon != null)
         {
-            Panel panel = new Panel();
-            TextureRect rect = weapon.GetWeaponIcon();
-            if (rect == null) continue;
-
-            var style = new StyleBoxFlat();
-            if (weapon == activeWeapon)
-            {
-                style.BgColor = Colors.Yellow;
-            }
-            else
-            {
-                style.BgColor = Colors.DimGray;
-            }
-            panel.AddStyleboxOverride("panel", style);
-
-            panel.RectMinSize = new Vector2(54, 54);
-            panel.AddChild(rect);
-            AddChild(panel);
-
-            sizeX += (int)panel.RectMinSize.x;
+            changePanelColor(weaponPanels[activeWeapon], Colors.DimGray);
         }
+        changePanelColor(weaponPanels[newActiveWeapon], Colors.Yellow);
 
-        RectPosition = new Vector2(512 - (sizeX / 2), 545);
+        activeWeapon = newActiveWeapon;
     }
 
-    public void SetWeapons(List<Weapon> weapons)
+    public void WeaponListChanged(List<Weapon> weapons)
     {
+        // Add new weapons to the weaponbar
+        foreach (Weapon weapon in weapons)
+        {
+            if (!weaponPanels.ContainsKey(weapon))
+            {
+                Panel panel = new Panel();
+                TextureRect rect = weapon.GetWeaponIcon();
+                if (rect == null) continue;
 
+                weaponPanels.Add(weapon, panel);
+
+                changePanelColor(panel, Colors.DimGray);
+
+                panel.RectMinSize = new Vector2(54, 54);
+                panel.AddChild(rect);
+                AddChild(panel);
+            }
+        }
+
+        // Remove unused TextureRects
+        foreach (Weapon weaponKey in weaponPanels.Keys)
+        {
+            if (!weapons.Contains(weaponKey))
+            {
+                weaponPanels[weaponKey].QueueFree();
+                weaponPanels.Remove(weaponKey);
+            }
+        }
+
+        RectPosition = new Vector2(512 - (54 * weaponPanels.Count / 2), 545);
     }
 
     public override void _Ready()
     {
+    }
+
+    private void changePanelColor(Panel panel, Color color)
+    {
+        var style = new StyleBoxFlat();
+        style.BgColor = color;
+        panel.AddStyleboxOverride("panel", style);
     }
 }

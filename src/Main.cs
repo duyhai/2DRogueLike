@@ -38,9 +38,12 @@ public class Main : Node
         SoundManager.Instance.SoundContainer = GetNode<Node>("Sounds");
 
         // Weapon change delegate from weapon bar call when player changes weapon
-        player.WeaponChanged += gui.GetNode<WeaponBar>("WeaponBar").WeaponChanged;
+        WeaponBar weaponBar = gui.GetNode<WeaponBar>("WeaponBar");
+        player.WeaponChanged += weaponBar.WeaponChanged;
+        player.WeaponListChanged += weaponBar.WeaponListChanged;
         // Initialize weapon bar
-        gui.GetNode<WeaponBar>("WeaponBar").WeaponChanged(player.weapons, player.weapons[player.equippedWeaponIndex]);
+        weaponBar.WeaponListChanged(player.weapons);
+        weaponBar.WeaponChanged(player.weapons[player.equippedWeaponIndex]);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
