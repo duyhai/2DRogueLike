@@ -15,7 +15,6 @@ public class WeaponBar : HBoxContainer
 
         foreach (var weapon in weapons)
         {
-            // Sprite weaponSprite = weapon.GetNodeOrNull<Sprite>("Sprite");
             Panel panel = new Panel();
             TextureRect rect = weapon.GetWeaponIcon();
             if (rect == null) continue;
@@ -31,9 +30,6 @@ public class WeaponBar : HBoxContainer
             }
             panel.AddStyleboxOverride("panel", style);
 
-            // rect.Texture = weaponIcon;
-            // rect.RectScale = weaponSprite.Scale;
-            // panel.RectMinSize = weaponSprite.Scale * rect.Texture.GetSize();
             panel.RectMinSize = new Vector2(54, 54);
             panel.AddChild(rect);
             AddChild(panel);

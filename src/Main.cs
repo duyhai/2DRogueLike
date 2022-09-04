@@ -37,7 +37,9 @@ public class Main : Node
         FCTManager.Instance.TextContainer = GetNode<Node>("FloatingTexts");
         SoundManager.Instance.SoundContainer = GetNode<Node>("Sounds");
 
+        // Weapon change delegate from weapon bar call when player changes weapon
         player.WeaponChanged += gui.GetNode<WeaponBar>("WeaponBar").WeaponChanged;
+        // Initialize weapon bar
         gui.GetNode<WeaponBar>("WeaponBar").WeaponChanged(player.weapons, player.weapons[player.equippedWeaponIndex]);
     }
 

@@ -10,6 +10,7 @@ public class ShockWeapon : Weapon
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
         bulletScene = LightningBullet.SceneObject;
+        weaponIconScene = GD.Load<PackedScene>("res://scenes/weapons/ShockWeaponIcon.tscn");
     }
 
     public override bool Shoot(Vector2 vector)

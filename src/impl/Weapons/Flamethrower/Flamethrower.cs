@@ -10,6 +10,7 @@ public class Flamethrower : Weapon
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
         bulletScene = FlamethrowerFlame.SceneObject;
+        weaponIconScene = GD.Load<PackedScene>("res://scenes/weapons/FlamethrowerIcon.tscn");
     }
 
     public override bool Shoot(Vector2 vector)

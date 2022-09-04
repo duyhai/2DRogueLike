@@ -2,9 +2,6 @@
 
 [ext_resource path="res://src/impl/Weapons/ShooterWeapon.cs" type="Script" id=1]
 
-
-
-
 [node name="ShooterWeapon" type="Node2D"]
 script = ExtResource( 1 )
 

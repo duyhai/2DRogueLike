@@ -12,6 +12,7 @@ public class LaserWeapon : Weapon
     {
         triggerTimer = GetNode<Timer>("TriggerTimer");
         laserBullet = GetNode<LaserBullet>("Tip/LaserBullet");
+        weaponIconScene = GD.Load<PackedScene>("res://scenes/weapons/LaserWeaponIcon.tscn");
         GameObject initiator = GetParent<GameObject>();
         laserBullet.Initiate(initiator, 0, laserBullet.Position, (int)(initiator.Stats.Damage * damageMultiplier));
         bulletScene = LaserBullet.SceneObject;
