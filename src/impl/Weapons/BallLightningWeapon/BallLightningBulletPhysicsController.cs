@@ -43,7 +43,7 @@ public class BallLightningBulletPhysicsController : PhysicsController
 
     private void Chaining(GameObject entity, Array bodiesHit)
     {
-        var bodies = entity.GetTree().GetNodesInGroup("enemy");
+        var bodies = entity.GetTree().GetNodesInGroup(NodeGroups.Enemy);
         foreach (Node2D body in bodies)
         {
             float distance = entity.GlobalPosition.DistanceTo(body.GlobalPosition);

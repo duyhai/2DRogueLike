@@ -54,5 +54,3 @@ one_shot = true
 shape = SubResource( 3 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]
-[connection signal="body_entered" from="Sight" to="." method="OnSightBodyEntered"]
-[connection signal="body_exited" from="Sight" to="." method="OnSightBodyExited"]

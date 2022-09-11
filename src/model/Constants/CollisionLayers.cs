@@ -1,4 +1,4 @@
-public class CollisionLayers
+public static class CollisionLayers
 {
     public static uint Wall = 1 << 0;
     public static uint Enemy = 1 << 1;

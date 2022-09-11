@@ -8,9 +8,8 @@ public class ShooterInputController : InputController
         if (gameObject.isDead) return;
 
         Shooter shooter = (Shooter)gameObject;
-        if (!shooter.PlayerInSight) return;
 
-        var player = (Player)shooter.GetNodeOrNull("../Player");
+        var player = shooter.SightCheck();
         if (player != null)
         {
             var bulletDirection = player.GlobalPosition - shooter.weapon.GlobalPosition;
