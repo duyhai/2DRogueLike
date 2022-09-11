@@ -53,8 +53,6 @@ public class WeaponBar : HBoxContainer
                 weaponPanels.Remove(weaponKey);
             }
         }
-
-        RectPosition = new Vector2(512 - (54 * weaponPanels.Count / 2), 545);
     }
 
     public override void _Ready()
