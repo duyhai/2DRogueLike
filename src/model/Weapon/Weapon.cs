@@ -7,6 +7,7 @@ public abstract class Weapon : Node2D
     protected Timer bulletTimer;
     protected PackedScene bulletScene;
     protected WeaponGraphicsController graphicsController;
+    protected PackedScene weaponIconScene = null;
 
     public Weapon(WeaponGraphicsController graphicsController, float damageMultiplier)
     {
@@ -49,5 +50,12 @@ public abstract class Weapon : Node2D
     public void SetWeaponCooldown(float weaponCooldown)
     {
         bulletTimer.WaitTime = weaponCooldown;
+    }
+
+    public TextureRect GetWeaponIcon()
+    {
+        if (weaponIconScene == null) return null;
+
+        return (TextureRect)weaponIconScene.Instance();
     }
 }

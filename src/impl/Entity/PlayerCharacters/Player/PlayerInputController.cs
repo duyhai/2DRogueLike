@@ -45,16 +45,12 @@ public class PlayerInputController : InputController
 
         if (Input.IsActionJustPressed("previous_weapon"))
         {
-            player.weapons[player.equippedWeaponIndex--].Visible = false;
-            player.equippedWeaponIndex = (player.equippedWeaponIndex + player.weapons.Count) % player.weapons.Count;
-            player.weapons[player.equippedWeaponIndex].Visible = true;
+            player.PreviousWeapon();
         }
 
         if (Input.IsActionJustPressed("next_weapon"))
         {
-            player.weapons[player.equippedWeaponIndex++].Visible = false;
-            player.equippedWeaponIndex %= player.weapons.Count;
-            player.weapons[player.equippedWeaponIndex].Visible = true;
+            player.NextWeapon();
         }
     }
 }

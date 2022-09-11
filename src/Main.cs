@@ -36,6 +36,14 @@ public class Main : Node
         deathScreen = GetNode<Control>("DeathScreen/DeathScreenNode");
         FCTManager.Instance.TextContainer = GetNode<Node>("FloatingTexts");
         SoundManager.Instance.SoundContainer = GetNode<Node>("Sounds");
+
+        // Weapon change delegate from weapon bar call when player changes weapon
+        WeaponBar weaponBar = gui.GetNode<WeaponBar>("WeaponBar");
+        player.WeaponChanged += weaponBar.WeaponChanged;
+        player.WeaponListChanged += weaponBar.WeaponListChanged;
+        // Initialize weapon bar
+        weaponBar.WeaponListChanged(player.weapons);
+        weaponBar.WeaponChanged(player.weapons[player.equippedWeaponIndex]);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -10,6 +10,7 @@ public class FreezingWeapon : Weapon
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
         bulletScene = FreezingBullet.SceneObject;
+        weaponIconScene = GD.Load<PackedScene>("res://scenes/weapons/FreezingWeaponIcon.tscn");
     }
 
     public override bool Shoot(Vector2 vector)

@@ -8,6 +8,7 @@ public class Melee : Weapon
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
         bulletScene = MeleeBullet.SceneObject;
+        weaponIconScene = GD.Load<PackedScene>("res://scenes/weapons/MeleeIcon.tscn");
     }
 
     public override bool Shoot(Vector2 vector)

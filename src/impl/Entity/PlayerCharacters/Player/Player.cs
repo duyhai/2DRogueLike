@@ -1,8 +1,11 @@
 using Godot;
+using System;
 using System.Collections.Generic;
 
 public class Player : GameObject
 {
+    public event Action<Weapon> WeaponChanged;
+    public event Action<List<Weapon>> WeaponListChanged;
     public List<Weapon> weapons = new List<Weapon>();
     public int equippedWeaponIndex = 0;
 
@@ -45,4 +48,20 @@ public class Player : GameObject
     }
 
     public override void OnAnimationFinished(string animationName) { }
+
+    public void PreviousWeapon()
+    {
+        weapons[equippedWeaponIndex--].Visible = false;
+        equippedWeaponIndex = (equippedWeaponIndex + weapons.Count) % weapons.Count;
+        weapons[equippedWeaponIndex].Visible = true;
+        WeaponChanged?.Invoke(weapons[equippedWeaponIndex]);
+    }
+
+    public void NextWeapon()
+    {
+        weapons[equippedWeaponIndex++].Visible = false;
+        equippedWeaponIndex = (equippedWeaponIndex + weapons.Count) % weapons.Count;
+        weapons[equippedWeaponIndex].Visible = true;
+        WeaponChanged?.Invoke(weapons[equippedWeaponIndex]);
+    }
 }

@@ -8,6 +8,7 @@ public class BouncyBulletWeapon : Weapon
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
         bulletScene = BouncyBullet.SceneObject;
+        weaponIconScene = GD.Load<PackedScene>("res://scenes/weapons/BouncyBulletWeaponIcon.tscn");
     }
 
     public override bool Shoot(Vector2 vector)

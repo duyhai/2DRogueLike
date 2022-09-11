@@ -10,5 +10,6 @@ public class BallLightningWeaponV2 : Weapon
     {
         bulletTimer = GetNode<Timer>("BulletTimer");
         bulletScene = BallLightningBulletV2.SceneObject;
+        weaponIconScene = GD.Load<PackedScene>("res://scenes/weapons/BallLightningWeaponIcon.tscn");
     }
 }
