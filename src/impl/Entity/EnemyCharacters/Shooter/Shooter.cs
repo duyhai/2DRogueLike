@@ -16,6 +16,7 @@ public class Shooter : Enemy
 
     public override void _Ready()
     {
+        base._Ready();
         weapon = GetNode<ShooterWeapon>("ShooterWeapon");
         weapon.SetWeaponCooldown(1f);
     }

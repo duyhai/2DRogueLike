@@ -34,7 +34,7 @@ animations = [ {
 radius = 6.76346
 height = 3.36825
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["player"]]
 scale = Vector2( 0.9, 0.9 )
 collision_layer = 0
 collision_mask = 0
@@ -82,4 +82,5 @@ visible = false
 
 [node name="FreezingWeapon" parent="." instance=ExtResource( 16 )]
 visible = false
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]

@@ -45,7 +45,7 @@ public class LightningBulletPhysicsController : PhysicsController
             return;
         }
 
-        var bodies = entity.GetTree().GetNodesInGroup("enemy");
+        var bodies = entity.GetTree().GetNodesInGroup(NodeGroups.Enemy);
         Vector2 lastBodyGlobalPosition;
         if (bodiesHit.Count == 0)
         {
