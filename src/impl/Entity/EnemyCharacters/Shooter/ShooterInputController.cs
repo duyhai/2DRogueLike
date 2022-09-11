@@ -8,6 +8,8 @@ public class ShooterInputController : InputController
         if (gameObject.isDead) return;
 
         Shooter shooter = (Shooter)gameObject;
+        if (!shooter.PlayerInSight) return;
+
         var player = (Player)shooter.GetNodeOrNull("../Player");
         if (player != null)
         {

@@ -7,6 +7,13 @@ public class PlayerFollowingInputController : InputController
     {
         if (gameObject.isDead) return;
 
+        gameObject.velocity = Vector2.Zero;
+        if (gameObject.IsInGroup("enemy"))
+        {
+            Enemy enemy = (Enemy)gameObject;
+            if (!enemy.PlayerInSight) return;
+        }
+
         Player player = (Player)gameObject.GetNodeOrNull("../Player");
         if (player != null)
         {
