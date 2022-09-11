@@ -8,14 +8,14 @@ public class PlayerFollowingInputController : InputController
         if (gameObject.isDead) return;
 
         gameObject.velocity = Vector2.Zero;
-        if (gameObject.IsInGroup(NodeGroups.Enemy))
+
+        if (!gameObject.IsInGroup(NodeGroups.Enemy)) return;
+
+        Enemy enemy = (Enemy)gameObject;
+        Player player = enemy.SightCheck();
+        if (player != null)
         {
-            Enemy enemy = (Enemy)gameObject;
-            Player player = enemy.SightCheck();
-            if (player != null)
-            {
-                gameObject.velocity = (player.Position - gameObject.Position).Normalized() * gameObject.Stats.Speed;
-            }
+            gameObject.velocity = (player.Position - gameObject.Position).Normalized() * gameObject.Stats.Speed;
         }
     }
 }
