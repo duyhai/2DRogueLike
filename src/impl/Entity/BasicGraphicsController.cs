@@ -11,10 +11,15 @@ public class BasicGraphicsController : GraphicsController
         bool goingLeft = gameObject.velocity.x < 0;
         animSprite.FlipH = goingLeft;
 
+        int frame = animSprite.Frame;
         bool goingUp = gameObject.velocity.y < 0;
         animSprite.Animation = goingUp ? "walkUp" : "walk";
-
         bool moving = gameObject.velocity.Length() > 0.0001;
+        if (moving)
+        {
+            animSprite.Frame = frame;
+            System.Console.WriteLine(frame);
+        }
         animSprite.Playing = moving;
     }
 
