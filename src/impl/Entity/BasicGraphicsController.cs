@@ -1,4 +1,5 @@
 using Godot;
+using System;
 
 public class BasicGraphicsController : GraphicsController
 {
@@ -8,19 +9,31 @@ public class BasicGraphicsController : GraphicsController
 
         GameObject gameObject = (GameObject)node;
 
-        bool goingLeft = gameObject.velocity.x < 0;
+        bool moving = gameObject.velocity.Length() > 0.0001;
+        bool goingLeft = gameObject.velocity.x < 0 || (!moving && animSprite.FlipH);
         animSprite.FlipH = goingLeft;
 
         int frame = animSprite.Frame;
         bool goingUp = gameObject.velocity.y < 0;
-        animSprite.Animation = goingUp ? "walkUp" : "walk";
-        bool moving = gameObject.velocity.Length() > 0.0001;
         if (moving)
         {
             animSprite.Frame = frame;
-            System.Console.WriteLine(frame);
+            animSprite.Animation = goingUp ? "walkUp" : "walk";
+            animSprite.Playing = true;
         }
-        animSprite.Playing = moving;
+        else
+        {
+            if (Array.IndexOf(animSprite.Frames.GetAnimationNames(), "idle") != -1)
+            {
+                animSprite.Animation = "idle";
+                animSprite.Playing = true;
+            }
+            else
+            {
+                animSprite.Playing = false;
+                animSprite.Frame = 0;
+            }
+        }
     }
 
     public void ResetSprite(GameObject node)

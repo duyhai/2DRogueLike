@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shooterWalkUp2.png-95f58406b95a9fd02395daf923df5277.stex"
+path="res://.import/shooterIdle7.png-26e5abb1fa63660a2b2ac5eec930debf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shooter/shooterWalkUp2.png"
-dest_files=[ "res://.import/shooterWalkUp2.png-95f58406b95a9fd02395daf923df5277.stex" ]
+source_file="res://assets/shooter/shooterIdle7.png"
+dest_files=[ "res://.import/shooterIdle7.png-26e5abb1fa63660a2b2ac5eec930debf.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

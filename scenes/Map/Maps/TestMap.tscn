@@ -12,7 +12,7 @@
 [node name="Node" type="Node"]
 
 [node name="Shooter" parent="." instance=ExtResource( 5 )]
-position = Vector2( 181, 108 )
+position = Vector2( 174, 114 )
 
 [node name="SpeedBoost" parent="." instance=ExtResource( 2 )]
 position = Vector2( 288, 192 )
@@ -36,7 +36,7 @@ position = Vector2( 128, 224 )
 position = Vector2( 112, 224 )
 
 [node name="Splitter" parent="." instance=ExtResource( 7 )]
-position = Vector2( 16, 40 )
+position = Vector2( 266, 170 )
 
 [node name="WallBlock2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 152, 144 )
@@ -57,6 +57,7 @@ position = Vector2( 168, 144 )
 position = Vector2( 144, 170 )
 
 [node name="Tank" parent="." instance=ExtResource( 6 )]
+position = Vector2( 214, 123 )
 
 [node name="Floater" parent="." instance=ExtResource( 8 )]
-position = Vector2( 0, 79 )
+position = Vector2( 224, 208 )
