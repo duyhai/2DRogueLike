@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tankWalk1.png-754f09793a076bb6937793a1d88b2b36.stex"
+path="res://.import/Monster2Pack.png-793d4b8b38072f1a65aa0be96966dae6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tank/uj/tankWalk1.png"
-dest_files=[ "res://.import/tankWalk1.png-754f09793a076bb6937793a1d88b2b36.stex" ]
+source_file="res://assets/splitter/Monster2Pack.png"
+dest_files=[ "res://.import/Monster2Pack.png-793d4b8b38072f1a65aa0be96966dae6.stex" ]
 
 [params]
 

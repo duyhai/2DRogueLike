@@ -10,8 +10,8 @@ public class BasicGraphicsController : GraphicsController
         GameObject gameObject = (GameObject)node;
 
         bool moving = gameObject.velocity.Length() > 0.0001;
-        bool goingLeft = gameObject.velocity.x < 0 || (!moving && animSprite.FlipH);
-        animSprite.FlipH = goingLeft;
+        bool goingRight = gameObject.velocity.x > 0 || (!moving && animSprite.FlipH);
+        animSprite.FlipH = goingRight;
 
         int frame = animSprite.Frame;
         bool goingUp = gameObject.velocity.y < 0;
