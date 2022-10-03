@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/impl/Entity/EnemyCharacters/Splitter/Splitter.cs" type="Script" id=3]
 [ext_resource path="res://assets/splitter/Monster2Pack.png" type="Texture" id=6]
@@ -80,6 +80,41 @@ flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 0, 32, 64, 32 )
 
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 64, 128, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 128, 128, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 192, 128, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 160, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 64, 160, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 128, 160, 64, 32 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 192, 160, 64, 32 )
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
@@ -96,6 +131,11 @@ animations = [ {
 "loop": true,
 "name": "walk",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": false,
+"name": "death",
+"speed": 10.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -121,4 +161,5 @@ shape = SubResource( 2 )
 anims/death = ExtResource( 7 )
 anims/hit = ExtResource( 8 )
 
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="OnAnimationFinished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]
