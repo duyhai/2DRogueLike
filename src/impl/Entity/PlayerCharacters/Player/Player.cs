@@ -12,7 +12,7 @@ public class Player : GameObject
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Entity/Player.tscn");
 
     public Player() :
-        base(new PlayerInputController(), new SmoothCollidePhysicsController(), new BasicGraphicsController())
+        base(new PlayerInputController(), new SmoothCollidePhysicsController(), new PlayerGraphicsController())
     {
         baseStats = new StatsInfo { MaxHealth = 2000, MaxShield = 0, Damage = 100, Speed = 200 };
         health = Stats.MaxHealth;

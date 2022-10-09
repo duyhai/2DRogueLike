@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/splitterWalkUp1.png-3452a779d6e70e7e8c69601ec28267c0.stex"
+path="res://.import/Monster4Pack.png-ef7898ecce64f98cc0b399478d19bbeb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/splitter/splitterWalkUp1.png"
-dest_files=[ "res://.import/splitterWalkUp1.png-3452a779d6e70e7e8c69601ec28267c0.stex" ]
+source_file="res://assets/floater/Monster4Pack.png"
+dest_files=[ "res://.import/Monster4Pack.png-ef7898ecce64f98cc0b399478d19bbeb.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

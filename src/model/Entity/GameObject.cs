@@ -51,7 +51,7 @@ public abstract class GameObject : KinematicBody2D
         {
             inputController.Update(this);
         }
-    graphicsController.Update(this);
+        graphicsController.Update(this);
     }
 
     public override void _PhysicsProcess(float delta)
@@ -107,6 +107,15 @@ public abstract class GameObject : KinematicBody2D
         if (animationName == "death")
         {
             Death();
+        }
+    }
+
+    public virtual void OnAnimationFinished()
+    {
+        AnimatedSprite animSprite = GetNodeOrNull<AnimatedSprite>("AnimatedSprite");
+        if (animSprite.Animation == "death")
+        {
+            ((BasicGraphicsController)graphicsController).PlayFadeAnimation(this);
         }
     }
 
