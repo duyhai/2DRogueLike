@@ -14,7 +14,7 @@ public class BasicGraphicsController : GraphicsController
         }
 
         bool moving = gameObject.velocity.Length() > 0.0001;
-        bool goingRight = gameObject.velocity.x > 0 || (!moving && animSprite.FlipH);
+        bool goingRight = (gameObject.velocity.x > 0) || (!moving && animSprite.FlipH);
         animSprite.FlipH = goingRight;
 
         int frame = animSprite.Frame;
