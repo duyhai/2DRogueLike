@@ -2,15 +2,24 @@
 
 importer="texture"
 type="StreamTexture"
+<<<<<<<< HEAD:assets/player/8Bit Wizard.png.import
 path="res://.import/8Bit Wizard.png-f651e19e1fbfc88a8ac02bd2bcab2acb.stex"
+========
+path="res://.import/stage_three.png-f40b5337d64dec6e67fad765499de04c.stex"
+>>>>>>>> master:assets/shooter/stage_three.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<<< HEAD:assets/player/8Bit Wizard.png.import
 source_file="res://assets/player/8Bit Wizard.png"
 dest_files=[ "res://.import/8Bit Wizard.png-f651e19e1fbfc88a8ac02bd2bcab2acb.stex" ]
+========
+source_file="res://assets/shooter/stage_three.png"
+dest_files=[ "res://.import/stage_three.png-f40b5337d64dec6e67fad765499de04c.stex" ]
+>>>>>>>> master:assets/shooter/stage_three.png.import
 
 [params]
 

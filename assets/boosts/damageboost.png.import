@@ -2,15 +2,24 @@
 
 importer="texture"
 type="StreamTexture"
+<<<<<<<< HEAD:assets/boosts/damageboost.png.import
 path="res://.import/damageboost.png-06d9f51a0ea6a716b81c3985adf39ce1.stex"
+========
+path="res://.import/Monster8Pack.png-1cc5973bf67634353ef659a5defaf64d.stex"
+>>>>>>>> master:assets/tank/Monster8Pack.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<<< HEAD:assets/boosts/damageboost.png.import
 source_file="res://assets/boosts/damageboost.png"
 dest_files=[ "res://.import/damageboost.png-06d9f51a0ea6a716b81c3985adf39ce1.stex" ]
+========
+source_file="res://assets/tank/Monster8Pack.png"
+dest_files=[ "res://.import/Monster8Pack.png-1cc5973bf67634353ef659a5defaf64d.stex" ]
+>>>>>>>> master:assets/tank/Monster8Pack.png.import
 
 [params]
 
