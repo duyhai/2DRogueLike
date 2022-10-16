@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Entity/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Map/Blocks/Boosters/SpeedBoost.tscn" type="PackedScene" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://scenes/Entity/Enemies/Splitter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Entity/Enemies/Floater.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Entity/Enemies/Boomer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Map/Blocks/Boosters/DamageBoost.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Map/Blocks/Boosters/LifestealBoost.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Map/Blocks/Boosters/SimpleShieldBoost.tscn" type="PackedScene" id=12]
 
 [node name="Node" type="Node"]
 
@@ -66,3 +69,12 @@ position = Vector2( 432, 56 )
 
 [node name="Floater" parent="." instance=ExtResource( 8 )]
 position = Vector2( 224, 176 )
+
+[node name="LifestealBoost" parent="." instance=ExtResource( 11 )]
+position = Vector2( 288, 208 )
+
+[node name="SimpleShieldBoost" parent="." instance=ExtResource( 12 )]
+position = Vector2( 288, 224 )
+
+[node name="DamageBoost" parent="." instance=ExtResource( 10 )]
+position = Vector2( 288, 240 )

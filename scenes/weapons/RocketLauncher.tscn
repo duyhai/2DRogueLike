@@ -10,8 +10,8 @@ script = ExtResource( 1 )
 one_shot = true
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 10, 0 )
-scale = Vector2( 0.075, 0.075 )
+position = Vector2( 7, -1 )
+scale = Vector2( 0.045, 0.045 )
 texture = ExtResource( 2 )
 
 [node name="Tip" type="Node2D" parent="Sprite"]

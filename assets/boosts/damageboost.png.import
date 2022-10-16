@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lightning-png.png-578c9c3aa984eb0c68bd4db7ef6d8964.stex"
+path="res://.import/damageboost.png-06d9f51a0ea6a716b81c3985adf39ce1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lightning-png.png"
-dest_files=[ "res://.import/lightning-png.png-578c9c3aa984eb0c68bd4db7ef6d8964.stex" ]
+source_file="res://assets/boosts/damageboost.png"
+dest_files=[ "res://.import/damageboost.png-06d9f51a0ea6a716b81c3985adf39ce1.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

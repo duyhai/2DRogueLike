@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bloodicon.png-39e5402e05b7e8678d806fbbc9db249f.stex"
+path="res://.import/shieldboost.png-f66df00c911b018113b0329f76c00074.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bloodicon.png"
-dest_files=[ "res://.import/bloodicon.png-39e5402e05b7e8678d806fbbc9db249f.stex" ]
+source_file="res://assets/boosts/shieldboost.png"
+dest_files=[ "res://.import/shieldboost.png-f66df00c911b018113b0329f76c00074.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

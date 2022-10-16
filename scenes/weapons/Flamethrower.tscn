@@ -11,8 +11,8 @@ wait_time = 0.02
 one_shot = true
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 8, 0 )
-scale = Vector2( 0.045, 0.045 )
+position = Vector2( 9, 3 )
+scale = Vector2( 0.035, 0.035 )
 texture = ExtResource( 2 )
 
 [node name="Tip" type="Node2D" parent="Sprite"]
