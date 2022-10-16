@@ -109,17 +109,16 @@ zoom = Vector2( 0.5, 0.5 )
 anims/death = ExtResource( 7 )
 anims/hit = ExtResource( 8 )
 
-[node name="SimpleWeapon" parent="." instance=ExtResource( 12 )]
-visible = false
-
 [node name="BouncyBulletWeapon" parent="." instance=ExtResource( 9 )]
 visible = false
 
 [node name="Flamethrower" parent="." instance=ExtResource( 11 )]
 visible = false
+position = Vector2( 1.11111, 0 )
 
 [node name="RocketLauncher" parent="." instance=ExtResource( 10 )]
 visible = false
+position = Vector2( 0, 2.22222 )
 
 [node name="ShockWeapon" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -135,5 +134,10 @@ visible = false
 
 [node name="FreezingWeapon" parent="." instance=ExtResource( 16 )]
 visible = false
+
+[node name="SimpleWeapon" parent="." instance=ExtResource( 12 )]
+visible = false
+position = Vector2( 4.76837e-07, 2.38419e-07 )
+scale = Vector2( 1, 1 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]
