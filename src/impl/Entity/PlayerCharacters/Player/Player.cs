@@ -34,7 +34,9 @@ public class Player : GameObject
         weapons.Add((Weapon)GetNode("BallLightningWeaponV2"));
         weapons.Add((Weapon)GetNode("FreezingWeapon"));
         weapons[equippedWeaponIndex].Visible = true;
+
         cameraController = new PlayerCameraController(GetNode<Camera2D>("Camera2D"));
+        ((PlayerGraphicsController)graphicsController).CameraController = cameraController;
     }
 
     public override void _Process(float delta)

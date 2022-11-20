@@ -14,4 +14,9 @@ public class PlayerCameraController : CameraController
             effect.Update(camera, delta);
         }
     }
+
+    public void AddCameraAffect(CameraEffect cameraEffect)
+    {
+        cameraEffects.Add(cameraEffect);
+    }
 }

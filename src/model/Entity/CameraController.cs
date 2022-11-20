@@ -2,7 +2,7 @@ using Godot;
 
 abstract public class CameraController
 {
-    Camera2D camera;
+    protected Camera2D camera;
 
     public CameraController(Camera2D camera)
     {

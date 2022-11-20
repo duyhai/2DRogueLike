@@ -2,8 +2,16 @@ using Godot;
 
 public abstract class CameraEffect
 {
-    float timer = 0;
-    float duration = 0;
+    private float timer = 0;
+    private float duration = 0;
+    public float Timer
+    {
+        get { return timer; }
+    }
+    public float Duration
+    {
+        get { return duration; }
+    }
 
     public CameraEffect(float duration)
     {

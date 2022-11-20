@@ -138,6 +138,5 @@ visible = false
 [node name="SimpleWeapon" parent="." instance=ExtResource( 12 )]
 visible = false
 position = Vector2( 4.76837e-07, 2.38419e-07 )
-scale = Vector2( 1, 1 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]

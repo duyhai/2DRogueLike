@@ -65,7 +65,7 @@ public class BasicGraphicsController : GraphicsController
         animPlayer?.Play("death");
     }
 
-    public void PlayHitAnimation(GameObject node)
+    public virtual void PlayHitAnimation(GameObject node)
     {
         AnimationPlayer animPlayer = node.GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
         animPlayer?.Play("hit");

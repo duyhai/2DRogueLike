@@ -80,6 +80,7 @@ next_weapon={
 
 [mono]
 
+project/assembly_name="2DRogueLike"
 debugger_agent/wait_timeout=5000
 
 [rendering]
