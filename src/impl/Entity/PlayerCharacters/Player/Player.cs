@@ -76,4 +76,23 @@ public class Player : GameObject
         weapons[equippedWeaponIndex].Visible = true;
         WeaponChanged?.Invoke(weapons[equippedWeaponIndex]);
     }
+
+    public override int Hit(int damage)
+    {
+        int inflictedDamage = base.Hit(damage);
+
+        if (health != 0)
+        {
+            SoundManager.Instance.PlaySound(SoundPaths.PlayerHit);
+        }
+
+        return inflictedDamage;
+    }
+
+    public override void OnDeathStart()
+    {
+        base.OnDeathStart();
+
+        SoundManager.Instance.PlaySound(SoundPaths.PlayerDeath);
+    }
 }

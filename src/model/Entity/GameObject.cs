@@ -42,7 +42,7 @@ public abstract class GameObject : KinematicBody2D
         this.physicsController = physicsController;
         this.graphicsController = graphicsController;
 
-        Connect("DeathSignal", this, nameof(PlayDeathAnimation));
+        Connect("DeathSignal", this, nameof(OnDeathStart));
     }
 
     public override void _Process(float delta)
@@ -106,7 +106,7 @@ public abstract class GameObject : KinematicBody2D
     {
         if (animationName == "death")
         {
-            Death();
+            OnDeathFinished();
         }
     }
 
@@ -119,12 +119,12 @@ public abstract class GameObject : KinematicBody2D
         }
     }
 
-    public virtual void PlayDeathAnimation()
+    public virtual void OnDeathStart()
     {
         ((BasicGraphicsController)graphicsController).PlayDeathAnimation(this);
     }
 
-    public virtual void Death()
+    public virtual void OnDeathFinished()
     {
         QueueFree();
     }
