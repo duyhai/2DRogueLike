@@ -17,6 +17,7 @@ position = Vector2( 0, -8 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+z_index = -1
 texture = ExtResource( 2 )
 offset = Vector2( 0, -8 )
 region_rect = Rect2( 479, 79, 1, 2 )

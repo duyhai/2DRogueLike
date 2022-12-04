@@ -84,7 +84,7 @@ animations = [ {
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 5.55556
-height = 8.88889
+height = 2.22222
 
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 scale = Vector2( 0.9, 0.9 )
@@ -97,11 +97,14 @@ position = Vector2( 0, -1.11111 )
 scale = Vector2( 0.349306, 0.349306 )
 frames = SubResource( 1 )
 animation = "idle"
+offset = Vector2( 0, -30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -6.66667 )
 shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -6.66667 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 
@@ -111,32 +114,38 @@ anims/hit = ExtResource( 8 )
 
 [node name="BouncyBulletWeapon" parent="." instance=ExtResource( 9 )]
 visible = false
+position = Vector2( 0, -10 )
 
 [node name="Flamethrower" parent="." instance=ExtResource( 11 )]
 visible = false
-position = Vector2( 1.11111, 0 )
+position = Vector2( 1.11111, -7.77778 )
 
 [node name="RocketLauncher" parent="." instance=ExtResource( 10 )]
 visible = false
-position = Vector2( 0, 2.22222 )
+position = Vector2( 0, -5.55556 )
 
 [node name="ShockWeapon" parent="." instance=ExtResource( 3 )]
 visible = false
+position = Vector2( 0, -8.88889 )
 
 [node name="Melee" parent="." instance=ExtResource( 13 )]
 visible = false
+position = Vector2( 0, -7.77778 )
 
 [node name="LaserWeapon" parent="." instance=ExtResource( 14 )]
 visible = false
+position = Vector2( 0, -8.88889 )
 
 [node name="BallLightningWeaponV2" parent="." instance=ExtResource( 15 )]
 visible = false
+position = Vector2( 0, -10 )
 
 [node name="FreezingWeapon" parent="." instance=ExtResource( 16 )]
 visible = false
+position = Vector2( 0, -8.88889 )
 
 [node name="SimpleWeapon" parent="." instance=ExtResource( 12 )]
 visible = false
-position = Vector2( 4.76837e-07, 2.38419e-07 )
+position = Vector2( 0, -8.88889 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]
