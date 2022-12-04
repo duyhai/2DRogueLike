@@ -30,7 +30,7 @@ motion_mirroring = Vector2( 1920, 1080 )
 position = Vector2( 0, 0.374573 )
 texture = ExtResource( 4 )
 
-[node name="World" type="Node" parent="."]
+[node name="World" type="YSort" parent="."]
 
 [node name="FloatingTexts" type="Node" parent="."]
 

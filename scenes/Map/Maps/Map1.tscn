@@ -50,390 +50,520 @@ position = Vector2( 152, 96 )
 
 [node name="BreakableWall22" parent="." instance=ExtResource( 2 )]
 position = Vector2( 152, 48 )
+z_index = 0
 
 [node name="BreakableWall20" parent="." instance=ExtResource( 2 )]
 position = Vector2( 168, 64 )
+z_index = 0
 
 [node name="WallBlock101" parent="." instance=ExtResource( 10 )]
 position = Vector2( 184, 160 )
+z_index = 0
 
 [node name="WallBlock92" parent="." instance=ExtResource( 10 )]
 position = Vector2( 152, 64 )
+z_index = 0
 
 [node name="WallBlock93" parent="." instance=ExtResource( 10 )]
 position = Vector2( 168, 80 )
+z_index = 0
 
 [node name="WallBlock5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 296, 80 )
+z_index = 0
 
 [node name="WallBlock99" parent="." instance=ExtResource( 10 )]
 position = Vector2( 248, 96 )
+z_index = 0
 
 [node name="WallBlock10" parent="." instance=ExtResource( 3 )]
 position = Vector2( 248, 112 )
+z_index = 0
 
 [node name="WallBlock11" parent="." instance=ExtResource( 3 )]
 position = Vector2( 248, 128 )
+z_index = 0
 
 [node name="WallBlock12" parent="." instance=ExtResource( 3 )]
 position = Vector2( 232, 144 )
+z_index = 0
 
 [node name="WallBlock13" parent="." instance=ExtResource( 3 )]
 position = Vector2( 216, 96 )
+z_index = 0
 
 [node name="WallBlock16" parent="." instance=ExtResource( 3 )]
 position = Vector2( 168, 160 )
+z_index = 0
 
 [node name="WallBlock17" parent="." instance=ExtResource( 3 )]
 position = Vector2( 152, 160 )
+z_index = 0
 
 [node name="WallBlock18" parent="." instance=ExtResource( 3 )]
 position = Vector2( 136, 160 )
+z_index = 0
 
 [node name="WallBlock32" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 16 )
+z_index = 0
 
 [node name="WallBlock33" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 32 )
+z_index = 0
 
 [node name="WallBlock90" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 16 )
+z_index = 0
 
 [node name="WallBlock34" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 48 )
+z_index = 0
 
 [node name="WallBlock35" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 64 )
+z_index = 0
 
 [node name="WallBlock36" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 80 )
+z_index = 0
 
 [node name="WallBlock37" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 96 )
+z_index = 0
 
 [node name="WallBlock38" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 96 )
+z_index = 0
 
 [node name="WallBlock39" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 112 )
+z_index = 0
 
 [node name="WallBlock54" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 128 )
+z_index = 0
 
 [node name="WallBlock55" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 144 )
+z_index = 0
 
 [node name="WallBlock56" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 160 )
+z_index = 0
 
 [node name="WallBlock57" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 176 )
+z_index = 0
 
 [node name="WallBlock58" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 192 )
+z_index = 0
 
 [node name="WallBlock59" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 208 )
+z_index = 0
 
 [node name="WallBlock60" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 208 )
+z_index = 0
 
 [node name="WallBlock77" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 32 )
+z_index = 0
 
 [node name="WallBlock78" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 48 )
+z_index = 0
 
 [node name="WallBlock79" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 64 )
+z_index = 0
 
 [node name="WallBlock80" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 80 )
+z_index = 0
 
 [node name="WallBlock81" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 80 )
+z_index = 0
 
 [node name="WallBlock82" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 96 )
+z_index = 0
 
 [node name="WallBlock83" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 112 )
+z_index = 0
 
 [node name="WallBlock84" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 128 )
+z_index = 0
 
 [node name="WallBlock85" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 144 )
+z_index = 0
 
 [node name="WallBlock86" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 160 )
+z_index = 0
 
 [node name="WallBlock87" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 176 )
+z_index = 0
 
 [node name="WallBlock88" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 192 )
+z_index = 0
 
 [node name="WallBlock89" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 192 )
+z_index = 0
 
 [node name="WallBlock61" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 224 )
+z_index = 0
 
 [node name="WallBlock62" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 240 )
+z_index = 0
 
 [node name="WallBlock40" parent="." instance=ExtResource( 3 )]
 position = Vector2( 136, 240 )
+z_index = 0
 
 [node name="WallBlock41" parent="." instance=ExtResource( 3 )]
 position = Vector2( 152, 240 )
+z_index = 0
 
 [node name="WallBlock42" parent="." instance=ExtResource( 3 )]
 position = Vector2( 168, 240 )
+z_index = 0
 
 [node name="WallBlock43" parent="." instance=ExtResource( 3 )]
 position = Vector2( 184, 240 )
+z_index = 0
 
 [node name="WallBlock44" parent="." instance=ExtResource( 3 )]
 position = Vector2( 200, 240 )
+z_index = 0
 
 [node name="WallBlock45" parent="." instance=ExtResource( 3 )]
 position = Vector2( 216, 240 )
+z_index = 0
 
 [node name="WallBlock46" parent="." instance=ExtResource( 3 )]
 position = Vector2( 232, 240 )
+z_index = 0
 
 [node name="WallBlock47" parent="." instance=ExtResource( 3 )]
 position = Vector2( 248, 240 )
+z_index = 0
 
 [node name="WallBlock48" parent="." instance=ExtResource( 3 )]
 position = Vector2( 264, 240 )
+z_index = 0
 
 [node name="WallBlock49" parent="." instance=ExtResource( 3 )]
 position = Vector2( 280, 240 )
+z_index = 0
 
 [node name="WallBlock50" parent="." instance=ExtResource( 3 )]
 position = Vector2( 296, 240 )
+z_index = 0
 
 [node name="WallBlock19" parent="." instance=ExtResource( 3 )]
 position = Vector2( 136, 176 )
+z_index = 0
 
 [node name="WallBlock20" parent="." instance=ExtResource( 3 )]
 position = Vector2( 136, 192 )
+z_index = 0
 
 [node name="WallBlock21" parent="." instance=ExtResource( 3 )]
 position = Vector2( 152, 208 )
+z_index = 0
 
 [node name="BreakableWall24" parent="." instance=ExtResource( 2 )]
 position = Vector2( 184, 176 )
+z_index = 0
 
 [node name="BreakableWall25" parent="." instance=ExtResource( 2 )]
 position = Vector2( 168, 176 )
+z_index = 0
 
 [node name="WallBlock22" parent="." instance=ExtResource( 3 )]
 position = Vector2( 168, 208 )
+z_index = 0
 
 [node name="WallBlock23" parent="." instance=ExtResource( 3 )]
 position = Vector2( 184, 192 )
+z_index = 0
 
 [node name="WallBlock24" parent="." instance=ExtResource( 3 )]
 position = Vector2( 184, 208 )
+z_index = 0
 
 [node name="WallBlock97" parent="." instance=ExtResource( 10 )]
 position = Vector2( 200, 96 )
+z_index = 0
 
 [node name="WallBlock14" parent="." instance=ExtResource( 3 )]
 position = Vector2( 200, 112 )
+z_index = 0
 
 [node name="WallBlock15" parent="." instance=ExtResource( 3 )]
 position = Vector2( 200, 128 )
+z_index = 0
 
 [node name="WallBlock74" parent="." instance=ExtResource( 3 )]
 position = Vector2( 312, 16 )
+z_index = 0
 
 [node name="WallBlock98" parent="." instance=ExtResource( 10 )]
 position = Vector2( 312, 32 )
+z_index = 0
 
 [node name="WallBlock6" parent="." instance=ExtResource( 3 )]
 position = Vector2( 312, 48 )
+z_index = 0
 
 [node name="WallBlock71" parent="." instance=ExtResource( 3 )]
 position = Vector2( 264, 16 )
+z_index = 0
 
 [node name="WallBlock72" parent="." instance=ExtResource( 3 )]
 position = Vector2( 280, 16 )
+z_index = 0
 
 [node name="WallBlock73" parent="." instance=ExtResource( 3 )]
 position = Vector2( 296, 16 )
+z_index = 0
 
 [node name="WallBlock7" parent="." instance=ExtResource( 3 )]
 position = Vector2( 296, 32 )
+z_index = 0
 
 [node name="WallBlock8" parent="." instance=ExtResource( 3 )]
 position = Vector2( 312, 64 )
+z_index = 0
 
 [node name="WallBlock9" parent="." instance=ExtResource( 3 )]
 position = Vector2( 312, 80 )
+z_index = 0
 
 [node name="WallBlock2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 280, 32 )
+z_index = 0
 
 [node name="WallBlock3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 264, 32 )
+z_index = 0
 
 [node name="WallBlock4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 264, 48 )
+z_index = 0
 
 [node name="BreakableWall" parent="." instance=ExtResource( 2 )]
 position = Vector2( 280, 64 )
+z_index = 0
 
 [node name="BreakableWall2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 280, 80 )
+z_index = 0
 
 [node name="BreakableWall3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 264, 64 )
+z_index = 0
 
 [node name="BreakableWall23" parent="." instance=ExtResource( 2 )]
 position = Vector2( 280, 160 )
+z_index = 0
 
 [node name="WallBlock100" parent="." instance=ExtResource( 10 )]
 position = Vector2( 264, 80 )
+z_index = 0
 
 [node name="BreakableWall4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 248, 64 )
+z_index = 0
 
 [node name="BreakableWall5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 232, 64 )
+z_index = 0
 
 [node name="BreakableWall18" parent="." instance=ExtResource( 2 )]
 position = Vector2( 184, 80 )
+z_index = 0
 
 [node name="BreakableWall19" parent="." instance=ExtResource( 2 )]
 position = Vector2( 168, 96 )
+z_index = 0
 
 [node name="BreakableWall21" parent="." instance=ExtResource( 2 )]
 position = Vector2( 152, 80 )
+z_index = 0
 
 [node name="BreakableWall6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 232, 80 )
+z_index = 0
 
 [node name="BreakableWall7" parent="." instance=ExtResource( 2 )]
 position = Vector2( 232, 96 )
+z_index = 0
 
 [node name="BreakableWall8" parent="." instance=ExtResource( 2 )]
 position = Vector2( 280, 96 )
+z_index = 0
 
 [node name="BreakableWall9" parent="." instance=ExtResource( 2 )]
 position = Vector2( 232, 112 )
+z_index = 0
 
 [node name="BreakableWall10" parent="." instance=ExtResource( 2 )]
 position = Vector2( 216, 128 )
+z_index = 0
 
 [node name="BreakableWall13" parent="." instance=ExtResource( 2 )]
 position = Vector2( 216, 144 )
+z_index = 0
 
 [node name="BreakableWall14" parent="." instance=ExtResource( 2 )]
 position = Vector2( 216, 160 )
+z_index = 0
 
 [node name="BreakableWall15" parent="." instance=ExtResource( 2 )]
 position = Vector2( 216, 176 )
+z_index = 0
 
 [node name="BreakableWall16" parent="." instance=ExtResource( 2 )]
 position = Vector2( 184, 128 )
+z_index = 0
 
 [node name="BreakableWall17" parent="." instance=ExtResource( 2 )]
 position = Vector2( 168, 128 )
+z_index = 0
 
 [node name="BreakableWall11" parent="." instance=ExtResource( 2 )]
 position = Vector2( 264, 112 )
+z_index = 0
 
 [node name="BreakableWall12" parent="." instance=ExtResource( 2 )]
 position = Vector2( 280, 112 )
+z_index = 0
 
 [node name="BreakableWall29" parent="." instance=ExtResource( 2 )]
 position = Vector2( 312, 192 )
+z_index = 0
 
 [node name="WallBlock25" parent="." instance=ExtResource( 3 )]
 position = Vector2( 280, 176 )
+z_index = 0
 
 [node name="WallBlock26" parent="." instance=ExtResource( 3 )]
 position = Vector2( 280, 192 )
+z_index = 0
 
 [node name="WallBlock27" parent="." instance=ExtResource( 3 )]
 position = Vector2( 296, 176 )
+z_index = 0
 
 [node name="WallBlock28" parent="." instance=ExtResource( 3 )]
 position = Vector2( 328, 208 )
+z_index = 0
 
 [node name="WallBlock29" parent="." instance=ExtResource( 3 )]
 position = Vector2( 312, 208 )
+z_index = 0
 
 [node name="WallBlock30" parent="." instance=ExtResource( 3 )]
 position = Vector2( 312, 224 )
+z_index = 0
 
 [node name="WallBlock31" parent="." instance=ExtResource( 3 )]
 position = Vector2( 328, 224 )
+z_index = 0
 
 [node name="BreakableWall26" parent="." instance=ExtResource( 2 )]
 position = Vector2( 296, 192 )
+z_index = 0
 
 [node name="BreakableWall27" parent="." instance=ExtResource( 2 )]
 position = Vector2( 296, 208 )
+z_index = 0
 
 [node name="BreakableWall28" parent="." instance=ExtResource( 2 )]
 position = Vector2( 296, 208 )
+z_index = 0
 
 [node name="WallBlock51" parent="." instance=ExtResource( 3 )]
 position = Vector2( 312, 240 )
+z_index = 0
 
 [node name="WallBlock52" parent="." instance=ExtResource( 3 )]
 position = Vector2( 328, 240 )
+z_index = 0
 
 [node name="WallBlock53" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 208 )
+z_index = 0
 
 [node name="WallBlock63" parent="." instance=ExtResource( 3 )]
 position = Vector2( 136, 16 )
+z_index = 0
 
 [node name="WallBlock64" parent="." instance=ExtResource( 3 )]
 position = Vector2( 152, 16 )
+z_index = 0
 
 [node name="WallBlock65" parent="." instance=ExtResource( 3 )]
 position = Vector2( 168, 16 )
+z_index = 0
 
 [node name="WallBlock66" parent="." instance=ExtResource( 3 )]
 position = Vector2( 184, 16 )
+z_index = 0
 
 [node name="WallBlock67" parent="." instance=ExtResource( 3 )]
 position = Vector2( 200, 16 )
+z_index = 0
 
 [node name="WallBlock68" parent="." instance=ExtResource( 3 )]
 position = Vector2( 216, 16 )
+z_index = 0
 
 [node name="WallBlock69" parent="." instance=ExtResource( 3 )]
 position = Vector2( 232, 16 )
+z_index = 0
 
 [node name="WallBlock70" parent="." instance=ExtResource( 3 )]
 position = Vector2( 248, 16 )
+z_index = 0
 
 [node name="WallBlock75" parent="." instance=ExtResource( 3 )]
 position = Vector2( 328, 16 )
+z_index = 0
 
 [node name="WallBlock76" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 224 )
+z_index = 0
 
 [node name="WallBlock91" parent="." instance=ExtResource( 3 )]
 position = Vector2( 344, 240 )
+z_index = 0
 
 [node name="WallBlock" parent="." instance=ExtResource( 9 )]
 position = Vector2( 232, 176 )
+z_index = 0
 
 [node name="WallBlock94" parent="." instance=ExtResource( 10 )]
 position = Vector2( 248, 144 )
+z_index = 0
 
 [node name="WallBlock95" parent="." instance=ExtResource( 10 )]
 position = Vector2( 200, 144 )
+z_index = 0
 
 [node name="WallBlock96" parent="." instance=ExtResource( 10 )]
 position = Vector2( 136, 208 )
+z_index = 0
