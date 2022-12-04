@@ -13,11 +13,12 @@ script = ExtResource( 2 )
 position = Vector2( -4.76837e-07, -1.19209e-07 )
 scale = Vector2( 0.0625, 0.0625 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -135 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -1.78814e-07, 0.00321941 )
+position = Vector2( 0, -8 )
 scale = Vector2( 0.119, 0.119 )
 shape = SubResource( 1 )
 

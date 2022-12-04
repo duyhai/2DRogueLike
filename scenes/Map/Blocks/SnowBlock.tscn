@@ -14,9 +14,11 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+offset = Vector2( 0, -8 )
 region_rect = Rect2( 479, 79, 1, 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -8 )
 shape = SubResource( 1 )
