@@ -7,7 +7,7 @@
 script = ExtResource( 3 )
 
 [node name="DurationTimer" parent="." index="0"]
-wait_time = 0.01
+wait_time = 0.05
 
 [node name="EffectTimer" parent="." index="1"]
 wait_time = 0.001

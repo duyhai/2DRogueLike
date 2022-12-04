@@ -2,13 +2,10 @@ using Godot;
 
 public class PlayerGraphicsController : BasicGraphicsController
 {
-    private CameraController cameraController;
     public CameraController CameraController
     {
-        set
-        {
-            cameraController = value;
-        }
+        private get;
+        set;
     }
 
     public override void Update(Node2D node)
@@ -27,11 +24,17 @@ public class PlayerGraphicsController : BasicGraphicsController
     {
         base.PlayHitAnimation(node);
 
-        if (cameraController != null)
+        if (CameraController != null)
         {
-            ShakeCameraEffect effect = new ShakeCameraEffect(duration: 0.5f, frequency: 40, amplitude: 5);
-            ((PlayerCameraController)cameraController).AddCameraAffect(effect);  // casting???
-            effect.Start();
+            PlayerCameraController playerCameraController = (PlayerCameraController)CameraController;
+
+            HitCameraEffect hitEffect = HitCameraEffect.SceneObject.Instance<HitCameraEffect>();
+            playerCameraController.AddCameraAffect(hitEffect);
+            hitEffect.Start(node.GetNode<Camera2D>("Camera2D"));
+
+            ShakeCameraEffect shakeEffect = new ShakeCameraEffect(duration: 0.5f, frequency: 40, amplitude: 5);
+            playerCameraController.AddCameraAffect(shakeEffect);
+            shakeEffect.Start(node.GetNode<Camera2D>("Camera2D"));
         }
     }
 }
