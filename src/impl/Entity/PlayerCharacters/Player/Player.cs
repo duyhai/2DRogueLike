@@ -35,15 +35,6 @@ public class Player : GameObject
                 lastMousePosition = mousePosition;
             }
             crosshair.Position = result;
-
-            // Vector2 result;
-            // Vector2 joystickDirection = Input.GetVector("see_left", "see_right", "see_up", "see_down");
-            // bool isGamePadJoystickMoving = DELTA < joystickDirection.Length();
-
-            // Vector2 mousePosition = GetLocalMousePosition();
-            // if (isGamePadJoystickMoving) {
-            //     result = joystickDirection.Normalized() * 50;
-            // } else if ()
             return result;
         }
     }
