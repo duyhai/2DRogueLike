@@ -4,7 +4,8 @@ public class WeaponGraphicsController : GraphicsController
 {
     public override void Update(Node2D node)
     {
-        Vector2 vector = node.GetGlobalMousePosition() - node.GlobalPosition;
+        Player player = node.GetParent<Player>();
+        Vector2 vector = player.ViewDirection;
         node.Rotation = vector.Angle();
 
         if (node.Scale.y > 0 ^ vector.Dot(Vector2.Right) > 0)

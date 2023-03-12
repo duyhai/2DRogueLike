@@ -4,6 +4,39 @@ using System.Collections.Generic;
 
 public class Player : GameObject
 {
+    const float DELTA = 0.1f;
+    Node2D crosshair;
+    bool isLastInputJoystick;
+    Vector2 lastMousePosition;
+    public Vector2 ViewDirection {
+        get {
+            Vector2 result = crosshair.Position;
+            Vector2 mousePosition = GetLocalMousePosition();
+            Vector2 joystickDirection = Input.GetVector("see_left", "see_right", "see_up", "see_down");
+            bool isGamePadJoystickMoving = DELTA < joystickDirection.Length();
+
+            Vector2 dMouse = mousePosition - lastMousePosition;
+            bool isMouseMoving = DELTA < dMouse.Length();
+            if (isGamePadJoystickMoving)
+            {
+                result = joystickDirection.Normalized() * 50;
+                isLastInputJoystick = true;
+            }
+            else if (isLastInputJoystick && !isMouseMoving) {
+                // result = crosshair.Position;
+            }
+            else if (isMouseMoving)
+            {
+                if (isLastInputJoystick)
+                    GD.Print($"Last:{lastMousePosition}, Current:{mousePosition}");
+                result = mousePosition;
+                isLastInputJoystick = false;
+            }
+            lastMousePosition = mousePosition;
+            crosshair.Position = result;
+            return result;
+        }
+    }
     public event Action<Weapon> WeaponChanged;
     public event Action<List<Weapon>> WeaponListChanged;
     public List<Weapon> weapons = new List<Weapon>();
@@ -24,6 +57,7 @@ public class Player : GameObject
 
     public override void _Ready()
     {
+        crosshair = GetNode<Sprite>("Crosshair");
         weapons.Add((Weapon)GetNode("SimpleWeapon"));
         weapons.Add((Weapon)GetNode("BouncyBulletWeapon"));
         weapons.Add((Weapon)GetNode("Flamethrower"));
@@ -34,6 +68,9 @@ public class Player : GameObject
         weapons.Add((Weapon)GetNode("BallLightningWeaponV2"));
         weapons.Add((Weapon)GetNode("FreezingWeapon"));
         weapons[equippedWeaponIndex].Visible = true;
+
+        lastMousePosition = GetLocalMousePosition();
+        isLastInputJoystick = false;
 
         cameraController = new PlayerCameraController(GetNode<Camera2D>("Camera2D"));
         ((PlayerGraphicsController)graphicsController).CameraController = cameraController;
