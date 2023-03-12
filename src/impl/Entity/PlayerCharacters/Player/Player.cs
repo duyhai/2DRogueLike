@@ -4,26 +4,27 @@ using System.Collections.Generic;
 
 public class Player : GameObject
 {
-    const float DELTA = 0.1f;
+    const float DEFAULT_DELTA = 0.1f;
     Node2D crosshair;
     bool isLastInputJoystick;
     Vector2 lastMousePosition;
     public Vector2 ViewDirection {
         get {
             Vector2 result = crosshair.Position;
-            Vector2 mousePosition = GetLocalMousePosition();
             Vector2 joystickDirection = Input.GetVector("see_left", "see_right", "see_up", "see_down");
-            bool isGamePadJoystickMoving = DELTA < joystickDirection.Length();
+            bool isGamePadJoystickMoving = DEFAULT_DELTA < joystickDirection.Length();
 
+            Vector2 mousePosition = GetLocalMousePosition();
             Vector2 dMouse = mousePosition - lastMousePosition;
-            bool isMouseMoving = DELTA < dMouse.Length();
+            float delta = isLastInputJoystick? 10f : DEFAULT_DELTA;
+            bool isMouseMoving = delta < dMouse.Length();
             if (isGamePadJoystickMoving)
             {
                 result = joystickDirection.Normalized() * 50;
                 isLastInputJoystick = true;
             }
             else if (isLastInputJoystick && !isMouseMoving) {
-                // result = crosshair.Position;
+                result = crosshair.Position;
             }
             else if (isMouseMoving)
             {
@@ -31,9 +32,18 @@ public class Player : GameObject
                     GD.Print($"Last:{lastMousePosition}, Current:{mousePosition}");
                 result = mousePosition;
                 isLastInputJoystick = false;
+                lastMousePosition = mousePosition;
             }
-            lastMousePosition = mousePosition;
             crosshair.Position = result;
+
+            // Vector2 result;
+            // Vector2 joystickDirection = Input.GetVector("see_left", "see_right", "see_up", "see_down");
+            // bool isGamePadJoystickMoving = DELTA < joystickDirection.Length();
+
+            // Vector2 mousePosition = GetLocalMousePosition();
+            // if (isGamePadJoystickMoving) {
+            //     result = joystickDirection.Normalized() * 50;
+            // } else if ()
             return result;
         }
     }
