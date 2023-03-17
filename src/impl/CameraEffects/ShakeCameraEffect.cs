@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class ShakeCameraEffect : NormalCameraEffect
+public class ShakeCameraEffect : TimedCameraEffect
 {
     int Frequency { get; set; }
     float Amplitude { get; set; }
