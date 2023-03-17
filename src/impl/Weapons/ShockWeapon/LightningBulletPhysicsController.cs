@@ -16,7 +16,7 @@ public class LightningBulletPhysicsController : PhysicsController
 
             Array bodiesHit = new Array();
             lightningBullet.TargetingState = LightningBullet.Targeting.Chaining;
-            Chaining(gameObject.GetNode<Player>("../Player"), bodiesHit);
+            Chaining(lightningBullet, bodiesHit);
 
             if (bodiesHit.Count != 0)
             {
@@ -89,9 +89,8 @@ public class LightningBulletPhysicsController : PhysicsController
     }
     bool inFieldOfView(GameObject entity, GameObject body)
     {
-        Player player = (Player)entity;
-        Vector2 relativeMouseLoc = player.ViewDirection.Normalized();
+        Vector2 bulletDirection = Vector2.Up.Rotated(entity.Rotation);
         Vector2 relativeNearestBodyLoc = (body.GlobalPosition - entity.GlobalPosition).Normalized();
-        return Mathf.Cos(fov) < relativeMouseLoc.Dot(relativeNearestBodyLoc);
+        return Mathf.Cos(fov) < bulletDirection.Dot(relativeNearestBodyLoc);
     }
 }
