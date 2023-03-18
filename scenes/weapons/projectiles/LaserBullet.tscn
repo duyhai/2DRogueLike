@@ -47,8 +47,6 @@ scale = Vector2( 0.5, 0.5 )
 enabled = true
 cast_to = Vector2( 1000, 0 )
 
-[node name="Tween" type="Tween" parent="RayCast2D"]
-
 [node name="Line2D" type="Line2D" parent="RayCast2D"]
 points = PoolVector2Array( 0, 0, 100, 0 )
 width = 0.0
