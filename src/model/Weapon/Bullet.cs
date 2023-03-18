@@ -4,6 +4,11 @@ public abstract class Bullet : GameObject
 {
     protected int damage;
     protected GameObject initiator;
+    public GameObject Initiator {
+        get {
+            return initiator;
+        }
+    }
 
     public Bullet(InputController inputController, PhysicsController physicsController, GraphicsController graphicsController) :
         base(inputController, physicsController, graphicsController)

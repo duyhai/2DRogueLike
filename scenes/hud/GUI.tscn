@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/hud/Bar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/hud/ScoreCounter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/hud/EnemyCounter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/hud/WeaponBar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/player/crosshair.png" type="Texture" id=5]
 
 [node name="GUI" type="CanvasLayer"]
 
@@ -79,6 +80,13 @@ margin_left = 144.0
 margin_top = 0.0
 margin_right = 244.0
 margin_bottom = 40.0
+
+[node name="Crosshair" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1000
+z_as_relative = false
+texture = ExtResource( 5 )
 
 [editable path="MarginContainer/HBoxContainer/Bars/LifeBar"]
 [editable path="MarginContainer/HBoxContainer/Bars/ShieldBar"]

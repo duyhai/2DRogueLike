@@ -89,8 +89,8 @@ public class LightningBulletPhysicsController : PhysicsController
     }
     bool inFieldOfView(GameObject entity, GameObject body)
     {
-        Vector2 relativeMouseLoc = (entity.GetGlobalMousePosition() - entity.GlobalPosition).Normalized();
+        Vector2 bulletDirection = Vector2.Up.Rotated(entity.Rotation);
         Vector2 relativeNearestBodyLoc = (body.GlobalPosition - entity.GlobalPosition).Normalized();
-        return Mathf.Cos(fov) < relativeMouseLoc.Dot(relativeNearestBodyLoc);
+        return Mathf.Cos(fov) < bulletDirection.Dot(relativeNearestBodyLoc);
     }
 }
