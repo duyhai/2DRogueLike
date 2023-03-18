@@ -15,10 +15,10 @@ public class Boomer : Enemy
 
         // Instead of playing the death animation,
         // the entity explodes immidiately on death
-        Connect("DeathSignal", this, nameof(Death));
+        Connect("DeathSignal", this, nameof(OnDeathFinished));
     }
 
-    public override void Death()
+    public override void OnDeathFinished()
     {
         Explosion();
     }

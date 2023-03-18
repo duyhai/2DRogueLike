@@ -27,8 +27,13 @@ public abstract class GameObject : KinematicBody2D
         set { baseStats = value; }
     }
     protected int baseSpeed;
+    protected int shield;
     public int health;
-    public int shield;
+    public virtual int Shield
+    {
+        get { return shield; }
+        set { shield = value; }
+    }
     public bool isDead = false;
     public bool DisableInput = false;
     public bool Sliding = false;
@@ -42,7 +47,7 @@ public abstract class GameObject : KinematicBody2D
         this.physicsController = physicsController;
         this.graphicsController = graphicsController;
 
-        Connect("DeathSignal", this, nameof(PlayDeathAnimation));
+        Connect("DeathSignal", this, nameof(OnDeathStart));
     }
 
     public override void _Process(float delta)
@@ -66,12 +71,12 @@ public abstract class GameObject : KinematicBody2D
         int remainingDamage = damage;
         int inflictedDamage = 0;
 
-        int newShield = Math.Min(Math.Max(shield - remainingDamage, 0), Stats.MaxShield);
-        if (newShield < shield) // We don't want to add shield during lifesteal
+        int newShield = Math.Min(Math.Max(Shield - remainingDamage, 0), Stats.MaxShield);
+        if (newShield < Shield) // We don't want to add shield during lifesteal
         {
-            inflictedDamage += shield - newShield;
-            remainingDamage -= shield - newShield;
-            shield = newShield;
+            inflictedDamage += Shield - newShield;
+            remainingDamage -= Shield - newShield;
+            Shield = newShield;
         }
 
         int newHealth = Math.Min(Math.Max(health - remainingDamage, 0), Stats.MaxHealth);
@@ -106,7 +111,7 @@ public abstract class GameObject : KinematicBody2D
     {
         if (animationName == "death")
         {
-            Death();
+            OnDeathFinished();
         }
     }
 
@@ -119,12 +124,12 @@ public abstract class GameObject : KinematicBody2D
         }
     }
 
-    public virtual void PlayDeathAnimation()
+    public virtual void OnDeathStart()
     {
         ((BasicGraphicsController)graphicsController).PlayDeathAnimation(this);
     }
 
-    public virtual void Death()
+    public virtual void OnDeathFinished()
     {
         QueueFree();
     }

@@ -9,6 +9,21 @@ public class Player : GameObject
     public List<Weapon> weapons = new List<Weapon>();
     public int equippedWeaponIndex = 0;
 
+    public override int Shield
+    {
+        get => base.Shield;
+        set
+        {
+            if (base.Shield < value)
+            {
+                ShieldCameraEffect shieldEffect = ShieldCameraEffect.SceneObject.Instance<ShieldCameraEffect>();
+                ((PlayerCameraController)cameraController).AddCameraAffect(shieldEffect);
+                shieldEffect.Start(GetNode<Camera2D>("Camera2D"));
+            }
+            base.Shield = value;
+        }
+    }
+
     private CameraController cameraController;
 
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Entity/Player.tscn");
@@ -75,5 +90,24 @@ public class Player : GameObject
         equippedWeaponIndex = (equippedWeaponIndex + weapons.Count) % weapons.Count;
         weapons[equippedWeaponIndex].Visible = true;
         WeaponChanged?.Invoke(weapons[equippedWeaponIndex]);
+    }
+
+    public override int Hit(int damage)
+    {
+        int inflictedDamage = base.Hit(damage);
+
+        if (health != 0 && inflictedDamage > 0)
+        {
+            SoundManager.Instance.PlaySound(SoundPaths.PlayerHit);
+        }
+
+        return inflictedDamage;
+    }
+
+    public override void OnDeathStart()
+    {
+        base.OnDeathStart();
+
+        SoundManager.Instance.PlaySound(SoundPaths.PlayerDeath);
     }
 }

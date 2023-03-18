@@ -17,7 +17,7 @@ public class Splitter : Enemy
     {
     }
 
-    public override void Death()
+    public override void OnDeathFinished()
     {
         PackedScene floaterScene = Floater.SceneObject;
         for (int i = 0; i < 3; i++)
@@ -27,6 +27,6 @@ public class Splitter : Enemy
             GetParent().AddChild(floater);
         }
 
-        base.Death();
+        base.OnDeathFinished();
     }
 }

@@ -14,7 +14,7 @@ public class BoomerPhysicsController : PhysicsController
             Node collider = (Node)collision.Collider;
             if (typeof(Player).Equals(collider.GetType()))
             {
-                boomer.Death();
+                boomer.OnDeathFinished();
             }
         }
     }

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class ShakeCameraEffect : CameraEffect
+public class ShakeCameraEffect : TimedCameraEffect
 {
     int Frequency { get; set; }
     float Amplitude { get; set; }
@@ -47,10 +47,10 @@ public class ShakeCameraEffect : CameraEffect
         lastShookTimer += delta;
     }
 
-    public override void Start()
+    public override void Start(Camera2D camera)
     {
+        base.Start(camera);
         Random rnd = new Random();
-        base.Start();
         previousX = (float)(rnd.NextDouble() * 2.0f) - 1.0f;  // -1.0 to 1.0
         previousY = (float)(rnd.NextDouble() * 2.0f) - 1.0f;  // -1.0 to 1.0
     }

@@ -6,7 +6,7 @@ public class ShieldPowerUp : PowerUp
 
     public override void Initiate(GameObject target, GameObject initiator)
     {
-        target.shield += absorptionAmount;
+        target.Shield += absorptionAmount;
         base.Initiate(target, initiator);
     }
 
@@ -18,14 +18,14 @@ public class ShieldPowerUp : PowerUp
     public override void UndoEffect()
     {
         GameObject parent = GetParent<GameObject>();
-        parent.shield = Math.Min(parent.shield, parent.Stats.MaxShield - absorptionAmount);
+        parent.Shield = Math.Min(parent.Shield, parent.Stats.MaxShield - absorptionAmount);
         base.UndoEffect();
     }
 
     public override void Reset()
     {
         GameObject parent = GetParent<GameObject>();
-        parent.shield = Math.Min(parent.shield, parent.Stats.MaxShield - absorptionAmount) + absorptionAmount;
+        parent.Shield = Math.Min(parent.Shield, parent.Stats.MaxShield - absorptionAmount) + absorptionAmount;
         base.Reset();
     }
 }
