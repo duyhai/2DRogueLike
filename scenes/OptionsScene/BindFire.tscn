@@ -7,9 +7,9 @@
 action = "shoot"
 
 [node name="Label" parent="." index="0"]
-margin_right = 24.0
+offset_right = 24.0
 text = "Fire"
 
 [node name="Button" parent="." index="1"]
-margin_left = 28.0
-margin_right = 40.0
+offset_left = 28.0
+offset_right = 40.0

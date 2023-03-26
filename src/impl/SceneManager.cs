@@ -1,6 +1,6 @@
 using Godot;
 
-public class SceneManager : Godot.Node
+public partial class SceneManager : Godot.Node
 {
     public Node CurrentScene { get; set; }
     public Node PausedScene { get; set; }
@@ -9,7 +9,7 @@ public class SceneManager : Godot.Node
     public override void _Ready()
     {
         Instance = this;
-        Viewport root = GetTree().Root;
+        var root = GetTree().Root;
         CurrentScene = root.GetChild(root.GetChildCount() - 1);
     }
     public void GotoScene(string path, bool paused = false)
@@ -50,7 +50,7 @@ public class SceneManager : Godot.Node
         var nextScene = (PackedScene)GD.Load(path);
 
         // Instance the new scene.
-        CurrentScene = nextScene.Instance();
+        CurrentScene = nextScene.Instantiate();
 
         // Add it to the active scene, as child of root.
         GetTree().Root.AddChild(CurrentScene);

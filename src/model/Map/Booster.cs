@@ -1,6 +1,6 @@
 using Godot;
 
-public class Booster : Block
+public partial class Booster : Block
 {
     protected PackedScene powerUpScene;
 
@@ -12,7 +12,7 @@ public class Booster : Block
     {
         if (body.GetType() == typeof(Player))
         {
-            PowerUp powerUp = (PowerUp)powerUpScene.Instance();
+            PowerUp powerUp = (PowerUp)powerUpScene.Instantiate();
             powerUp.Initiate((GameObject)body, this);
             var method = body.GetType().GetMethod("AddPowerUp");
             method?.Invoke(body, new object[] { powerUp });

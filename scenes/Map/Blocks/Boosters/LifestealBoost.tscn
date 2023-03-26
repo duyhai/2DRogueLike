@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/boosts/lifestealboost.png" type="Texture" id=1]
+[ext_resource path="res://assets/boosts/lifestealboost.png" type="Texture2D" id=1]
 [ext_resource path="res://src/impl/Map/Boosters/LifestealBoost.cs" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12.3169, 12.3169 )
+size = Vector2( 12.3169, 12.3169 )
 
-[node name="LifestealBoost" type="KinematicBody2D"]
+[node name="LifestealBoost" type="CharacterBody2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2( -2.38419e-07, 2.38419e-07 )
 scale = Vector2( 0.0933333, 0.0933333 )
 texture = ExtResource( 1 )

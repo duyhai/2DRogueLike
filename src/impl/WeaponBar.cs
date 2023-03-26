@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class WeaponBar : HBoxContainer
+public partial class WeaponBar : HBoxContainer
 {
     Dictionary<Weapon, Panel> weaponPanels = new Dictionary<Weapon, Panel>();
     Weapon activeWeapon;
@@ -38,7 +38,7 @@ public class WeaponBar : HBoxContainer
 
                 changePanelColor(panel, Colors.DimGray);
 
-                panel.RectMinSize = new Vector2(54, 54);
+                panel.CustomMinimumSize = new Vector2(54, 54);
                 panel.AddChild(rect);
                 AddChild(panel);
             }
@@ -63,6 +63,6 @@ public class WeaponBar : HBoxContainer
     {
         var style = new StyleBoxFlat();
         style.BgColor = color;
-        panel.AddStyleboxOverride("panel", style);
+        panel.AddThemeStyleboxOverride("panel", style);
     }
 }

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class MovSpeedModPowerUp : PowerUp
+public partial class MovSpeedModPowerUp : PowerUp
 {
     protected float modifier;
     public float Modifier { get => modifier; }

@@ -2,7 +2,7 @@ using Godot;
 using Godot.Collections;
 using Utility;
 
-public class LightningBullet : Bullet
+public partial class LightningBullet : Bullet
 {
     public enum Targeting
     {

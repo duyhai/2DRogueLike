@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class MeleeBullet : Bullet
+public partial class MeleeBullet : Bullet
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/MeleeBullet.tscn");
 

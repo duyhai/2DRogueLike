@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Player : GameObject
+public partial class Player : GameObject
 {
     const float DEFAULT_DELTA = 0.1f;
     bool isLastInputJoystick;
@@ -45,7 +45,7 @@ public class Player : GameObject
         {
             if (base.Shield < value)
             {
-                ShieldCameraEffect shieldEffect = ShieldCameraEffect.SceneObject.Instance<ShieldCameraEffect>();
+                ShieldCameraEffect shieldEffect = ShieldCameraEffect.SceneObject.Instantiate<ShieldCameraEffect>();
                 ((PlayerCameraController)cameraController).AddCameraAffect(shieldEffect);
                 shieldEffect.Start(GetNode<Camera2D>("Camera2D"));
             }
@@ -86,7 +86,7 @@ public class Player : GameObject
         ((PlayerGraphicsController)graphicsController).CameraController = cameraController;
     }
 
-    public override void _Process(float delta)
+    public override void _Process(double delta)
     {
         base._Process(delta);
 

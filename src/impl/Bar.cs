@@ -2,7 +2,7 @@ using Godot;
 using Godot.Collections;
 using System;
 
-public class Bar : HBoxContainer
+public partial class Bar : HBoxContainer
 {
     PackedScene dividerScene = GD.Load<PackedScene>("res://scenes/hud/BarDivider.tscn");
     const int DIVIDER_CONTAINER_SIZE = 376;
@@ -15,21 +15,21 @@ public class Bar : HBoxContainer
     public void SetMaxValue(int value)
     {
         // If MinValue == MaxValue (MinValue == 0), the editor gives runtime errors
-        GetNode<TextureProgress>("TextureProgress").MaxValue = Math.Max(1, value);
+        GetNode<TextureProgressBar>("TextureProgressBar").MaxValue = Math.Max(1, value);
 
-        HBoxContainer dividerContainer = GetNode<HBoxContainer>("TextureProgress/Dividers");
+        HBoxContainer dividerContainer = GetNode<HBoxContainer>("TextureProgressBar/Dividers");
 
         float numberOfBlocks = value / (float)VALUE_PER_DIVIDER;
         int numberOfDividersNeeded = Math.Min((int)(numberOfBlocks + 1), DIVIDER_CONTAINER_SIZE / DIVIDER_SIZE);
         int availableBlockSpace = DIVIDER_CONTAINER_SIZE - (numberOfDividersNeeded * DIVIDER_SIZE);
         double blockWidth = Math.Round(availableBlockSpace / numberOfBlocks);
         dividerContainer.Set("custom_constants/separation", blockWidth);
-        Godot.Collections.Array dividers = dividerContainer.GetChildren();
+        var dividers = dividerContainer.GetChildren();
 
         // Add more divider if needed
         for (int i = 0; i < numberOfDividersNeeded - dividers.Count; i++)
         {
-            TextureRect divider = (TextureRect)dividerScene.Instance();
+            TextureRect divider = (TextureRect)dividerScene.Instantiate();
             dividerContainer.AddChild(divider);
         }
 
@@ -42,11 +42,6 @@ public class Bar : HBoxContainer
 
     public void SetValue(int value)
     {
-        GetNode<TextureProgress>("TextureProgress").Value = value;
-    }
-
-    public override void _Process(float delta)
-    {
-
+        GetNode<TextureProgressBar>("TextureProgressBar").Value = value;
     }
 }

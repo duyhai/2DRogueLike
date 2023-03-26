@@ -2,11 +2,11 @@ using Godot;
 using Godot.Collections;
 using Utility;
 
-public class BallLightningBulletV2PhysicsController : LightningBulletPhysicsController
+public partial class BallLightningBulletV2PhysicsController : LightningBulletPhysicsController
 {
-    public override void Update(GameObject gameObject, float delta)
+    public override void Update(GameObject gameObject, double delta)
     {
-        var collision = gameObject.MoveAndCollide(gameObject.velocity * delta);
+        var collision = gameObject.MoveAndCollide(gameObject.velocity * (float)delta);
         if (collision != null)
         {
             gameObject.velocity = Vector2.Zero;

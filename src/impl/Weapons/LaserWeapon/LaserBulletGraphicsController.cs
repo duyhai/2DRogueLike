@@ -1,8 +1,8 @@
 using Godot;
 
-public class LaserBulletGraphicsController : GraphicsController
+public partial class LaserBulletGraphicsController : GraphicsController
 {
-    SceneTreeTween tween = null;
+    Tween tween = null;
 
     public override void Update(Node2D node) { }
 

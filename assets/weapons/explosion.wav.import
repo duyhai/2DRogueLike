@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/explosion.wav-2dba656285d6ca92322c5fcda882639b.sample"
+type="AudioStreamWAV"
+uid="uid://b5q68v5kxmluf"
+path="res://.godot/imported/explosion.wav-2dba656285d6ca92322c5fcda882639b.sample"
 
 [deps]
 
 source_file="res://assets/weapons/explosion.wav"
-dest_files=[ "res://.import/explosion.wav-2dba656285d6ca92322c5fcda882639b.sample" ]
+dest_files=["res://.godot/imported/explosion.wav-2dba656285d6ca92322c5fcda882639b.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=true
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

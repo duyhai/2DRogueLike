@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class SlidingPowerUp : PowerUp
+public partial class SlidingPowerUp : PowerUp
 {
     Vector2 gameObjectVelocity;
 

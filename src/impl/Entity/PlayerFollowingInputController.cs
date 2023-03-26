@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-public class PlayerFollowingInputController : InputController
+public partial class PlayerFollowingInputController : InputController
 {
     public override void Update(GameObject gameObject)
     {

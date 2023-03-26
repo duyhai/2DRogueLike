@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=2]
 
-[ext_resource path="res://assets/floater/Monster4Pack.png" type="Texture" id=1]
+[ext_resource path="res://assets/floater/Monster4Pack.png" type="Texture2D" id=1]
 [ext_resource path="res://src/impl/Entity/EnemyCharacters/Floater/Floater.cs" type="Script" id=5]
 [ext_resource path="res://death.tres" type="Animation" id=7]
 [ext_resource path="res://hitAnimation.tres" type="Animation" id=8]
@@ -187,13 +187,13 @@ animations = [ {
 radius = 9.47368
 height = 2.10526
 
-[node name="Floater" type="KinematicBody2D" groups=["enemy"]]
+[node name="Floater" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2( 0.95, 0.95 )
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 5 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2( 6.31579, 1.05263 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
@@ -208,5 +208,5 @@ shape = SubResource( 2 )
 anims/death = ExtResource( 7 )
 anims/hit = ExtResource( 8 )
 
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="OnAnimationFinished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="OnAnimationFinished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]

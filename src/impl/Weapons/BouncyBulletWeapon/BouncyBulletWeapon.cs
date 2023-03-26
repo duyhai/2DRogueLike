@@ -1,6 +1,6 @@
 using Godot;
 
-public class BouncyBulletWeapon : Weapon
+public partial class BouncyBulletWeapon : Weapon
 {
     public BouncyBulletWeapon() : base(new WeaponGraphicsController(), 2f) { }
 

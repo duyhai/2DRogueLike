@@ -1,6 +1,6 @@
 using Godot;
 
-public class Melee : Weapon
+public partial class Melee : Weapon
 {
     public Melee() : base(new MeleeGraphicsController(), 2.5f) { }
 

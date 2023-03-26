@@ -1,6 +1,6 @@
 using Godot;
 
-public class Lightning : Line2D
+public partial class Lightning : Line2D
 {
     public void PlayAnimation()
     {

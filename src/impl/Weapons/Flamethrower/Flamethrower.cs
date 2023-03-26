@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Flamethrower : Weapon
+public partial class Flamethrower : Weapon
 {
     public Flamethrower() : base(new WeaponGraphicsController(), 0.33f) { }
     const int SPREAD = 25;

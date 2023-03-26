@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class FreezingPowerUp : MovSpeedModPowerUp
+public partial class FreezingPowerUp : MovSpeedModPowerUp
 {
     int MAX_STACK_COUNT = 50;
     public int StackCount = 0;
@@ -30,7 +30,7 @@ public class FreezingPowerUp : MovSpeedModPowerUp
             modifier = 0;
             GetParent<GameObject>().velocity = Vector2.Zero;
             GetParent<GameObject>().DisableInput = true;
-            GetNode<Particles2D>("Particles2D").Modulate = new Color("00dacf");
+            GetNode<GpuParticles2D>("GPUParticles2D").Modulate = new Color("00dacf");
         }
     }
 

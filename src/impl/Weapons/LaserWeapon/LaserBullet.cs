@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class LaserBullet : Bullet
+public partial class LaserBullet : Bullet
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/LaserBullet.tscn");
     bool isCasting = false;
@@ -38,12 +38,12 @@ public class LaserBullet : Bullet
         }
         else if (!cast && isCasting)
         {
-            GetNode<Particles2D>("RayCast2D/CollisionParticles2D").Emitting = false;
+            GetNode<GpuParticles2D>("RayCast2D/CollisionParticles2D").Emitting = false;
             ((LaserBulletGraphicsController)graphicsController).Disappear(this);
             soundPlayer.QueueFree();
         }
         isCasting = cast;
         SetPhysicsProcess(isCasting);
-        GetNode<Particles2D>("RayCast2D/CastingParticles2D").Emitting = cast;
+        GetNode<GpuParticles2D>("RayCast2D/CastingParticles2D").Emitting = cast;
     }
 }

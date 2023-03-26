@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class ShakeCameraEffect : TimedCameraEffect
+public partial class ShakeCameraEffect : TimedCameraEffect
 {
     int Frequency { get; set; }
     float Amplitude { get; set; }
@@ -18,7 +18,7 @@ public class ShakeCameraEffect : TimedCameraEffect
         this.periodInMs = 1.0f / this.Frequency;
     }
 
-    public override void Update(Camera2D camera, float delta)
+    public override void Update(Camera2D camera, double delta)
     {
         base.Update(camera, delta);
 
@@ -34,9 +34,9 @@ public class ShakeCameraEffect : TimedCameraEffect
             lastShookTimer -= periodInMs;
             float intensity = Amplitude * (1.0f - ((Duration - Timer) / Duration));
             float newX = (float)(rnd.NextDouble() * 2.0f) - 1.0f;  // -1.0 to 1.0
-            float xComponent = intensity * (previousX + (delta * (newX - previousX)));
+            float xComponent = intensity * (previousX + ((float)delta * (newX - previousX)));
             float newY = (float)(rnd.NextDouble() * 2.0f) - 1.0f;  // -1.0 to 1.0
-            float yComponent = intensity * (previousY + (delta * (newY - previousY)));
+            float yComponent = intensity * (previousY + ((float)delta * (newY - previousY)));
             previousX = newX;
             previousY = newY;
             Vector2 newOffset = new Vector2(xComponent, yComponent);
@@ -44,7 +44,7 @@ public class ShakeCameraEffect : TimedCameraEffect
             lastOffset = newOffset;
         }
 
-        lastShookTimer += delta;
+        lastShookTimer += (float)delta;
     }
 
     public override void Start(Camera2D camera)

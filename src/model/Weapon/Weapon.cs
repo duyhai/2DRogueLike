@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-public abstract class Weapon : Node2D
+public abstract partial class Weapon : Node2D
 {
     protected float damageMultiplier;
     protected Timer bulletTimer;
@@ -15,7 +15,7 @@ public abstract class Weapon : Node2D
         this.damageMultiplier = damageMultiplier;
     }
 
-    public override void _Process(float delta)
+    public override void _Process(double delta)
     {
         graphicsController?.Update(this);
     }
@@ -28,9 +28,9 @@ public abstract class Weapon : Node2D
         }
 
         bulletTimer.Start();
-        var bullet = (Bullet)bulletScene.Instance();
+        var bullet = (Bullet)bulletScene.Instantiate();
 
-        var weaponTip = GetNodeOrNull<Node2D>("Sprite/Tip");
+        var weaponTip = GetNodeOrNull<Node2D>("Sprite2D/Tip");
 
         GameObject initiator = GetParent<GameObject>();
 
@@ -56,6 +56,6 @@ public abstract class Weapon : Node2D
     {
         if (weaponIconScene == null) return null;
 
-        return (TextureRect)weaponIconScene.Instance();
+        return (TextureRect)weaponIconScene.Instantiate();
     }
 }

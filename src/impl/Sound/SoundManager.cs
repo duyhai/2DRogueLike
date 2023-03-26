@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class SoundManager : Node2D
+public partial class SoundManager : Node2D
 {
     public static SoundManager Instance { get; set; }
     public Node SoundContainer { get; set; }
@@ -24,8 +24,8 @@ public class SoundManager : Node2D
 
     public SoundPlayer PlaySound(string soundPath, bool loop = false)
     {
-        AudioStreamSample audioStream = GD.Load<AudioStreamSample>(soundPath);
-        SoundPlayer soundPlayer = (SoundPlayer)soundPlayerScene.Instance();
+        AudioStreamWav audioStream = GD.Load<AudioStreamWav>(soundPath);
+        SoundPlayer soundPlayer = (SoundPlayer)soundPlayerScene.Instantiate();
         soundPlayer.Stream = audioStream;
         soundPlayer.Loop = loop;
         SoundContainer.AddChild(soundPlayer);
@@ -35,8 +35,8 @@ public class SoundManager : Node2D
 
     public SoundPlayer2D PlaySound(string soundPath, Vector2 position, bool loop = false)
     {
-        AudioStreamSample audioStream = GD.Load<AudioStreamSample>(soundPath);
-        SoundPlayer2D soundPlayer2D = (SoundPlayer2D)soundPlayer2DScene.Instance();
+        AudioStreamWav audioStream = GD.Load<AudioStreamWav>(soundPath);
+        SoundPlayer2D soundPlayer2D = (SoundPlayer2D)soundPlayer2DScene.Instantiate();
         soundPlayer2D.Position = position;
         soundPlayer2D.Stream = audioStream;
         soundPlayer2D.Loop = loop;

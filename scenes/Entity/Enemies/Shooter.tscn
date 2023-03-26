@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://assets/shooter/stage_three.png" type="Texture" id=1]
+[ext_resource path="res://assets/shooter/stage_three.png" type="Texture2D" id=1]
 [ext_resource path="res://src/impl/Entity/EnemyCharacters/Shooter/Shooter.cs" type="Script" id=5]
 [ext_resource path="res://scenes/weapons/ShooterWeapon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://death.tres" type="Animation" id=7]
@@ -116,13 +116,13 @@ height = 2.10526
 [sub_resource type="CircleShape2D" id=3]
 radius = 160.0
 
-[node name="Shooter" type="KinematicBody2D" groups=["enemy"]]
+[node name="Shooter" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2( 0.95, 0.95 )
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 5 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2( -1.19209e-07, 1.19209e-07 )
 scale = Vector2( 0.82, 0.82 )
 frames = SubResource( 1 )
@@ -143,5 +143,5 @@ anims/hit = ExtResource( 8 )
 visible = false
 shape = SubResource( 3 )
 
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="OnAnimationFinished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="OnAnimationFinished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]

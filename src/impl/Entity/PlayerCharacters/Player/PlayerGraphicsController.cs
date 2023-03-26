@@ -1,6 +1,6 @@
 using Godot;
 
-public class PlayerGraphicsController : BasicGraphicsController
+public partial class PlayerGraphicsController : BasicGraphicsController
 {
     public CameraController CameraController
     {
@@ -13,12 +13,11 @@ public class PlayerGraphicsController : BasicGraphicsController
         base.Update(node);
         Player player = (Player) node;
 
-        AnimatedSprite animSprite = node.GetNode<AnimatedSprite>("AnimatedSprite");
+        AnimatedSprite2D animSprite = node.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
         Vector2 vector = player.ViewDirection;
-        animSprite.FlipH = vector.x > 0;
-        animSprite.Animation = "walk";
-        animSprite.Playing = true;
+        animSprite.FlipH = vector.X > 0;
+        animSprite.Play("walk");
     }
 
     public override void PlayHitAnimation(GameObject node)
@@ -29,7 +28,7 @@ public class PlayerGraphicsController : BasicGraphicsController
         {
             PlayerCameraController playerCameraController = (PlayerCameraController)CameraController;
 
-            HitCameraEffect hitEffect = HitCameraEffect.SceneObject.Instance<HitCameraEffect>();
+            HitCameraEffect hitEffect = HitCameraEffect.SceneObject.Instantiate<HitCameraEffect>();
             playerCameraController.AddCameraAffect(hitEffect);
             hitEffect.Start(node.GetNode<Camera2D>("Camera2D"));
 

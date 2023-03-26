@@ -1,11 +1,10 @@
 using Godot;
-using Godot.Collections;
 using System;
 
-public abstract class GameObject : KinematicBody2D
+public abstract partial class GameObject : CharacterBody2D
 {
     [Signal]
-    public delegate void DeathSignal();
+    public delegate void DeathSignalEventHandler();
     public Vector2 velocity;
     protected StatsInfo baseStats;
     public StatsInfo Stats
@@ -47,10 +46,10 @@ public abstract class GameObject : KinematicBody2D
         this.physicsController = physicsController;
         this.graphicsController = graphicsController;
 
-        Connect("DeathSignal", this, nameof(OnDeathStart));
+        Connect("DeathSignal",new Callable(this,nameof(OnDeathStart)));
     }
 
-    public override void _Process(float delta)
+    public override void _Process(double delta)
     {
         if (!DisableInput)
         {
@@ -59,7 +58,7 @@ public abstract class GameObject : KinematicBody2D
         graphicsController.Update(this);
     }
 
-    public override void _PhysicsProcess(float delta)
+    public override void _PhysicsProcess(double delta)
     {
         physicsController.Update(this, delta);
     }
@@ -94,7 +93,7 @@ public abstract class GameObject : KinematicBody2D
             health = 0;
             isDead = true;
             DisableInput = true;
-            EmitSignal(nameof(DeathSignal));
+            EmitSignal(nameof(DeathSignalEventHandler));
         }
 
         FCTManager.Instance.ShowValue(Math.Abs(inflictedDamage).ToString(), GlobalPosition, inflictedDamage >= 0 ? Colors.Red : Colors.Green);
@@ -117,7 +116,7 @@ public abstract class GameObject : KinematicBody2D
 
     public virtual void OnAnimationFinished()
     {
-        AnimatedSprite animSprite = GetNodeOrNull<AnimatedSprite>("AnimatedSprite");
+        AnimatedSprite2D animSprite = GetNodeOrNull<AnimatedSprite2D>("AnimatedSprite2D");
         if (animSprite.Animation == "death")
         {
             ((BasicGraphicsController)graphicsController).PlayFadeAnimation(this);

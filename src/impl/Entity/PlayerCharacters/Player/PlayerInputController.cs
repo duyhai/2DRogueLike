@@ -1,6 +1,6 @@
 using Godot;
 
-public class PlayerInputController : InputController
+public partial class PlayerInputController : InputController
 {
     public override void Update(GameObject gameObject)
     {
@@ -19,22 +19,22 @@ public class PlayerInputController : InputController
         Vector2 newVelocity = new Vector2();
         if (Input.IsActionPressed("ui_right"))
         {
-            newVelocity.x += 1;
+            newVelocity.X += 1;
         }
 
         if (Input.IsActionPressed("ui_left"))
         {
-            newVelocity.x -= 1;
+            newVelocity.X -= 1;
         }
 
         if (Input.IsActionPressed("ui_down"))
         {
-            newVelocity.y += 1;
+            newVelocity.Y += 1;
         }
 
         if (Input.IsActionPressed("ui_up"))
         {
-            newVelocity.y -= 1;
+            newVelocity.Y -= 1;
         }
 
         if (!player.Sliding)

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class FreezingWeapon : Weapon
+public partial class FreezingWeapon : Weapon
 {
     public FreezingWeapon() : base(new WeaponGraphicsController(), 0f) { }
     const int SPREAD = 2;

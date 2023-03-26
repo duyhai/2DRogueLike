@@ -1,4 +1,4 @@
-abstract public class Generator
+abstract public partial class Generator
 {
     protected int MaxRooms;
     protected int MinRoomXY;

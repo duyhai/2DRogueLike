@@ -1,13 +1,13 @@
 using Godot;
 using System.Collections.Generic;
 
-public class PlayerCameraController : CameraController
+public partial class PlayerCameraController : CameraController
 {
     List<ICameraEffect> cameraEffects = new List<ICameraEffect>();
 
     public PlayerCameraController(Camera2D camera) : base(camera) { }
 
-    public override void Update(GameObject gameObject, float delta)
+    public override void Update(GameObject gameObject, double delta)
     {
         foreach (var effect in cameraEffects)
         {

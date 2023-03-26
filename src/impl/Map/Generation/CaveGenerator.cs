@@ -211,7 +211,7 @@ class CaveGenerator : Generator
             a = rnd.Next(0, width);
             b = rnd.Next(0, height);
         }
-        map.PlayerSpawn.x = a;
-        map.PlayerSpawn.y = b;
+        map.PlayerSpawn.X = a;
+        map.PlayerSpawn.Y = b;
     }
 }

@@ -1,6 +1,6 @@
 using Godot;
 
-public class Floater : Enemy
+public partial class Floater : Enemy
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Entity/Enemies/Floater.tscn");
 

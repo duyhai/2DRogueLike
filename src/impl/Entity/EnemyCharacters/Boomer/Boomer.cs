@@ -1,6 +1,6 @@
 using Godot;
 
-public class Boomer : Enemy
+public partial class Boomer : Enemy
 {
     // TODO: scene
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Entity/Enemies/Boomer.tscn");
@@ -15,7 +15,7 @@ public class Boomer : Enemy
 
         // Instead of playing the death animation,
         // the entity explodes immidiately on death
-        Connect("DeathSignal", this, nameof(OnDeathFinished));
+        Connect("DeathSignal",new Callable(this,nameof(OnDeathFinished)));
     }
 
     public override void OnDeathFinished()
@@ -27,7 +27,7 @@ public class Boomer : Enemy
     {
         SoundManager.Instance.PlaySound(SoundPaths.Explosion, Position);
 
-        RocketExplosion rocketExplosion = (RocketExplosion)RocketExplosion.SceneObject.Instance();
+        RocketExplosion rocketExplosion = (RocketExplosion)RocketExplosion.SceneObject.Instantiate();
         rocketExplosion.Initiate(this, Position, Stats.Damage);
         rocketExplosion.CollisionLayer = CollisionLayer;
         rocketExplosion.CollisionMask = CollisionMask;

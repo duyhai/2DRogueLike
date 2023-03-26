@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/impl/Weapons/Flamethrower/Flamethrower.cs" type="Script" id=1]
-[ext_resource path="res://assets/weapons/flamethrower.png" type="Texture" id=2]
+[ext_resource path="res://assets/weapons/flamethrower.png" type="Texture2D" id=2]
 
 [node name="Flamethrower" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,10 +10,10 @@ script = ExtResource( 1 )
 wait_time = 0.02
 one_shot = true
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2( 9, 3 )
 scale = Vector2( 0.035, 0.035 )
 texture = ExtResource( 2 )
 
-[node name="Tip" type="Node2D" parent="Sprite"]
+[node name="Tip" type="Node2D" parent="Sprite2D"]
 position = Vector2( 197.951, -33.4289 )

@@ -1,0 +1,14 @@
+C:\Users\buikr\Desktop\2DRogueLike\.godot\mono\temp\obj\Debug\2DRogueLike.csproj.AssemblyReference.cache
+C:\Users\buikr\Desktop\2DRogueLike\.godot\mono\temp\obj\Debug\2DRogueLike.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\buikr\Desktop\2DRogueLike\.godot\mono\temp\obj\Debug\2DRogueLike.csproj.CoreCompileInputs.cache
+C:\Users\buikr\Desktop\2DRogueLike\.godot\mono\temp\bin\Debug\2DRogueLike.deps.json
+C:\Users\buikr\Desktop\2DRogueLike\.godot\mono\temp\bin\Debug\2DRogueLike.dll
+C:\Users\buikr\Desktop\2DRogueLike\.godot\mono\temp\bin\Debug\2DRogueLike.pdb
+C:\Users\buikr\Desktop\2DRogueLike\.godot\mono\temp\bin\Debug\Priority Queue.dll
+C:\Users\buikr\Desktop\2DRogueLike\.godot\mono\temp\bin\Debug\Priority Queue.pdb
+C:\Users\buikr\Desktop\2DRogueLike\.godot\mono\temp\bin\Debug\Priority Queue.xml
+C:\Users\buikr\Desktop\2DRogueLike\.godot\mono\temp\obj\Debug\2DRogueLike.csproj.CopyComplete
+C:\Users\buikr\Desktop\2DRogueLike\.godot\mono\temp\obj\Debug\2DRogueLike.dll
+C:\Users\buikr\Desktop\2DRogueLike\.godot\mono\temp\obj\Debug\refint\2DRogueLike.dll
+C:\Users\buikr\Desktop\2DRogueLike\.godot\mono\temp\obj\Debug\2DRogueLike.pdb
+C:\Users\buikr\Desktop\2DRogueLike\.godot\mono\temp\obj\Debug\ref\2DRogueLike.dll

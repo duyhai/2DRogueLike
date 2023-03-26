@@ -1,6 +1,6 @@
 using Godot;
 
-public abstract class Bullet : GameObject
+public abstract partial class Bullet : GameObject
 {
     protected int damage;
     protected GameObject initiator;

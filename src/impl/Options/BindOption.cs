@@ -1,6 +1,6 @@
 using Godot;
 
-public class BindOption : Container
+public partial class BindOption : Container
 {
     [Export]
     public string action;
@@ -10,13 +10,13 @@ public class BindOption : Container
 
     public override void _Ready()
     {
-        var keys = InputMap.GetActionList(action);
+        var keys = InputMap.ActionGetEvents(action);
         button = (Button)GetNode("Button");
-        button.Connect("pressed", this, nameof(OnButtonPressed));
+        button.Connect("pressed",new Callable(this,nameof(OnButtonPressed)));
         inputEvent = (InputEvent)keys[0];
         if (keys[0] is InputEventKey eventKey)
         {
-            button.Text = OS.GetScancodeString(eventKey.Scancode);
+            button.Text = OS.GetKeycodeString(eventKey.Keycode);
         }
     }
 
@@ -33,7 +33,7 @@ public class BindOption : Container
             if (@event is InputEventKey eventKey)
             {
                 waitingForInput = false;
-                button.Text = OS.GetScancodeString(eventKey.Scancode);
+                button.Text = OS.GetKeycodeString(eventKey.Keycode);
                 InputMap.ActionEraseEvent(action, inputEvent);
                 InputMap.ActionAddEvent(action, eventKey);
             }

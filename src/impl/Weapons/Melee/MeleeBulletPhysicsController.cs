@@ -1,13 +1,13 @@
 using Godot;
 using Godot.Collections;
 
-public class MeleeBulletPhysicsController : PhysicsController
+public partial class MeleeBulletPhysicsController : PhysicsController
 {
-    public override void Update(GameObject gameObject, float delta)
+    public override void Update(GameObject gameObject, double delta)
     {
         Bullet bullet = (Bullet)gameObject;
         Area2D swingingArea = bullet.GetNode<Area2D>("Area2D");
-        Array bodies = swingingArea.GetOverlappingBodies();
+        var bodies = swingingArea.GetOverlappingBodies();
         if (bodies.Count != 0)
         {
             foreach (var body in bodies)

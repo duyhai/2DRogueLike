@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class ShooterInputController : InputController
+public partial class ShooterInputController : InputController
 {
     public override void Update(GameObject gameObject)
     {

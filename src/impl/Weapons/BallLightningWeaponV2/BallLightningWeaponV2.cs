@@ -2,7 +2,7 @@ using Godot;
 using Godot.Collections;
 using System.Linq;
 
-public class BallLightningWeaponV2 : Weapon
+public partial class BallLightningWeaponV2 : Weapon
 {
     public BallLightningWeaponV2() : base(new WeaponGraphicsController(), 0.5f) { }
 

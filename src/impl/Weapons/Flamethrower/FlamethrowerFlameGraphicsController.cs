@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class FlamethrowerFlameGraphicsController : GraphicsController
+public partial class FlamethrowerFlameGraphicsController : GraphicsController
 {
     int NUMBER_OF_TEXTURES = 4;
 
@@ -15,8 +15,8 @@ public class FlamethrowerFlameGraphicsController : GraphicsController
         Random rnd = new Random();
         int textureNumber = rnd.Next(1, NUMBER_OF_TEXTURES + 1);
         var texture = ResourceLoader.Load("res://assets/weapons/fire" + textureNumber + ".png");
-        Sprite sprite = flame.GetNode<Sprite>("Sprite");
-        sprite.Texture = (Texture)texture;
+        Sprite2D sprite = flame.GetNode<Sprite2D>("Sprite2D");
+        sprite.Texture = (Texture2D)texture;
     }
 
     public void PlayFadeAnimation(Node2D node)

@@ -1,7 +1,7 @@
 using Godot;
 using System.Diagnostics;
 
-public class RocketProjectile : Bullet
+public partial class RocketProjectile : Bullet
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/RocketProjectile.tscn");
     bool exploded = false;
@@ -37,7 +37,7 @@ public class RocketProjectile : Bullet
         exploded = true;
         SoundManager.Instance.PlaySound(SoundPaths.Explosion, Position);
 
-        RocketExplosion rocketExplosion = (RocketExplosion)RocketExplosion.SceneObject.Instance();
+        RocketExplosion rocketExplosion = (RocketExplosion)RocketExplosion.SceneObject.Instantiate();
         rocketExplosion.Initiate(initiator, Position, damage);
         rocketExplosion.CollisionLayer = CollisionLayer;
         rocketExplosion.CollisionMask = CollisionMask;

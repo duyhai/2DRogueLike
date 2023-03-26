@@ -114,8 +114,8 @@ class GeneratorV1 : Generator
                 a = rnd.Next(x, x + w);
                 b = rnd.Next(y, y + h);
 
-                map.PlayerSpawn.x = a;
-                map.PlayerSpawn.y = b;
+                map.PlayerSpawn.X = a;
+                map.PlayerSpawn.Y = b;
             }
             for (int j = x; j < x + w; j++)
             {
@@ -141,10 +141,10 @@ class GeneratorV1 : Generator
         }
         foreach (var corridor in CorridorList)
         {
-            int x1 = (int)corridor.Start.x;
-            int y1 = (int)corridor.Start.y;
-            int x2 = (int)corridor.End.x;
-            int y2 = (int)corridor.End.y;
+            int x1 = (int)corridor.Start.X;
+            int y1 = (int)corridor.Start.Y;
+            int x2 = (int)corridor.End.X;
+            int y2 = (int)corridor.End.Y;
             for (int i = 0; i < Math.Abs(x1 - x2) + 1; i++)
             {
                 for (int j = 0; j < Math.Abs(y1 - y2) + 1; j++)

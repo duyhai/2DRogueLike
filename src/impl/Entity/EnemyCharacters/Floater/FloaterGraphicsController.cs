@@ -9,9 +9,9 @@ internal class FloaterGraphicsController : BasicGraphicsController
 
         GameObject gameObject = (GameObject)node;
         Player player = node.GetParent().GetNode<Player>("Player");
-        AnimatedSprite animSprite = node.GetNode<AnimatedSprite>("AnimatedSprite");
+        AnimatedSprite2D animSprite = node.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
         var direction = node.Position - player.Position;
-        animSprite.FlipH = direction.x < 0;
+        animSprite.FlipH = direction.X < 0;
     }
 }

@@ -1,6 +1,6 @@
 using Godot;
 
-public class ShooterWeapon : Weapon
+public partial class ShooterWeapon : Weapon
 {
     public ShooterWeapon() : base(null, 2f) { }
 

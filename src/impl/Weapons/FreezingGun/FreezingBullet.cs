@@ -1,6 +1,6 @@
 using Godot;
 
-public class FreezingBullet : Bullet
+public partial class FreezingBullet : Bullet
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/FreezingBullet.tscn");
     public bool Collided = false;
@@ -19,7 +19,7 @@ public class FreezingBullet : Bullet
     {
         int inflictedDamage = base.HitTarget(collider);
 
-        FreezingPowerUp freezingPowerUp = (FreezingPowerUp)GD.Load<PackedScene>("res://scenes/powerups/FreezingPowerUp.tscn").Instance();
+        FreezingPowerUp freezingPowerUp = (FreezingPowerUp)GD.Load<PackedScene>("res://scenes/powerups/FreezingPowerUp.tscn").Instantiate();
         freezingPowerUp.Initiate((GameObject)collider, initiator);
         var method = collider.GetType().GetMethod("AddPowerUp");
         method?.Invoke(collider, new object[] { freezingPowerUp });

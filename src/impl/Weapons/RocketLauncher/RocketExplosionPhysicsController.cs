@@ -1,13 +1,13 @@
 using Godot;
 using Godot.Collections;
 
-public class RocketExplosionPhysicsController : PhysicsController
+public partial class RocketExplosionPhysicsController : PhysicsController
 {
-    public override void Update(GameObject gameObject, float delta)
+    public override void Update(GameObject gameObject, double delta)
     {
         RocketExplosion explosion = (RocketExplosion)gameObject;
         Area2D hitbox = explosion.GetNode<Area2D>("Area2D");
-        Array bodies = hitbox.GetOverlappingBodies();
+        var bodies = hitbox.GetOverlappingBodies();
         if (bodies.Count != 0)
         {
             foreach (var body in bodies)

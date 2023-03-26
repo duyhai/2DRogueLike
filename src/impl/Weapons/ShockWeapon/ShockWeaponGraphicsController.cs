@@ -1,7 +1,7 @@
 using Godot;
 using Godot.Collections;
 
-public class ShockWeaponGraphicsController : WeaponGraphicsController
+public partial class ShockWeaponGraphicsController : WeaponGraphicsController
 {
     PackedScene LightningScene = (PackedScene)GD.Load("res://scenes/weapons/projectiles/Lightning.tscn");
 
@@ -9,7 +9,7 @@ public class ShockWeaponGraphicsController : WeaponGraphicsController
     {
         if (bodiesHit.Count != 0)
         {
-            ConnectLightning(node, node.GetNode<Node2D>("Sprite/Tip"), (Node2D)bodiesHit[0]);
+            ConnectLightning(node, node.GetNode<Node2D>("Sprite2D/Tip"), (Node2D)bodiesHit[0]);
         }
 
         for (int i = 0; i < bodiesHit.Count - 1; i++)
@@ -20,7 +20,7 @@ public class ShockWeaponGraphicsController : WeaponGraphicsController
 
     private void ConnectLightning(Node2D node, Node2D o1, Node2D o2)
     {
-        var lightning = (Lightning)LightningScene.Instance();
+        var lightning = (Lightning)LightningScene.Instantiate();
         lightning.AddPoint(o1.GlobalPosition);
         lightning.AddPoint(o2.GlobalPosition);
         node.GetParent().GetParent().AddChild(lightning);

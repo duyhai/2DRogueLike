@@ -1,6 +1,6 @@
 using Godot;
 
-public class BouncyBullet : Bullet
+public partial class BouncyBullet : Bullet
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/BouncyBullet.tscn");
 

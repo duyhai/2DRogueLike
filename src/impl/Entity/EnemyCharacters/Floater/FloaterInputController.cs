@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class FloaterInputController : InputController
+public partial class FloaterInputController : InputController
 {
     public override void Update(GameObject gameObject)
     {

@@ -1,7 +1,7 @@
 using Godot;
 using Godot.Collections;
 
-public class BallLightningBulletGraphicsController : GraphicsController
+public partial class BallLightningBulletGraphicsController : GraphicsController
 {
     PackedScene LightningScene = (PackedScene)GD.Load("res://scenes/weapons/projectiles/Lightning.tscn");
 
@@ -26,7 +26,7 @@ public class BallLightningBulletGraphicsController : GraphicsController
 
     private void ConnectLightning(Node2D node, Node2D o1, Node2D o2)
     {
-        var lightning = (Lightning)LightningScene.Instance();
+        var lightning = (Lightning)LightningScene.Instantiate();
 
         // If one of the GameObject dies "too fast"(QueueFree() is called immidiately)
         // after LightningBulletPhysicsController.Update() is executed,

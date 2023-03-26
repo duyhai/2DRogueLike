@@ -1,6 +1,6 @@
 using Godot;
 
-public class Splitter : Enemy
+public partial class Splitter : Enemy
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Entity/Enemies/Splitter.tscn");
 
@@ -22,7 +22,7 @@ public class Splitter : Enemy
         PackedScene floaterScene = Floater.SceneObject;
         for (int i = 0; i < 3; i++)
         {
-            var floater = (Floater)floaterScene.Instance();
+            var floater = (Floater)floaterScene.Instantiate();
             floater.Position = Position;
             GetParent().AddChild(floater);
         }

@@ -1,6 +1,6 @@
 using Godot;
 
-public abstract class Block : GameObject
+public abstract partial class Block : GameObject
 {
     public Block(InputController inputController, PhysicsController physicsController, GraphicsController graphicsController) :
         base(inputController, physicsController, graphicsController)

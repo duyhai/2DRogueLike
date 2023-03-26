@@ -2,12 +2,12 @@ using Godot;
 using Godot.Collections;
 using Utility;
 
-public class LightningBulletPhysicsController : PhysicsController
+public partial class LightningBulletPhysicsController : PhysicsController
 {
     float radius = 75;
     float fov = Mathf.Pi / 4;
 
-    public override void Update(GameObject gameObject, float delta)
+    public override void Update(GameObject gameObject, double delta)
     {
         Timer bulletTimer = gameObject.GetNode<Timer>("BulletTimer");
         if (bulletTimer.IsStopped())
@@ -45,7 +45,7 @@ public class LightningBulletPhysicsController : PhysicsController
             return;
         }
 
-        var bodies = entity.GetTree().GetNodesInGroup(NodeGroups.Enemy);
+        var bodies = (Array)entity.GetTree().GetNodesInGroup(NodeGroups.Enemy);
         Vector2 lastBodyGlobalPosition;
         if (bodiesHit.Count == 0)
         {

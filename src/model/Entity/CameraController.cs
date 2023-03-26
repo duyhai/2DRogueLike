@@ -1,6 +1,6 @@
 using Godot;
 
-abstract public class CameraController
+abstract public partial class CameraController
 {
     protected Camera2D camera;
 
@@ -9,5 +9,5 @@ abstract public class CameraController
         this.camera = camera;
     }
 
-    abstract public void Update(GameObject gameObject, float delta);
+    abstract public void Update(GameObject gameObject, double delta);
 }

@@ -1,6 +1,6 @@
 using Godot;
 
-public class SimpleWeapon : Weapon
+public partial class SimpleWeapon : Weapon
 {
 
     public SimpleWeapon() : base(new SimpleWeaponGraphicsController(), 2f) { }

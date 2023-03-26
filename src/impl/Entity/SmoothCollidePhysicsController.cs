@@ -1,10 +1,10 @@
 using Godot;
 using System;
 
-public class SmoothCollidePhysicsController : PhysicsController
+public partial class SmoothCollidePhysicsController : PhysicsController
 {
-    public override void Update(GameObject gameObject, float delta)
+    public override void Update(GameObject gameObject, double delta)
     {
-        gameObject.MoveAndSlide(gameObject.velocity);
+        gameObject.MoveAndSlide();
     }
 }

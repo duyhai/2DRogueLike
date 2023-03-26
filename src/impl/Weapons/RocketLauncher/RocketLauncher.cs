@@ -1,6 +1,6 @@
 using Godot;
 
-public class RocketLauncher : Weapon
+public partial class RocketLauncher : Weapon
 {
     public RocketLauncher() : base(new WeaponGraphicsController(), 1.5f) { }
 

@@ -2,7 +2,7 @@ using Godot;
 using Godot.Collections;
 using System.Linq;
 
-public class ShockWeapon : Weapon
+public partial class ShockWeapon : Weapon
 {
     public ShockWeapon() : base(new ShockWeaponGraphicsController(), 4f) { }
 

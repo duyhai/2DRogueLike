@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class DamageModPowerUp : PowerUp
+public partial class DamageModPowerUp : PowerUp
 {
     protected float modifier;
     public float Modifier { get => modifier; }
