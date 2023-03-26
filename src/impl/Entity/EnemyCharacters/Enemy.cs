@@ -13,6 +13,12 @@ public partial class Enemy : GameObject
     {
         base._Ready();
         AddToGroup(NodeGroups.Enemy);
+
+        Area2D sight = GetNodeOrNull<Area2D>("Sight");
+        if (sight == null) return;
+
+        sight.CollisionLayer = CollisionLayer;
+        sight.CollisionMask = CollisionMask;
     }
 
     public override void _Process(double delta)
@@ -30,13 +36,22 @@ public partial class Enemy : GameObject
         Player nearestPlayer = null;
         var spaceState = GetWorld2D().DirectSpaceState;
         var playerNodes = GetTree().GetNodesInGroup(NodeGroups.Player);
-        foreach (Player player in playerNodes)
+        foreach (Player player in playerNodes.Cast<Player>())
         {
-            if (!overlappingBodies.Contains(player)) continue;
+            if (!overlappingBodies.Contains(player))
+            {
+                continue;
+            }
 
-            var sightCheck = spaceState.IntersectRay(new PhysicsRayQueryParameters2D() { From = Position, To = player.Position, Exclude = new Godot.Collections.Array<Rid> { this.GetRid() }, CollisionMask = CollisionMask });
+            var sightCheck = spaceState.IntersectRay(new PhysicsRayQueryParameters2D()
+            {
+                From = GlobalPosition,
+                To = player.GlobalPosition,
+                Exclude = new Godot.Collections.Array<Rid> { this.GetRid() },
+                CollisionMask = CollisionMask
+            });
 
-            if (sightCheck.ContainsKey("collider") && player.Equals(sightCheck["collider"])) 
+            if (sightCheck.ContainsKey("rid") && player.GetRid() == (Rid)sightCheck["rid"])
             {
                 if (nearestPlayer == null || Position.DistanceTo(player.Position) < Position.DistanceTo(nearestPlayer.Position))
                 {
@@ -44,7 +59,6 @@ public partial class Enemy : GameObject
                 }
             }
         }
-
         return nearestPlayer;
     }
 }
