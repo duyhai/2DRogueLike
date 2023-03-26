@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhv2x7112djw0"]
+[gd_scene load_steps=3 format=3 uid="uid://bhv2x7112djw0"]
 
 [ext_resource type="PackedScene" path="res://scenes/MenuScenes/MenuButton.tscn" id="1"]
+[ext_resource type="LabelSettings" uid="uid://uvru60lna11x" path="res://scenes/MenuScenes/ButtonLabelSettings.tres" id="2_a4lji"]
 
 [node name="NewGameButton" instance=ExtResource("1")]
 sceneToLoad = "res://scenes/Main.tscn"
@@ -10,3 +11,5 @@ layout_mode = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 text = "New Game"
+label_settings = ExtResource("2_a4lji")
+vertical_alignment = 1

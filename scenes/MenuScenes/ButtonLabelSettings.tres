@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://uvru60lna11x"]
+
+[ext_resource type="FontFile" uid="uid://bmmexvnkoofbb" path="res://assets/main_menu/Montserrat-ExtraBold.ttf" id="1_4svgs"]
+
+[resource]
+font = ExtResource("1_4svgs")
+font_size = 25

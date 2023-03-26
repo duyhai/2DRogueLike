@@ -23,7 +23,7 @@ public partial class Bar : HBoxContainer
         int numberOfDividersNeeded = Math.Min((int)(numberOfBlocks + 1), DIVIDER_CONTAINER_SIZE / DIVIDER_SIZE);
         int availableBlockSpace = DIVIDER_CONTAINER_SIZE - (numberOfDividersNeeded * DIVIDER_SIZE);
         double blockWidth = Math.Round(availableBlockSpace / numberOfBlocks);
-        dividerContainer.Set("custom_constants/separation", blockWidth);
+        dividerContainer.Set("theme_override_constants/separation", blockWidth);
         var dividers = dividerContainer.GetChildren();
 
         // Add more divider if needed

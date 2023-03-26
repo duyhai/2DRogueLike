@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://dkdfcrbb2ahmj"]
 
-[ext_resource path="res://gui_font.tres" type="FontFile" id=1]
-[ext_resource path="res://assets/gui/label_HP_bg.png" type="Texture2D" id=2]
+[ext_resource type="Texture2D" uid="uid://dcvqgseumabxd" path="res://assets/gui/label_HP_bg.png" id="2"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_6f5ct"]
+font_size = 25
 
 [node name="EnemyCounter" type="MarginContainer"]
+custom_minimum_size = Vector2(100, 40)
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -13,24 +16,16 @@ offset_left = -1024.0
 offset_top = -300.0
 offset_right = -924.0
 offset_bottom = -260.0
-custom_minimum_size = Vector2( 100, 40 )
-custom_constants/offset_left = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Background" type="NinePatchRect" parent="."]
-offset_right = 100.0
-offset_bottom = 40.0
-texture = ExtResource( 2 )
+layout_mode = 2
+texture = ExtResource("2")
 
 [node name="Number" type="Label" parent="Background"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 1 )
 text = "10 left"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+label_settings = SubResource("LabelSettings_6f5ct")
+horizontal_alignment = 1
+vertical_alignment = 1

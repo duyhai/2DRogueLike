@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://8pmimolus0ys"]
 
-[ext_resource path="res://scenes/hud/Bar.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/hud/ScoreCounter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/hud/EnemyCounter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/hud/WeaponBar.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/player/crosshair.png" type="Texture2D" id=5]
+[ext_resource type="PackedScene" uid="uid://bao8r1oonmf8e" path="res://scenes/hud/Bar.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://33pi6c4b846d" path="res://scenes/hud/ScoreCounter.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dkdfcrbb2ahmj" path="res://scenes/hud/EnemyCounter.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/hud/WeaponBar.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://47vggigewc5g" path="res://assets/player/crosshair.png" id="5"]
 
 [node name="GUI" type="CanvasLayer"]
 
-[node name="WeaponBar" parent="." instance=ExtResource( 4 )]
+[node name="WeaponBar" parent="." instance=ExtResource("4")]
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -19,74 +20,52 @@ grow_horizontal = 2
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 150.0
-custom_constants/offset_right = 20
-custom_constants/offset_top = 20
-custom_constants/offset_left = 20
-custom_constants/offset_bottom = 20
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 140.0
+grow_horizontal = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 1004.0
-offset_bottom = 130.0
+layout_mode = 2
 
 [node name="Bars" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-offset_right = 736.0
-offset_bottom = 110.0
+layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LifeBar" parent="MarginContainer/HBoxContainer/Bars" instance=ExtResource( 1 )]
-offset_right = 736.0
+[node name="LifeBar" parent="MarginContainer/HBoxContainer/Bars" instance=ExtResource("1")]
+layout_mode = 2
 
 [node name="TextureProgressBar" parent="MarginContainer/HBoxContainer/Bars/LifeBar" index="1"]
-self_modulate = Color( 0.407843, 1, 0, 1 )
+self_modulate = Color(0.407843, 1, 0, 1)
 
-[node name="ShieldBar" parent="MarginContainer/HBoxContainer/Bars" instance=ExtResource( 1 )]
-offset_top = 57.0
-offset_right = 736.0
-offset_bottom = 110.0
+[node name="ShieldBar" parent="MarginContainer/HBoxContainer/Bars" instance=ExtResource("1")]
+layout_mode = 2
 
 [node name="Label" parent="MarginContainer/HBoxContainer/Bars/ShieldBar/Count/Background" index="0"]
 text = "SH"
 
 [node name="TextureProgressBar" parent="MarginContainer/HBoxContainer/Bars/ShieldBar" index="1"]
-self_modulate = Color( 0, 0.862745, 1, 1 )
+self_modulate = Color(0, 0.862745, 1, 1)
 
 [node name="Counters" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
-offset_left = 740.0
-offset_top = 35.0
-offset_right = 984.0
-offset_bottom = 75.0
+layout_mode = 2
 size_flags_vertical = 4
 
-[node name="ScoreCounter" parent="MarginContainer/HBoxContainer/Counters" instance=ExtResource( 2 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 140.0
-offset_bottom = 40.0
+[node name="ScoreCounter" parent="MarginContainer/HBoxContainer/Counters" instance=ExtResource("2")]
+layout_mode = 2
 
-[node name="EnemyCounter" parent="MarginContainer/HBoxContainer/Counters" instance=ExtResource( 3 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 144.0
-offset_top = 0.0
-offset_right = 244.0
-offset_bottom = 40.0
+[node name="EnemyCounter" parent="MarginContainer/HBoxContainer/Counters" instance=ExtResource("3")]
+layout_mode = 2
 
 [node name="Crosshair" type="Sprite2D" parent="."]
-modulate = Color( 1, 0, 0, 1 )
-scale = Vector2( 0.5, 0.5 )
+modulate = Color(1, 0, 0, 1)
 z_index = 1000
 z_as_relative = false
-texture = ExtResource( 5 )
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5")
 
 [editable path="MarginContainer/HBoxContainer/Bars/LifeBar"]
 [editable path="MarginContainer/HBoxContainer/Bars/ShieldBar"]

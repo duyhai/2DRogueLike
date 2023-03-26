@@ -1,19 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://blpem4dhpegrf"]
+[gd_scene load_steps=6 format=3 uid="uid://blpem4dhpegrf"]
 
 [ext_resource type="PackedScene" uid="uid://dyjjt6e170hcx" path="res://scenes/MenuScenes/ContinueButton.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://bhv2x7112djw0" path="res://scenes/MenuScenes/NewGameButton.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/MenuScenes/OptionsButton.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://crxdku0j288kr" path="res://scenes/MenuScenes/OptionsButton.tscn" id="3"]
 [ext_resource type="Script" path="res://src/impl/Menu/MainMenu.cs" id="4"]
 [ext_resource type="Texture2D" uid="uid://b7foota5fut0c" path="res://assets/main_menu/title.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://cgdfy4oa8fh12" path="res://assets/main_menu/version.png" id="6"]
 
 [node name="MainMenu" type="MarginContainer"]
 process_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -0.94397
-offset_right = -0.94397
+anchors_preset = -1
+anchor_left = 0.068
+anchor_top = 0.068
+anchor_right = 0.932
+anchor_bottom = 0.932
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("4")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -39,7 +40,3 @@ layout_mode = 2
 
 [node name="OptionsButton" parent="HBoxContainer/VBoxContainer/MenuOptions" instance=ExtResource("3")]
 layout_mode = 2
-
-[node name="Version" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("6")
