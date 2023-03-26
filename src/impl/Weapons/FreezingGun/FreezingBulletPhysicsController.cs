@@ -5,10 +5,10 @@ public partial class FreezingBulletPhysicsController : SimpleBulletPhysicsContro
     public override void Update(GameObject gameObject, double delta)
     {
         FreezingBullet freezingBullet = (FreezingBullet)gameObject;
-        var collision = freezingBullet.MoveAndCollide(freezingBullet.velocity * (float)delta);
+        var collision = freezingBullet.MoveAndCollide(freezingBullet.Velocity * (float)delta);
         if (freezingBullet.Collided || collision == null) return;
-        
-        freezingBullet.velocity = Vector2.Zero;
+
+        freezingBullet.Velocity = Vector2.Zero;
         freezingBullet.HitTarget((Node)collision.GetCollider());
         freezingBullet.Collided = true;
     }

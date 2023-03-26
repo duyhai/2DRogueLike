@@ -5,7 +5,6 @@ public abstract partial class GameObject : CharacterBody2D
 {
     [Signal]
     public delegate void DeathSignalEventHandler();
-    public Vector2 velocity;
     protected StatsInfo baseStats;
     public StatsInfo Stats
     {
@@ -46,7 +45,7 @@ public abstract partial class GameObject : CharacterBody2D
         this.physicsController = physicsController;
         this.graphicsController = graphicsController;
 
-        Connect("DeathSignal",new Callable(this,nameof(OnDeathStart)));
+        Connect("DeathSignal", new Callable(this, nameof(OnDeathStart)));
     }
 
     public override void _Process(double delta)
@@ -89,7 +88,7 @@ public abstract partial class GameObject : CharacterBody2D
 
         if (health <= 0 && !isDead)
         {
-            velocity = Vector2.Zero;
+            Velocity = Vector2.Zero;
             health = 0;
             isDead = true;
             DisableInput = true;

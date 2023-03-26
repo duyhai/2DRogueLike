@@ -17,29 +17,29 @@ public partial class PlayerInputController : InputController
         }
 
         Vector2 newVelocity = new Vector2();
-        if (Input.IsActionPressed("ui_right"))
+        if (Input.IsActionPressed("move_right"))
         {
             newVelocity.X += 1;
         }
 
-        if (Input.IsActionPressed("ui_left"))
+        if (Input.IsActionPressed("move_left"))
         {
             newVelocity.X -= 1;
         }
 
-        if (Input.IsActionPressed("ui_down"))
+        if (Input.IsActionPressed("move_down"))
         {
             newVelocity.Y += 1;
         }
 
-        if (Input.IsActionPressed("ui_up"))
+        if (Input.IsActionPressed("move_up"))
         {
             newVelocity.Y -= 1;
         }
 
         if (!player.Sliding)
         {
-            player.velocity = newVelocity.Normalized() * player.Stats.Speed;
+            player.Velocity = newVelocity.Normalized() * player.Stats.Speed;
         }
 
         if (Input.IsActionJustPressed("previous_weapon"))

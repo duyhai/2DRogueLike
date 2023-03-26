@@ -13,16 +13,16 @@ public partial class BasicGraphicsController : GraphicsController
             return;
         }
 
-        bool moving = gameObject.velocity.Length() > 0.0001;
-        bool goingRight = (gameObject.velocity.X > 0) || (!moving && animSprite.FlipH);
+        bool moving = gameObject.Velocity.Length() > 0.0001;
+        bool goingRight = (gameObject.Velocity.X > 0) || (!moving && animSprite.FlipH);
         animSprite.FlipH = goingRight;
 
         int frame = animSprite.Frame;
-        bool goingUp = gameObject.velocity.Y < 0;
+        bool goingUp = gameObject.Velocity.Y < 0;
         if (moving)
         {
             animSprite.Frame = frame;
-            string animationName= goingUp ? "walkUp" : "walk";
+            string animationName = goingUp ? "walkUp" : "walk";
             animSprite.Play(animationName);
         }
         else

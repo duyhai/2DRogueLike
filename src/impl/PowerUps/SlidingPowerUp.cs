@@ -8,18 +8,18 @@ public partial class SlidingPowerUp : PowerUp
     public override void Initiate(GameObject target, GameObject initiator)
     {
         base.Initiate(target, initiator);
-        gameObjectVelocity = target.velocity;
-        if (target.velocity.Length() > 0.01f)
+        gameObjectVelocity = target.Velocity;
+        if (target.Velocity.Length() > 0.01f)
         {
             target.Sliding = true;
         }
-        target.velocity = gameObjectVelocity;
+        target.Velocity = gameObjectVelocity;
     }
 
     public override void UndoEffect()
     {
         GetParent<GameObject>().Sliding = false;
-        GetParent<GameObject>().velocity = gameObjectVelocity;
+        GetParent<GameObject>().Velocity = gameObjectVelocity;
         base.UndoEffect();
     }
 }

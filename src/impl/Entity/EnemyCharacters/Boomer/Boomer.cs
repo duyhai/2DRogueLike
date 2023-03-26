@@ -15,7 +15,7 @@ public partial class Boomer : Enemy
 
         // Instead of playing the death animation,
         // the entity explodes immidiately on death
-        Connect("DeathSignal",new Callable(this,nameof(OnDeathFinished)));
+        Connect("DeathSignal", new Callable(this, nameof(OnDeathFinished)));
     }
 
     public override void OnDeathFinished()
@@ -33,7 +33,7 @@ public partial class Boomer : Enemy
         rocketExplosion.CollisionMask = CollisionMask;
         GetParent().AddChild(rocketExplosion);
 
-        velocity = Vector2.Zero;
+        Velocity = Vector2.Zero;
         QueueFree();
     }
 }

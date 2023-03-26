@@ -6,10 +6,10 @@ public partial class BallLightningBulletV2PhysicsController : LightningBulletPhy
 {
     public override void Update(GameObject gameObject, double delta)
     {
-        var collision = gameObject.MoveAndCollide(gameObject.velocity * (float)delta);
+        var collision = gameObject.MoveAndCollide(gameObject.Velocity * (float)delta);
         if (collision != null)
         {
-            gameObject.velocity = Vector2.Zero;
+            gameObject.Velocity = Vector2.Zero;
             gameObject.QueueFree();
         }
 

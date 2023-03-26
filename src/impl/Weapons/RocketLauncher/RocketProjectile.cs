@@ -14,7 +14,7 @@ public partial class RocketProjectile : Bullet
 
     public override void _Ready()
     {
-        Rotation = (Mathf.Pi / 2) + velocity.Angle();
+        Rotation = (Mathf.Pi / 2) + Velocity.Angle();
     }
 
     public override int HitTarget(Node collider)
@@ -43,7 +43,7 @@ public partial class RocketProjectile : Bullet
         rocketExplosion.CollisionMask = CollisionMask;
         GetParent().AddChild(rocketExplosion);
 
-        velocity = Vector2.Zero;
+        Velocity = Vector2.Zero;
         QueueFree();
     }
 }

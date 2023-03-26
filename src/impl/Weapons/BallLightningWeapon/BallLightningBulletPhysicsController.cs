@@ -10,10 +10,10 @@ public partial class BallLightningBulletPhysicsController : PhysicsController
     {
         BallLightningBullet ballLightningBullet = (BallLightningBullet)gameObject;
 
-        var collision = ballLightningBullet.MoveAndCollide(ballLightningBullet.velocity * (float)delta);
+        var collision = ballLightningBullet.MoveAndCollide(ballLightningBullet.Velocity * (float)delta);
         if (collision != null)
         {
-            ballLightningBullet.velocity = Vector2.Zero;
+            ballLightningBullet.Velocity = Vector2.Zero;
             ballLightningBullet.QueueFree();
         }
 
