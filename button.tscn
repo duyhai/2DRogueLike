@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqe3x78i8t4x7"]
-
-[ext_resource type="Script" path="res://src/TestButton.cs" id="1_sfrrn"]
-
-[node name="Button" type="Button"]
-offset_right = 8.0
-offset_bottom = 8.0
-text = "asdasdasd"
-script = ExtResource("1_sfrrn")
