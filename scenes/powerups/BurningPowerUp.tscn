@@ -1,43 +1,39 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://2pf2ljsc6j65"]
 
-[ext_resource path="res://scenes/powerups/PowerUp.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/impl/PowerUps/BurningPowerUp.cs" type="Script" id=2]
-[ext_resource path="res://assets/weapons/fire1.png" type="Texture2D" id=3]
+[ext_resource type="PackedScene" path="res://scenes/powerups/PowerUp.tscn" id="1"]
+[ext_resource type="Script" path="res://src/impl/PowerUps/BurningPowerUp.cs" id="2"]
+[ext_resource type="Texture2D" uid="uid://olc32n3j2x5d" path="res://assets/weapons/fire1.png" id="3"]
 
-[sub_resource type="Gradient" id=1]
-offsets = PackedFloat32Array( 0, 0.703704 )
-colors = PackedColorArray( 1, 1, 1, 0.662745, 1, 1, 1, 0 )
+[sub_resource type="Gradient" id="1"]
+offsets = PackedFloat32Array(0, 0.703704)
+colors = PackedColorArray(1, 1, 1, 0.662745, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture2D" id="2"]
+gradient = SubResource("1")
 
-[sub_resource type="Curve" id=3]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.323864 ), 0.0, 0.0, 0, 0 ]
+[sub_resource type="Curve" id="3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.323864), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
+[sub_resource type="CurveTexture" id="4"]
+curve = SubResource("3")
 
-[sub_resource type="ParticleProcessMaterial" id=5]
+[sub_resource type="ParticleProcessMaterial" id="5"]
 emission_shape = 1
 emission_sphere_radius = 6.0
-flag_disable_z = true
-direction = Vector3( 0, -1, 0 )
+direction = Vector3(0, -1, 0)
 spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 10.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 0.18
-scale_curve = SubResource( 4 )
-color_ramp = SubResource( 2 )
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("4")
+color_ramp = SubResource("2")
 
-[node name="BurningPowerUp" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="BurningPowerUp" instance=ExtResource("1")]
+script = ExtResource("2")
 
 [node name="DurationTimer" parent="." index="0"]
 wait_time = 5.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="2"]
 amount = 7
-process_material = SubResource( 5 )
-texture = ExtResource( 3 )
+process_material = SubResource("5")
+texture = ExtResource("3")

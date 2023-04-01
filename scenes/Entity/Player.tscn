@@ -104,8 +104,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="2"]
-radius = 4.44445
-height = 8.88889
+radius = 5.55556
+height = 20.0
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fy1fn"]
 _data = {
