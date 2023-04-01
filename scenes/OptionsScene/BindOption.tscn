@@ -1,23 +1,29 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://bwi751spfjwd2"]
 
-[ext_resource path="res://src/impl/Options/BindOption.cs" type="Script" id=1]
+[ext_resource type="Script" path="res://src/impl/Options/BindOption.cs" id="1"]
 
-[node name="BindOption" type="Container"]
-offset_right = 300.0
-offset_bottom = 20.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[sub_resource type="LabelSettings" id="LabelSettings_rk1lm"]
+font_size = 20
+
+[node name="BindOption" type="Control"]
+custom_minimum_size = Vector2(256, 32)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+offset_bottom = 32.0
+script = ExtResource("1")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 150.0
-offset_bottom = 20.0
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 32.0
 text = "Bind"
-align = 1
-valign = 1
+label_settings = SubResource("LabelSettings_rk1lm")
+vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
-offset_left = 150.0
-offset_right = 300.0
-offset_bottom = 20.0
+layout_mode = 2
+offset_left = 128.0
+offset_right = 257.0
+offset_bottom = 31.0
+text = "Default"

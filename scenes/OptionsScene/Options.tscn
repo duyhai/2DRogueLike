@@ -1,17 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://clhmituxvgd53"]
+[gd_scene load_steps=7 format=3 uid="uid://clhmituxvgd53"]
 
-[ext_resource type="PackedScene" path="res://scenes/OptionsScene/BindUp.tscn" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/OptionsScene/BindDown.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/OptionsScene/BindLeft.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://scenes/OptionsScene/BindRight.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://scenes/MenuScenes/BackButton.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://b7ahtduph01uu" path="res://scenes/OptionsScene/BindUp.tscn" id="1"]
+[ext_resource type="Script" path="res://src/impl/Options/Options.cs" id="1_l27ta"]
+[ext_resource type="PackedScene" uid="uid://lqkners10y4x" path="res://scenes/OptionsScene/BindDown.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://d0t4tjuryojad" path="res://scenes/OptionsScene/BindLeft.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://cfjmuwc0dj8gp" path="res://scenes/OptionsScene/BindRight.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://dckelompiyld8" path="res://scenes/MenuScenes/BackButton.tscn" id="5"]
 
 [node name="VBoxContainer" type="VBoxContainer"]
+process_mode = 3
 offset_left = 60.0
 offset_top = 40.0
 offset_right = 964.0
 offset_bottom = 560.0
-theme_override_constants/separation = 30
+theme_override_constants/separation = 13
+script = ExtResource("1_l27ta")
 
 [node name="BindUp" parent="." instance=ExtResource("1")]
 layout_mode = 2
