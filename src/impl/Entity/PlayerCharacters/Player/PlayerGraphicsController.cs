@@ -11,12 +11,12 @@ public partial class PlayerGraphicsController : BasicGraphicsController
     public override void Update(Node2D node)
     {
         base.Update(node);
-        Player player = (Player) node;
+        Player player = (Player)node;
 
         AnimatedSprite2D animSprite = node.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
-        Vector2 vector = player.ViewDirection;
-        animSprite.FlipH = vector.X > 0;
+        Vector2 viewDirection = player.ViewDirection;
+        animSprite.FlipH = viewDirection.X > 0;
         animSprite.Play("walk");
     }
 
