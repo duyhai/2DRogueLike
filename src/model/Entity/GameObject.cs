@@ -92,7 +92,7 @@ public abstract partial class GameObject : CharacterBody2D
             health = 0;
             isDead = true;
             DisableInput = true;
-            EmitSignal(nameof(DeathSignalEventHandler));
+            EmitSignal("DeathSignal");
         }
 
         FCTManager.Instance.ShowValue(Math.Abs(inflictedDamage).ToString(), GlobalPosition, inflictedDamage >= 0 ? Colors.Red : Colors.Green);
