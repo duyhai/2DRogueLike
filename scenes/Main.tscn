@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4bebsecxhxru"]
+[gd_scene load_steps=7 format=3 uid="uid://c4bebsecxhxru"]
 
 [ext_resource type="Script" path="res://src/Main.cs" id="1"]
 [ext_resource type="Script" path="res://src/impl/GUI.cs" id="2"]
 [ext_resource type="Texture2D" uid="uid://b2acnyphhtmob" path="res://assets/backgroundcave.png" id="4"]
-[ext_resource type="PackedScene" uid="uid://bslmyx84kwmhd" path="res://scenes/hud/GUI.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://8pmimolus0ys" path="res://scenes/hud/GUI.tscn" id="6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tq1hu"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_bfdbg"]
+font_size = 28
 
 [node name="Main" type="Node"]
 script = ExtResource("1")
@@ -57,7 +63,9 @@ offset_bottom = 41.5
 
 [node name="Label" type="Label" parent="ResultScreen/ResultScreenNode/VBoxContainer"]
 layout_mode = 2
-text = "Level cleared"
+text = "Level cleared!"
+label_settings = SubResource("LabelSettings_tq1hu")
+horizontal_alignment = 1
 
 [node name="NextLevelButton" type="Button" parent="ResultScreen/ResultScreenNode/VBoxContainer"]
 layout_mode = 2
@@ -95,6 +103,8 @@ offset_bottom = 41.5
 [node name="Label" type="Label" parent="DeathScreen/DeathScreenNode/VBoxContainer"]
 layout_mode = 2
 text = "You died!"
+label_settings = SubResource("LabelSettings_bfdbg")
+horizontal_alignment = 1
 
 [node name="NewGameButton" type="Button" parent="DeathScreen/DeathScreenNode/VBoxContainer"]
 layout_mode = 2
