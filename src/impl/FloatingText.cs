@@ -12,7 +12,6 @@ public partial class FloatingText : Node2D
         Vector2 movement = travel.Rotated(angle);
         Tween tween = GetTree().CreateTween();
         tween.TweenProperty(this, "position", Position + movement, duration).SetTrans(Tween.TransitionType.Linear).SetEase(Tween.EaseType.InOut);
-        //tween.TweenCallback(this, "queue_free");
         tween.TweenCallback(new Callable(this, "queue_free"));
         tween.Play();
     }
