@@ -1,13 +1,14 @@
+using Godot;
 using Godot.Collections;
 
 namespace Utility
 {
     public static class ArrayUtil
     {
-        public static object Min(ref Array array, CompareFunction<object> function)
+        public static object Min<[MustBeVariant] T>(ref Array<T> array, CompareFunction<T> function)
         {
-            object min = null;
-            foreach (object item in array)
+            T min = default;
+            foreach (T item in array)
             {
                 min = function(min, item);
             }

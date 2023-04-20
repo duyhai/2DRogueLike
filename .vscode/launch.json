@@ -23,7 +23,7 @@
       "type": "godot-mono",
       "request": "attach",
       "address": "localhost",
-      "port": 6006
+      "port": 6007
     }
   ]
 }

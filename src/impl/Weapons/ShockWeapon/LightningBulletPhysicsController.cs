@@ -45,7 +45,7 @@ public partial class LightningBulletPhysicsController : PhysicsController
             return;
         }
 
-        var bodies = (Array)entity.GetTree().GetNodesInGroup(NodeGroups.Enemy);
+        var bodies = entity.GetTree().GetNodesInGroup(NodeGroups.Enemy);
         Vector2 lastBodyGlobalPosition;
         if (bodiesHit.Count == 0)
         {
@@ -56,9 +56,9 @@ public partial class LightningBulletPhysicsController : PhysicsController
             lastBodyGlobalPosition = ((GameObject)bodiesHit[bodiesHit.Count - 1]).GlobalPosition;
         }
 
-        GameObject nearestBody = (GameObject)ArrayUtil.Min(ref bodies, (object x, object y) =>
+        GameObject nearestBody = (GameObject)ArrayUtil.Min<Node>(ref bodies, (x, y) =>
         {
-            if (bodiesHit.Contains((GameObject)y))
+            if (bodiesHit.Contains((Variant)y))
             {
                 return x;
             }
