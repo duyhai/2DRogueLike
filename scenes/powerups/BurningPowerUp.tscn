@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://2pf2ljsc6j65"]
 
-[ext_resource type="PackedScene" path="res://scenes/powerups/PowerUp.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://x6k1lxph06tp" path="res://scenes/powerups/PowerUp.tscn" id="1"]
 [ext_resource type="Script" path="res://src/impl/PowerUps/BurningPowerUp.cs" id="2"]
 [ext_resource type="Texture2D" uid="uid://olc32n3j2x5d" path="res://assets/weapons/fire1.png" id="3"]
 
@@ -12,7 +12,7 @@ colors = PackedColorArray(1, 1, 1, 0.662745, 1, 1, 1, 0)
 gradient = SubResource("1")
 
 [sub_resource type="Curve" id="3"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.323864), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.190909), 0.0, 0.0, 0, 0, Vector2(1, 0.0636363), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="4"]
@@ -24,6 +24,7 @@ emission_sphere_radius = 6.0
 direction = Vector3(0, -1, 0)
 spread = 0.0
 gravity = Vector3(0, 0, 0)
+initial_velocity_max = 10.0
 scale_curve = SubResource("4")
 color_ramp = SubResource("2")
 
@@ -37,3 +38,4 @@ wait_time = 5.0
 amount = 7
 process_material = SubResource("5")
 texture = ExtResource("3")
+local_coords = true

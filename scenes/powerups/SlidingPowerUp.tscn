@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://o65e8x7idx5e"]
 
-[ext_resource path="res://scenes/powerups/MovSpeedModPowerUp.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/impl/PowerUps/SlidingPowerUp.cs" type="Script" id=3]
+[ext_resource type="PackedScene" uid="uid://vy4hj42l8cb3" path="res://scenes/powerups/MovSpeedModPowerUp.tscn" id="2"]
+[ext_resource type="Script" path="res://src/impl/PowerUps/SlidingPowerUp.cs" id="3"]
 
-[node name="SlidingPowerUp" instance=ExtResource( 2 )]
-script = ExtResource( 3 )
+[node name="SlidingPowerUp" instance=ExtResource("2")]
+script = ExtResource("3")
 
 [node name="DurationTimer" parent="." index="0"]
 wait_time = 0.05

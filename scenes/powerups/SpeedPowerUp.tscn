@@ -1,44 +1,45 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://bcjyclfe3gn20"]
 
-[ext_resource path="res://assets/boosts/speedboost.png" type="Texture2D" id=1]
-[ext_resource path="res://scenes/powerups/MovSpeedModPowerUp.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/impl/PowerUps/SpeedPowerUp.cs" type="Script" id=3]
+[ext_resource type="Texture2D" uid="uid://dlig04q5k866e" path="res://assets/boosts/speedboost.png" id="1"]
+[ext_resource type="PackedScene" uid="uid://vy4hj42l8cb3" path="res://scenes/powerups/MovSpeedModPowerUp.tscn" id="2"]
+[ext_resource type="Script" path="res://src/impl/PowerUps/SpeedPowerUp.cs" id="3"]
 
-[sub_resource type="Gradient" id=1]
-offsets = PackedFloat32Array( 0, 0.992593 )
-colors = PackedColorArray( 1, 1, 1, 0.717647, 1, 1, 1, 0.129412 )
+[sub_resource type="Gradient" id="1"]
+offsets = PackedFloat32Array(0, 0.992593)
+colors = PackedColorArray(1, 1, 1, 0.717647, 1, 1, 1, 0.129412)
 
-[sub_resource type="GradientTexture2D" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture2D" id="2"]
+gradient = SubResource("1")
 
-[sub_resource type="Curve" id=3]
-_data = [ Vector2( 0, 0.165909 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0602273 ), 0.0, 0.0, 0, 0 ]
+[sub_resource type="Curve" id="3"]
+_data = [Vector2(0, 0.165909), 0.0, 0.0, 0, 0, Vector2(1, 0.0602273), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
+[sub_resource type="CurveTexture" id="4"]
+curve = SubResource("3")
 
-[sub_resource type="ParticleProcessMaterial" id=5]
+[sub_resource type="ParticleProcessMaterial" id="5"]
 emission_shape = 1
 emission_sphere_radius = 6.0
-flag_disable_z = true
-direction = Vector3( 0, -1, 0 )
+direction = Vector3(0, -1, 0)
 spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 10.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 0.15
-scale_curve = SubResource( 4 )
-color_ramp = SubResource( 2 )
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+scale_min = 0.15
+scale_max = 0.15
+scale_curve = SubResource("4")
+color_ramp = SubResource("2")
 
-[node name="SpeedPowerUp" instance=ExtResource( 2 )]
-script = ExtResource( 3 )
+[node name="SpeedPowerUp" instance=ExtResource("2")]
+script = ExtResource("3")
 
 [node name="DurationTimer" parent="." index="0"]
 wait_time = 5.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="1"]
-position = Vector2( 0, 1 )
+position = Vector2(0, 1)
 amount = 5
-process_material = SubResource( 5 )
-texture = ExtResource( 1 )
+process_material = SubResource("5")
+texture = ExtResource("1")
+local_coords = true

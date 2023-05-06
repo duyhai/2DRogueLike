@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" path="res://scenes/weapons/Flamethrower.tscn" id="11"]
 [ext_resource type="PackedScene" path="res://scenes/weapons/SimpleWeapon.tscn" id="12"]
 [ext_resource type="PackedScene" path="res://scenes/weapons/Melee.tscn" id="13"]
-[ext_resource type="PackedScene" path="res://scenes/weapons/LaserWeapon.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://cu8wos2v51x0a" path="res://scenes/weapons/LaserWeapon.tscn" id="14"]
 [ext_resource type="PackedScene" path="res://scenes/weapons/BallLightningWeaponV2.tscn" id="15"]
 [ext_resource type="PackedScene" path="res://scenes/weapons/FreezingWeapon.tscn" id="16"]
 
