@@ -81,7 +81,7 @@ public abstract partial class GameObject : CharacterBody2D
         inflictedDamage += health - newHealth;
         health = newHealth;
 
-        if (inflictedDamage != 0)
+        if (inflictedDamage > 0)
         {
             ((BasicGraphicsController)graphicsController).PlayHitAnimation(this);
         }
@@ -95,7 +95,10 @@ public abstract partial class GameObject : CharacterBody2D
             EmitSignal("DeathSignal");
         }
 
-        FCTManager.Instance.ShowValue(Math.Abs(inflictedDamage).ToString(), GlobalPosition, inflictedDamage >= 0 ? Colors.Red : Colors.Green);
+        if (inflictedDamage != 0)
+        {
+            FCTManager.Instance.ShowValue(Math.Abs(inflictedDamage).ToString(), GlobalPosition, inflictedDamage >= 0 ? Colors.Red : Colors.Green);
+        }
         return inflictedDamage;
     }
 
