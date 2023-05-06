@@ -11,10 +11,6 @@ public partial class FreezingBullet : Bullet
         baseStats = new StatsInfo { MaxHealth = 0, MaxShield = 0, Damage = 0, Speed = 75 };
     }
 
-    public override void _Ready()
-    {
-    }
-
     public override int HitTarget(Node collider)
     {
         int inflictedDamage = base.HitTarget(collider);

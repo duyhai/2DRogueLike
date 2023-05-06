@@ -16,6 +16,11 @@ public abstract partial class Bullet : GameObject
         base(inputController, physicsController, graphicsController)
     { }
 
+    public override void _Ready()
+    {
+        AddToGroup(NodeGroups.Bullet);
+    }
+
     public void OnVisibilityNotifier2DScreenExited()
     {
         if (!GetTree().Paused)

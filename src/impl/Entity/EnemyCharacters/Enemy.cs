@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System.Linq;
 
 public partial class Enemy : GameObject
@@ -36,6 +37,7 @@ public partial class Enemy : GameObject
         Player nearestPlayer = null;
         var spaceState = GetWorld2D().DirectSpaceState;
         var playerNodes = GetTree().GetNodesInGroup(NodeGroups.Player);
+        var bulletNodes = GetTree().GetNodesInGroup(NodeGroups.Bullet).ToArray();
         foreach (Player player in playerNodes.Cast<Player>())
         {
             if (!overlappingBodies.Contains(player))
@@ -43,11 +45,13 @@ public partial class Enemy : GameObject
                 continue;
             }
 
+            var excludeRids = bulletNodes.Select(b => ((Bullet)b).GetRid());
+            excludeRids = excludeRids.Append(this.GetRid());
             var sightCheck = spaceState.IntersectRay(new PhysicsRayQueryParameters2D()
             {
                 From = GlobalPosition,
                 To = player.GlobalPosition,
-                Exclude = new Godot.Collections.Array<Rid> { this.GetRid() },
+                Exclude = new Array<Rid>(excludeRids),
                 CollisionMask = CollisionMask
             });
 

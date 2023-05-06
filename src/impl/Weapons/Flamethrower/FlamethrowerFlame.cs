@@ -13,6 +13,7 @@ public partial class FlamethrowerFlame : Bullet
 
     public override void _Ready()
     {
+        base._Ready();
         animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
         var controller = (FlamethrowerFlameGraphicsController)graphicsController;
         controller.PlayFadeAnimation(this);

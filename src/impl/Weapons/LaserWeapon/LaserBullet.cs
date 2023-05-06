@@ -15,6 +15,7 @@ public partial class LaserBullet : Bullet
 
     public override void _Ready()
     {
+        base._Ready();
         SetPhysicsProcess(false);
     }
 

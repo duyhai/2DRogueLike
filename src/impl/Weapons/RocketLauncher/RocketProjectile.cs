@@ -14,6 +14,7 @@ public partial class RocketProjectile : Bullet
 
     public override void _Ready()
     {
+        base._Ready();
         Rotation = (Mathf.Pi / 2) + Velocity.Angle();
     }
 

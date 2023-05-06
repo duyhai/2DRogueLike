@@ -7,6 +7,7 @@ public partial class MeleeBullet : Bullet
 
     public override void _Ready()
     {
+        base._Ready();
         Area2D swingingArea = GetNode<Area2D>("Area2D");
         swingingArea.CollisionLayer = CollisionLayer;
         swingingArea.CollisionMask = CollisionMask;
