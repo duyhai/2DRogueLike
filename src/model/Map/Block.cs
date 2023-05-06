@@ -11,5 +11,6 @@ public abstract partial class Block : GameObject
     public override void _Ready()
     {
         CollisionLayer = CollisionLayers.Wall;
+        CollisionMask = CollisionLayers.Player;
     }
 }
