@@ -7,7 +7,6 @@ public partial class MainMenu : MarginContainer
 		base._Ready();
 
 		Input.MouseMode = Input.MouseModeEnum.Visible;
-		GD.Print("Menu");
 	}
 
 	public override void _ExitTree()

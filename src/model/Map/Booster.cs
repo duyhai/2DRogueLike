@@ -18,10 +18,8 @@ public partial class Booster : Block
 
     public void OnArea2DBodyEntered(Node2D body)
     {
-        GD.Print("Pre condition");
         if (body.GetType() == typeof(Player))
         {
-            GD.Print("Booster");
             PowerUp powerUp = (PowerUp)powerUpScene.Instantiate();
             powerUp.Initiate((GameObject)body, this);
             var method = body.GetType().GetMethod("AddPowerUp");
