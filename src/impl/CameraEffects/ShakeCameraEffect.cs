@@ -1,14 +1,14 @@
 using Godot;
 using System;
 
-public class ShakeCameraEffect : TimedCameraEffect
+public partial class ShakeCameraEffect : TimedCameraEffect
 {
     int Frequency { get; set; }
-    float Amplitude { get; set; }
-    float lastShookTimer = 0;
-    float periodInMs = 0;
-    float previousX = 0;
-    float previousY = 0;
+    double Amplitude { get; set; }
+    double lastShookTimer = 0;
+    double periodInMs = 0;
+    double previousX = 0;
+    double previousY = 0;
     Vector2 lastOffset = new Vector2(0, 0);
 
     public ShakeCameraEffect(float duration, int frequency, float amplitude) : base(duration)
@@ -18,7 +18,7 @@ public class ShakeCameraEffect : TimedCameraEffect
         this.periodInMs = 1.0f / this.Frequency;
     }
 
-    public override void Update(Camera2D camera, float delta)
+    public override void Update(Camera2D camera, double delta)
     {
         base.Update(camera, delta);
 
@@ -32,14 +32,14 @@ public class ShakeCameraEffect : TimedCameraEffect
         while (lastShookTimer >= periodInMs)
         {
             lastShookTimer -= periodInMs;
-            float intensity = Amplitude * (1.0f - ((Duration - Timer) / Duration));
-            float newX = (float)(rnd.NextDouble() * 2.0f) - 1.0f;  // -1.0 to 1.0
-            float xComponent = intensity * (previousX + (delta * (newX - previousX)));
-            float newY = (float)(rnd.NextDouble() * 2.0f) - 1.0f;  // -1.0 to 1.0
-            float yComponent = intensity * (previousY + (delta * (newY - previousY)));
+            double intensity = Amplitude * (1.0f - ((Duration - Timer) / Duration));
+            double newX = (rnd.NextDouble() * 2.0f) - 1.0f;  // -1.0 to 1.0
+            double xComponent = intensity * (previousX + (delta * (newX - previousX)));
+            double newY = (rnd.NextDouble() * 2.0f) - 1.0f;  // -1.0 to 1.0
+            double yComponent = intensity * (previousY + (delta * (newY - previousY)));
             previousX = newX;
             previousY = newY;
-            Vector2 newOffset = new Vector2(xComponent, yComponent);
+            Vector2 newOffset = new Vector2((float)xComponent, (float)yComponent);
             camera.Offset = camera.Offset - lastOffset + newOffset;
             lastOffset = newOffset;
         }
@@ -51,7 +51,7 @@ public class ShakeCameraEffect : TimedCameraEffect
     {
         base.Start(camera);
         Random rnd = new Random();
-        previousX = (float)(rnd.NextDouble() * 2.0f) - 1.0f;  // -1.0 to 1.0
-        previousY = (float)(rnd.NextDouble() * 2.0f) - 1.0f;  // -1.0 to 1.0
+        previousX = (rnd.NextDouble() * 2.0f) - 1.0f;  // -1.0 to 1.0
+        previousY = (rnd.NextDouble() * 2.0f) - 1.0f;  // -1.0 to 1.0
     }
 }

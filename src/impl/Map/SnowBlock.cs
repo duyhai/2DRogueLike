@@ -1,6 +1,6 @@
 using Godot;
 
-public class SnowBlock : Block
+public partial class SnowBlock : Block
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Map/Blocks/SnowBlock.tscn");
     private static PackedScene slidingPowerUpScene = (PackedScene)GD.Load("res://scenes/powerups/SlidingPowerUp.tscn");
@@ -14,20 +14,20 @@ public class SnowBlock : Block
 
     public override void _Ready()
     {
-        CollisionLayer = CollisionLayers.Player | CollisionLayers.Enemy;
+        CollisionMask = CollisionLayers.Player | CollisionLayers.Enemy;
         area = GetNode<Area2D>("Area2D");
         area.CollisionLayer = CollisionLayer;
+        area.CollisionMask = CollisionMask;
     }
 
-    public override void _Process(float delta)
+    public override void _Process(double delta)
     {
         foreach (var body in area.GetOverlappingBodies())
         {
-            if (body is GameObject)
+            if (body is GameObject gameObject)
             {
-                GameObject gameObject = (GameObject)body;
-                PowerUp powerUp = (PowerUp)slidingPowerUpScene.Instance();
-                powerUp.Initiate((GameObject)body, this);
+                SlidingPowerUp powerUp = (SlidingPowerUp)slidingPowerUpScene.Instantiate();
+                powerUp.Initiate(gameObject, this);
                 var method = body.GetType().GetMethod("AddPowerUp");
                 method?.Invoke(body, new object[] { powerUp });
             }

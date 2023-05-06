@@ -1,6 +1,6 @@
 using Godot;
 
-public class NullGraphicsController : GraphicsController
+public partial class NullGraphicsController : GraphicsController
 {
     public override void Update(Node2D node) { }
 }

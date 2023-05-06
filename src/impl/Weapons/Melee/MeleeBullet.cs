@@ -1,12 +1,13 @@
 using Godot;
 using System;
 
-public class MeleeBullet : Bullet
+public partial class MeleeBullet : Bullet
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/MeleeBullet.tscn");
 
     public override void _Ready()
     {
+        base._Ready();
         Area2D swingingArea = GetNode<Area2D>("Area2D");
         swingingArea.CollisionLayer = CollisionLayer;
         swingingArea.CollisionMask = CollisionMask;

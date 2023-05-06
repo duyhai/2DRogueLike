@@ -1,7 +1,8 @@
 using Godot;
+using Godot.Collections;
 using System.Linq;
 
-public class Enemy : GameObject
+public partial class Enemy : GameObject
 {
     public Enemy(InputController inputController, PhysicsController physicsController, GraphicsController graphicsController) :
         base(inputController, physicsController, graphicsController)
@@ -13,9 +14,15 @@ public class Enemy : GameObject
     {
         base._Ready();
         AddToGroup(NodeGroups.Enemy);
+
+        Area2D sight = GetNodeOrNull<Area2D>("Sight");
+        if (sight == null) return;
+
+        sight.CollisionLayer = CollisionLayer;
+        sight.CollisionMask = CollisionMask;
     }
 
-    public override void _Process(float delta)
+    public override void _Process(double delta)
     {
         base._Process(delta);
         SightCheck();
@@ -28,15 +35,27 @@ public class Enemy : GameObject
 
         var overlappingBodies = sight.GetOverlappingBodies();
         Player nearestPlayer = null;
-        var spaceState = GetWorld2d().DirectSpaceState;
+        var spaceState = GetWorld2D().DirectSpaceState;
         var playerNodes = GetTree().GetNodesInGroup(NodeGroups.Player);
-        foreach (Player player in playerNodes)
+        var bulletNodes = GetTree().GetNodesInGroup(NodeGroups.Bullet).ToArray();
+        foreach (Player player in playerNodes.Cast<Player>())
         {
-            if (!overlappingBodies.Contains(player)) continue;
+            if (!overlappingBodies.Contains(player))
+            {
+                continue;
+            }
 
-            var sightCheck = spaceState.IntersectRay(Position, player.Position, new Godot.Collections.Array { this }, CollisionMask);
+            var excludeRids = bulletNodes.Select(b => ((Bullet)b).GetRid());
+            excludeRids = excludeRids.Append(this.GetRid());
+            var sightCheck = spaceState.IntersectRay(new PhysicsRayQueryParameters2D()
+            {
+                From = GlobalPosition,
+                To = player.GlobalPosition,
+                Exclude = new Array<Rid>(excludeRids),
+                CollisionMask = CollisionMask
+            });
 
-            if (sightCheck.Contains("collider") && player == sightCheck["collider"])
+            if (sightCheck.ContainsKey("rid") && player.GetRid() == (Rid)sightCheck["rid"])
             {
                 if (nearestPlayer == null || Position.DistanceTo(player.Position) < Position.DistanceTo(nearestPlayer.Position))
                 {
@@ -44,7 +63,6 @@ public class Enemy : GameObject
                 }
             }
         }
-
         return nearestPlayer;
     }
 }

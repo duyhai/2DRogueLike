@@ -1,6 +1,6 @@
 using Godot;
 
-public class TimedCameraEffect : ICameraEffect
+public partial class TimedCameraEffect : ICameraEffect
 {
     public float Timer
     {
@@ -28,14 +28,14 @@ public class TimedCameraEffect : ICameraEffect
     protected TimedCameraEffect()
     { }
 
-    public virtual void Update(Camera2D camera, float delta)
+    public virtual void Update(Camera2D camera, double delta)
     {
         if (Timer == 0f)
         {
             return;
         }
 
-        Timer -= delta;
+        Timer -= (float)delta;
         if (Timer < 0f)
         {
             Timer = 0f;

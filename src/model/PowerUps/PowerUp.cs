@@ -1,6 +1,6 @@
 using Godot;
 
-public abstract class PowerUp : Node2D
+public abstract partial class PowerUp : Node2D
 {
     protected GameObject initiator;
 

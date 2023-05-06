@@ -2,21 +2,23 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Player : GameObject
+public partial class Player : GameObject
 {
     const float DEFAULT_DELTA = 0.1f;
     bool isLastInputJoystick;
     Vector2 lastMousePosition;
     Vector2 lastViewDirection = Vector2.Zero;
-    public Vector2 ViewDirection {
-        get {
+    public Vector2 ViewDirection
+    {
+        get
+        {
             Vector2 result = lastViewDirection;
             Vector2 joystickDirection = Input.GetVector("see_left", "see_right", "see_up", "see_down");
             bool isGamePadJoystickMoving = DEFAULT_DELTA < joystickDirection.Length();
 
             Vector2 mousePosition = GetLocalMousePosition();
             Vector2 dMouse = mousePosition - lastMousePosition;
-            float delta = isLastInputJoystick? 10f : DEFAULT_DELTA;
+            float delta = isLastInputJoystick ? 10f : DEFAULT_DELTA;
             bool isMouseMoving = delta < dMouse.Length();
             if (isGamePadJoystickMoving)
             {
@@ -45,7 +47,7 @@ public class Player : GameObject
         {
             if (base.Shield < value)
             {
-                ShieldCameraEffect shieldEffect = ShieldCameraEffect.SceneObject.Instance<ShieldCameraEffect>();
+                ShieldCameraEffect shieldEffect = ShieldCameraEffect.SceneObject.Instantiate<ShieldCameraEffect>();
                 ((PlayerCameraController)cameraController).AddCameraAffect(shieldEffect);
                 shieldEffect.Start(GetNode<Camera2D>("Camera2D"));
             }
@@ -86,7 +88,7 @@ public class Player : GameObject
         ((PlayerGraphicsController)graphicsController).CameraController = cameraController;
     }
 
-    public override void _Process(float delta)
+    public override void _Process(double delta)
     {
         base._Process(delta);
 

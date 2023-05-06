@@ -9,7 +9,7 @@ public static class DamageUtil
 
         if (inflictedDamage > 0)
         {
-            if (Object.IsInstanceValid(initiator) && initiator.IsInsideTree())
+            if (GodotObject.IsInstanceValid(initiator) && initiator.IsInsideTree())
             {
                 var powerUps = GroupUtils.FindNodeDescendantsInGroup(initiator, "PowerUp");
                 for (int i = 0; i < powerUps.Count; i++)

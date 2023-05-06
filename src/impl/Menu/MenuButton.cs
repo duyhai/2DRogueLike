@@ -1,16 +1,17 @@
+using System;
 using Godot;
 
-public class MenuButton : Button
+public partial class MenuButton : Button
 {
     [Export]
     public string sceneToLoad;
 
     public override void _Ready()
     {
-        Connect("pressed", this, nameof(OnButtonPressed), new Godot.Collections.Array() { sceneToLoad });
+        Pressed += OnButtonPressed;
     }
 
-    public void OnButtonPressed(string sceneToLoad)
+    public void OnButtonPressed()
     {
         if (sceneToLoad == Main.SCENE_PATH)
         {

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class SoundPlayer2D : AudioStreamPlayer2D
+public partial class SoundPlayer2D : AudioStreamPlayer2D
 {
     public bool Loop = false;
 

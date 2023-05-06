@@ -1,6 +1,6 @@
 using System;
 
-public class ShieldPowerUp : PowerUp
+public partial class ShieldPowerUp : PowerUp
 {
     protected int absorptionAmount;
 

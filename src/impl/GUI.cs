@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 
-public class GUI : CanvasLayer
+public partial class GUI : CanvasLayer
 {
     Label HealthCounter;
     Label ShieldCounter;
@@ -20,17 +20,17 @@ public class GUI : CanvasLayer
 
     public override void _Ready()
     {
-        HealthCounter = GetNode<Label>("MarginContainer/HBoxContainer/Bars/LifeBar/TextureProgress/Number");
-        ShieldCounter = GetNode<Label>("MarginContainer/HBoxContainer/Bars/ShieldBar/TextureProgress/Number");
+        HealthCounter = GetNode<Label>("MarginContainer/HBoxContainer/Bars/LifeBar/TextureProgressBar/Number");
+        ShieldCounter = GetNode<Label>("MarginContainer/HBoxContainer/Bars/ShieldBar/TextureProgressBar/Number");
         HealthBar = GetNode<Bar>("MarginContainer/HBoxContainer/Bars/LifeBar");
         ShieldBar = GetNode<Bar>("MarginContainer/HBoxContainer/Bars/ShieldBar");
         ScoreCounter = GetNode<Label>("MarginContainer/HBoxContainer/Counters/ScoreCounter/Background/Number");
         EnemyCounter = GetNode<Label>("MarginContainer/HBoxContainer/Counters/EnemyCounter/Background/Number");
-        crosshair = GetNode<Sprite>("Crosshair");
+        crosshair = GetNode<Sprite2D>("Crosshair");
         SetMaxHealthCounter(100);
     }
 
-    public override void _Process(float delta)
+    public override void _Process(double delta)
     {
         base._Process(delta);
 
@@ -48,7 +48,7 @@ public class GUI : CanvasLayer
         bool isMouseMoving = dMousePosition < dMouse.Length();
         if (isGamePadJoystickMoving)
         {
-            result = (GetViewport().Size / 2) + (joystickDirection.Normalized() * 100);
+            result = (GetViewport().GetVisibleRect().Size / 2) + (joystickDirection.Normalized() * 100);
             isLastInputJoystick = true;
         }
         else if (isMouseMoving)

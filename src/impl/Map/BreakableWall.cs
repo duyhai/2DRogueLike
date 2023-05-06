@@ -1,6 +1,6 @@
 using Godot;
 
-public class BreakableWall : Block
+public partial class BreakableWall : Block
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Map/Blocks/BreakableWall.tscn");
     public BreakableWall() :

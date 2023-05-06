@@ -1,7 +1,7 @@
 using Godot;
 using Godot.Collections;
 
-public class BallLightningBullet : Bullet
+public partial class BallLightningBullet : Bullet
 {
     public enum Targeting
     {

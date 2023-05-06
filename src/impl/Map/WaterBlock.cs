@@ -1,6 +1,6 @@
 using Godot;
 
-public class WaterBlock : Block
+public partial class WaterBlock : Block
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Map/Blocks/WaterBlock.tscn");
     public WaterBlock() :

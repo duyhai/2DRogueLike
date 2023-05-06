@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Priority_Queue;
 
-public class PQNode : FastPriorityQueueNode
+public partial class PQNode : FastPriorityQueueNode
 {
     public (int, int) Node;
 

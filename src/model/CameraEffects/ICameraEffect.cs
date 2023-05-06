@@ -7,6 +7,6 @@ public interface ICameraEffect
         get;
     }
 
-    void Update(Camera2D camera, float delta);
+    void Update(Camera2D camera, double delta);
     void Start(Camera2D camera);
 }

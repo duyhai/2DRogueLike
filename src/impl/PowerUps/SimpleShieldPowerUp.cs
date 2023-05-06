@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class SimpleShieldPowerUp : ShieldPowerUp
+public partial class SimpleShieldPowerUp : ShieldPowerUp
 {
     public SimpleShieldPowerUp()
     {

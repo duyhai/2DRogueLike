@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class LaserWeapon : Weapon
+public partial class LaserWeapon : Weapon
 {
     public LaserWeapon() : base(new WeaponGraphicsController(), 0.33f) { }
 

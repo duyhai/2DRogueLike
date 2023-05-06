@@ -1,7 +1,7 @@
 using Godot;
 using Godot.Collections;
 
-public class BallLightningBulletV2 : LightningBullet
+public partial class BallLightningBulletV2 : LightningBullet
 {
     public static new PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/BallLightningBulletV2.tscn");
 

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class UnbreakableWall : Block
+public partial class UnbreakableWall : Block
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Map/Blocks/WallBlock.tscn");
     public UnbreakableWall() :

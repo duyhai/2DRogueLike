@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/rocket_launching.wav-3b2b4397bde70ec06f992d22b01fd493.sample"
+type="AudioStreamWAV"
+uid="uid://bov3p8q1vy4un"
+path="res://.godot/imported/rocket_launching.wav-3b2b4397bde70ec06f992d22b01fd493.sample"
 
 [deps]
 
 source_file="res://assets/weapons/rocket_launching.wav"
-dest_files=[ "res://.import/rocket_launching.wav-3b2b4397bde70ec06f992d22b01fd493.sample" ]
+dest_files=["res://.godot/imported/rocket_launching.wav-3b2b4397bde70ec06f992d22b01fd493.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=true
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

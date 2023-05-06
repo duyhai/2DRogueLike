@@ -1,15 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://dckelompiyld8"]
 
-[ext_resource path="res://scenes/MenuScenes/MenuButton.tscn" type="PackedScene" id=1]
+[ext_resource type="PackedScene" path="res://scenes/MenuScenes/MenuButton.tscn" id="1"]
 
-[node name="BackButton" instance=ExtResource( 1 )]
-margin_right = 100.0
-margin_bottom = 44.0
-rect_min_size = Vector2( 0, 0 )
+[node name="BackButton" instance=ExtResource("1")]
+custom_minimum_size = Vector2(100, 44)
+offset_right = 100.0
+offset_bottom = 44.0
 sceneToLoad = "res://scenes/MenuScenes/MainMenu.tscn"
 
 [node name="Label" parent="." index="0"]
-margin_right = 7.62939e-06
-margin_bottom = 3.8147e-06
-rect_min_size = Vector2( 0, 0 )
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 text = "Back"

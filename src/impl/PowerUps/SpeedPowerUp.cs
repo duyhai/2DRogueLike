@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class SpeedPowerUp : MovSpeedModPowerUp
+public partial class SpeedPowerUp : MovSpeedModPowerUp
 {
     public SpeedPowerUp()
     {

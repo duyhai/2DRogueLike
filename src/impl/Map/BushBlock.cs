@@ -1,6 +1,6 @@
 using Godot;
 
-public class BushBlock : Block
+public partial class BushBlock : Block
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Map/Blocks/BushBlock.tscn");
     public BushBlock() :

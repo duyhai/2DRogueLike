@@ -2,12 +2,12 @@ using Godot;
 using Godot.Collections;
 using Utility;
 
-public class LightningBulletPhysicsController : PhysicsController
+public partial class LightningBulletPhysicsController : PhysicsController
 {
     float radius = 75;
     float fov = Mathf.Pi / 4;
 
-    public override void Update(GameObject gameObject, float delta)
+    public override void Update(GameObject gameObject, double delta)
     {
         Timer bulletTimer = gameObject.GetNode<Timer>("BulletTimer");
         if (bulletTimer.IsStopped())
@@ -56,13 +56,13 @@ public class LightningBulletPhysicsController : PhysicsController
             lastBodyGlobalPosition = ((GameObject)bodiesHit[bodiesHit.Count - 1]).GlobalPosition;
         }
 
-        GameObject nearestBody = (GameObject)ArrayUtil.Min(ref bodies, (object x, object y) =>
+        GameObject nearestBody = (GameObject)ArrayUtil.Min<Node>(ref bodies, (x, y) =>
         {
-            if (bodiesHit.Contains((GameObject)y))
+            if (bodiesHit.Contains((Variant)y))
             {
                 return x;
             }
-            if (bodiesHit.Count == 0 && entity.velocity.Length() == 0f && !inFieldOfView(entity, (GameObject)y))
+            if (bodiesHit.Count == 0 && entity.Velocity.Length() == 0f && !inFieldOfView(entity, (GameObject)y))
             {
                 return x;
             }

@@ -1,18 +1,15 @@
 {
-    "folders": [
-        {
-            "path": "."
-        }
-    ],
-    "settings": {
-        "editor.detectIndentation": false,
-        "editor.formatOnSave": true,
-        "godot_tools.editor_path": "c:\\Users\\buikr\\Desktop\\Godot_v3.5.1-stable_mono_win64\\Godot_v3.5.1-stable_mono_win64.exe",
-    },
-    "extensions": {
-        "recommendations": [
-            "ms-dotnettools.csharp",
-            "josefpihrt-vscode.roslynator"
-        ]
+  "folders": [
+    {
+      "path": "."
     }
+  ],
+  "settings": {
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true,
+    "godot_tools.editor_path": "C:\\Users\\buikr\\Desktop\\Godot_v4.0-stable_mono_win64\\Godot_v4.0-stable_mono_win64.exe"
+  },
+  "extensions": {
+    "recommendations": ["ms-dotnettools.csharp", "josefpihrt-vscode.roslynator"]
+  }
 }

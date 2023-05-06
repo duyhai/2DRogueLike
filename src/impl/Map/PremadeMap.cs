@@ -1,6 +1,6 @@
 using Godot;
 
-public class PremadeMap : Map
+public partial class PremadeMap : Map
 {
     private PackedScene mapScene;
 
@@ -12,7 +12,7 @@ public class PremadeMap : Map
 
     public override void Instance()
     {
-        Node mapNode = mapScene.Instance();
+        Node mapNode = mapScene.Instantiate();
         var mapNodePlayerInstance = mapNode.GetNode<Player>("Player");
         PlayerSpawn = mapNodePlayerInstance.Position;
 
@@ -32,6 +32,6 @@ public class PremadeMap : Map
             parentNode.AddChild(mapNodePlayerInstance);
             playerInstance = mapNodePlayerInstance;
         }
-        playerInstance.Connect("DeathSignal", parentNode.GetParent(), "OnPlayerDeathSignal");
+        playerInstance.Connect("DeathSignal",new Callable(parentNode.GetParent(),"OnPlayerDeathSignal"));
     }
 }

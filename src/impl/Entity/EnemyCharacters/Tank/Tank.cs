@@ -1,6 +1,6 @@
 using Godot;
 
-public class Tank : Enemy
+public partial class Tank : Enemy
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Entity/Enemies/Tank.tscn");
 

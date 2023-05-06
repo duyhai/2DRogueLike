@@ -12,7 +12,7 @@ public enum MapTile
     SIMPLESHIELDBOOST
 }
 
-public class Map
+public partial class Map
 {
     static PackedScene wallBlockScene = UnbreakableWall.SceneObject;
     static PackedScene breakableWallScene = BreakableWall.SceneObject;
@@ -106,7 +106,7 @@ public class Map
             }
         }
 
-        createPlayer(PlayerSpawn.x, PlayerSpawn.y, Unit);
+        createPlayer(PlayerSpawn.X, PlayerSpawn.Y, Unit);
     }
 
     private void createBlock(float x, float y, int blockSize, MapTile mapTile)
@@ -117,7 +117,7 @@ public class Map
             return;
         }
 
-        var blockInstance = (Block)tileScene.Instance();
+        var blockInstance = (Block)tileScene.Instantiate();
         parentNode.AddChild(blockInstance);
 
         // Set the mob's position to a random location.
@@ -132,7 +132,7 @@ public class Map
             return;
         }
 
-        var enemyInstance = (Enemy)enemyScene.Instance();
+        var enemyInstance = (Enemy)enemyScene.Instantiate();
         parentNode.AddChild(enemyInstance);
 
         // Set the mob's position to a random location.
@@ -144,10 +144,10 @@ public class Map
         var playerInstance = (Player)parentNode.GetNodeOrNull("Player");
         if (playerInstance == null)
         {
-            playerInstance = (Player)playerScene.Instance();
+            playerInstance = (Player)playerScene.Instantiate();
             playerInstance.Name = "Player";
             parentNode.AddChild(playerInstance);
-            playerInstance.Connect("DeathSignal", parentNode.GetParent(), "OnPlayerDeathSignal");
+            playerInstance.Connect("DeathSignal",new Callable(parentNode.GetParent(),"OnPlayerDeathSignal"));
         }
         playerInstance.Position = new Vector2(x * blockSize, y * blockSize);
     }

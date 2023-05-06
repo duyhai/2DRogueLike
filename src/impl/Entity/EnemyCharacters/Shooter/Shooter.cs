@@ -1,6 +1,6 @@
 using Godot;
 
-public class Shooter : Enemy
+public partial class Shooter : Enemy
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Entity/Enemies/Shooter.tscn");
     public Weapon weapon;

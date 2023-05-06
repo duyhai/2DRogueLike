@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class RocketExplosion : GameObject
+public partial class RocketExplosion : GameObject
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/RocketExplosion.tscn");
     public int damage;

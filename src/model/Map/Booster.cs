@@ -1,6 +1,6 @@
 using Godot;
 
-public class Booster : Block
+public partial class Booster : Block
 {
     protected PackedScene powerUpScene;
 
@@ -8,11 +8,19 @@ public class Booster : Block
         base(new NullInputController(), new NullPhysicsController(), new NullGraphicsController())
     { }
 
-    public void OnArea2DBodyEntered(Node body)
+    public override void _Ready()
+    {
+        base._Ready();
+
+        var area2D = GetNode<Area2D>("Area2D");
+        area2D.CollisionMask = CollisionMask;
+    }
+
+    public void OnArea2DBodyEntered(Node2D body)
     {
         if (body.GetType() == typeof(Player))
         {
-            PowerUp powerUp = (PowerUp)powerUpScene.Instance();
+            PowerUp powerUp = (PowerUp)powerUpScene.Instantiate();
             powerUp.Initiate((GameObject)body, this);
             var method = body.GetType().GetMethod("AddPowerUp");
             method?.Invoke(body, new object[] { powerUp });

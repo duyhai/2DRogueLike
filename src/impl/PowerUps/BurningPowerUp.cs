@@ -1,6 +1,6 @@
 using Godot;
 
-public class BurningPowerUp : PowerUp
+public partial class BurningPowerUp : PowerUp
 {
     float damageMultiplier = 0.1f;
 

@@ -1,6 +1,6 @@
 using Godot;
 
-public class AnimationCameraEffect : Sprite, ICameraEffect
+public partial class AnimationCameraEffect : Sprite2D, ICameraEffect
 {
     public bool IsEnded
     {
@@ -8,7 +8,7 @@ public class AnimationCameraEffect : Sprite, ICameraEffect
         protected set;
     }
 
-    public void Update(Camera2D camera, float delta) { }
+    public void Update(Camera2D camera, double delta) { }
 
     public void Start(Camera2D camera)
     {

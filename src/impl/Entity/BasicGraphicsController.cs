@@ -1,11 +1,11 @@
 using Godot;
 using System;
 
-public class BasicGraphicsController : GraphicsController
+public partial class BasicGraphicsController : GraphicsController
 {
     public override void Update(Node2D node)
     {
-        AnimatedSprite animSprite = node.GetNode<AnimatedSprite>("AnimatedSprite");
+        AnimatedSprite2D animSprite = node.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
         GameObject gameObject = (GameObject)node;
         if (gameObject.isDead)
@@ -13,28 +13,25 @@ public class BasicGraphicsController : GraphicsController
             return;
         }
 
-        bool moving = gameObject.velocity.Length() > 0.0001;
-        bool goingRight = (gameObject.velocity.x > 0) || (!moving && animSprite.FlipH);
+        bool moving = gameObject.Velocity.Length() > 0.0001;
+        bool goingRight = (gameObject.Velocity.X > 0) || (!moving && animSprite.FlipH);
         animSprite.FlipH = goingRight;
 
-        int frame = animSprite.Frame;
-        bool goingUp = gameObject.velocity.y < 0;
+        bool goingUp = gameObject.Velocity.Y < 0;
         if (moving)
         {
-            animSprite.Frame = frame;
-            animSprite.Animation = goingUp ? "walkUp" : "walk";
-            animSprite.Playing = true;
+            string animationName = goingUp ? "walkUp" : "walk";
+            animSprite.Play(animationName);
         }
         else
         {
-            if (Array.IndexOf(animSprite.Frames.GetAnimationNames(), "idle") != -1)
+            if (Array.IndexOf(animSprite.SpriteFrames.GetAnimationNames(), "idle") != -1)
             {
-                animSprite.Animation = "idle";
-                animSprite.Playing = true;
+                animSprite.Play("idle");
             }
             else
             {
-                animSprite.Playing = false;
+                animSprite.Stop();
                 animSprite.Frame = 0;
             }
         }
@@ -42,14 +39,14 @@ public class BasicGraphicsController : GraphicsController
 
     public void ResetSprite(GameObject node)
     {
-        AnimatedSprite animSprite = node.GetNode<AnimatedSprite>("AnimatedSprite");
+        AnimatedSprite2D animSprite = node.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         animSprite.Modulate = new Color(1, 1, 1, 1);
     }
 
     public void PlayDeathAnimation(GameObject node)
     {
-        AnimatedSprite animSprite = node.GetNodeOrNull<AnimatedSprite>("AnimatedSprite");
-        if (Array.IndexOf(animSprite?.Frames.GetAnimationNames(), "death") != -1)
+        AnimatedSprite2D animSprite = node.GetNodeOrNull<AnimatedSprite2D>("AnimatedSprite2D");
+        if (Array.IndexOf(animSprite?.SpriteFrames.GetAnimationNames(), "death") != -1)
         {
             animSprite.Play("death");
         }

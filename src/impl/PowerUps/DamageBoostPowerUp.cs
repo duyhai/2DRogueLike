@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class DamageBoostPowerUp : DamageModPowerUp
+public partial class DamageBoostPowerUp : DamageModPowerUp
 {
     public DamageBoostPowerUp()
     {

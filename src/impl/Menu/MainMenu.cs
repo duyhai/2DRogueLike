@@ -1,6 +1,6 @@
 using Godot;
 
-public class MainMenu : MarginContainer
+public partial class MainMenu : MarginContainer
 {
     public override void _Ready()
     {

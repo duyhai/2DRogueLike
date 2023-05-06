@@ -1,4 +1,4 @@
-public class StatsInfo
+public partial class StatsInfo
 {
     public int MaxHealth;
     public int MaxShield;

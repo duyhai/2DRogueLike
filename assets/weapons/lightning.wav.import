@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/lightning.wav-afd2483ee3b9d3f3b3ad202f536b89bd.sample"
+type="AudioStreamWAV"
+uid="uid://co7ive6pw1vgv"
+path="res://.godot/imported/lightning.wav-afd2483ee3b9d3f3b3ad202f536b89bd.sample"
 
 [deps]
 
 source_file="res://assets/weapons/lightning.wav"
-dest_files=[ "res://.import/lightning.wav-afd2483ee3b9d3f3b3ad202f536b89bd.sample" ]
+dest_files=["res://.godot/imported/lightning.wav-afd2483ee3b9d3f3b3ad202f536b89bd.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=true
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

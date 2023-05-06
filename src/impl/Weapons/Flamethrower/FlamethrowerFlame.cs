@@ -1,6 +1,6 @@
 using Godot;
 
-public class FlamethrowerFlame : Bullet
+public partial class FlamethrowerFlame : Bullet
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/weapons/projectiles/FlamethrowerFlame.tscn");
     AnimationPlayer animationPlayer;
@@ -13,6 +13,7 @@ public class FlamethrowerFlame : Bullet
 
     public override void _Ready()
     {
+        base._Ready();
         animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
         var controller = (FlamethrowerFlameGraphicsController)graphicsController;
         controller.PlayFadeAnimation(this);
@@ -23,7 +24,7 @@ public class FlamethrowerFlame : Bullet
     {
         int inflictedDamage = base.HitTarget(collider);
 
-        BurningPowerUp burningPowerUp = (BurningPowerUp)GD.Load<PackedScene>("res://scenes/powerups/BurningPowerUp.tscn").Instance();
+        BurningPowerUp burningPowerUp = GD.Load<PackedScene>("res://scenes/powerups/BurningPowerUp.tscn").Instantiate<BurningPowerUp>();
         burningPowerUp.Initiate((GameObject)collider, initiator);
         var method = collider.GetType().GetMethod("AddPowerUp");
         method?.Invoke(collider, new object[] { burningPowerUp });

@@ -1,6 +1,6 @@
 using Godot;
 
-public class SimpleShieldBoost : Booster
+public partial class SimpleShieldBoost : Booster
 {
     public static PackedScene SceneObject = GD.Load<PackedScene>("res://scenes/Map/Blocks/Boosters/SimpleShieldBoost.tscn");
     public SimpleShieldBoost()

@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Main : Node
+public partial class Main : Node
 {
     Map map;
     readonly int MAP_SIZE = 50;
@@ -47,7 +47,7 @@ public class Main : Node
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(float delta)
+    public override void _Process(double delta)
     {
         gui.SetHealthCounter(player.health);
         gui.SetEnemyCounter(CountEnemies());
@@ -87,7 +87,7 @@ public class Main : Node
         }
         map = levelGenerators[currentLevel]?.Invoke();
         map.Instance();
-        player.Respawn(map.PlayerSpawn.x * map.Unit, map.PlayerSpawn.y * map.Unit);
+        player.Respawn(map.PlayerSpawn.X * map.Unit, map.PlayerSpawn.Y * map.Unit);
     }
 
     public void OnNextLevelButtonPressed()
@@ -105,7 +105,7 @@ public class Main : Node
 
     public void OnRespawnButtonPressed()
     {
-        player.Respawn(map.PlayerSpawn.x * map.Unit, map.PlayerSpawn.y * map.Unit);
+        player.Respawn(map.PlayerSpawn.X * map.Unit, map.PlayerSpawn.Y * map.Unit);
         deathScreen.Visible = false;
     }
 

@@ -1,6 +1,6 @@
 using Godot;
 
-public class FCTManager : Node2D
+public partial class FCTManager : Node2D
 {
     public static FCTManager Instance { get; set; }
     private readonly PackedScene floatingTextScene = (PackedScene)GD.Load("FloatingText.tscn");
@@ -11,7 +11,7 @@ public class FCTManager : Node2D
 
     public void ShowValue(string value, Vector2 position, Color color)
     {
-        var floatingTextInstance = (FloatingText)floatingTextScene.Instance();
+        var floatingTextInstance = (FloatingText)floatingTextScene.Instantiate();
         floatingTextInstance.Position = position;
         floatingTextInstance.Modulate = color;
         TextContainer.AddChild(floatingTextInstance);

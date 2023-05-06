@@ -1,6 +1,6 @@
 using Godot;
 
-public class MeleeGraphicsController : WeaponGraphicsController
+public partial class MeleeGraphicsController : WeaponGraphicsController
 {
     public void Swing(Node2D node)
     {
