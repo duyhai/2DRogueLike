@@ -1,7 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://vy4hj42l8cb3"]
+[gd_scene load_steps=2 format=3 uid="uid://vy4hj42l8cb3"]
 
 [ext_resource type="PackedScene" uid="uid://x6k1lxph06tp" path="res://scenes/powerups/PowerUp.tscn" id="1"]
-[ext_resource type="Script" path="res://src/model/PowerUps/MovSpeedModPowerUp.cs" id="2"]
 
 [node name="MovSpeedModPowerUp" groups=["MovSpeedModPowerUp"] instance=ExtResource("1")]
-script = ExtResource("2")
