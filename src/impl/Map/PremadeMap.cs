@@ -32,6 +32,6 @@ public partial class PremadeMap : Map
             parentNode.AddChild(mapNodePlayerInstance);
             playerInstance = mapNodePlayerInstance;
         }
-        playerInstance.Connect("DeathSignal",new Callable(parentNode.GetParent(),"OnPlayerDeathSignal"));
+        playerInstance.Connect("DeathSignal", new Callable(parentNode.GetParent(), "OnPlayerDeathSignal"));
     }
 }

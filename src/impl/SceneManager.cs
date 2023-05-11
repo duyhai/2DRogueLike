@@ -25,7 +25,7 @@ public partial class SceneManager : Godot.Node
 
         CallDeferred(nameof(DeferredGotoScene), path, paused);
     }
-    
+
     public void GotoPausedScene()
     {
         CallDeferred(nameof(DeferredGotoPausedScene));
