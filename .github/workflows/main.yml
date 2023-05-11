@@ -11,18 +11,27 @@ jobs:
       matrix:
         platform: [linux, windows]
     steps:
-      - uses: actions/checkout@v2
+      - name: Check out Git repository
+        uses: actions/checkout@v2
         with:
           lfs: true
-      - name: Build
-        id: build
-        uses: manleydev/build-godot-action@v1.4.1
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v1
         with:
-          name: example
-          preset: ${{ matrix.platform }}
-          debugMode: "true"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
+          dotnet-version: "6.0.x"
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
         with:
-          name: Client - ${{ matrix.platform }}
-          path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
+          dotnet_format: true
+      # - name: Build
+      #   id: build
+      #   uses: manleydev/build-godot-action@v1.4.1
+      #   with:
+      #     name: example
+      #     preset: ${{ matrix.platform }}
+      #     debugMode: "true"
+      # - name: Upload Artifact
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: Client - ${{ matrix.platform }}
+      #     path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
