@@ -23,6 +23,7 @@ jobs:
         uses: wearerequired/lint-action@v2
         with:
           dotnet_format: true
+          eslint_args: "./2DRogueLike.sln"
       # - name: Build
       #   id: build
       #   uses: manleydev/build-godot-action@v1.4.1
