@@ -31,7 +31,7 @@ public partial class Main : Node
         map = levelGenerators[currentLevel]?.Invoke();
         map.Instance();
         player = GetNode<Player>("World/Player");
-        gui = GetNode<GUI>("GUI")
+        gui = GetNode<GUI>("GUI");
         resultScreen = GetNode<Control>("ResultScreen/ResultScreenNode");
         deathScreen = GetNode<Control>("DeathScreen/DeathScreenNode");
         FCTManager.Instance.TextContainer = GetNode<Node>("FloatingTexts");
