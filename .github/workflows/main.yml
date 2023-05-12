@@ -16,7 +16,7 @@ jobs:
         with:
           lfs: true
       - name: Set up .NET
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: "6.0.x"
       - name: Run linters
@@ -24,15 +24,9 @@ jobs:
         with:
           dotnet_format: true
           dotnet_format_args: "./2DRogueLike.sln"
-      # - name: Build
-      #   id: build
-      #   uses: manleydev/build-godot-action@v1.4.1
-      #   with:
-      #     name: example
-      #     preset: ${{ matrix.platform }}
-      #     debugMode: "true"
-      # - name: Upload Artifact
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: Client - ${{ matrix.platform }}
-      #     path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
