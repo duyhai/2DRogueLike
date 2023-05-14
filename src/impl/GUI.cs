@@ -37,14 +37,15 @@ public partial class GUI : CanvasLayer
         updateCrosshairPosition();
     }
 
-    private void updateCrosshairPosition() {
+    private void updateCrosshairPosition()
+    {
         Vector2 result = crosshair.GlobalPosition;
         Vector2 joystickDirection = Input.GetVector("see_left", "see_right", "see_up", "see_down");
         bool isGamePadJoystickMoving = FLOAT_COMPARE_THRESHOLD < joystickDirection.Length();
 
         Vector2 mousePosition = crosshair.GetGlobalMousePosition();
         Vector2 dMouse = mousePosition - lastMousePosition;
-        float dMousePosition = isLastInputJoystick? 10f : FLOAT_COMPARE_THRESHOLD;
+        float dMousePosition = isLastInputJoystick ? 10f : FLOAT_COMPARE_THRESHOLD;
         bool isMouseMoving = dMousePosition < dMouse.Length();
         if (isGamePadJoystickMoving)
         {

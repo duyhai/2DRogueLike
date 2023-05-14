@@ -147,7 +147,7 @@ public partial class Map
             playerInstance = (Player)playerScene.Instantiate();
             playerInstance.Name = "Player";
             parentNode.AddChild(playerInstance);
-            playerInstance.Connect("DeathSignal",new Callable(parentNode.GetParent(),"OnPlayerDeathSignal"));
+            playerInstance.Connect("DeathSignal", new Callable(parentNode.GetParent(), "OnPlayerDeathSignal"));
         }
         playerInstance.Position = new Vector2(x * blockSize, y * blockSize);
     }
