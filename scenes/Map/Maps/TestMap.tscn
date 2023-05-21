@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b704wspaopw34"]
+[gd_scene load_steps=14 format=3 uid="uid://b704wspaopw34"]
 
 [ext_resource type="PackedScene" uid="uid://um8sd2obwuhl" path="res://scenes/Entity/Player.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://b35b2q0eycrug" path="res://scenes/Map/Blocks/Boosters/SpeedBoost.tscn" id="2"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://gsps5g14otw" path="res://scenes/Map/Blocks/Boosters/DamageBoost.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://dtyu5j63tmuok" path="res://scenes/Map/Blocks/Boosters/LifestealBoost.tscn" id="11"]
 [ext_resource type="PackedScene" uid="uid://cwj2qwkouue5c" path="res://scenes/Map/Blocks/Boosters/SimpleShieldBoost.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://kxd0bk3ej727" path="res://scenes/Map/Blocks/TeleportBlock.tscn" id="13_xxfg1"]
 
 [node name="Node" type="Node"]
 
@@ -78,3 +79,9 @@ position = Vector2(288, 224)
 
 [node name="DamageBoost" parent="." instance=ExtResource("10")]
 position = Vector2(288, 240)
+
+[node name="TeleportBlock" parent="." groups=["Teleport"] instance=ExtResource("13_xxfg1")]
+position = Vector2(255, 143)
+
+[node name="TeleportBlock2" parent="." groups=["Teleport"] instance=ExtResource("13_xxfg1")]
+position = Vector2(109, 142)
