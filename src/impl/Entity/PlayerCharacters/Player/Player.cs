@@ -48,8 +48,7 @@ public partial class Player : GameObject
             if (base.Shield < value)
             {
                 ShieldCameraEffect shieldEffect = ShieldCameraEffect.SceneObject.Instantiate<ShieldCameraEffect>();
-                ((PlayerCameraController)cameraController).AddCameraAffect(shieldEffect);
-                shieldEffect.Start(GetNode<Camera2D>("Camera2D"));
+                PlayCameraEffect(shieldEffect);
             }
             base.Shield = value;
         }
@@ -143,5 +142,11 @@ public partial class Player : GameObject
         base.OnDeathStart();
 
         SoundManager.Instance.PlaySound(SoundPaths.PlayerDeath);
+    }
+
+    public void PlayCameraEffect(ICameraEffect cameraEffect)
+    {
+        ((PlayerCameraController)cameraController).AddCameraAffect(cameraEffect);
+        cameraEffect.Start(GetNode<Camera2D>("Camera2D"));
     }
 }

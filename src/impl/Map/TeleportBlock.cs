@@ -43,6 +43,12 @@ public partial class TeleportBlock : Block
         {
             DestinationNode.Disabled = true;
             body.GlobalPosition = DestinationNode.GlobalPosition;
+
+            if (body is Player player)
+            {
+                TeleportCameraEffect cameraEffect = TeleportCameraEffect.SceneObject.Instantiate<TeleportCameraEffect>();
+                player.PlayCameraEffect(cameraEffect);
+            }
         }
     }
 
