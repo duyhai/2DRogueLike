@@ -1,11 +1,12 @@
+using System.Collections.Generic;
 using Godot;
 
 public partial class TeleportBlock : Block
 {
     public static PackedScene SceneObject = (PackedScene)GD.Load("res://scenes/Map/Blocks/TeleportBlock.tscn");
-    public bool Disabled { get; set; } = false;
     public TeleportBlock DestinationNode { get; set; }
     private Timer cooldownTimer;
+    private List<Node2D> nodesOnCooldown = new List<Node2D>();
 
     public TeleportBlock() :
         base(new NullInputController(), new NullPhysicsController(), new NullGraphicsController())
@@ -39,21 +40,29 @@ public partial class TeleportBlock : Block
 
     public void OnArea2DBodyEntered(Node2D body)
     {
-        if (!Disabled)
+        if (nodesOnCooldown.Contains(body))
         {
-            DestinationNode.Disabled = true;
-            body.GlobalPosition = DestinationNode.GlobalPosition;
-
-            if (body is Player player)
-            {
-                TeleportCameraEffect cameraEffect = TeleportCameraEffect.SceneObject.Instantiate<TeleportCameraEffect>();
-                player.PlayCameraEffect(cameraEffect);
-            }
+            return;
         }
+
+        DestinationNode.TeleportNode(body);
     }
 
     public void OnArea2DBodyExited(Node2D body)
     {
-        Disabled = false;
+        nodesOnCooldown.Remove(body);
+    }
+
+    public void TeleportNode(Node2D body)
+    {
+
+        body.GlobalPosition = this.GlobalPosition;
+        nodesOnCooldown.Add(body);
+
+        if (body is Player player)
+        {
+            TeleportCameraEffect cameraEffect = TeleportCameraEffect.SceneObject.Instantiate<TeleportCameraEffect>();
+            player.PlayCameraEffect(cameraEffect);
+        }
     }
 }
