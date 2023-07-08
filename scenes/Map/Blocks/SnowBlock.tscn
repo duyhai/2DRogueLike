@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dop1i4we3rk7v"]
 
-[ext_resource type="Texture2D" uid="uid://byffrck4bnfu3" path="res://assets/SnowBlock.png" id="1"]
 [ext_resource type="Script" path="res://src/impl/Map/SnowBlock.cs" id="2"]
+[ext_resource type="Texture2D" uid="uid://raqnt1rj73x" path="res://assets/blocks/snow.png" id="2_hloyr"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(16, 16)
@@ -13,10 +13,11 @@ collision_mask = 0
 script = ExtResource("2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1")
+texture = ExtResource("2_hloyr")
 region_rect = Rect2(479, 79, 1, 2)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("1")

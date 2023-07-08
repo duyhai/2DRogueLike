@@ -426,7 +426,7 @@ position = Vector2(344, 224)
 [node name="WallBlock91" parent="." instance=ExtResource("3")]
 position = Vector2(344, 240)
 
-[node name="WallBlock" parent="." instance=ExtResource("9")]
+[node name="WaterBlock" parent="." instance=ExtResource("9")]
 position = Vector2(232, 176)
 
 [node name="WallBlock94" parent="." instance=ExtResource("10")]

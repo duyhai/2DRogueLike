@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://befhdhksf8mns"
-path="res://.godot/imported/WaterBlock.png-96c9e82b224aa3c98b2328f4771fe795.ctex"
+uid="uid://cxwa63f6qolon"
+path="res://.godot/imported/wall.png-443f9c4c37ac0cdb66474c30add95e42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/WaterBlock.png"
-dest_files=["res://.godot/imported/WaterBlock.png-96c9e82b224aa3c98b2328f4771fe795.ctex"]
+source_file="res://assets/blocks/wall.png"
+dest_files=["res://.godot/imported/wall.png-443f9c4c37ac0cdb66474c30add95e42.ctex"]
 
 [params]
 

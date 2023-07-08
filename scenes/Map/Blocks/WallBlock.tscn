@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://7ycvjaxd7epg"]
 
-[ext_resource type="Texture2D" uid="uid://dltnk4e8wnc1" path="res://assets/WallBlock.png" id="1"]
 [ext_resource type="Script" path="res://src/impl/Map/UnbreakableWall.cs" id="2"]
+[ext_resource type="Texture2D" uid="uid://cxwa63f6qolon" path="res://assets/blocks/wall.png" id="2_3vlua"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(16, 16)
@@ -13,9 +13,10 @@ collision_mask = 0
 script = ExtResource("2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -4)
-texture = ExtResource("1")
+texture = ExtResource("2_3vlua")
 region_rect = Rect2(479, 79, 1, 2)
