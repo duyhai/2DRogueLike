@@ -22,7 +22,7 @@ SoundManager="*res://scenes/Sound/SoundManager.tscn"
 
 [display]
 
-window/stretch/mode="2d"
+window/stretch/mode="viewport"
 
 [dotnet]
 
