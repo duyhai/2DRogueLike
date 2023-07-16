@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2v37wp8qp62i"]
+[gd_scene load_steps=4 format=3 uid="uid://wa5rm421qvs7"]
 
-[ext_resource type="Texture2D" uid="uid://br2w3is2y0jok" path="res://assets/BreakableWall.png" id="1"]
 [ext_resource type="Script" path="res://src/impl/Map/BreakableWall.cs" id="2"]
+[ext_resource type="Texture2D" uid="uid://dixkdbym5yjp2" path="res://assets/blocks/breakablewall/breakablewall1.png" id="2_k7e5q"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(16, 14)
@@ -12,10 +12,12 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("1")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -4)
-texture = ExtResource("1")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_k7e5q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 1)
+shape = SubResource("1")

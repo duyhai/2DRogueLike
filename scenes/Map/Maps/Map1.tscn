@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bukahye2iyfdg"]
 
 [ext_resource type="PackedScene" uid="uid://um8sd2obwuhl" path="res://scenes/Entity/Player.tscn" id="1"]
-[ext_resource type="PackedScene" uid="uid://c2v37wp8qp62i" path="res://scenes/Map/Blocks/BreakableWall.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://wa5rm421qvs7" path="res://scenes/Map/Blocks/BreakableWall.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://7ycvjaxd7epg" path="res://scenes/Map/Blocks/WallBlock.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://bqoq8fc1tougf" path="res://scenes/Entity/Enemies/Shooter.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://76l0ks8vy3g4" path="res://scenes/Entity/Enemies/Floater.tscn" id="5"]
@@ -426,7 +426,7 @@ position = Vector2(344, 224)
 [node name="WallBlock91" parent="." instance=ExtResource("3")]
 position = Vector2(344, 240)
 
-[node name="WallBlock" parent="." instance=ExtResource("9")]
+[node name="WaterBlock" parent="." instance=ExtResource("9")]
 position = Vector2(232, 176)
 
 [node name="WallBlock94" parent="." instance=ExtResource("10")]
