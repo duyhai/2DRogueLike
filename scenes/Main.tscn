@@ -1,14 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4bebsecxhxru"]
+[gd_scene load_steps=8 format=3 uid="uid://c4bebsecxhxru"]
 
 [ext_resource type="Script" path="res://src/Main.cs" id="1"]
 [ext_resource type="Script" path="res://src/impl/GUI.cs" id="2"]
 [ext_resource type="Texture2D" uid="uid://dn72l28vdtg4m" path="res://assets/blocks/floor.png" id="2_5lx1u"]
+[ext_resource type="FontFile" uid="uid://b2ns8b7v38lst" path="res://assets/gui/Monocraft.ttf" id="5_haqwk"]
 [ext_resource type="PackedScene" uid="uid://8pmimolus0ys" path="res://scenes/hud/GUI.tscn" id="6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tq1hu"]
+font = ExtResource("5_haqwk")
 font_size = 28
 
 [sub_resource type="LabelSettings" id="LabelSettings_bfdbg"]
+font = ExtResource("5_haqwk")
 font_size = 28
 
 [node name="Main" type="Node"]
@@ -70,6 +73,7 @@ horizontal_alignment = 1
 
 [node name="NextLevelButton" type="Button" parent="ResultScreen/ResultScreenNode/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_haqwk")
 text = "Next level"
 
 [node name="DeathScreen" type="CanvasLayer" parent="."]
@@ -109,10 +113,12 @@ horizontal_alignment = 1
 
 [node name="NewGameButton" type="Button" parent="DeathScreen/DeathScreenNode/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_haqwk")
 text = "New Game"
 
 [node name="RespawnButton" type="Button" parent="DeathScreen/DeathScreenNode/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_haqwk")
 text = "Respawn"
 
 [connection signal="pressed" from="ResultScreen/ResultScreenNode/VBoxContainer/NextLevelButton" to="." method="OnNextLevelButtonPressed"]

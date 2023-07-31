@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0k1gmut07jba"]
+
+[ext_resource type="Script" path="res://src/impl/WeaponSlot.cs" id="1_ct41h"]
+[ext_resource type="Texture2D" uid="uid://bdpn7y2yexwll" path="res://assets/gui/weaponslotactive.png" id="1_rnv3g"]
+
+[node name="WeaponSlot" type="MarginContainer"]
+custom_minimum_size = Vector2(54, 54)
+offset_right = 54.0
+offset_bottom = 54.0
+script = ExtResource("1_ct41h")
+
+[node name="FrameActive" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(54, 54)
+layout_mode = 2
+texture = ExtResource("1_rnv3g")

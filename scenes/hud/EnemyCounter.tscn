@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkdfcrbb2ahmj"]
+[gd_scene load_steps=4 format=3 uid="uid://dkdfcrbb2ahmj"]
 
 [ext_resource type="Texture2D" uid="uid://dcvqgseumabxd" path="res://assets/gui/label_HP_bg.png" id="2"]
+[ext_resource type="FontFile" uid="uid://b2ns8b7v38lst" path="res://assets/gui/Monocraft.ttf" id="2_q3nxd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6f5ct"]
-font_size = 25
+font = ExtResource("2_q3nxd")
+font_size = 19
 
 [node name="EnemyCounter" type="MarginContainer"]
 custom_minimum_size = Vector2(100, 40)

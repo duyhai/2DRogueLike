@@ -1,15 +1,30 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://c10gaafhmdkfi"]
 
-[ext_resource path="res://src/impl/WeaponBar.cs" type="Script" id=1]
+[ext_resource type="Script" path="res://src/impl/WeaponBar.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://ckjx3bp8axkub" path="res://assets/gui/weaponbar.png" id="2_lrt8g"]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[node name="WeaponBar" type="PanelContainer"]
+custom_minimum_size = Vector2(36, 60)
+offset_right = 42.0
+offset_bottom = 66.0
+pivot_offset = Vector2(6, 6)
+script = ExtResource("1")
 
-[node name="WeaponBar" type="HBoxContainer"]
-offset_bottom = 54.0
-custom_minimum_size = Vector2( 0, 54 )
-custom_constants/separation = 0
-script = ExtResource( 1 )
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_lrt8g")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 5
 
-[node name="Panel" type="Panel" parent="."]
-offset_bottom = 54.0
-custom_styles/panel = SubResource( 1 )
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(30, 54)
+layout_mode = 2
