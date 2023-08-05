@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://dw1vo0kysea1f"]
 
-[ext_resource path="res://assets/weapons/freezerayicon.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://dikstpi0cbg3w" path="res://assets/weapons/freezerayicon.png" id="1"]
 
 [node name="FreezingWeaponIcon" type="TextureRect"]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource( 1 )
+texture = ExtResource("1")

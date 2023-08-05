@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bao8r1oonmf8e" path="res://scenes/hud/Bar.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://33pi6c4b846d" path="res://scenes/hud/ScoreCounter.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://dkdfcrbb2ahmj" path="res://scenes/hud/EnemyCounter.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://scenes/hud/WeaponBar.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://c10gaafhmdkfi" path="res://scenes/hud/WeaponBar.tscn" id="4"]
 [ext_resource type="Texture2D" uid="uid://47vggigewc5g" path="res://assets/player/crosshair.png" id="5"]
 
 [node name="GUI" type="CanvasLayer"]
@@ -14,10 +14,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -56.0
-offset_bottom = -38.0
+offset_top = -65.0
+offset_bottom = 0.0
 grow_horizontal = 2
-alignment = 1
+grow_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 10

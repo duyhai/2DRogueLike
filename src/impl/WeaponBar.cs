@@ -2,10 +2,16 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class WeaponBar : HBoxContainer
+public partial class WeaponBar : Container
 {
-    Dictionary<Weapon, Panel> weaponPanels = new Dictionary<Weapon, Panel>();
+    Dictionary<Weapon, WeaponSlot> weaponPanels = new Dictionary<Weapon, WeaponSlot>();
     Weapon activeWeapon;
+    HBoxContainer hBoxContainer;
+
+    public override void _Ready()
+    {
+        this.hBoxContainer = GetNode<HBoxContainer>("MarginContainer/HBoxContainer");
+    }
 
     public void WeaponChanged(Weapon newActiveWeapon)
     {
@@ -16,9 +22,9 @@ public partial class WeaponBar : HBoxContainer
 
         if (activeWeapon != null)
         {
-            changePanelColor(weaponPanels[activeWeapon], Colors.DimGray);
+            weaponPanels[activeWeapon].Active = false;
         }
-        changePanelColor(weaponPanels[newActiveWeapon], Colors.Yellow);
+        weaponPanels[newActiveWeapon].Active = true;
 
         activeWeapon = newActiveWeapon;
     }
@@ -30,17 +36,14 @@ public partial class WeaponBar : HBoxContainer
         {
             if (!weaponPanels.ContainsKey(weapon))
             {
-                Panel panel = new Panel();
+                WeaponSlot weaponSlot = WeaponSlot.Scene.Instantiate<WeaponSlot>();
                 TextureRect rect = weapon.GetWeaponIcon();
                 if (rect == null) continue;
 
-                weaponPanels.Add(weapon, panel);
+                weaponPanels.Add(weapon, weaponSlot);
 
-                changePanelColor(panel, Colors.DimGray);
-
-                panel.CustomMinimumSize = new Vector2(54, 54);
-                panel.AddChild(rect);
-                AddChild(panel);
+                weaponSlot.AddWeaponIcon(rect);
+                this.hBoxContainer.AddChild(weaponSlot);
             }
         }
 
@@ -53,16 +56,5 @@ public partial class WeaponBar : HBoxContainer
                 weaponPanels.Remove(weaponKey);
             }
         }
-    }
-
-    public override void _Ready()
-    {
-    }
-
-    private void changePanelColor(Panel panel, Color color)
-    {
-        var style = new StyleBoxFlat();
-        style.BgColor = color;
-        panel.AddThemeStyleboxOverride("panel", style);
     }
 }

@@ -1,16 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://bao8r1oonmf8e"]
+[gd_scene load_steps=9 format=3 uid="uid://bao8r1oonmf8e"]
 
 [ext_resource type="Texture2D" uid="uid://dcvqgseumabxd" path="res://assets/gui/label_HP_bg.png" id="1"]
+[ext_resource type="FontFile" uid="uid://b2ns8b7v38lst" path="res://assets/gui/Monocraft.ttf" id="3_kvn0c"]
 [ext_resource type="Texture2D" uid="uid://pp1ebnyrm26c" path="res://assets/gui/bar_fill.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://bdd2fiu4rdoe2" path="res://assets/gui/bar_bg.png" id="5"]
 [ext_resource type="PackedScene" path="res://scenes/hud/BarDivider.tscn" id="6"]
 [ext_resource type="Script" path="res://src/impl/Bar.cs" id="7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mvmqg"]
+font = ExtResource("3_kvn0c")
 font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_bruug"]
-font_size = 21
+font = ExtResource("3_kvn0c")
+font_size = 20
 
 [node name="Bar" type="HBoxContainer"]
 offset_right = 500.0
