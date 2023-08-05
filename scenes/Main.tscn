@@ -26,6 +26,8 @@ motion_mirroring = Vector2(960, 960)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("2_5lx1u")
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 1920)
 
 [node name="World" type="Node" parent="."]
 
