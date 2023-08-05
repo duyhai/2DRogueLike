@@ -14,3 +14,10 @@ visible = false
 custom_minimum_size = Vector2(54, 54)
 layout_mode = 2
 texture = ExtResource("1_rnv3g")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4

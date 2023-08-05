@@ -37,13 +37,12 @@ public partial class WeaponBar : Container
             if (!weaponPanels.ContainsKey(weapon))
             {
                 WeaponSlot weaponSlot = WeaponSlot.Scene.Instantiate<WeaponSlot>();
-                weaponSlot.Name = "asd";
                 TextureRect rect = weapon.GetWeaponIcon();
                 if (rect == null) continue;
 
                 weaponPanels.Add(weapon, weaponSlot);
 
-                weaponSlot.AddChild(rect);
+                weaponSlot.AddWeaponIcon(rect);
                 this.hBoxContainer.AddChild(weaponSlot);
             }
         }

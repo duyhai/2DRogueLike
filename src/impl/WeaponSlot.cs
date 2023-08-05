@@ -38,4 +38,9 @@ public partial class WeaponSlot : MarginContainer
     public override void _Process(double delta)
     {
     }
+
+    public void AddWeaponIcon(TextureRect icon)
+    {
+        GetNode<MarginContainer>("MarginContainer").AddChild(icon);
+    }
 }

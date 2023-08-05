@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://d1tuouem05agu"]
 
-[ext_resource path="res://assets/weapons/balllightningweaponicon.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://b4x0lxqjjgeyy" path="res://assets/weapons/balllightningweaponicon.png" id="1"]
 
 [node name="BallLightningWeaponIcon" type="TextureRect"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource( 1 )
+offset_right = 48.0
+offset_bottom = 48.0
+texture = ExtResource("1")
